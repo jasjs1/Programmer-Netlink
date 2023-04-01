@@ -1,0 +1,11 @@
+body {
+    background-color: #1c1f23;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.header {
+    color: #6466E9;
+    font-weight: bold;
+}
