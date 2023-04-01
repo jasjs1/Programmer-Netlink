@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <title>Programmer Netlink</title>
+</head>
+<style>
+  body {
+      background: #1c1f23;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #6466E9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #6466E0;
+    }
+
+    .post-list {
+      margin-top: 20px;
+      padding: 13px;
+      border: 1px solid #6466E9;
+      border-radius: 5px;
+    }
+
+    .post {
+      margin-bottom: 15px;
+    }
+
+    .post h2 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .post p {
+      margin: 0;
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Programmer Netlink</h1>
+    <form>
+      <label for="post-title">Title:</label>
+      <input type="text" id="post-title" name="post-title" required>
+
+      <label for="post-body">Body:</label>
+      <textarea id="post-body" name="post-body" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="post-list">
+      <h2>Your Snippits</h2>
+      <div id="posts"></div>
+    </div>
+  </div>
+
+  <script>
+  const form = document.querySelector('form');
+  const postsContainer = document.getElementById('posts');
+
+  // Check if name exists in local storage
+  let name = localStorage.getItem('name');
+  if (!name) {
+    // If not, prompt the user for their name and store it in local storage
+    name = prompt('Please enter your name:');
+    localStorage.setItem('name', name);
+  }
+
+  // Update the page title to include the user's name
+  // document.title = `${name}'s Social Media App`;
+
+  // Load existing posts from local storage
+  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+
+  // Render existing posts
+  savedPosts.forEach(post => {
+    const postElement = document.createElement('div');
+    postElement.classList.add('post');
+    postElement.innerHTML = `<h2>${post.title}</h2><p>${post.name}</p><p>${post.body}</p>`;
+    postsContainer.appendChild(postElement);
+  });
+
+  // Add new post and save to local storage
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // Get the input values
+    const title = document.getElementById('post-title').value.trim();
+    const body = document.getElementById('post-body').value.trim();
+
+    // Create a new post object
+    const post = {
+      title,
+      name,
+      body,
+    };
+
+    // Create a new post element
+    // Create a new post element
+  const postElement = document.createElement('div');
+  postElement.classList.add('post');
+  postElement.innerHTML = `<h3>${name}</h3><h2>${title}</h2><p>${body}</p>`;
+
+
+    // Add the new post to the list
+    postsContainer.appendChild(postElement);
+
+    // Save the new post to local storage
+    savedPosts.push(post);
+    localStorage.setItem('posts', JSON.stringify(savedPosts));
+
+    // Reset the form
+    form.reset();
+  });
+
+
+  </script>
+</body>
+</html>
