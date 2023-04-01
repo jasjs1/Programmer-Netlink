@@ -1,0 +1,16 @@
+body {
+    background-color: #1c1f23;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user-post-header {
+    color: #6466E9;
+    margin-bottom: 15px;
+    padding-bottom: 24.5px;
+}
