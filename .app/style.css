@@ -1,124 +1,122 @@
-body {
-    background-color: #1c1f23;
-    color: white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-}
+ body {
+      background: #1c1f23;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-.topnav {
-    background-color: #333;
-    overflow: hidden;
-    text-align: center;
-    align-items: center;
-  }
+    .topnav {
+      background-color: #1c1f23;
+      overflow: hidden;
+      text-align: center;
+      align-items: center;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      text-align: center;
+      align-items: center;
+    }
+    
   
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    text-align: center;
-    align-items: center;
-  }
-  
+    .topnav a:hover {
+      background-color: #6466E9;
+      color: black;
+      font-weight: bolder;
+      text-align: center;
+      align-items: center;
+    }
+    
+    .topnav a.active {
+      font-weight: bolder;
+      /* background-color: #6466E9; */
+      color: white;
+      text-align: center;
+      text-align: center;
+      align-items: center;
+    }
 
-  .topnav a:hover {
-    background-color: #6466E9;
-    color: black;
-    font-weight: bolder;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .topnav a.active {
-    /* background-color: #6466E9; */
-    color: white;
-    text-align: center;
-    text-align: center;
-    align-items: center;
-  }
-  
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-  .hi {
-    color: #6466E9;
-    margin-top: 46px;
-  }
+    label[for="post-title"] {
+      padding-bottom: 10px;
+    }
+    
 
-  .why-programmer-netlink-header {
-    color: white;
-    font-weight: bolder;
-    margin-top: 100px;
-    padding-bottom: 10px;
-  }
+    #post-title {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #1c1f23;
+      border-radius: 5px;
+      color: white;
+    }
 
-  .vertical-box {
-    display: inline-block; /* makes the box display as an inline element */
-    max-width: 1111px; /* sets the maximum width of the box */
-    padding: 20px; /* adds padding to the box */
-    border: 10px solid #6466E9; /* adds an outline of color #6466E9 to the box */
-    border-radius: 20px; /* rounds the corners of the box */
-    display: inline block;
-    margin: 15px;
-    margin-bottom: 50px;
-  }
-  
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 40px;
-  background-color: #1c1f23ca;
-  border-radius: 20px;
-}
+    #post-body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #1c1f23;
+      border-radius: 5px;
+      color: white;
+    }
+    
 
-.image {
-  width: 50px;
-  margin-left: 75px;
-  margin-right: 160px;
-  width: 150px;
-  height: 150px;
-  max-width: 150px;
-  max-height: 150px;
-}
+    h1 {
+      text-align: center;
+    }
 
-.text {
-  width: 50%;
-  padding: 20px;
-  text-align: center;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-.redirect-signup-link {
-  background-color: #6466E9;
-  padding: 15px;
-  border-radius: 15px;
-  color: white;
-}
+    label {
+      margin-top: 10px;
+    }
 
-a {
-  color: white; /* Set link color to red */
-}
+    input, textarea {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
 
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #6466E9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-h2 {
-  font-size: 24px; 
-  margin-top: 0; 
-}
+    button:hover {
+      background-color: #6466E0;
+    }
 
-p {
-  font-size: 18px; /* adjust to your desired font 
-  margin-top: 0; /* reset default margin */
-}
+    .post-list {
+      margin-top: 20px;
+      padding: 13px;
+      border: 1px solid #6466E9;
+      border-radius: 5px;
+    }
 
-/* Placeholder image style */
-.image[src="your-image-url.jpg"] {
-  background-color: #ddd;
-}
+    .post {
+      margin-bottom: 15px;
+    }
 
-.account-links {
-  margin-left: 10px;
-  padding: 10px;
-  background-color: #6466E9;
-  border-radius: 20px;
-}
+    .post h2 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .post p {
+      margin: 0;
+    }
