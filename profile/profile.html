@@ -28,83 +28,19 @@
         }
       </script>
 
-  <div class="user-post-header">
+  <!-- <div class="user-post-header">
     <h2>Snippits <span id="user-name"></span></h2>
     <p>Snippits are like 'posts'.</p>
+  </div> -->
+
+  <div class="snippits-redirect-link">
+    <h2>Snippits</h2>
+    <h3>This Contributors' Snippits. </h3>
   </div>
-  <div id="posts-container">
-    <div id="no-posts-message"></div>
+
+  <div class="button-1">
+    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
   </div>
-
-
-<script>
-const postsContainer = document.getElementById('posts-container');
-const noPostsMessage = document.getElementById('no-posts-message');
-const userName = document.getElementById('user-name');
-
-// Check if name exists in local storage
-let name = localStorage.getItem('name');
-if (!name) {
-  // If not, prompt the user for their name and store it in local storage
-  name = prompt('Please enter your name:');
-  localStorage.setItem('name', name);
-}
-
-// Update the page title to include the user's name
-document.title = `${name}'s Social Media App`;
-userName.textContent = name;
-
-// Load existing posts from local storage
-const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
-
-// Render existing posts
-if (savedPosts.length > 0) {
-  savedPosts.forEach(post => {
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-    postElement.innerHTML = `<h3>${post.name}</h3><h2>${post.title}</h2><p>${post.body}</p>`;
-    postsContainer.appendChild(postElement);
-  });
-} else {
-  noPostsMessage.textContent = 'This Contributor has not made any Snippits.';
-  console.log('No saved posts found.');
-}
-
-// Add new post and save to local storage
-const form = document.querySelector('form');
-if (form) {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    // Get the input values
-    const title = document.getElementById('post-title').value.trim();
-    const body = document.getElementById('post-body').value.trim();
-
-    // Create a new post object
-    const post = {
-      title,
-      name,
-      body,
-    };
-
-    // Create a new post element
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-    postElement.innerHTML = `<h3>${name}</h3><h2>${title}</h2><p>${body}</p>`;
-
-    // Add the new post to the list
-    postsContainer.insertBefore(postElement, postsContainer.firstChild);
-
-    // Save the new post to local storage
-    savedPosts.unshift(post);
-    localStorage.setItem('posts', JSON.stringify(savedPosts));
-
-    // Reset the form
-    form.reset();
-  });
-}
-
-</script>
 
       
 
