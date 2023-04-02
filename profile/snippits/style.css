@@ -2,6 +2,12 @@ body {
     background-color: #1c1f23;
     color: white;
     font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.user-post-header {
+    margin-top: 45px;
+    margin-bottom: 65px;
 }
 
 .button-1 {
