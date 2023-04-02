@@ -103,3 +103,9 @@ p {
   background-color: #ddd;
 }
 
+.account-links {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #6466E9;
+  border-radius: 20px;
+}
