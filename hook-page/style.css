@@ -88,6 +88,18 @@ body {
   text-align: center;
 }
 
+.redirect-signup-link {
+  background-color: #6466E9;
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+}
+
+a {
+  color: white; /* Set link color to red */
+}
+
+
 h2 {
   font-size: 24px; 
   margin-top: 0; 
