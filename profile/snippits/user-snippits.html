@@ -33,7 +33,7 @@
       }
     
       // Update the page title to include the user's name
-      document.title = `${name}'s Social Media App`;
+      document.title = `${name}'s S`;
       userName.textContent = name;
     
       // Load existing posts from local storage
@@ -44,12 +44,13 @@
         savedPosts.forEach(post => {
           const postElement = document.createElement('div');
           postElement.classList.add('post');
-          postElement.innerHTML = `<h3>${post.name}</h3><h2>${post.title}</h2><p>${post.body}</p>`;
+          postElement.innerHTML = `<h2>${post.title}</h2><p>${post.body}</p>`;
+
           postsContainer.appendChild(postElement);
         });
       } else {
-        noPostsMessage.textContent = 'This Contributor has not made any Snippits.';
-        console.log('No saved posts found.');
+        noPostsMessage.textContent = 'This Contributor has not created any Snippits.';
+        console.error('ERROR 404: This Contributor has not created any Snippits. NON SERVER ERROR, USER ERROR');
       }
     
       // Add new post and save to local storage
@@ -65,14 +66,14 @@
           // Create a new post object
           const post = {
             title,
-            name,
+            // name,
             body,
           };
     
           // Create a new post element
           const postElement = document.createElement('div');
           postElement.classList.add('post');
-          postElement.innerHTML = `<h3>${name}</h3><h2>${title}</h2><p>${body}</p>`;
+          postElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
     
           // Add the new post to the list
           postsContainer.insertBefore(postElement, postsContainer.firstChild);
