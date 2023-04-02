@@ -22,12 +22,40 @@
     <h1>Programmer Netlink</h1>
     <form>
       <label for="post-title">Title:</label>
-      <input type="text" id="post-title" name="post-title" required>
-
+      <input type="text" id="post-title" name="post-title" minlength="5" maxlength="35" required>
+      <br>
       <label for="post-body">Body:</label>
-      <textarea id="post-body" name="post-body" required></textarea>
+      <textarea id="post-body" name="post-body" rows="4" minlength="10" maxlength="74" required></textarea>
+      <br>
+      <input type="submit" value="Submit">
 
-      <button type="submit">Submit</button>
+      <script>
+// Function to check the length of the title input
+function checkTitleLength() {
+  const titleValue = titleInput.value;
+  if (titleValue.length < titleInput.minLength) {
+    console.log(`Title must be at least ${titleInput.minLength} characters`);
+  } else if (titleValue.length > titleInput.maxLength) {
+    console.log(`Title must be no more than ${titleInput.maxLength} characters`);
+  } else {
+    console.log(""); // empty console.log statement to clear any previous messages
+  }
+}
+
+// Function to check the length of the body input
+function checkBodyLength() {
+  const bodyValue = bodyInput.value;
+  if (bodyValue.length < bodyInput.minLength) {
+    console.log(`Body must be at least ${bodyInput.minLength} characters`);
+  } else if (bodyValue.length > bodyInput.maxLength) {
+    console.log(`Body must be no more than ${bodyInput.maxLength} characters`);
+  } else {
+    console.log(""); // empty console.log statement to clear any previous messages
+  }
+}
+
+
+      </script>
     </form>
 
     <div class="post-list">
