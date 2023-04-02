@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programer Netlink - Profile</title>
+</head>
+<body>
+
+    <div id="user-info" class="user-info">
+        <span id="user-name"></span>
+      </div>
+      
+      <script>
+        const storedName = localStorage.getItem('user-name');
+        const userNameElem = document.querySelector('#user-name');
+      
+        if (storedName) {
+          userNameElem.textContent = storedName;
+          const profileLink = document.createElement('h1');
+          profileLink.href = 'https://programmernetlink.com/profile/' + storedName;
+          profileLink.textContent = ' Programmer Netlink Profile';
+          userNameElem.insertAdjacentElement('afterend', profileLink);
+        } else {
+          userNameElem.textContent = 'Unknown';
+        }
+      </script>
+
+  <!-- <div class="user-post-header">
+    <h2>Snippits <span id="user-name"></span></h2>
+    <p>Snippits are like 'posts'.</p>
+  </div> -->
+
+  <div class="snippits-redirect-link">
+    <h2>Snippits</h2>
+    <h3>This Contributors' Snippits. </h3>
+  </div>
+
+  <div class="button-1">
+    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
+  </div>
+
+      
+
+    
+</body>
+</html>
