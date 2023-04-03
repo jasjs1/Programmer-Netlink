@@ -80,8 +80,8 @@
     #post-title {
       font-family: 'Open Sans', sans-serif;
       background-color: #1c1f23;
-      border-radius: 5px;
-      border-color: white;
+      border-radius: 5px; 
+      border-color: #6466E9;
       color: white;
     }
 
@@ -89,7 +89,7 @@
       font-family: 'Open Sans', sans-serif;
       background-color: #1c1f23;
       border-radius: 5px;
-      border-color: white;
+      border-color: #6466E9;
       color: white;
     }
     
