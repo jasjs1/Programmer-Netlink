@@ -13,7 +13,8 @@
   <div class="topnav">
 
     <!-- <a><p>Programmer Netlink</p></a> -->
-    <a class="active" href="http://127.0.0.1:5500/.app/app.html">Your Posts</a>
+    <a class="active" href="http://127.0.0.1:5500/.app/app.html">Your Snipits</a>
+    <a class="active" href="http://127.0.0.1:5500/articles/article.html">Your Articles</a>
     <a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a>
     <a class="active" href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Log Out</a>
   </div>
@@ -47,8 +48,7 @@ function checkTitleLength() {
   }
 }
 
-// Function to check the length of the body input
-function checkBodyLength() {
+// Function to check the length of the body inputs
   const bodyValue = bodyInput.value;
   if (bodyValue.length < bodyInput.minLength) {
     console.log(`Body must be at least ${bodyInput.minLength} characters`);
@@ -57,7 +57,6 @@ function checkBodyLength() {
   } else {
     console.log(""); // empty console.log statement to clear any previous messages
   }
-}
 
 
       </script>
