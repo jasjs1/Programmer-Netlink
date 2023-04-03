@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programmer Netlink - Profile Settings</title>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Programmer Netlink</h1>
+        <h2>Profile Settings</h2>
+        <p>Configure your profile here.</p>
+    </div>
+
+    <div class="acccount-details-header">
+        <h2>Reset Account Details</h2>
+        <p>Accidently inputted the wrong details during signup? Change them here.</p>
+    </div>
+
+    <div class="account-details-change">
+        <h3>Name:</h3>
+        <input type="text" name="name" placeholder="your name" required>
+
+        <h3>Email:</h3>
+        <input type="email" name="signup-email" placeholder="email" required>
+
+        <h3>Password:</h3>
+        <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
+
+        <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html'">Update Account Information</button>
+    </div>
+
+    
+</body>
+<script src="overwrite.js"></script>
+</html>
