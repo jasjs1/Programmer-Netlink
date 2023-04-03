@@ -1,0 +1,15 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.acccount-details-header {
+    color: #6466E9;
+}
