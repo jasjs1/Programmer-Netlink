@@ -1,57 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Programer Netlink - Profile</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <title>Programmer Netlink</title>
 </head>
 <body>
 
-    <div id="user-info" class="user-info">
-        <h3><span id="user-name"></span></h3>
-      </div>
-      
+  <div class="topnav">
+
+    <!-- <a><p>Programmer Netlink</p></a> -->
+    <a class="active" href="http://127.0.0.1:5500/.app/app.html">Your Posts</a>
+    <a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a>
+    <a class="active" href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Log Out</a>
+  </div>
+
+  <div class="container">
+    <h1>Programmer Netlink</h1>
+    <form>
+      <label for="post-title"><h3>Title:</h3></label>
+      <input type="text" id="post-title" name="post-title" minlength="5" maxlength="35" required>
+      <br>
+      <label for="post-body"><h3>Body:</h3></label>
+      <textarea id="post-body" name="post-body" rows="4" minlength="10" maxlength="74" required></textarea>
+      <br>
+      <input type="submit" value="Submit">
+
       <script>
-        const storedName = localStorage.getItem('user-name');
-        const userNameElem = document.querySelector('#user-name');
-      
-        if (storedName) {
-          userNameElem.textContent = storedName;
-          const profileLink = document.createElement('p');
-          profileLink.href = 'https://programmernetlink.com/profile/' + storedName;
-          profileLink.textContent = ' Programmer Netlink Profile';
-          userNameElem.insertAdjacentElement('afterend', profileLink);
-        } else {
-          userNameElem.textContent = 'Unknown';
-        }
+// Function to check the length of the title input
+function checkTitleLength() {
+  const titleValue = titleInput.value;
+  if (titleValue.length < titleInput.minLength) {
+    console.log(`Title must be at least ${titleInput.minLength} characters`);
+  } else if (titleValue.length > titleInput.maxLength) {
+    console.log(`Title must be no more than ${titleInput.maxLength} characters`);
+  } else {
+    console.log(""); // empty console.log statement to clear any previous messages
+  }
+}
+
+// Function to check the length of the body input
+function checkBodyLength() {
+  const bodyValue = bodyInput.value;
+  if (bodyValue.length < bodyInput.minLength) {
+    console.log(`Body must be at least ${bodyInput.minLength} characters`);
+  } else if (bodyValue.length > bodyInput.maxLength) {
+    console.log(`Body must be no more than ${bodyInput.maxLength} characters`);
+  } else {
+    console.log(""); // empty console.log statement to clear any previous messages
+  }
+}
+
+
       </script>
+    </form>
 
-<div class="follower-class">
-  <p>Followers: <span id="follower-count">0</span></p>
-</div>
-
-<button id="follow-button">Follow</button>
-<button id="unfollow-button" style="display:none">Unfollow</button>
-
-  <!-- <div class="user-post-header">
-    <h2>Snippits <span id="user-name"></span></h2>
-    <p>Snippits are like 'posts'.</p>
-  </div> -->
-
-  <div class="snippits-redirect-link">
-    <h2>Snippits</h2>
-    <h3>This Contributors' Snippits. </h3>
+    <div class="post-list">
+      <h2>Your Snippits</h2>
+      <div id="posts"></div>
+    </div>
   </div>
 
-  <div class="button-1">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
-  </div>
-
-      
-
-    
 </body>
 <script src="script.js"></script>
 </html>
