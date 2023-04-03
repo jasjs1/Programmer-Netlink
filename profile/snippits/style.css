@@ -23,6 +23,11 @@ body {
     color: black;
   }
 
+  .snippits-header {
+    color: #6466E9;
+    margin-bottom: 42.5px;
+  }
+
 .user-post-header {
     margin-top: 45px;
     margin-bottom: 65px;
