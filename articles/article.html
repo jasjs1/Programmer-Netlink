@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programmer Netlink - Articles</title>
+</head>
+<body>
+
+    <div class="tab-bar">
+        <a class="active" href="http://127.0.0.1:5500/profile/snippits/user-snippts.html">Your Snippits</a>
+        <a class="active" href="http://127.0.0.1:5500/articles/article.html">Your Articles</a>
+      </div>
+
+    <div class="header">
+        <h1>Programmer Netlink</h1>
+        <h2>Articles</h2>
+    </div>
+
+    <div class="create-article">
+        <form>
+            <label for="article-title"><h3>Title:</h3></label>
+            <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required>
+            <br>
+            <label for="article-body"><h3>Body:</h3></label>
+            <textarea id="article-body" name="article-body" rows="4" minlength="25" maxlength="2500" required></textarea>
+            <br>
+            <input type="submit" value="Create Article">
+        </form>
+    </div>
+
+
+    <div class="post-list">
+        <h2>Your Articles</h2>
+        <div id="articles"></div>
+      </div>
+    </div>
+  
+    
+</body>
+<script src="script.js"></script>
+</html>
