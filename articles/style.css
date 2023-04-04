@@ -29,16 +29,19 @@ body {
     margin-bottom: 50px;
 }
 
-.create-article {
-    
-}
+/* .create-article {
+    border: 1px solid #19376D;
+    border-radius: 5px;
+} */
 
 .post-list {
     width: 80%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     padding: 20px;
     word-wrap: break-word;
+    border: 1px solid #6466E9;
+    border-radius: 5px;
   }
 
   label[for="article-title"] {
@@ -51,11 +54,13 @@ body {
   input[type="submit"] {
     background-color: #6466E9;
     font-weight: bolder;
-    color: white;
     font-size: 17px;
-    padding: 17px 17px 17px 17px;
+    color: white;
+    padding: 17px;
     border-radius: 5px;
+    margin-bottom: 24.5px;
   }
+  
 
   #article-title {
     font-family: 'Open Sans', sans-serif;
