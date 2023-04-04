@@ -38,6 +38,10 @@
       align-items: center;
     }
     
+    a {
+      color: white;
+      font-weight: ;
+    }
   
     .topnav a:hover {
       background-color: #6466E9;
@@ -74,6 +78,7 @@
       font-size: 17px;
       padding: 17px 17px 17px 17px;
       border-radius: 5px;
+      margin-bottom: 24.5px;
     }
     
 
