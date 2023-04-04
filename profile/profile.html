@@ -52,6 +52,7 @@
 
         </script>
       </div>
+
 <div class="follower-class">
   <h3>Followers: <span id="follower-count">0</span></h3>
 </div>
@@ -64,9 +65,71 @@
     <p>Snippits are like 'posts'.</p>
   </div> -->
 
+  <div class="description-header">
+		<h2>Description:</h2>
+	</div>
+	<div>
+		<p id="description-text"></p>
+		<button id="create-description-btn">Update Description</button>
+	  </div>
+	  
+	  <div id="description-modal" style="display: none">
+		<label for="new-description">Enter description:</label>
+		<input type="text" id="new-description">
+		<button id="save-description-btn">Update Description</button>
+		<button id="cancel-description-btn">Abort</button>
+	  </div>
+	  
+	  <script>
+		const descriptionText = document.getElementById("description-text");
+		const createDescriptionBtn = document.getElementById("create-description-btn");
+		const descriptionModal = document.getElementById("description-modal");
+		const saveDescriptionBtn = document.getElementById("save-description-btn");
+		const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
+		const maxChars = 150;
+	  
+		// Load description from local storage
+		const description = localStorage.getItem("description");
+		if (description) {
+		  descriptionText.textContent = description;
+		}
+	  
+		// Open description modal
+		createDescriptionBtn.addEventListener("click", () => {
+		  descriptionModal.style.display = "block";
+		  document.getElementById("new-description").value = description || "";
+		});
+	  
+		// Save description
+		saveDescriptionBtn.addEventListener("click", () => {
+		  const newDescription = document.getElementById("new-description").value;
+		  const charCount = newDescription.length;
+	  
+		  if (charCount > 150) {
+			alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
+		  } else {
+			localStorage.setItem("description", newDescription);
+			descriptionText.textContent = newDescription;
+			descriptionModal.style.display = "none";
+		  }
+		});
+	  
+		// Cancel editing description
+		cancelDescriptionBtn.addEventListener("click", () => {
+		  descriptionModal.style.display = "none";
+		});
+	  
+		// Edit description
+		descriptionText.addEventListener("click", () => {
+		  descriptionModal.style.display = "block";
+		  document.getElementById("new-description").value = descriptionText.textContent || "";
+		});
+	  </script>
+</div>
+
   <div class="snippits-redirect-link">
     <h2>Created Masterpeices</h2>
-    <h3>See the user's Snipits and Articles.</h3>
+    <h3>See the user's Snipits  and Articles.</h3>
   </div>
 
   <div class="button-1">
