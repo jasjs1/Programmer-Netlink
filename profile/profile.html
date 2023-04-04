@@ -9,32 +9,49 @@
 </head>
 <body>
 
-    <div id="user-info" class="user-info">
-        <h3><span id="user-name"></span></h3>
+
+      <div class="tab-bar">
+        <a href="http://127.0.0.1:5500/.app/app.html"><b>Home</b></a>
+        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Snippits</b></a>
+        <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Articles</b></a>
+        <a href="http://127.0.0.1:5500/profile/settings/profile-settings.html"><b>Profile Settings</b></a>
       </div>
-      
-      <script>
+
+      <div class="display-basic-user-content">
+        <h2><span id="user-name"></span></h2>
+        <h3><span id="username"></span></h3>
+
+        <script>
         const storedName = localStorage.getItem('user-name');
         const userNameElem = document.querySelector('#user-name');
       
         if (storedName) {
           userNameElem.textContent = storedName;
-          const profileLink = document.createElement('h3');
+          const profileLink = document.createElement('h2');
           profileLink.href = 'https://programmernetlink.com/profile/' + storedName;
-          profileLink.textContent = ' Programmer Netlink Profile';
+
           userNameElem.insertAdjacentElement('afterend', profileLink);
         } else {
-          userNameElem.textContent = 'Unknown';
+          userNameElem.textContent = 'error - Programmer Netlink';
         }
-      </script>
-
-
-      <div class="tab-bar">
-        <a href="http://127.0.0.1:5500/profile/profile.html"><b>Home</b></a>
-        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Snippits</b></a>
-                
+        
+        </script>
       </div>
 
+      <div class="username">
+        <h3><span id="username"></span></h3>
+        <script>
+          const storedUsername = localStorage.getItem('username');
+          const usernameElem = document.querySelector('#username');
+
+          if (storedUsername) {
+            usernameElem.textContent = `@${storedUsername}`; // adding '@' before storedUsername
+          } else {
+            usernameElem.textContent = 'No username found in local storage';
+          }
+
+        </script>
+      </div>
 <div class="follower-class">
   <h3>Followers: <span id="follower-count">0</span></h3>
 </div>
@@ -56,9 +73,7 @@
     <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
   </div>
 
-      
 
-    
 </body>
 <script src="script.js"></script>
 </html>
