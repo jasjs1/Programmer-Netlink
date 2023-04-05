@@ -22,7 +22,28 @@
         <p>Password</p>
         <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
       
-        <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/.app/app.html'">Login</button>
+        <button id="save" onclick="login()">Login</button>
       </div>
+      
+      <script>
+      function login() {
+        // Get email and password input values
+        const email = document.querySelector('[name="signup-email"]').value;
+        const password = document.querySelector('[name="signup-password"]').value;
+        
+        // Check if email and password match the values in localStorage
+        const storedEmail = localStorage.getItem('signup-email');
+        const storedPassword = localStorage.getItem('signup-password');
+        
+        if (email === storedEmail && password === storedPassword) {
+          // Redirect to app.html
+          window.location.href = 'http://127.0.0.1:5500/.app/app.html';
+        } else {
+          // Display error message and log error in console
+          alert('Error logging in: Incorrect email or password. Close this to try again');
+          console.log('ISSUE LOGGING USER IN: Incorrect email or password provided that is in database.');
+        }
+      }
+      </script>
 </body>
 </html>
