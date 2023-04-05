@@ -29,6 +29,10 @@ body {
     display: flex;
 }
 
+.description-header {
+  margin-top: 50px;
+}
+
 .user-info {
     text-align: center;
     margin-bottom: 25px;
@@ -48,4 +52,25 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
   }
+  
+  .selector-button {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #uploaded-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    /* Add the following line to hide the fallback content */
+    text-indent: 100%; 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
   
