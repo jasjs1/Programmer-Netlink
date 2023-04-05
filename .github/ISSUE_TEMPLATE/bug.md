@@ -1,7 +1,7 @@
 ---
 name: '🐞 Bug Report'
 about: 'report a bug with an existing effect'
-title: ''
+title: 'Bug - '
 labels:
   - bug
 assignees:
