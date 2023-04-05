@@ -48,15 +48,15 @@
       <div class="username">
         <h3><span id="username"></span></h3>
         <script>
-const storedUsername = localStorage.getItem('user-name');
-const usernameElem = document.querySelector('#username');
+          const storedUsername = localStorage.getItem('user-name');
+          const usernameElem = document.querySelector('#username');
 
-if (storedUsername) {
-  usernameElem.textContent = `@${storedUsername}`;
-} else {
-  usernameElem.textContent = 'No username found in local storage';
+          if (storedUsername) {
+            usernameElem.textContent = `@${storedUsername}`;
+          } else {
+            usernameElem.textContent = 'No username found in local storage';
 
-}
+          }
         </script>
       </div>
 
