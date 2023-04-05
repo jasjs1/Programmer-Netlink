@@ -37,7 +37,9 @@
 
           userNameElem.insertAdjacentElement('afterend', profileLink);
         } else {
-          userNameElem.textContent = 'error - Programmer Netlink';
+          userNameElem.textContent = 'error - Programmer Netlink ';
+          userNameElem.insertAdjacentText('afterend', 'THIS USER DOES NOT EXIST -- 404'); // corrected variable name to 'userNameElem' and used 'insertAdjacentText' to insert text content
+          console.error('USER 404 DOES NOT EXIST IN DATABASE');
         }
         
         </script>
