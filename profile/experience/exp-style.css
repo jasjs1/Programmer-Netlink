@@ -1,0 +1,40 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.header {
+    color: #6466E9;
+}
+
+.why {
+    padding-top: 150px;
+    padding-bottom: 16.5px;
+}
+
+#addExperience {
+    display: none;
+}
+
+#myButton {
+    font-weight: bold;
+    color: #6466E9;
+    background-color: #1c1f23;
+    font-size: 55px;
+    border-radius: 0px;
+    border: #1c1f23;
+}
+
+.addExperience {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Optional: horizontally center the content */
+    height: 100vh; /* Set the height of the container */
+
+    /* Outter box */
+
+    padding: 130px 130px 130px 130px;
+    background-color: #1c1f2390;
+}
