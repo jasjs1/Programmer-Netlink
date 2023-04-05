@@ -9,3 +9,13 @@ body {
     color: #6466E9;
     font-weight: bold;
 }
+
+.redirect-to-signup {
+    padding-top: 30px;
+    
+}
+
+a {
+    color: #6466E9;
+    font-weight: bolder;
+}
