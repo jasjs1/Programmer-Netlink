@@ -11,13 +11,13 @@
 
 
       <div class="tab-bar">
-        <a href="http://127.0.0.1:5500/.app/app.html"><b>Home</b></a>
-        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Snippits</b></a>
         <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Articles</b></a>
+        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Snippits</b></a>
+        <a href="http://127.0.0.1:5500/profile/experience/experience.html"><b>Expeirence</b></a>
         <a href="http://127.0.0.1:5500/profile/settings/profile-settings.html"><b>Profile Settings</b></a>
       </div>
 
-      <button class="selector-button" onclick="uploadImage()">Upload Image</button>
+      <button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
       <input type="file" id="image-upload" style="display:none;">
       <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
       
@@ -48,15 +48,15 @@
       <div class="username">
         <h3><span id="username"></span></h3>
         <script>
-          const storedUsername = localStorage.getItem('username');
-          const usernameElem = document.querySelector('#username');
+const storedUsername = localStorage.getItem('user-name');
+const usernameElem = document.querySelector('#username');
 
-          if (storedUsername) {
-            usernameElem.textContent = `@${storedUsername}`; // adding '@' before storedUsername
-          } else {
-            usernameElem.textContent = 'No username found in local storage';
-          }
+if (storedUsername) {
+  usernameElem.textContent = `@${storedUsername}`;
+} else {
+  usernameElem.textContent = 'No username found in local storage';
 
+}
         </script>
       </div>
 
@@ -135,7 +135,7 @@
 </div>
 
   <div class="snippits-redirect-link">
-    <h2>Created Masterpeices</h2>
+    <h2>Masterpeices:</h2>
     <h3>See the user's Snipits  and Articles.</h3>
   </div>
 
