@@ -1,25 +1,34 @@
 ---
-name: 'Feature Request'
-about: 'Create a feature request, through a GitHub Issue.'
-title: 'Feature Request - '
-labels: feature request
+name: '🐞 Bug Report'
+about: 'report a bug with an existing effect'
+title: ''
+labels:
+  - bug
+assignees:
+  - runewake2
 
 ---
 
-### Feature request:
-Be descriptive, or you could go to the summarize, and then you can summarize instead.
+### Describe the Issue
+Please describe what is happening
 
 
-## Image
-Add an image or video below of the feature you are wishing to add.
+### Reproduction Steps
+Please provide a set of steps to reproduce the issue
+1. 
+
+### Expected Behavior
+
+### Path:
+Folder path of bug:
 
 
+### Environment
 
-### Summarize request:
-Be short and concise, but yet tell the request in detail so I can do my best to implement it.
+Please include relevant information about your system
 
-### Others:
-Note: These are optional fields
+* Operating System:
+* Web-Browser: 
 
-Email: 
-Notes: 
+## Other Notes
+This is optional, something that is not included here that I need to take note of.
