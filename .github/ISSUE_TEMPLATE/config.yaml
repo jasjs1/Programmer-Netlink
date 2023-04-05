@@ -5,5 +5,5 @@ contact_links:
     url: https://github.com/jSagvold28/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/bug.md
     about: Create a bug report
   - name: Feature Request
-    url: https://github.com/jSagvold28/ProgrammerIN/tree/main/.github/ISSUE_TEMPLATE
-    about: Create a feature that you would like to see in ProgrammerIN
+    url: https://github.com/jSagvold28/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/fq.md
+    about: Create a feature that you would like to see in Programmer Netlink
