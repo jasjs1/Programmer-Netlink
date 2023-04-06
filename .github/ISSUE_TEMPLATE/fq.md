@@ -1,5 +1,5 @@
 ---
-name: 'Feature Request '
+name: '🔬 Feature Request '
 about: 'Create a feature request, through a GitHub Issue.'
 title: 'Feature Request - '
 labels: feature request
