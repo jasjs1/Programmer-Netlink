@@ -104,7 +104,19 @@
   </script>
 
     <div class="post-list-header">
-      <h2>Your Created Snippits:</h2>
+      <h2><span id="name"></span></h2>
+
+      <script>
+        const storedUsername = localStorage.getItem('name');
+        const usernameElem = document.querySelector('#name');
+
+        if (storedUsername) {
+        usernameElem.textContent = `${storedUsername} Snippits`;
+        } else {
+        usernameElem.textContent = 'No username found in local storage';
+
+        }
+      </script>
     </div>
 
     <div class="post-list">
