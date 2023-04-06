@@ -64,7 +64,13 @@ a {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  border: 5.2px solid #6466e999;
+  border-radius: 5.2px;
+  box-shadow: 444px #6466e981;
+  margin-top: 42px;
+  margin-bottom: 42px;
 }
 
 label[for="post-title"] {
