@@ -49,3 +49,28 @@ form.addEventListener('submit', (event) => {
   // Reset the form
   form.reset();
 });
+
+const showContainerButton = document.getElementById('show-container');
+const containerDiv = document.querySelector('.container');
+
+function toggleContainer(action) {
+  if (action === 'show') {
+    containerDiv.style.display = 'block';
+    showContainerButton.textContent = '-';
+  } else if (action === 'hide') {
+    containerDiv.style.display = 'none';
+    showContainerButton.textContent = '+';
+  } else if (action === 'toggle') {
+    if (containerDiv.style.display === 'none') {
+      containerDiv.style.display = 'block';
+      showContainerButton.textContent = '-';
+    } else {
+      containerDiv.style.display = 'none';
+      showContainerButton.textContent = '+';
+    }
+  }
+}
+
+showContainerButton.addEventListener('click', function() {
+  toggleContainer('toggle');
+});
