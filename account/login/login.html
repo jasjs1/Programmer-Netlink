@@ -22,6 +22,48 @@
         <p>Password</p>
         <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
       
+
+        <div class="two-factor-login">
+          <h3>Enter 2FA pin to log in.</h3>
+          <form>
+              <label for="two-factor-code">Two Factor Code:</label>
+              <input type="text" name="two-factor-code" id="two-factor-code-input">
+              
+              <button id="login">Log In</button>
+          </form>
+      </div>
+      
+      <script>
+          const twoFactorCode = localStorage.getItem('twoFactorCode');
+          
+          if (twoFactorCode) {
+              const twoFactorLoginDiv = document.querySelector('.two-factor-login');
+              
+              const twoFactorCodeDisplay = document.createElement('p');
+              twoFactorCodeDisplay.textContent = `Your 2FA code is: ${twoFactorCode}`;
+              
+              twoFactorLoginDiv.insertBefore(twoFactorCodeDisplay, twoFactorLoginDiv.firstChild);
+          }
+          
+          const loginButton = document.querySelector('#login');
+          const twoFactorCodeInput = document.querySelector('#two-factor-code-input');
+          
+          loginButton.addEventListener('click', (event) => {
+              event.preventDefault();
+              
+              const enteredTwoFactorCode = twoFactorCodeInput.value;
+              
+              if (enteredTwoFactorCode === twoFactorCode) {
+                window.location.href = 'http://127.0.0.1:5500/.app/app.html';
+                console.log('2FA code entered correctly. Logging in..')
+              } else {
+                  alert('Incorrect 2FA code. Please try again.');
+                  console.error('Incorrect 2FA code inputed. User needs to input in the correct 2FA code to log in. USER ERROR')
+              }
+          });
+      </script>
+      
+
         <button id="save" onclick="login()">Login</button>
       </div>
       
