@@ -86,7 +86,7 @@
       const employmentType = document.getElementById('employment-type').value;
       const roleType = document.getElementsByName('role-type')[0].value;
       const dateJoined = document.getElementsByName('date-joined')[0].value;
-      const dateLeft = checkbox.checked ? 'currently working' : document.getElementsByName('date-left')[0].value;
+      const dateLeft = checkbox.checked ? 'currently employed here' : document.getElementsByName('date-left')[0].value;
   
       const jobData = {
         company,
@@ -106,7 +106,7 @@
       const jobData = JSON.parse(savedData);
       updateExperienceHeader(jobData);
     } else {
-      experienceHeader.innerText = 'Nothing here';
+      experienceHeader.innerText = 'Wierd, our dinos have been searching for endless hours trying to find it. But we cant. Maybe they will add something? 👀';
     }
   
     function updateExperienceHeader(jobData) {
