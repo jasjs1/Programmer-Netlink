@@ -1,13 +1,6 @@
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('articles');
 
-// Check if name exists in local storage
-let name = localStorage.getItem('name');
-if (!name) {
-  // If not, prompt the user for their name and store it in local storage
-  name = prompt('Please enter your name:');
-  localStorage.setItem('name', name);
-}
 
 // Update the page title to include the user's name
 // document.title = `${name}'s Article Creator`;
@@ -32,7 +25,6 @@ form.addEventListener('submit', (event) => {
   // Create a new article object
   const article = {
     title,
-    name,
     body,
   };
 
@@ -43,7 +35,7 @@ form.addEventListener('submit', (event) => {
   // Add the new article to the list
   const articleElement = document.createElement('div');
   articleElement.classList.add('article');
-  articleElement.innerHTML = `<h3>${name}</h3><h2>${title}</h2><p>${body}</p>`;
+  articleElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
   articlesContainer.appendChild(articleElement);
 
   // Reset the form
