@@ -85,3 +85,17 @@ body {
   }
   
   
+  #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+  }
+  
+  .container {
+    display: none;
+  }
+  
