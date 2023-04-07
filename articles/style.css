@@ -93,6 +93,9 @@ body {
     font-weight: bold;
     margin-right: 14px;
     margin-bottom: 14px;
+    background-color: #6466E9;
+    color: white;
+    border-radius: 5px;
   }
   
   .container {
