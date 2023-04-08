@@ -3,6 +3,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .header {
@@ -19,3 +24,52 @@ a {
     color: #6466E9;
     font-weight: bolder;
 }
+
+input[type=text] {
+    width: 82%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f23;
+    color: white;
+    border-style: soild;
+    border-color: #6466E9;
+  }
+
+  input[type=text]::placeholder {
+    color: white;
+  }
+  
+  input[type=email] {
+    width: 82%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f23;
+    color: white;
+    border-style: soild;
+    border-color: #6466E9;
+  }
+
+  input[type=email]::placeholder {
+    color: white;
+  }
+
+  input[type=password] {
+    width: 82%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f23;
+    color: white;
+    border-style: soild;
+    border-color: #6466E9;
+  }
+
+  input[type=password]::placeholder {
+    color: white;
+  }
+  
