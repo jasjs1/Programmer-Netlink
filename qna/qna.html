@@ -33,7 +33,7 @@
                 <label for="queston-topic">Topic:</label>
                 <input type="text" name="queston-topic" id="queston-topic-input" required>
               
-                <button type="submit" id="submit-button">Submit</button>
+                <button type="submit" id="submit-button">Create Queston</button>
 
                 <script>
                     const form = document.querySelector('form');
@@ -65,10 +65,79 @@
                 </script>
               </form>
 		</div>
-		<div id="answer-container">
-			<h2>Create an Answer</h2>
-		</div>
-	</div>
+    <div id="answer-container">
+      <h2>Create an Answer</h2>
+    
+      <form id="create-answer">
+        <label for="answer-for">Answer For:</label>
+        <input type="text" name="answer-for">
+    
+        <label for="answer-user">Who's question are you answering:</label>
+        <input type="text" name="answer-user">
+    
+        <label for="answer-title">Title:</label>
+        <input type="text" name="answer-title">
+    
+        <label for="answer-explanation">Explanation/body:</label>
+        <input type="text" name="answer-explanation">
+    
+        <button type="submit">Create Answer</button>
+      </form>
+    
+      <script>
+        const form = document.querySelector('#create-answer');
+        let questions = localStorage.getItem('questions');
+        questions = questions ? JSON.parse(questions) : [];
+        let answers = localStorage.getItem('answers');
+        answers = answers ? JSON.parse(answers) : [];
+    
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+    
+          if (e.target.id === 'create-question') {
+            const titleInput = document.getElementById('question-title-input');
+            const bodyInput = document.getElementById('question-body-input');
+            const topicInput = document.getElementById('question-topic-input');
+    
+            const newQuestion = {
+              title: titleInput.value.trim(),
+              body: bodyInput.value.trim(),
+              topic: topicInput.value.trim()
+            };
+    
+            questions.push(newQuestion);
+    
+            localStorage.setItem('questions', JSON.stringify(questions));
+    
+            titleInput.value = '';
+            bodyInput.value = '';
+            topicInput.value = '';
+          } else if (e.target.id === 'create-answer') {
+            const answerForInput = document.querySelector('input[name="answer-for"]');
+            const answerUserInput = document.querySelector('input[name="answer-user"]');
+            const answerTitleInput = document.querySelector('input[name="answer-title"]');
+            const answerExplanationInput = document.querySelector('input[name="answer-explanation"]');
+    
+            const newAnswer = {
+              answerFor: answerForInput.value.trim(),
+              answerUser: answerUserInput.value.trim(),
+              answerTitle: answerTitleInput.value.trim(),
+              answerExplanation: answerExplanationInput.value.trim()
+            };
+    
+            answers.push(newAnswer);
+    
+            localStorage.setItem('answers', JSON.stringify(answers));
+    
+            answerForInput.value = '';
+            answerUserInput.value = '';
+            answerTitleInput.value = '';
+            answerExplanationInput.value = '';
+          }
+        });
+      </script>
+    </div>
+    
 
     <button id="show-container">+</button>
 
