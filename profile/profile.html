@@ -22,55 +22,43 @@
       <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
       
 
-      <div class="display-basic-user-content">
-        <h2><span id="user-name"></span></h2>
-        <h3><span id="username"></span></h3>
-        <h3><span id="tag"></span></h3>
-
-        <script>
-        const storedName = localStorage.getItem('user-name');
-        const userNameElem = document.querySelector('#user-name');
-      
-        if (storedName) {
-          userNameElem.textContent = storedName;
-          const profileLink = document.createElement('h2');
-          profileLink.href = 'https://programmernetlink.com/profile/' + storedName;
-
-          userNameElem.insertAdjacentElement('afterend', profileLink);
-        } else {
-          userNameElem.textContent = 'error - Programmer Netlink ';
-          userNameElem.insertAdjacentText('afterend', 'THIS USER DOES NOT EXIST -- 404'); // corrected variable name to 'userNameElem' and used 'insertAdjacentText' to insert text content
-          console.error('USER 404 DOES NOT EXIST IN DATABASE');
-        }
-
-        const storedTag = localStorage.getItem('tag');
-        const tagElem = document.querySelector('#tag');
-
-        if (storedTag) {
-        tagElem.textContent = storedTag;
-        } else {
-        tagElem.textContent = 'No tag available';
-        }
-
-
-        </script>
-      </div>
-
-      <div class="username">
-        <h3><span id="username"></span></h3>
-        <script>
-          const storedUsername = localStorage.getItem('user-name');
-          const usernameElem = document.querySelector('#username');
-
-          if (storedUsername) {
-            usernameElem.textContent = `@${storedUsername}`;
-          } else {
-            usernameElem.textContent = 'No username found in local storage';
-
-          }
-          
-        </script>
-      </div>
+	  <div class="info">
+		<h2><span id="signup-name"></span></h2>
+		<h3><span id="user-username"></span></h3>
+		<h3><span id="tag"></span></h3>
+		
+		<script>
+		  // Load user name and tag from local storage
+		  const savedName = localStorage.getItem('signup-name') || '';
+		  const savedUserName = localStorage.getItem('username') || '';
+		  const savedTag = localStorage.getItem('tag') || '';
+	  
+		  // Update the user name and tag elements with the saved values
+		  const nameElement = document.getElementById('signup-name');
+		  nameElement.textContent = savedName;
+	  
+		  const userNameElement = document.getElementById('user-username');
+		  userNameElement.textContent = `@${savedUserName}.${savedTag}.netlink`;
+	  
+		  const tagElement = document.getElementById('tag');
+		  tagElement.textContent = savedTag;
+		</script>
+	  </div>
+	  
+	  <div class="username">
+		<h3><span id="username"></span></h3>
+		<script>
+		  const storedUsername = localStorage.getItem('user-name');
+		  const usernameElem = document.querySelector('#username');
+	  
+		  if (storedUsername) {
+			usernameElem.textContent = `@${storedUsername} `;
+		  } else {
+			// usernameElem.textContent = 'No username found in local storage';
+		  }
+		</script>
+	  </div>
+	  
 
 <div class="follower-class">
   <h3>Followers: <span id="follower-count">0</span></h3>
