@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Questons:</h1>
+        <p>Questons created by users.</p>
+    </div>
+
+    <div class="nav-bar">
+        <a href="http://127.0.0.1:5500/qna/questons/display-questons.html">Questons</a> 
+        <a href="http://127.0.0.1:5500/qna/answers/answers.html">Answers</a> 
+
+      </div>
+
+    <div class="show-questions">
+        <script>
+          // get the questions array from localStorage
+          const questions = JSON.parse(localStorage.getItem("questons"));
+      
+          // get the div element to display the questions
+          const showQuestionsDiv = document.querySelector(".show-questions");
+      
+          // check if there are questions in localStorage
+          if (questions && questions.length > 0) {
+            // iterate through the questions array and create HTML elements to display them
+            questions.forEach(question => {
+              const questionDiv = document.createElement("div");
+              questionDiv.classList.add("question");
+                        
+              const title = document.createElement("h2");
+              title.innerText = question.title;
+      
+              const body = document.createElement("h3");
+              body.innerText = question.body;
+      
+              const topic = document.createElement("span");
+              topic.innerText = question.topic;
+      
+              questionDiv.appendChild(title);
+              questionDiv.appendChild(body);
+              questionDiv.appendChild(topic);
+      
+              showQuestionsDiv.appendChild(questionDiv);
+            });
+          } else {
+            // display a message if there are no questions in localStorage
+            showQuestionsDiv.innerText = "No questions found.";
+          }
+        </script>
+      </div>
+    
+</body>
+</html>

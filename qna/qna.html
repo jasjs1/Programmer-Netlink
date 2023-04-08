@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programmer Netlink - QNA</title>
+</head> 
+<body>
+
+    <div class="header">
+        <h1>Programmer Netlink</h1>
+        <h2>QNA Section</h2>
+    </div>
+
+    <div class="container">
+		<select id="container-type" required>
+			<option selected disabled>Select Container Type</option>
+			<option value="queston">Queston</option>
+			<option value="answer">Answer</option>
+		</select>
+		<div id="queston-container">
+			<h2>Create a Queston</h2>
+
+            <form>
+                <label for="queston-title">Title:</label>
+                <input type="text" name="queston-title" id="queston-title-input" required>
+              
+                <label for="queston-body">Body:</label>
+                <input type="text" name="queston-body" id="queston-body-input" required>
+              
+                <label for="queston-topic">Topic:</label>
+                <input type="text" name="queston-topic" id="queston-topic-input" required>
+              
+                <button type="submit" id="submit-button">Submit</button>
+
+                <script>
+                    const form = document.querySelector('form');
+                    const questons = localStorage.getItem('questions') ? JSON.parse(localStorage.getItem('questons')) : [];
+
+                    form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const titleInput = document.getElementById('queston-title-input');
+                    const bodyInput = document.getElementById('queston-body-input');
+                    const topicInput = document.getElementById('queston-topic-input');
+
+                    const newQueston = {
+                    title: titleInput.value,
+                    body: bodyInput.value,
+                    topic: topicInput.value
+                    };
+
+                    questons.push(newQueston);
+
+                    localStorage.setItem('questons', JSON.stringify(questons));
+
+                    titleInput.value = '';
+                    bodyInput.value = '';
+                    topicInput.value = '';
+                    });
+
+
+                </script>
+              </form>
+		</div>
+		<div id="answer-container">
+			<h2>Create an Answer</h2>
+		</div>
+	</div>
+
+    <button id="show-container">+</button>
+
+    <!-- <div class="show-questions">
+        <script>
+          // get the questions array from localStorage
+          const questions = JSON.parse(localStorage.getItem("questons"));
+      
+          // get the div element to display the questions
+          const showQuestionsDiv = document.querySelector(".show-questions");
+      
+          // check if there are questions in localStorage
+          if (questions && questions.length > 0) {
+            // iterate through the questions array and create HTML elements to display them
+            questions.forEach(question => {
+              const questionDiv = document.createElement("div");
+              questionDiv.classList.add("question");
+      
+              const title = document.createElement("h2");
+              title.innerText = question.title;
+      
+              const body = document.createElement("h3");
+              body.innerText = question.body;
+      
+              const topic = document.createElement("span");
+              topic.innerText = question.topic;
+      
+              questionDiv.appendChild(title);
+              questionDiv.appendChild(body);
+              questionDiv.appendChild(topic);
+      
+              showQuestionsDiv.appendChild(questionDiv);
+            });
+          } else {
+            // display a message if there are no questions in localStorage
+            showQuestionsDiv.innerText = "No questions found.";
+          }
+        </script>
+      </div> -->
+
+      <div class="nav-bar">
+        <a href="http://127.0.0.1:5500/qna/questons/display-questons.html">Questons</a> 
+        <a href="http://127.0.0.1:5500/qna/answers/answers.html">Answers</a> 
+
+      </div>
+
+      <div class="looking-for-questons">
+        <h2>Looking for questons or answers?</h2>
+        <h3>Go to the nav bar up there ^^ to see.</h3>
+        <p>I did this to keep the design of this page not too crowded by a bunch of answers and questons.</p>
+      </div>
+      
+</body>
+<script src="script.js"></script>
+</html>
