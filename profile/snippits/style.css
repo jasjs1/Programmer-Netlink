@@ -48,6 +48,6 @@ body {
 #search-input {
   background-color: #1c1f23;
   color: white;
-  border: 1px;
-  border-color: 1px white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
