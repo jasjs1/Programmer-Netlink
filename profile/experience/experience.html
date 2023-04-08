@@ -121,6 +121,60 @@
 
   </script>
   
+    <div class="cv-header">
+    <h2>CV Uploader</h2>
+    <p>CV is a type of resume. That lets you show off your work experience and skills</p>
+    <p>PDFs, doc, or docx are allowed.</p>
+    </div>
+
+    <div class="uploader">
+    <input type="file" accept=".pdf,.doc,.docx" onchange="openFile(this.files[0])">
+
+    <script>
+function openFile(file) {
+  // Check if the selected file is a PDF, DOC, or DOCX file
+  var allowedTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+  if (allowedTypes.indexOf(file.type) === -1) {
+    alert("Invalid file type. Please select a PDF, DOC, or DOCX file.");
+    return;
+  }
+
+  // Create a new tab with the selected file
+  var url = URL.createObjectURL(file);
+  var link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.download = file.name; // set the file name for downloading
+  link.textContent = file.name; // set the file name as the link text
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // Save the file to localStorage
+  var reader = new FileReader();
+  reader.onload = function() {
+    localStorage.setItem('cv', reader.result);
+  }
+  reader.readAsDataURL(file);
+}
+
+
+// Check if the file is already saved in localStorage and display it
+var cv = localStorage.getItem('cv');
+if (cv) {
+  var url = cv;
+  var link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank"; // open the link in a new tab
+  link.textContent = "Your CV"; // set the link text
+  document.body.appendChild(link);
+}
+
+
+
+
+    </script>
+    </div>
 
 
 </body>
