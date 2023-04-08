@@ -14,16 +14,16 @@
         <h3>Signup</h3>
         <p>Welcome! Glad to see you!</p>
     </div>
-
+  
     <div class="fields">
       <p>Name</p>
       <input type="text" name="name" placeholder="your name" required>
              
       <p>Email:</p>
-      <input type="email" name="signup-email" placeholder="email" required>
+      <input type="email" name="signup-email" placeholder="your email" required>
           
       <p>Password</p>
-      <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
+      <input type="password" name="signup-password" placeholder="your password" min="8" max="80" required>
 
       <p>Tag</p>
       <p>What's your primary programming language?</p>
@@ -85,19 +85,22 @@
     </div>
           
     <script>
+      const name = document.querySelector('input[name="name"]');
       const emailInput = document.querySelector('input[name="signup-email"]');
       const passwordInput = document.querySelector('input[name="signup-password"]');
       const nameInput = document.querySelector('input[name="name"]');
       const saveButton = document.querySelector('#save');
       const tagSelect = document.querySelector('#tag');
-          
+    
       saveButton.addEventListener('click', function() {
+        localStorage.setItem('name', nameInput.value);
         localStorage.setItem('signup-email', emailInput.value);
         localStorage.setItem('signup-password', passwordInput.value);
         localStorage.setItem('user-name', nameInput.value);
         localStorage.setItem('tag', tagSelect.value);
       });
-          
+    
+      const name = localStorage.getItem('name');
       const storedEmail = localStorage.getItem('signup-email');
       const storedPassword = localStorage.getItem('signup-password');
       const storedName = localStorage.getItem('user-name');
@@ -106,7 +109,7 @@
       const tagSelectElem = document.querySelector('#tag');
     
       if (storedName) {
-        userNameElem.textContent = storedName;
+        userNameElem.textContent = storedName + "@" + storedTag + ".netlink";
         const profileLink = document.createElement('a');
         profileLink.href = 'https://programmernetlink.com/profile/' + storedName;
         profileLink.textContent = 'Programmer Netlink Profile';
@@ -114,12 +117,11 @@
       } else {
         userNameElem.textContent = 'Unknown';
       }
-      
+    
       if (storedTag) {
         tagSelectElem.value = storedTag;
       }
     </script>
-
     
     <div class="redirect-to-login">
       <a href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Accidently here? Go to login</a>
