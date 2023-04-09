@@ -16,6 +16,7 @@
         <a href="http://127.0.0.1:5500/profile/settings/profile-settings.html"><b>Profile Settings</b></a>
       </div>
 
+
 	  <div class="profile-icon-selector-button">
 		  <input type="file" id="image-upload" style="display:none;">
 		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
@@ -149,6 +150,55 @@
   <div class="button-2">
     <button onclick="window.location.href='http://127.0.0.1:5500/profile/articles/display-articles.html'">See Articles</button>
   </div>
+
+  <div class="skills-header">
+	<h2>Skills:</h2>
+
+	<button id="show-container">+</button>
+
+	<div class="container">
+	<form id="skills-form">
+	  <label for="new-skill">Add Skill:</label>
+	  <input type="text" id="new-skill" name="new-skill">
+	  <button type="submit">Add Skill</button>
+	</form>
+	</div>
+
+  <ul id="skills-list"></ul>
+  <script>
+	const skillsForm = document.querySelector('#skills-form');
+	const skillsList = document.querySelector('#skills-list');
+	let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
+	
+	// Function to render skills
+	function renderSkills() {
+	  skillsList.innerHTML = '';
+	  for (let i = 0; i < skillsArray.length; i++) {
+		const skillItem = document.createElement('li');
+		skillItem.textContent = skillsArray[i];
+		skillsList.appendChild(skillItem);
+	  }
+	}
+	
+	// Function to handle form submission
+	function handleFormSubmit(event) {
+	  event.preventDefault();
+	  const skillInput = document.querySelector('#new-skill');
+	  const skillValue = skillInput.value.trim();
+	  if (skillValue) {
+		skillsArray.push(skillValue);
+		localStorage.setItem('skills', JSON.stringify(skillsArray));
+		skillInput.value = '';
+		renderSkills();
+	  }
+	}
+	
+	// Attach event listeners
+	skillsForm.addEventListener('submit', handleFormSubmit);
+	
+	// Render initial skills
+	renderSkills();
+  </script>
 
 
 </body>
