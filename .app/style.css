@@ -139,7 +139,7 @@ button:hover {
 
 .post-list-header {
   color: #6466E9;
-  margin-left: 2.2px;
+  margin-left: 40px;
 }
 
 .post-list {
@@ -148,6 +148,8 @@ button:hover {
   border: 1px solid #6466E9;
   /* color: #6466E9; */
   border-radius: 5px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .post {
@@ -172,4 +174,3 @@ button:hover {
   margin-right: 14px;
   margin-bottom: 14px;
 }
-
