@@ -2,75 +2,102 @@ body {
     background-color: #1c1f23;
     font-family: 'Open Sans', sans-serif;
     color: white;
-}
-
-.tab-bar {
-    background-color: #6466E9;
     text-align: center;
-    color: white;
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 17px;
-    padding-right: 12px;
-    margin-top: 25px;
-  }
-  
-  a {
-    color: black;
-  }
-  
-
-.follower-class {
-    margin-top: 15px;
-    padding-top: 15px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.description-header {
-  margin-top: 50px;
+select {
+  background-color: #1c1f23;
+  color: white;
+  border: 1px;
+  border-color: 1px solid #1c1f23;
 }
 
-.user-info {
-    text-align: center;
-    margin-bottom: 25px;
+.selector-button {
+  background-color: #1c1f23;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.user-post-header {
+.selector-button:hover {
+  background-color: #444;
+}
+
+
+
+button {
+  background: #1c1f23;
+  color: white;
+}
+
+.header {
     color: #6466E9;
-    margin-bottom: 15px;
-    padding-bottom: 24.5px;
+    font-weight: bold;
 }
 
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+.redirect-to-login {
+    padding-top: 30px;
+    
+}
+
+a {
+    color: #6466E9;
+    font-weight: bolder;
+}
+
+input[type=text] {
+    width: 82%;
     padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f23;
+    color: white;
+    border-style: soild;
+    border-color: #6466E9;
+  }
+
+  input[type=text]::placeholder {
+    color: white;
   }
   
-  .selector-button {
-    padding: 10px;
-    background-color: #f2f2f2;
-    border: none;
-    cursor: pointer;
+  input[type=email] {
+    width: 82%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f23;
+    color: white;
+    border-style: soild;
+    border-color: #6466E9;
   }
-  
-  #uploaded-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Make it circular */
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-    /* Add the following line to hide the fallback content */
-    text-indent: 100%; 
-    white-space: nowrap;
-    overflow: hidden;
+
+  input[type=email]::placeholder {
+    color: white;
   }
-  
+
+  input[type=password] {
+    width: 82%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #1c1f23;
+    color: white;
+    border-style: soild;
+    border-color: #6466E9;
+  }
+
+  input[type=password]::placeholder {
+    color: white;
+  }
   
