@@ -4,14 +4,14 @@ body {
     color: white;
 }
 
-.tab-bar {
+.nav-bar {
   background-color: #1c1f23;
   overflow: hidden;
   text-align: center;
   align-items: center;
   }
 
-  .tab-bar a {
+  .nav-bar a {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -23,7 +23,7 @@ body {
     margin-bottom: 18.6px;
   }
 
-  .tab-bar :hover {
+  .nav-bar :hover {
     background-color: #6466E9;
     font-weight: bold;
   }
@@ -114,4 +114,28 @@ input[type="submit"] {
     overflow: hidden;
   }
   
-  
+  /* .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    border: 5.2px solid #6466e999;
+    border-radius: 5.2px;
+    box-shadow: 444px #6466e981;
+    margin-top: 42px;
+    margin-bottom: 42px;
+  }
+   */
+
+   #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #6466E9;
+    color: whitesmoke;
+  }
