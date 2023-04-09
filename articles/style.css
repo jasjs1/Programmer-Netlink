@@ -82,7 +82,7 @@ body {
     margin-bottom: 35px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-  }
+  } 
   
   
   #show-container {
@@ -102,3 +102,8 @@ body {
     display: none;
   }
   
+
+::selection {
+  color: white;
+  background: #4c4eb5fd;
+}
