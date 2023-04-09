@@ -10,6 +10,18 @@ body {
     height: 100vh;
 }
 
+select {
+  background-color: #1c1f23;
+  color: white;
+  border: 1px;
+  border-color: 1px solid #1c1f23;
+}
+
+button {
+  background: #1c1f23;
+  color: white;
+}
+
 .header {
     color: #6466E9;
     font-weight: bold;
