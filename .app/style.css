@@ -173,6 +173,8 @@ button:hover {
   font-weight: bold;
   margin-right: 14px;
   margin-bottom: 14px;
+  background-color: #6466E9;
+  color: whitesmoke;
 }
 
 ::selection {
