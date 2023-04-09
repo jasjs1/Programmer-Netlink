@@ -17,66 +17,66 @@
   
     <div class="fields">
       <p>Name</p>
-      <input type="text" name="name" placeholder="your name" required>
+      <input type="text" name="signup-name" placeholder="your name" required>
              
       <p>Email:</p>
       <input type="email" name="signup-email" placeholder="your email" required>
+
+      <p>Username:</p>
+      <input type="text" name="username" placeholder="username" required>
           
-      <p>Password</p>
+      <p>Password:</p>
       <input type="password" name="signup-password" placeholder="your password" min="8" max="80" required>
 
       <p>Tag</p>
       <p>What's your primary programming language?</p>
       <select id="tag" required>
         <option> </option>
-        <option>Ada</option>
-        <option>Assembly</option>
-        <option>AWK</option>
-        <option>Bash</option>
-        <option>C</option>
-        <option>C#</option>
-        <option>C++</option>
-        <option>Clojure</option>
-        <option>COBOL</option>
-        <option>CoffeeScript</option>
-        <option>Common Lisp</option>
-        <option>Crystal</option>
-        <option>CSS</option>
-        <option>D</option>
-        <option>Dart</option>
-        <option>Elixir</option>
-        <option>Elm</option>
-        <option>Erlang</option>
-        <option>F#</option>
-        <option>Fortran</option>
-        <option>Go</option>
-        <option>Groovy</option>
-        <option>Haskell</option>
-        <option>HTML</option>
-        <option>HTML, CSS, JavaScript</option>
-        <option>Java</option>
-        <option>JavaScript</option>
-        <option>Julia</option>
-        <option>Kotlin</option>
-        <option>Lua</option>
-        <option>MATLAB</option>
-        <option>Objective-C</option>
-        <option>OCaml</option>
-        <option>Pascal</option>
-        <option>Perl</option>
-        <option>PHP</option>
-        <option>Python</option>
-        <option>R</option>
-        <option>React</option>
-        <option>React Native</option>
-        <option>Ruby</option>
-        <option>Rust</option>
-        <option>Scala</option>
-        <option>Scheme</option>
-        <option>SQL</option>
-        <option>Swift</option>
-        <option>SwiftUI, Swift</option>
-        <option>TypeScript</option>
+        <option>ada</option>
+        <option>assembly</option>
+        <option>awk</option>
+        <option>bash</option>
+        <option>c</option>
+        <option>c#</option>
+        <option>c++</option>
+        <option>clojure</option>
+        <option>cobol</option>
+        <option>coffeescript</option>
+        <option>commonlisp</option>
+        <option>crystal</option>
+        <option>css</option>
+        <option>dart</option>
+        <option>elixir</option>
+        <option>elm</option>
+        <option>erlang</option>
+        <option>f#</option>
+        <option>fortran</option>
+        <option>go</option>
+        <option>groovy</option>
+        <option>haskell</option>
+        <option>html</option>
+        <option>java</option>
+        <option>javascript</option>
+        <option>julia</option>
+        <option>kotlin</option>
+        <option>lua</option>
+        <option>matlab</option>
+        <option>objectivec</option>
+        <option>ocaml</option>
+        <option>pascal</option>
+        <option>perl</option>
+        <option>php</option>
+        <option>python</option>
+        <option>r</option>
+        <option>react</option>
+        <option>reactnative</option>
+        <option>ruby</option>
+        <option>rust</option>
+        <option>scala</option>
+        <option>scheme</option>
+        <option>sql</option>
+        <option>swift</option>
+        <option>typescript</option>
 
 
       </select>
@@ -85,42 +85,44 @@
     </div>
           
     <script>
-      const name = document.querySelector('input[name="name"]');
-      const emailInput = document.querySelector('input[name="signup-email"]');
-      const passwordInput = document.querySelector('input[name="signup-password"]');
-      const nameInput = document.querySelector('input[name="name"]');
-      const saveButton = document.querySelector('#save');
-      const tagSelect = document.querySelector('#tag');
-    
-      saveButton.addEventListener('click', function() {
-        localStorage.setItem('name', nameInput.value);
-        localStorage.setItem('signup-email', emailInput.value);
-        localStorage.setItem('signup-password', passwordInput.value);
-        localStorage.setItem('user-name', nameInput.value);
-        localStorage.setItem('tag', tagSelect.value);
-      });
-    
-      const name = localStorage.getItem('name');
-      const storedEmail = localStorage.getItem('signup-email');
-      const storedPassword = localStorage.getItem('signup-password');
-      const storedName = localStorage.getItem('user-name');
-      const storedTag = localStorage.getItem('tag');
-      const userNameElem = document.querySelector('#user-name');
-      const tagSelectElem = document.querySelector('#tag');
-    
-      if (storedName) {
-        userNameElem.textContent = storedName + "@" + storedTag + ".netlink";
-        const profileLink = document.createElement('a');
-        profileLink.href = 'https://programmernetlink.com/profile/' + storedName;
-        profileLink.textContent = 'Programmer Netlink Profile';
-        userNameElem.insertAdjacentElement('afterend', profileLink);
-      } else {
-        userNameElem.textContent = 'Unknown';
-      }
-    
-      if (storedTag) {
-        tagSelectElem.value = storedTag;
-      }
+const name = document.querySelector('input[name="signup-name"]');
+const emailInput = document.querySelector('input[name="signup-email"]');
+const passwordInput = document.querySelector('input[name="signup-password"]');
+const usernameInput = document.querySelector('input[name="username"]');
+const saveButton = document.querySelector('#save');
+const tagSelect = document.querySelector('#tag');
+
+saveButton.addEventListener('click', function() {
+  localStorage.setItem('signup-name', name.value);
+  localStorage.setItem('signup-email', emailInput.value);
+  localStorage.setItem('signup-password', passwordInput.value);
+  localStorage.setItem('username', usernameInput.value);
+  localStorage.setItem('tag', tagSelect.value);
+});
+
+const storedName = localStorage.getItem('signup-name');
+const storedEmail = localStorage.getItem('signup-email');
+const storedPassword = localStorage.getItem('signup-password');
+const storedUsername = localStorage.getItem('username');
+const storedTag = localStorage.getItem('tag');
+
+const userNameElem = document.querySelector('#user-name');
+const tagSelectElem = document.querySelector('#tag');
+
+if (storedName) {
+  userNameElem.textContent = storedName + "@" + storedTag + ".netlink";
+  const profileLink = document.createElement('a');
+  profileLink.href = 'https://programmernetlink.com/profile/' + storedUsername;
+  profileLink.textContent = 'Programmer Netlink Profile';
+  userNameElem.insertAdjacentElement('afterend', profileLink);
+} else {
+  userNameElem.textContent = 'Unknown';
+}
+
+if (storedTag) {
+  tagSelectElem.value = storedTag;
+}
+
     </script>
     
     <div class="redirect-to-login">
