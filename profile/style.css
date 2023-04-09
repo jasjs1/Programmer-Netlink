@@ -139,3 +139,13 @@ input[type="submit"] {
     background-color: #6466E9;
     color: whitesmoke;
   }
+
+  .selector-button {
+    background-color: #6466E9;
+    color: white;
+    font-weight: bold;
+    padding: 15px 15px 15px 15p;
+    border-radius: 7.5px;
+    margin-top: 18px;
+    margin-bottom: 12px;
+  }
