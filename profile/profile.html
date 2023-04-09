@@ -17,9 +17,9 @@
       </div>
 
 	  <div class="profile-icon-selector-button">
-		<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
-		<input type="file" id="image-upload" style="display:none;">
-		<img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
+		  <input type="file" id="image-upload" style="display:none;">
+		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
+		  <button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
 	  </div>
       
 
@@ -120,6 +120,7 @@
 			localStorage.setItem("description", newDescription);
 			descriptionText.textContent = newDescription;
 			descriptionModal.style.display = "none";
+
 		  }
 		});
 	  
