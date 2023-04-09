@@ -58,7 +58,7 @@ body {
 
 .follower-class {
     margin-top: 15px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     display: flex;
 }
 
@@ -148,4 +148,8 @@ input[type="submit"] {
     border-radius: 7.5px;
     margin-top: 18px;
     margin-bottom: 12px;
+    max-width: 140px;
+    max-height: 120px;
+    /* min-width: 130px; */
+    /* min-height: 100px; */
   }
