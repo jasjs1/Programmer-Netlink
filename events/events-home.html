@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Events - Programmer Netlink</title>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Programmer Netlink</h1>
+        <h3>Events</h3>
+    </div>
+
+    <button id="show-container">+</button>
+
+    <div class="container" style="display:none;">
+      <form id="form">
+        <label for="event-title">Title</label>
+        <input type="text" name="event-title" required>
+    
+        <label for="event-description">Description</label>
+        <input type="text" name="event-description">
+    
+        <label for="event-start-date">Start Date</label>
+        <input type="date" name="event-start-date">
+    
+        <label for="event-start-time">Start Time</label>
+        <input type="time" name="event-start-time">
+    
+        <label for="event-end-date">End Date</label>
+        <input type="date" name="event-end-date">
+    
+        <label for="event-end-time">End Time</label>
+        <input type="time" name="event-end-time">
+    
+      </form>
+      <input type="submit" value="Create Event">
+    </div>
+
+    <div class="events-container">
+      <h2>Open Events: </h2>
+    </div>
+    
+    
+</body>
+<script src="script.js"></script>
+</html>
