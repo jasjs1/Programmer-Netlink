@@ -5,149 +5,129 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Programer Netlink - Profile</title>
+    <title>Programmer Netlink - Signup</title>
 </head>
 <body>
 
+    <div class="header">
+        <h1>Programmer Netlink</h1>
+        <h3>Signup</h3>
+        <p>Welcome! Glad to see you!</p>
+    </div>
+  
+    <div class="fields">
+      <p>Name</p>
+      <input type="text" name="signup-name" placeholder="your name" required>
+             
+      <p>Email:</p>
+      <input type="email" name="signup-email" placeholder="your email" required>
 
-      <div class="tab-bar">
-        <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Articles</b></a>
-        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Snippits</b></a>
-        <a href="http://127.0.0.1:5500/profile/experience/experience.html"><b>Expeirence</b></a>
-        <a href="http://127.0.0.1:5500/profile/settings/profile-settings.html"><b>Profile Settings</b></a>
-      </div>
+      <p>Username:</p>
+      <input type="text" name="username" placeholder="username" required>
+          
+      <p>Password:</p>
+      <input type="password" name="signup-password" placeholder="your password" min="8" max="80" required>
 
-      <button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
-      <input type="file" id="image-upload" style="display:none;">
-      <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-      
-
-	  <div class="info">
-		<h2><span id="signup-name"></span></h2>
-		<h3><span id="user-username"></span></h3>
-		<h3><span id="tag"></span></h3>
-		
-		<script>
-		  // Load user name and tag from local storage
-		  const savedName = localStorage.getItem('signup-name') || '';
-		  const savedUserName = localStorage.getItem('username') || '';
-		  const savedTag = localStorage.getItem('tag') || '';
-	  
-		  // Update the user name and tag elements with the saved values
-		  const nameElement = document.getElementById('signup-name');
-		  nameElement.textContent = savedName;
-	  
-		  const userNameElement = document.getElementById('user-username');
-		  userNameElement.textContent = `@${savedUserName}@${savedTag}.netlink`;
-	  
-		  const tagElement = document.getElementById('tag');
-		  tagElement.textContent = savedTag;
-		</script>
-	  </div>
-	  
-	  <div class="username">
-		<h3><span id="username"></span></h3>
-		<script>
-		  const storedUsername = localStorage.getItem('user-name');
-		  const usernameElem = document.querySelector('#username');
-	  
-		  if (storedUsername) {
-			usernameElem.textContent = `@${storedUsername} `;
-		  } else {
-			// usernameElem.textContent = 'No username found in local storage';
-		  }
-		</script>
-	  </div>
-	  
-
-<div class="follower-class">
-  <h3>Followers: <span id="follower-count">0</span></h3>
-</div>
-
-<button id="follow-button">Follow</button>
-<button id="unfollow-button" style="display:none">Unfollow</button>
-
-  <!-- <div class="user-post-header">
-    <h2>Snippits <span id="user-name"></span></h2>
-    <p>Snippits are like 'posts'.</p>
-  </div> -->
-
-  <div class="description-header">
-		<h2>Description:</h2>
-	</div>
-	<div>
-		<p id="description-text"></p>
-		<button id="create-description-btn">Update Description</button>
-	  </div>
-	  
-	  <div id="description-modal" style="display: none">
-		<label for="new-description">Enter description:</label>
-		<input type="text" id="new-description">
-		<button id="save-description-btn">Update Description</button>
-		<button id="cancel-description-btn">Abort</button>
-	  </div>
-	  
-	  <script>
-		const descriptionText = document.getElementById("description-text");
-		const createDescriptionBtn = document.getElementById("create-description-btn");
-		const descriptionModal = document.getElementById("description-modal");
-		const saveDescriptionBtn = document.getElementById("save-description-btn");
-		const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
-		const maxChars = 150;
-	  
-		// Load description from local storage
-		const description = localStorage.getItem("description");
-		if (description) {
-		  descriptionText.textContent = description;
-		}
-	  
-		// Open description modal
-		createDescriptionBtn.addEventListener("click", () => {
-		  descriptionModal.style.display = "block";
-		  document.getElementById("new-description").value = description || "";
-		});
-	  
-		// Save description
-		saveDescriptionBtn.addEventListener("click", () => {
-		  const newDescription = document.getElementById("new-description").value;
-		  const charCount = newDescription.length;
-	  
-		  if (charCount > 150) {
-			alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
-		  } else {
-			localStorage.setItem("description", newDescription);
-			descriptionText.textContent = newDescription;
-			descriptionModal.style.display = "none";
-		  }
-		});
-	  
-		// Cancel editing description
-		cancelDescriptionBtn.addEventListener("click", () => {
-		  descriptionModal.style.display = "none";
-		});
-	  
-		// Edit description
-		descriptionText.addEventListener("click", () => {
-		  descriptionModal.style.display = "block";
-		  document.getElementById("new-description").value = descriptionText.textContent || "";
-		});
-	  </script>
-</div>
-
-  <div class="snippits-redirect-link">
-    <h2>Masterpeices:</h2>
-    <h3>See the user's Snipits  and Articles.</h3>
-  </div>
-
-  <div class="button-1">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
-  </div>
-
-  <div class="button-2">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/articles/display-articles.html'">See Articles</button>
-  </div>
+      <p>Tag</p>
+      <p>What's your primary programming language?</p>
+      <select id="tag" required>
+        <option> </option>
+        <option>ada</option>
+        <option>assembly</option>
+        <option>awk</option>
+        <option>bash</option>
+        <option>c</option>
+        <option>c#</option>
+        <option>c++</option>
+        <option>clojure</option>
+        <option>cobol</option>
+        <option>coffeescript</option>
+        <option>commonlisp</option>
+        <option>crystal</option>
+        <option>css</option>
+        <option>dart</option>
+        <option>elixir</option>
+        <option>elm</option>
+        <option>erlang</option>
+        <option>f#</option>
+        <option>fortran</option>
+        <option>go</option>
+        <option>groovy</option>
+        <option>haskell</option>
+        <option>html</option>
+        <option>java</option>
+        <option>javascript</option>
+        <option>julia</option>
+        <option>kotlin</option>
+        <option>lua</option>
+        <option>matlab</option>
+        <option>objectivec</option>
+        <option>ocaml</option>
+        <option>pascal</option>
+        <option>perl</option>
+        <option>php</option>
+        <option>python</option>
+        <option>r</option>
+        <option>react</option>
+        <option>reactnative</option>
+        <option>ruby</option>
+        <option>rust</option>
+        <option>scala</option>
+        <option>scheme</option>
+        <option>sql</option>
+        <option>swift</option>
+        <option>typescript</option>
 
 
+      </select>
+    
+      <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/.app/app.html'">Create Account</button>
+    </div>
+          
+    <script>
+const name = document.querySelector('input[name="signup-name"]');
+const emailInput = document.querySelector('input[name="signup-email"]');
+const passwordInput = document.querySelector('input[name="signup-password"]');
+const usernameInput = document.querySelector('input[name="username"]');
+const saveButton = document.querySelector('#save');
+const tagSelect = document.querySelector('#tag');
+
+saveButton.addEventListener('click', function() {
+  localStorage.setItem('signup-name', name.value);
+  localStorage.setItem('signup-email', emailInput.value);
+  localStorage.setItem('signup-password', passwordInput.value);
+  localStorage.setItem('username', usernameInput.value);
+  localStorage.setItem('tag', tagSelect.value);
+});
+
+const storedName = localStorage.getItem('signup-name');
+const storedEmail = localStorage.getItem('signup-email');
+const storedPassword = localStorage.getItem('signup-password');
+const storedUsername = localStorage.getItem('username');
+const storedTag = localStorage.getItem('tag');
+
+const userNameElem = document.querySelector('#user-name');
+const tagSelectElem = document.querySelector('#tag');
+
+if (storedName) {
+  userNameElem.textContent = storedName + "@" + storedTag + ".netlink";
+  const profileLink = document.createElement('a');
+  profileLink.href = 'https://programmernetlink.com/profile/' + storedUsername;
+  profileLink.textContent = 'Programmer Netlink Profile';
+  userNameElem.insertAdjacentElement('afterend', profileLink);
+} else {
+  userNameElem.textContent = 'Unknown';
+}
+
+if (storedTag) {
+  tagSelectElem.value = storedTag;
+}
+
+    </script>
+    
+    <div class="redirect-to-login">
+      <a href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Accidently here? Go to login</a>
+    </div>
+    
 </body>
-<script src="script.js"></script>
 </html>
