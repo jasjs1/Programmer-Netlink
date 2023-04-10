@@ -5,271 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Programer Netlink - Profile</title>
+    <title>Programmer Netlink - Profile Settings</title>
 </head>
 <body>
 
-      <div class="nav-bar">
-        <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Your Articles</b></a>
-        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Your Snippits</b></a>
-        <a href="http://127.0.0.1:5500/profile/experience/experience.html"><b>Expeirences</b></a>
-        <a href="http://127.0.0.1:5500/profile/settings/profile-settings.html"><b>Profile Settings</b></a> 
+    <div class="topnav">
+
+        <!-- <a><p>Programmer Netlink</p></a> -->
+        <a class="active" href="http://127.0.0.1:5500/.app/app.html">Your Snipits</a>
+        <a class="active" href="http://127.0.0.1:5500/articles/article.html">Your Articles</a>
+        <a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a>
+        <a class="active" href="http://127.0.0.1:5500/profile/settings/profile-settings.html">Profile Settings</a>
+        <a class="active" href="http://127.0.0.1:5500/profile/snippits/user-snippts.html">Your Snippits</a>
+        <a class="active" href="http://127.0.0.1:5500/articles/article.html">Your Articles</a>
+        <a class="active" href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Log Out</a>
       </div>
 
+    <div class="header">
+        <h1>Programmer Netlink</h1>
+        <h2>Profile Settings</h2>
+        <p>Configure your profile here.</p>
+    </div>
 
-	  <div class="profile-icon-selector-button">
-		  <input type="file" id="image-upload" style="display:none;">
-		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-		  <button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
-	  </div>
-      
+    <div class="acccount-details-header">
+        <h2>Reset Account Details</h2>
+        <p>Accidently inputted the wrong details during signup? Change them here.</p>
+    </div>
 
-	  <div class="info">
-		<h2><span id="signup-name"></span></h2>
-		<h3><span id="user-username"></span></h3>
-		<h3><span id="tag"></span></h3>
-		
-		<script>
-		  // Load user name and tag from local storage
-		  const savedName = localStorage.getItem('signup-name') || '';
-		  const savedUserName = localStorage.getItem('username') || '';
-		  const savedTag = localStorage.getItem('tag') || '';
-	  
-		  // Update the user name and tag elements with the saved values
-		  const nameElement = document.getElementById('signup-name');
-		  nameElement.textContent = savedName;
-	  
-		  const userNameElement = document.getElementById('user-username');
-		  userNameElement.textContent = `${savedUserName}@${savedTag}.netlink`;
-	  
-		  const tagElement = document.getElementById('tag');
-		  tagElement.textContent = `#${savedTag}`;
-		</script>
-	  </div>
-	  
-	  <div class="username">
-		<h3><span id="username"></span></h3>
-		<script>
-		  const storedUsername = localStorage.getItem('user-name');
-		  const usernameElem = document.querySelector('#username');
-	  
-		  if (storedUsername) {
-			usernameElem.textContent = `@${storedUsername} `;
-		  } else {
-			// usernameElem.textContent = 'No username found in local storage';
-		  }
-		</script>
-	  </div>
-	  
+    <div class="account-details-change">
+        <h3>Name:</h3>
+        <input type="text" name="name" placeholder="your name" required>
 
-<div class="follower-class">
-  <h3>Followers: <span id="follower-count">0</span></h3>
-</div>
+        <h3>Email:</h3>
+        <input type="email" name="signup-email" placeholder="email" required>
 
-<button id="follow-button">Follow</button>
-<button id="unfollow-button" style="display:none">Unfollow</button>
-
-  <!-- <div class="user-post-header">
-    <h2>Snippits <span id="user-name"></span></h2>
-    <p>Snippits are like 'posts'.</p>
-  </div> -->
-
-  <div class="description-header">
-		<h2>Bio:</h2>
-	</div>
-
-	<div>
-		<p id="description-text"></p>
-		<button id="create-description-btn">Update Bio</button>
-	  </div>
-	  
-	  <div id="description-modal" style="display: none">
-		<label for="new-description">Updated Bio:</label>
-		<input type="text" id="new-description">
-		<button id="save-description-btn">Update Bio</button>
-		<button id="cancel-description-btn">Cancel</button>
-	  </div>
-	  
-	  <script>
-const descriptionText = document.getElementById("description-text");
-const createDescriptionBtn = document.getElementById("create-description-btn");
-const descriptionModal = document.getElementById("description-modal");
-const saveDescriptionBtn = document.getElementById("save-description-btn");
-const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
-const maxChars = 150;
-
-// Load description from local storage
-const description = localStorage.getItem("description");
-if (description) {
-  descriptionText.textContent = description;
-}
-
-// Open description modal
-createDescriptionBtn.addEventListener("click", () => {
-  descriptionModal.style.display = "block";
-  document.getElementById("new-description").value = description || "";
-});
-
-// Save description
-saveDescriptionBtn.addEventListener("click", () => {
-  const newDescription = document.getElementById("new-description").value;
-  const charCount = newDescription.length;
-
-  if (charCount > 150) {
-    alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
-  } else {
-    localStorage.setItem("description", newDescription);
-    descriptionText.textContent = newDescription;
-    descriptionModal.style.display = "none";
-  }
-});
-
-// Cancel editing description
-cancelDescriptionBtn.addEventListener("click", () => {
-  descriptionModal.style.display = "none";
-});
-
-// Edit description
-descriptionText.addEventListener("click", () => {
-  descriptionModal.style.display = "block";
-  document.getElementById("new-description").value = descriptionText.textContent || "";
-});
-
-// Add new line when Enter key is pressed
-descriptionText.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    let currentText = descriptionText.value;
-    const cursorPosition = descriptionText.selectionStart;
-    currentText = currentText.substring(0, cursorPosition) + "\n" + currentText.substring(cursorPosition);
-    descriptionText.value = currentText;
-  }
-});
+        <h3>Password:</h3>
+        <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
 
 
-	  </script>
-</div>
+        <p>Tag</p>
+        <p>Accidently put in the wrong langauge, or changed your primary langauge. Change it here: </p>
+        <select id="tag" required>
+          <option> </option>
+          <option>ada</option>
+          <option>assembly</option>
+          <option>awk</option>
+          <option>bash</option>
+          <option>c</option>
+          <option>c#</option>
+          <option>c++</option>
+          <option>clojure</option>
+          <option>cobol</option>
+          <option>coffeescript</option>
+          <option>commonlisp</option>
+          <option>crystal</option>
+          <option>css</option>
+          <option>dart</option>
+          <option>elixir</option>
+          <option>elm</option>
+          <option>erlang</option>
+          <option>f#</option>
+          <option>fortran</option>
+          <option>go</option>
+          <option>groovy</option>
+          <option>haskell</option>
+          <option>html</option>
+          <option>java</option>
+          <option>javascript</option>
+          <option>julia</option>
+          <option>kotlin</option>
+          <option>lua</option>
+          <option>matlab</option>
+          <option>objectivec</option>
+          <option>ocaml</option>
+          <option>pascal</option>
+          <option>perl</option>
+          <option>php</option>
+          <option>python</option>
+          <option>r</option>
+          <option>react</option>
+          <option>reactnative</option>
+          <option>ruby</option>
+          <option>rust</option>
+          <option>scala</option>
+          <option>scheme</option>
+          <option>sql</option>
+          <option>swift</option>
+          <option>typescript</option>
+  
+  
+        </select>
 
-  <div class="snippits-redirect-link">
-    <h2>Masterpeices:</h2>
-    <h3>See the user's Snipits  and Articles.</h3>
-  </div>
+        <button class="save" id="save" onclick="window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html'">Update Account Information</button>
 
-  <div class="button-1">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
-  </div>
+    </div>
 
-  <div class="button-2">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/articles/display-articles.html'">See Articles</button>
-  </div>
+    <div class="security-header">
+        <h2>Security</h2>
+        <p>Add security to your account in this section:</p>
+    </div>
 
-  <div class="skills-header">
-	<h2>Skills:</h2>
+    <div class="two-factor-create">
+        <h3>Add 2FA pin.</h3>
+        <p>2FA is a added security that lessens that chance of someone hacking into your account. This will be useful if someone tries to impersontate you and post something.</p>
 
-	<button id="show-container">+</button>
+        <label for="two-factor-code">Two Factor Code (text): </label>
+        <input type="text" name="two-factor-code" placeholder="input 2fa code here">
+        
+        <button class="submit" id="submit">Add 2FA Code</button>
 
-	<div class="container">
-	<form id="skills-form">
-	  <label for="new-skill">Add Skill:</label>
-	  <input type="text" id="new-skill" name="new-skill">
-	  <button type="submit">Add Skill</button>
-	</form>
-	</div>
-
-  <ul id="skills-list"></ul>
-  <script>
-	const skillsForm = document.querySelector('#skills-form');
-	const skillsList = document.querySelector('#skills-list');
-	let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
-	
-	// Function to render skills
-	function renderSkills() {
-	  skillsList.innerHTML = '';
-	  for (let i = 0; i < skillsArray.length; i++) {
-		const skillItem = document.createElement('li');
-		skillItem.textContent = skillsArray[i];
-		skillsList.appendChild(skillItem);
-	  }
-	}
-	
-	// Function to handle form submission
-	function handleFormSubmit(event) {
-	  event.preventDefault();
-	  const skillInput = document.querySelector('#new-skill');
-	  const skillValue = skillInput.value.trim();
-	  if (skillValue) {
-		skillsArray.push(skillValue);
-		localStorage.setItem('skills', JSON.stringify(skillsArray));
-		skillInput.value = '';
-		renderSkills();
-	  }
-	}
-	
-	// Attach event listeners
-	skillsForm.addEventListener('submit', handleFormSubmit);
-	
-	// Render initial skills
-	renderSkills();
-  </script>
-
-  <div class="contact-container">
-
-	<label for="contact-type">Contact Type</label>
-	<input type="text" for="contact-type" required>
-
-	<label for="contact-information">Contact At:</label>
-	<input type="text" for="contact-information" required>
-
-	<label for="used-often">Checked Often:</label>
-	<input type="checkbox" for="used-often" required>
-
-	<button id="save">Add Contact Type</button>
-
-	<ul id="contact-display"></ul>
-
-	<script>
-const contactForm = document.querySelector('#contact-form');
-const contactDisplay = document.querySelector('#contact-display');
-let contactsArray = JSON.parse(localStorage.getItem('contact-info')) || [];
-
-function renderContacts() {
-  contactDisplay.innerHTML = '';
-  for (let i = 0; i < contactsArray.length; i++) {
-    const contactItem = document.createElement('li');
-    contactItem.textContent = `${contactsArray[i].type}: ${contactsArray[i].info} (Checked often: ${contactsArray[i].often})`;
-    contactDisplay.appendChild(contactItem);
-  }
-}
-
-function addContact(event) {
-  event.preventDefault();
-  const typeInput = document.querySelector('#contact-type');
-  const typeValue = typeInput.value.trim();
-  const infoInput = document.querySelector('#contact-information');
-  const infoValue = infoInput.value.trim();
-  const oftenInput = document.querySelector('#used-often');
-  const oftenValue = oftenInput.checked;
-  if (typeValue && infoValue) {
-    contactsArray.push({
-      type: typeValue,
-      info: infoValue,
-      often: oftenValue
-    });
-    localStorage.setItem('contact-info', JSON.stringify(contactsArray));
-    typeInput.value = '';
-    infoInput.value = '';
-    oftenInput.checked = false;
-    renderContacts();
-  }
-}
-
-contactForm.addEventListener('submit', addContact);
-
-
-	</script>
-  </div>
-
-
+        <script>
+            const twoFactorCodeInput = document.querySelector('input[name="two-factor-code"]');
+            const submitButton = document.querySelector('#submit');
+            
+            submitButton.addEventListener('click', () => {
+                const twoFactorCode = twoFactorCodeInput.value;
+                localStorage.setItem('twoFactorCode', twoFactorCode);
+            });
+        </script>
+        
+    </div>
+    
 </body>
-<script src="script.js"></script>
+<script src="overwrite.js"></script>
 </html>
