@@ -12,21 +12,6 @@ body {
   text-align: center;
   align-items: center;
 }
-
-.tab-bar {
-  background-color: #6466E9;
-  text-align: center;
-  color: white;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 17px;
-  padding-right: 12px;
-  margin-top: 25px;
-}
-
 .topnav a {
   float: left;
   color: #f2f2f2;
@@ -36,11 +21,6 @@ body {
   font-size: 17px;
   text-align: center;
   align-items: center;
-}
-
-a {
-  color: white;
-  font-weight: ;
 }
 
 .topnav a:hover {
@@ -59,6 +39,27 @@ a {
   text-align: center;
   align-items: center;
 }
+
+.tab-bar {
+  background-color: #6466E9;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 17px;
+  padding-right: 12px;
+  margin-top: 25px;
+}
+
+
+a {
+  color: white;
+  font-weight: ;
+}
+
 
 .container {
   max-width: 600px;
