@@ -30,7 +30,7 @@
         <h3>Password:</h3>
         <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
 
-        <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html'">Update Account Information</button>
+        <button class="save" id="save" onclick="window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html'">Update Account Information</button>
     </div>
 
     <div class="security-header">
@@ -45,7 +45,7 @@
         <label for="two-factor-code">Two Factor Code (text): </label>
         <input type="text" name="two-factor-code" placeholder="input 2fa code here">
         
-        <button id="submit">Add 2FA Code</button>
+        <button class="submit" id="submit">Add 2FA Code</button>
 
         <script>
             const twoFactorCodeInput = document.querySelector('input[name="two-factor-code"]');
