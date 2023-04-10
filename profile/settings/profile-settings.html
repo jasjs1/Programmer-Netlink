@@ -33,6 +33,31 @@
         <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html'">Update Account Information</button>
     </div>
 
+    <div class="security-header">
+        <h2>Security</h2>
+        <p>Add security to your account in this section:</p>
+    </div>
+
+    <div class="two-factor-create">
+        <h3>Add 2FA pin.</h3>
+        <p>2FA is a added security that lessens that chance of someone hacking into your account. This will be useful if someone tries to impersontate you and post something.</p>
+
+        <label for="two-factor-code">Two Factor Code (text): </label>
+        <input type="text" name="two-factor-code" placeholder="input 2fa code here">
+        
+        <button id="submit">Add 2FA Code</button>
+
+        <script>
+            const twoFactorCodeInput = document.querySelector('input[name="two-factor-code"]');
+            const submitButton = document.querySelector('#submit');
+            
+            submitButton.addEventListener('click', () => {
+                const twoFactorCode = twoFactorCodeInput.value;
+                localStorage.setItem('twoFactorCode', twoFactorCode);
+            });
+        </script>
+        
+    </div>
     
 </body>
 <script src="overwrite.js"></script>
