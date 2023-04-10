@@ -13,3 +13,56 @@ body {
 .acccount-details-header {
     color: #6466E9;
 }
+
+.security-header {
+    padding-top: 20px;
+}
+
+.two-factor-create {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* input[name="two-factor-code"]  {
+    background-color: #1c1f238b;
+    border-color: #42464a8b;
+    border: 2px;
+} */
+
+input[type="text"] {
+    padding: 12.12px 12.12px 12.12px 12.12px;
+    border-radius: 8px;
+    background-color: #1c1f23;
+    color: white;
+    border-color: #6466E9;
+}
+
+input[type="email"] {
+    padding: 12.12px 12.12px 12.12px 12.12px;
+    border-radius: 8px;
+    background-color: #1c1f23;
+    color: white;
+    border-color: #6466E9;
+}
+
+input[type="password"] {
+    padding: 12.12px 12.12px 12.12px 12.12px;
+    border-radius: 8px;
+    background-color: #1c1f23;
+    color: white;
+    border-color: #6466E9;
+}
+
+.save {
+    background-color: #6466E9;
+    color: white;
+    padding: 15px 13.25px 13.25px 13.25px;
+    border-radius: 10px;
+}
+
+.submit {
+    background-color: #6466E9;
+    color: white;
+    border-radius: 10px;
+}
