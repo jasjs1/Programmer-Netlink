@@ -5,6 +5,9 @@ body {
     text-align: center;
 }
 
+.display-basic-user-content {
+}
+
 a {
     color: #6466E9;
     font-weight: bold;
@@ -34,8 +37,22 @@ a {
   
   /* .post {
     /* Style for each individual post */
-    width: 30%;
-    margin: 10px;
+    /* width: 30%; */
+    /* margin: 10px; */
     /* Other styles */
+  /* } */
+
+   .search {
+    background-color: #1c1f23;
+    color: white;
+    /* border: 1px solid white; */
+    border-radius: 5px;
   }
-   */
+
+  #search-container input[type="text"] {
+    background-color: #1c1f23;
+    border: 1px solid white;
+    border-color: #6466E9;
+    border-radius: 5px;
+    color: white;
+  }
