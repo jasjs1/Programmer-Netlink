@@ -153,3 +153,13 @@ input[type="submit"] {
     /* min-width: 130px; */
     /* min-height: 100px; */
   }
+
+  input[type="text"] {
+    background-color: #1c1f23;
+    border-color: #6466E9;
+  }
+
+  input[type="checkbox"] {
+    background-color: #1c1f23;
+    border-color: #6466E9;
+  }
