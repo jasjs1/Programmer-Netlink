@@ -13,6 +13,8 @@ body {
 .acccount-details-header {
     /* color: #6466E9; */
     margin-top: 50px;
+    display: inline-block;
+    margin-bottom: 1em;
 }
 
 .security-header {
