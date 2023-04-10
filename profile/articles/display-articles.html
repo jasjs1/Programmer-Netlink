@@ -1,41 +1,85 @@
-body {
-    background-color: #1c1f23;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programmer Netlink - User Articles</title>
+</head>
+<body>
 
-a {
-    color: #6466E9;
-    font-weight: bold;
-}
 
-.header {
-    color: #6466E9;
-}
+    <div class="header">
+        <h1>Programer Netlink</h1>
+        <h3>Articles</h3>
+        <a href="http://127.0.0.1:5500/articles/article.html">Create an Article</a>
+    </div>
 
-.search {
-    padding-top: 30px;
-    margin-bottom: 20px;
-}
+    
+    <div id="search-container" class="search">
+        <input type="text" id="search-input" placeholder="Search your Articles">
+      </div>
 
-#posts-container {
-    width: 100%;
-    max-width: 800px; /* Optional: set maximum width to prevent it from taking up the entire screen */
-    margin: 0 auto;
-    text-align: left;
-    padding: 20px;
-    word-wrap: break-word;
-    border: 1px solid #6466E9;
-    border-radius: 5px;
-    box-sizing: border-box; /* Optional: include padding and border in the width and height */
+      <div id="posts-container">
+        <!-- Existing posts will be appended here -->
+      </div>
+      <p id="no-posts-message"></p>
+    
+
+      <script>
+  const postsContainer = document.getElementById('posts-container');
+  const noPostsMessage = document.getElementById('no-posts-message');
+  const searchInput = document.getElementById('search-input');
+
+  // Load existing articles from local storage
+  const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+  // Render existing articles
+  if (savedArticles.length > 0) {
+    renderArticles(savedArticles);
+  } else {
+      const noPostsMessage = document.getElementById('no-posts-message');
+  const h2 = document.createElement('h3');
+  h2.textContent = 'This Contibutor has not created any Articles. Maybe they are searching for the new species of dinos.';
+  noPostsMessage.appendChild(h2);
 
   }
-  
-  /* .post {
-    /* Style for each individual post */
-    width: 30%;
-    margin: 10px;
-    /* Other styles */
+
+  // Search through articles
+  if (searchInput) {
+    searchInput.addEventListener('input', (event) => {
+      const searchTerm = event.target.value.toLowerCase();
+      const filteredArticles = savedArticles.filter(article => {
+        const title = article.title.toLowerCase();
+        const body = article.body.toLowerCase();
+        return title.includes(searchTerm) || body.includes(searchTerm);
+      });
+      renderArticles(filteredArticles);
+    });
   }
-   */
+
+  function createArticleElement(title, body) {
+    const articleElement = document.createElement('div');
+    articleElement.classList.add('article');
+    articleElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
+    return articleElement;
+  }
+
+  function renderArticles(articles) {
+    postsContainer.innerHTML = '';
+    if (articles.length > 0) {
+      articles.forEach(article => {
+        const articleElement = createArticleElement(article.title, article.body);
+        postsContainer.appendChild(articleElement);
+      });
+    } else {
+      noPostsMessage.textContent = 'No results found.';
+    }
+  }
+
+      </script>
+    
+</body>
+<scirpt src="script.js"></scirpt>
+</html>
