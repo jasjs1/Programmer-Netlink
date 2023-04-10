@@ -157,9 +157,11 @@ input[type="submit"] {
   input[type="text"] {
     background-color: #1c1f23;
     border-color: #6466E9;
+    color: white;
   }
 
   input[type="checkbox"] {
     background-color: #1c1f23;
     border-color: #6466E9;
+    color: white;
   }
