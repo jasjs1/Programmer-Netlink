@@ -74,9 +74,22 @@
         postsContainer.appendChild(articleElement);
       });
     } else {
-      noPostsMessage.textContent = 'No results found.';
-    }
+    noPostsMessage.textContent = 'No results found.';
+    const noPostsPhrases = [
+  "Our dino is wandering lost finding this query., sorry!",
+  "Looks like our dino needs a map.",
+  "Dino is kicking bones, he cant find the query.",
+  "Is it just me or I cant find this :(",
+  "Our dino is searching high and low.",
+  "The meteorite just hit the query, oof.",
+  "The dinos are extinct, just like this search query."
+  
+];
+
+noPostsMessage.textContent = noPostsPhrases[Math.floor(Math.random() * noPostsPhrases.length)];
+
   }
+}
 
       </script>
     
