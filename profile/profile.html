@@ -169,47 +169,78 @@ descriptionText.addEventListener("keydown", (event) => {
 	<button id="show-container">+</button>
 
 	<div class="container">
-	<form id="skills-form">
-	  <label for="new-skill">Add Skill:</label>
-	  <input type="text" id="new-skill" name="new-skill">
+		<form id="skills-form">
+
+	  <label for="new-skill">Skill Name:</label>
+	  <input type="text" id="new-skill" name="new-skill" placeholder="name of the skill" minlength="2" max="20">
+
+	  <label for="skill-type">Skill Type:</label>
+	  <input type="text" id="skill-type" name="new-skill" placeholder="type of the skill that you have" minlength="2" max="15">
+
+	  <label for="skill-description">Skill Description:</label>
+	  <input type="text" id="skill-description" name="skill-description" placeholder="short breif description" minlength="5" maxlength="25">
+
 	  <button type="submit">Add Skill</button>
-	</form>
+		</form>
 	</div>
 
   <ul id="skills-list"></ul>
   <script>
-	const skillsForm = document.querySelector('#skills-form');
-	const skillsList = document.querySelector('#skills-list');
-	let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
-	
-	// Function to render skills
-	function renderSkills() {
-	  skillsList.innerHTML = '';
-	  for (let i = 0; i < skillsArray.length; i++) {
-		const skillItem = document.createElement('li');
-		skillItem.textContent = skillsArray[i];
-		skillsList.appendChild(skillItem);
-	  }
-	}
-	
-	// Function to handle form submission
-	function handleFormSubmit(event) {
-	  event.preventDefault();
-	  const skillInput = document.querySelector('#new-skill');
-	  const skillValue = skillInput.value.trim();
-	  if (skillValue) {
-		skillsArray.push(skillValue);
-		localStorage.setItem('skills', JSON.stringify(skillsArray));
-		skillInput.value = '';
-		renderSkills();
-	  }
-	}
-	
-	// Attach event listeners
-	skillsForm.addEventListener('submit', handleFormSubmit);
-	
-	// Render initial skills
-	renderSkills();
+const skillsForm = document.querySelector('#skills-form');
+const skillsList = document.querySelector('#skills-list');
+let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
+
+// Function to render skills 
+function renderSkills() {
+  skillsList.innerHTML = '';
+  for (let i = 0; i < skillsArray.length; i++) {
+    const skillItem = document.createElement('li');
+    const skillName = document.createElement('span');
+    skillName.textContent = skillsArray[i].name;
+    const skillType = document.createElement('span');
+    skillType.textContent = skillsArray[i].type;
+    const skillDescription = document.createElement('span');
+    skillDescription.textContent = skillsArray[i].description;
+
+    // add comma and space between spans
+    const comma = document.createTextNode(', ');
+    skillItem.appendChild(skillName);
+    skillItem.appendChild(comma);
+    skillItem.appendChild(skillType);
+    skillItem.appendChild(comma.cloneNode());
+    skillItem.appendChild(skillDescription);
+
+    skillsList.appendChild(skillItem);
+  }
+}
+
+
+// Function to handle form submission
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const skillInput = document.querySelector('#new-skill');
+  const skillValue = skillInput.value.trim();
+  const skillTypeInput = document.querySelector('#skill-type');
+  const skillTypeValue = skillTypeInput.value.trim();
+  const skillDescriptionInput = document.querySelector('#skill-description');
+  const skillDescriptionValue = skillDescriptionInput.value.trim();
+  if (skillValue && skillTypeValue && skillDescriptionValue) {
+    const skillObj = { name: skillValue, type: skillTypeValue, description: skillDescriptionValue };
+    skillsArray.push(skillObj);
+    localStorage.setItem('skills', JSON.stringify(skillsArray));
+    skillInput.value = '';
+    skillTypeInput.value = '';
+    skillDescriptionInput.value = '';
+    renderSkills();
+  }
+}
+
+// Attach event listeners
+skillsForm.addEventListener('submit', handleFormSubmit);
+
+// Render initial skills
+renderSkills();
+
   </script>
 
   <div class="contact-container">
@@ -228,42 +259,42 @@ descriptionText.addEventListener("keydown", (event) => {
 	<ul id="contact-display"></ul>
 
 	<script>
-const contactForm = document.querySelector('#contact-form');
-const contactDisplay = document.querySelector('#contact-display');
-let contactsArray = JSON.parse(localStorage.getItem('contact-info')) || [];
+		const contactForm = document.querySelector('#contact-form');
+		const contactDisplay = document.querySelector('#contact-display');
+		let contactsArray = JSON.parse(localStorage.getItem('contact-info')) || [];
 
-function renderContacts() {
-  contactDisplay.innerHTML = '';
-  for (let i = 0; i < contactsArray.length; i++) {
-    const contactItem = document.createElement('li');
-    contactItem.textContent = `${contactsArray[i].type}: ${contactsArray[i].info} (Checked often: ${contactsArray[i].often})`;
-    contactDisplay.appendChild(contactItem);
-  }
-}
+		function renderContacts() {
+		contactDisplay.innerHTML = '';
+		for (let i = 0; i < contactsArray.length; i++) {
+			const contactItem = document.createElement('li');
+			contactItem.textContent = `${contactsArray[i].type}: ${contactsArray[i].info} (Checked often: ${contactsArray[i].often})`;
+			contactDisplay.appendChild(contactItem);
+		}
+		}
 
-function addContact(event) {
-  event.preventDefault();
-  const typeInput = document.querySelector('#contact-type');
-  const typeValue = typeInput.value.trim();
-  const infoInput = document.querySelector('#contact-information');
-  const infoValue = infoInput.value.trim();
-  const oftenInput = document.querySelector('#used-often');
-  const oftenValue = oftenInput.checked;
-  if (typeValue && infoValue) {
-    contactsArray.push({
-      type: typeValue,
-      info: infoValue,
-      often: oftenValue
-    });
-    localStorage.setItem('contact-info', JSON.stringify(contactsArray));
-    typeInput.value = '';
-    infoInput.value = '';
-    oftenInput.checked = false;
-    renderContacts();
-  }
-}
+		function addContact(event) {
+		event.preventDefault();
+		const typeInput = document.querySelector('#contact-type');
+		const typeValue = typeInput.value.trim();
+		const infoInput = document.querySelector('#contact-information');
+		const infoValue = infoInput.value.trim();
+		const oftenInput = document.querySelector('#used-often');
+		const oftenValue = oftenInput.checked;
+		if (typeValue && infoValue) {
+			contactsArray.push({
+			type: typeValue,
+			info: infoValue,
+			often: oftenValue
+			});
+			localStorage.setItem('contact-info', JSON.stringify(contactsArray));
+			typeInput.value = '';
+			infoInput.value = '';
+			oftenInput.checked = false;
+			renderContacts();
+		}
+		}
 
-contactForm.addEventListener('submit', addContact);
+		contactForm.addEventListener('submit', addContact);
 
 
 	</script>
