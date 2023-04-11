@@ -39,12 +39,17 @@
   if (savedArticles.length > 0) {
     renderArticles(savedArticles);
   } else {
-      const noPostsMessage = document.getElementById('no-posts-message');
+  const noPostsMessage = document.getElementById('no-posts-message');
   const h2 = document.createElement('h3');
-  h2.textContent = 'This Contibutor has not created any Articles. Maybe they are searching for the new species of dinos.';
+  h2.textContent = 'You have not created any articles, yet.';
   noPostsMessage.appendChild(h2);
 
-  }
+  const link = document.createElement('a');
+  link.textContent = 'End this by creating an article!';
+  link.href = 'http://127.0.0.1:5500/articles/article.html';
+  noPostsMessage.appendChild(link);
+}
+
 
   // Search through articles
   if (searchInput) {
