@@ -1,85 +1,167 @@
 body {
     background-color: #1c1f23;
-    color: white;
     font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.nav-bar {
+  background-color: #1c1f23;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  }
+
+  .nav-bar a {
+    float: left;
+    color: #f2f2f2;
     text-align: center;
-}
-
-.header {
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
     text-align: center;
-    margin-bottom: 20px;
-}
+    align-items: center;
+    margin-bottom: 18.6px;
+  }
 
-.acccount-details-header {
-    /* color: #6466E9; */
-    margin-top: 50px;
-    display: inline-block;
-    margin-bottom: 1em;
-}
-
-.security-header {
-    padding-top: 20px;
-}
-
-.two-factor-create {
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-/* input[name="two-factor-code"]  {
-    background-color: #1c1f238b;
-    border-color: #42464a8b;
-    border: 2px;
-} */
-
-input[type="text"] {
-    padding: 12.12px 12.12px 12.12px 12.12px;
-    border-radius: 8px;
-    background-color: #1c1f23;
-    color: white;
-    border-color: #6466E9;
-}
-
-input[type="email"] {
-    padding: 12.12px 12.12px 12.12px 12.12px;
-    border-radius: 8px;
-    background-color: #1c1f23;
-    color: white;
-    border-color: #6466E9;
-}
-
-input[type="password"] {
-    padding: 12.12px 12.12px 12.12px 12.12px;
-    border-radius: 8px;
-    background-color: #1c1f23;
-    color: white;
-    border-color: #6466E9;
-}
-
-.save {
+  .nav-bar :hover {
     background-color: #6466E9;
-    color: white;
-    padding: 15px 13.25px 13.25px 13.25px;
-    border-radius: 10px;
-}
-
-.submit {
-    background-color: #6466E9;
-    color: white;
-    border-radius: 10px;
-}
-
-.contact-container {
-    margin-bottom: 50px;
-}
-
-.profile-settings-renav {
-    margin-top: 50px;
-    text-align: center;
-    padding: 15px;
-    background-color: #6466E9;
-    border-radius: 8px;
-    width: 100%;
+    font-weight: bold;
   }
   
+  a {
+    color: white;
+  }
+
+  button {
+    background-color: #1c1f23;
+    color: white;
+    
+  }
+
+  .info {
+    text-align: left;
+    /* display: flex; */
+    justify-content: left;
+    /* align-items: center; */
+    /* margin-right: 160px; */
+  }
+  
+  .username {
+    display: inline-block;
+    text-transform: lowercase;
+  }
+  
+  .username h3 {
+    display: inline;
+  }
+  
+
+.follower-class {
+    margin-top: 15px;
+    /* padding-top: 15px; */
+    display: flex;
+}
+
+.description-header {
+  margin-top: 50px;
+}
+
+#description-text {
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  word-wrap: break-word;
+}
+
+
+.user-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user-post-header {
+    color: #6466E9;
+    margin-bottom: 15px;
+    padding-bottom: 24.5px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .selector-button {
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #uploaded-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    /* Add the following line to hide the fallback content */
+    text-indent: 100%; 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    border: 5.2px solid #6466e999;
+    border-radius: 5.2px;
+    box-shadow: 444px #6466e981;
+    margin-top: 42px;
+    margin-bottom: 42px;
+  }
+   */
+
+   #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #6466E9;
+    color: whitesmoke;
+  }
+
+  .selector-button {
+    background-color: #6466E9;
+    color: white;
+    font-weight: bold;
+    padding: 15px 15px 15px 15p;
+    border-radius: 7.5px;
+    margin-top: 18px;
+    margin-bottom: 12px;
+    max-width: 140px;
+    max-height: 120px;
+    /* min-width: 130px; */
+    /* min-height: 100px; */
+  }
+
+  input[type="text"] {
+    background-color: #1c1f23;
+    border-color: #6466E9;
+    color: white;
+  }
+
+  input[type="checkbox"] {
+    background-color: #1c1f23;
+    border-color: #6466E9;
+    color: white;
+  }
