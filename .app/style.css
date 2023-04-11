@@ -76,6 +76,7 @@ a {
 
 label[for="post-title"] {
   padding-bottom: 10px;
+  width: 2500px;
 }
 
 input[type="submit"] {
@@ -95,6 +96,9 @@ input[type="submit"] {
   border-radius: 5px; 
   border-color: #6466E9;
   color: white;
+  font-size: 14.5px;
+  width: 312px;
+  height: 39px;
 }
 
 #post-body {
@@ -103,8 +107,13 @@ input[type="submit"] {
   border-radius: 5px;
   border-color: #6466E9;
   color: white;
+  width: 312px;
+  height: 200px;
 }
 
+textarea {
+  font-size: 14.5px;
+}
 
 h1 {
   text-align: center;
@@ -121,6 +130,7 @@ label {
 
 input, textarea {
   margin-bottom: 10px;
+  width: 1000px;
   padding: 5px;
 }
 
@@ -181,4 +191,26 @@ button:hover {
 ::selection {
   color: white;
   background: #4c4eb5fd;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* 50% transparent black */
+  backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for modal container */
+.modal-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
 }
