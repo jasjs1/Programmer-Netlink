@@ -98,11 +98,11 @@
       <h2><span id="name"></span></h2>
           
       <script>
-        const storedUsername = localStorage.getItem('name');
+        const storedUsername = localStorage.getItem('signup-name');
         const usernameElem = document.querySelector('#name');
 
         if (storedUsername) {
-        usernameElem.textContent = `${storedUsername} Snippits`;
+        usernameElem.textContent = `${storedUsername}'s Snippits`;
         } else {
         usernameElem.textContent = 'No username found in local storage';
 
