@@ -45,7 +45,8 @@ body {
     margin: 0 auto;
     text-align: left;
     padding: 20px;
-    word-wrap: break-word;
+    inline-size: auto;
+    overflow-wrap: break-word;
     border: 1px solid #6466E9;
     border-radius: 5px;
   }
