@@ -70,24 +70,20 @@
         <label for="post-body"><h3>Body:</h3></label>
         <textarea id="post-body" name="post-body" placeholder="min 10 characters, max 150 characters" rows="4" minlength="10" maxlength="150" required></textarea>
         <br>
-        <input type="submit" value="Create Snippit">
+        <input type="submit" value="Upload Snippit">
       </form>
       <div class="close-container">
+        <p><strong>Press escape to close Snipit Creator</strong></p>
         <button id="hide-container">Close</button>
         <script>
-            // Get references to the button and container elements
-            const hideButton = document.getElementById("hide-container");
-            const container = document.getElementById("container");
 
-            // Add an event listener to the button
-            hideButton.addEventListener("click", function() {
-            // Toggle the visibility of the container
-            if (container.style.display === "none") {
-            container.style.display = "block";
-            } else {
-            container.style.display = "none";
-            }
-            });
+const hideBtn = document.getElementById('hide-container');
+const modalOverlay = document.getElementById('modal-overlay');
+
+hideBtn.addEventListener('click', () => {
+  modalOverlay.style.display = 'none';
+});
+
 
         </script>
       </div>
