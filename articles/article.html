@@ -13,6 +13,10 @@
         <a class="active" href="http://127.0.0.1:5500/profile/articles/display-articles.html">Created Articles</a>
       </div>
 
+      <div class="link">
+        <a href="http://127.0.0.1:5500/articles/article.html">Create an Article</a>
+      </div>
+
     <div class="header">
         <h1>Programmer Netlink</h1>
         <h2>Articles</h2>
@@ -25,11 +29,15 @@
         <label for="article-title"><h3>Title:</h3></label>
         <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required>
         <br>
+
         <label for="article-body"><h3>Body:</h3></label>
+        <!-- <button onclick="getLink()">Add a Link</button> -->
         <textarea id="article-body" name="article-body" rows="4" minlength="25" maxlength="2500" required></textarea>
         <br>
         <select id="article-tags" required>  <!-- EXPOSE TO VIEW FULL (just for me, this inside the editor, so there is not so much room taken by the options)-->
             <option> </option>
+            <option>Uncategorized</option>
+            <option>-- </option>
             <option>Ada</option>
             <option>Assembly</option>
             <option>AWK</option>
@@ -78,15 +86,33 @@
             <option>Swift</option>
             <option>SwiftUI, Swift</option>
             <option>TypeScript</option>
+            <option> ----- </option>
+            <option>Not Programming</option>
+            <option>Testing Feature</option>
+            <option>No Tag</option>
           </select>
         <input type="submit" value="Create Article">
       </form>
     </div>
     
+    <div class="post-list-header">
+      <h2><span id="name"></span></h2>
+          
+      <script>
+        const storedUsername = localStorage.getItem('signup-name');
+        const usernameElem = document.querySelector('#name');
+
+        if (storedUsername) {
+        usernameElem.textContent = `${storedUsername}'s Snippits`;
+        } else {
+        usernameElem.textContent = 'No username found in local storage';
+
+        }
+      </script>
+    </div>
 
 
     <div class="post-list">
-        <h2>Your Articles</h2>
         <div id="articles"></div>
       </div>
     </div>
