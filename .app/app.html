@@ -74,7 +74,7 @@
       </form>
       <div class="close-container">
         <div class="msg">
-          <p><strong>Press escape to close this.</strong></p>
+          <p><strong>Press escape to close</strong></p>
         </div>
       </div>
     </div>
@@ -106,14 +106,18 @@
           
       <script>
         const storedUsername = localStorage.getItem('signup-name');
-        const usernameElem = document.querySelector('#name');
+        console.log('storedUsername:', storedUsername);
+
+        const usernameElem = document.querySelector('#signup-name');
+        console.log('usernameElem:', usernameElem);
 
         if (storedUsername) {
-        // usernameElem.textContent = `${storedUsername}'s Snippits`;
+            usernameElem.textContent = `${storedUsername}'s Snippits`;
         } else {
-        usernameElem.textContent = 'No username found in local storage';
-
+            usernameElem.textContent = 'No username found in local storage';
         }
+
+
       </script>
     </div>
 
