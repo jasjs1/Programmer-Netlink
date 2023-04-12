@@ -9,6 +9,7 @@ if (!name) {
   localStorage.setItem('name', name);
 }
 
+
 // Update the page title to include the user's name
 // document.title = `${name}'s Social Media App`;
 
@@ -17,9 +18,10 @@ const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
 // Render existing posts
 if (savedPosts.length) {
-  const postsHTML = savedPosts.map(post => `<div class="post"><h3>${post.name}</h3><h2>${post.title}</h2><p>${post.body}</p></div>`).join('');
+  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p></div>`).join('');
   postsContainer.innerHTML = postsHTML;
 }
+
 
 // Add new post and save to local storage
 form.addEventListener('submit', (event) => {
@@ -39,7 +41,7 @@ form.addEventListener('submit', (event) => {
   // Create a new post element
   const postElement = document.createElement('div');
   postElement.classList.add('post');
-  postElement.innerHTML = `<h3>${name}</h3><h2>${title}</h2><p>${body}</p>`;
+  postElement.innerHTML = `<<h2>${title}</h2><p>${body}</p>`;
 
   // Add the new post to the list
   postsContainer.appendChild(postElement);
@@ -111,3 +113,9 @@ bodyTextarea.addEventListener('keydown', function(event) {
     event.stopPropagation();
   }
 });
+
+
+  // Show modal container when user clicks button
+  document.getElementById("show-modal").addEventListener("click", function() {
+    document.querySelector(".modal-overlay").style.display = "flex";
+  });
