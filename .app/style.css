@@ -87,7 +87,10 @@ input[type="submit"] {
   padding: 17px 17px 17px 17px;
   border-radius: 5px;
   margin-bottom: 24.5px;
+  margin-left: 6px;
+  border-color: #6466E9;
 }
+
 
 
 #post-title {
