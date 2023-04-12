@@ -40,15 +40,24 @@ body {
     border-radius: 5px;
 } */
 
+.post-list-header {
+  color: #6466E9;
+  text-align: left;
+  margin-left: 40px;
+}
+
 .post-list {
-    width: 80%;
-    margin: 0 auto;
-    text-align: left;
-    padding: 20px;
-    inline-size: auto;
-    overflow-wrap: break-word;
-    border: 1px solid #6466E9;
-    border-radius: 5px;
+  margin-top: 20px;
+  padding: 13px;
+  border: 1px solid #6466E9;
+  /* color: #6466E9; */
+  border-radius: 5px;
+  margin-left: 40px;
+  margin-right: 40px;
+  inline-size: auto;
+  overflow-wrap: break-word;
+  text-align: left;
+  align-items: left;
   }
 
   label[for="article-title"] {
