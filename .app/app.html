@@ -96,28 +96,20 @@
       }
     });
   </script>
-  
-  
-  
-
 
     <div class="post-list-header">
       <h2><span id="name"></span></h2>
           
       <script>
         const storedUsername = localStorage.getItem('signup-name');
-        console.log('storedUsername:', storedUsername);
-
-        const usernameElem = document.querySelector('#signup-name');
-        console.log('usernameElem:', usernameElem);
+        const usernameElem = document.querySelector('#name');
 
         if (storedUsername) {
-            usernameElem.textContent = `${storedUsername}'s Snippits`;
+        usernameElem.textContent = `${storedUsername}'s Snippits`;
         } else {
-            usernameElem.textContent = 'No username found in local storage';
+        usernameElem.textContent = 'No username found in local storage';
+
         }
-
-
       </script>
     </div>
 
