@@ -20,6 +20,12 @@ body {
     margin-top: 25px;
   }
 
+  .link {
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bolder;
+  }
+
   a {
     color: white;
     font-weight: bold;
@@ -94,8 +100,18 @@ body {
     margin-right: 14px;
     margin-bottom: 14px;
     background-color: #6466E9;
+    color: whitesmoke;
+    padding: ;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #6466E9;
     color: white;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
   
   .container {
