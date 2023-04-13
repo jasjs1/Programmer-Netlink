@@ -23,15 +23,14 @@ a {
 }
 
 #posts-container {
-    width: 100%;
-    max-width: 800px; /* Optional: set maximum width to prevent it from taking up the entire screen */
+    width: 92%;
     margin: 0 auto;
     text-align: left;
     padding: 20px;
     word-wrap: break-word;
     border: 1px solid #6466E9;
     border-radius: 5px;
-    box-sizing: border-box; /* Optional: include padding and border in the width and height */
+    box-sizing: border-box;
 
   }
   
