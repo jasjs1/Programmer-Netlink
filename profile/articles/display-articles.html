@@ -21,6 +21,32 @@
         <input type="text" id="search-input" placeholder="Search your Articles">
       </div>
 
+      <div class="alert">
+        <p><strong>These are articles that were created by</strong></p>
+        <script>
+          // Get the name from localStorage
+          const name = localStorage.getItem("signup-name");
+
+          // Check if the name exists
+          if (name) {
+            // Create a new alert element
+            const alertEl = document.createElement("div");
+            alertEl.classList.add("alert");
+
+            // Create a new heading element and set its text
+            const headingEl = document.createElement("h3");
+            headingEl.textContent = "These are articles that were created by " + name;
+
+            // Append the heading element to the alert element
+            alertEl.appendChild(headingEl);
+
+            // Append the alert element to the page
+            document.body.appendChild(alertEl);
+          }
+
+        </script>
+      </div>
+
       <div id="posts-container">
         <!-- Existing posts will be appended here -->
       </div>
