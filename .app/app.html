@@ -26,62 +26,62 @@
   <h1>Programmer Netlink</h1>
 
   <style>
-      /* Style for modal overlay */
-      .modal-overlay {
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      display: none; /* Hidden by default */
-      justify-content: center;
-      align-items: center;
-      }
+    /* Style for modal overlay */
+    .modal-overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    }
 
-      .modal-container {
-      position: relative;
-      /* z-index: 2; */
-      background-color: #1c1f23;
-      color: white;
-      padding: 120px 120px 120px 120px;
-      border-radius: 5px; 
-      max-width: 300px;
-      }
+    .modal-container {
+    position: relative;
+    /* z-index: 2; */
+    background-color: #1c1f23;
+    color: white;
+    padding: 120px 120px 120px 120px;
+    border-radius: 10px; 
+    max-width: 300px;
+    }
 
-      .modal-container input,
-      .modal-container textarea {
-      width: 100%;
-      box-sizing: border-box;
-      /* add any other styling here  or just delete it all*/
-      }
- 
-  </style>
-  
-  <!-- HTML for modal container -->
-  <div class="modal-overlay">
-    <div class="modal-container">
-      <form>
-        <label for="post-title"><h3>Title:</h3></label>
-        <input type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" minlength="5" maxlength="35" required>
-        <br>
-        <label for="post-body"><h3>Body:</h3></label>
-        <textarea id="post-body" name="post-body" placeholder="min 10 characters, max 150 characters" rows="4" minlength="10" maxlength="150" required></textarea>
-        <br>
-        <input type="submit" value="Upload Snippit">
-      </form>
-      <div class="close-container">
-        <div class="msg">
-          <p><strong>Press escape to close</strong></p>
-        </div>
+    .modal-container input,
+    .modal-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    /* add any other styling here  or just delete it all*/
+    }
+
+</style>
+
+<!-- HTML for modal container -->
+<div class="modal-overlay">
+  <div class="modal-container">
+    <form>
+      <label for="post-title"><h3>Title:</h3></label>
+      <input type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" minlength="5" maxlength="35" required>
+      <br>
+      <label for="post-body"><h3>Body:</h3></label>
+      <textarea id="post-body" name="post-body" placeholder="min 10 characters, max 2500 characters" rows="4" minlength="10" maxlength="2500" required></textarea>
+      <br>
+      <input type="submit" value="Upload Snippit">
+    </form>
+    <div class="close-container">
+      <div class="msg">
+        <p><strong>Press escape to close</strong></p>
       </div>
     </div>
   </div>
-  
-  <!-- HTML for "+" button -->
-  <button id="show-container">+</button>
+</div>
+
+<!-- HTML for "+" button -->
+<button id="show-container">+</button>
   
   <script>
     // Show modal container when user clicks "+" button
@@ -115,7 +115,9 @@
 
     <div class="post-list">
       <!-- <h2>Your Created Snippits:</h2> -->
-      <div id="posts"></div>
+      <div id="posts">
+        
+      </div>
     </div>
   </div>
 
