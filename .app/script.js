@@ -106,13 +106,21 @@ showContainerButton.addEventListener('click', function() {
   toggleContainer('toggle');
 });
 
-// Prevent container from closing when space is pressed inside textarea
 const bodyTextarea = document.getElementById('post-body');
+const container = document.getElementById('container');
+
 bodyTextarea.addEventListener('keydown', function(event) {
   if (event.code === 'Space') {
     event.stopPropagation();
   }
 });
+
+document.body.addEventListener('click', function(event) {
+  if (!container.contains(event.target)) {
+    container.style.display = 'none';
+  }
+});
+
 
 
   // Show modal container when user clicks button
