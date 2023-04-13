@@ -137,6 +137,14 @@ input, textarea {
   padding: 5px;
 }
 
+input[type="checkbox"] {
+  appearance: square;
+  background-color: #6466E9;
+  color: white;
+  padding: 15px 15px 15px 15px;
+}
+
+
 button {
   margin-top: 10px;
   padding: 10px;
@@ -166,6 +174,7 @@ button:hover {
   margin-right: 40px;
   inline-size: auto;
   overflow-wrap: break-word;
+  padding-top: 15px;
 }
 
 .post {
@@ -191,7 +200,11 @@ button:hover {
   margin-bottom: 14px;
   background-color: #6466E9;
   color: whitesmoke;
-  box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5; 
+  box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5;
+}
+
+.msg-1 {
+  text-align: center;
 }
 
 ::selection {
@@ -199,6 +212,10 @@ button:hover {
   background: #4c4eb5fd;
 }
 
+.modal-header {
+  text-align: center;
+  color: #6466E9;
+}
 
 .modal-overlay {
   position: fixed;
