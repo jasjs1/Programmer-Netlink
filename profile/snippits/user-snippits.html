@@ -46,108 +46,108 @@
     
     <script>
       const postsContainer = document.getElementById('posts-container');
-const noPostsMessage = document.getElementById('no-posts-message');
-const userName = document.getElementById('user-name');
-const searchInput = document.getElementById('search-input');
+      const noPostsMessage = document.getElementById('no-posts-message');
+      const userName = document.getElementById('user-name');
+      const searchInput = document.getElementById('search-input');
 
-// Check if name exists in local storage
-let name = localStorage.getItem('name');
-if (!name) {
-  // If not, prompt the user for their name and store it in local storage
-  name = prompt('Please enter your name:');
-  localStorage.setItem('name', name);
-}
+      // Check if name exists in local storage
+      let name = localStorage.getItem('name');
+      if (!name) {
+      // If not, prompt the user for their name and store it in local storage
+      name = prompt('Please enter your name:');
+      localStorage.setItem('name', name);
+      }
 
-// Update the page title to include the user's name
-document.title = `${name}'s S`;
-userName.textContent = name;
+      // Update the page title to include the user's name
+      document.title = `${name}'s S`;
+      userName.textContent = name;
 
-// Load existing posts from local storage
-const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+      // Load existing posts from local storage
+      const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
-// Render existing posts
-if (savedPosts.length > 0) {
-  renderPosts(savedPosts);
-} else {
-  noPostsMessage.textContent = '404: This Contributor has not created any Snippits.';
-  console.error('404: Requested to fetch Snippits. None exist. Contributer must make a Snippit for this error to go away.');
-}
+      // Render existing posts
+      if (savedPosts.length > 0) {
+      renderPosts(savedPosts);
+      } else {
+      noPostsMessage.textContent = 'This Contributor has not created any Snipits, yet.';
+      console.error('404: Requested to fetch Snippits. None exist. Contributer must make a Snippit for this error to go away.');
+      }
 
-// Add new post and save to local storage
-const form = document.querySelector('form');
-if (form) {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+      // Add new post and save to local storage
+      const form = document.querySelector('form');
+      if (form) {
+      form.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-    // Get the input values
-    const title = document.getElementById('post-title').value.trim();
-    const body = document.getElementById('post-body').value.trim();
+      // Get the input values
+      const title = document.getElementById('post-title').value.trim();
+      const body = document.getElementById('post-body').value.trim();
 
-    // Create a new post object
-    const post = {
+      // Create a new post object
+      const post = {
       title,
       body,
-    };
+      };
 
-    // Create a new post element
-    const postElement = createPostElement(title, body);
+      // Create a new post element
+      const postElement = createPostElement(title, body);
 
-    // Add the new post to the list
-    postsContainer.insertBefore(postElement, postsContainer.firstChild);
+      // Add the new post to the list
+      postsContainer.insertBefore(postElement, postsContainer.firstChild);
 
-    // Save the new post to local storage
-    savedPosts.unshift(post);
-    localStorage.setItem('posts', JSON.stringify(savedPosts));
+      // Save the new post to local storage
+      savedPosts.unshift(post);
+      localStorage.setItem('posts', JSON.stringify(savedPosts));
 
-    // Reset the form
-    form.reset();
-  });
-}
+      // Reset the form
+      form.reset();
+      });
+      }
 
-// Search through posts
-if (searchInput) {
-  searchInput.addEventListener('input', (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    const filteredPosts = savedPosts.filter(post => {
+      // Search through posts
+      if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+      const searchTerm = event.target.value.toLowerCase();
+      const filteredPosts = savedPosts.filter(post => {
       const title = post.title.toLowerCase();
       const body = post.body.toLowerCase();
       return title.includes(searchTerm) || body.includes(searchTerm);
-    });
-    renderPosts(filteredPosts);
-  });
-}
+      });
+      renderPosts(filteredPosts);
+      });
+      }
 
-function createPostElement(title, body) {
-  const postElement = document.createElement('div');
-  postElement.classList.add('post');
-  postElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
-  return postElement;
-}
+      function createPostElement(title, body) {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+      postElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
+      return postElement;
+      }
 
-function renderPosts(posts) {
-  postsContainer.innerHTML = '';
-  if (posts.length > 0) {
-    posts.forEach(post => {
+      function renderPosts(posts) {
+      postsContainer.innerHTML = '';
+      if (posts.length > 0) {
+      posts.forEach(post => {
       const postElement = createPostElement(post.title, post.body);
       postsContainer.appendChild(postElement);
-    });
-  } else {
-    noPostsMessage.textContent = 'No results found.';
-    const noPostsPhrases = [
-  "Our dino is wandering lost finding this query., sorry!",
-  "Looks like our dino needs a map.",
-  "Dino is kicking bones, he cant find the query.",
-  "Is it just me or I cant find this :(",
-  "Our dino is searching high and low.",
-  "The meteorite just hit the query, oof.",
-  "The dinos are extinct, just like this search query."
-  
-];
+      });
+      } else {
+      noPostsMessage.textContent = 'No results found.';
+      const noPostsPhrases = [
+      "Our dino is wandering lost finding this query., sorry!",
+      "Looks like our dino needs a map.",
+      "Dino is kicking bones, he cant find the query.",
+      "Is it just me or I cant find this :(",
+      "Our dino is searching high and low.",
+      "The meteorite just hit the query, oof.",
+      "The dinos are extinct, just like this search query."
 
-noPostsMessage.textContent = noPostsPhrases[Math.floor(Math.random() * noPostsPhrases.length)];
+      ];
 
-  }
-}
+      noPostsMessage.textContent = noPostsPhrases[Math.floor(Math.random() * noPostsPhrases.length)];
+
+      }
+      }
     </script>
     
     
