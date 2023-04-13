@@ -115,13 +115,36 @@ bodyTextarea.addEventListener('keydown', function(event) {
   }
 });
 
-document.body.addEventListener('click', function(event) {
-  if (!container.contains(event.target)) {
-    container.style.display = 'none';
+var modalOverlay = document.querySelector('.modal-overlay');
+var modalContainer = document.querySelector('.modal-container');
+
+window.onclick = function(event) {
+  if (event.target == modalOverlay) {
+    modalOverlay.style.display = 'none';
+  }
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    modalOverlay.style.display = 'none';
   }
 });
 
 
+  var modalOverlay = document.querySelector('.modal-overlay');
+  var modalContainer = document.querySelector('.modal-container');
+
+  window.onclick = function(event) {
+    if (event.target == modalOverlay) {
+      modalOverlay.style.display = 'none';
+    }
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      modalOverlay.style.display = 'none';
+    }
+  });
 
   // Show modal container when user clicks button
   document.getElementById("show-modal").addEventListener("click", function() {
