@@ -137,3 +137,9 @@
   input[type="checkmark"] {
     background-color: #6466E9;
   }
+
+  .toggler :hover {
+    font-weight: bolder;
+    color: #6466E9;
+    box-shadow: 5px 5px 5px 5px solid gray;
+  }
