@@ -29,13 +29,29 @@
         <label for="article-title"><h3>Title:</h3></label>
         <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required>
         <br>
-
+    
         <label for="article-body"><h3>Body:</h3></label>
-        <!-- <button onclick="getLink()">Add a Link</button> -->
-        <textarea id="article-body" name="article-body" rows="4" minlength="25" maxlength="2500" required></textarea>
+        <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required></textarea>
         <br>
-        <input type="submit" value="Upload Article">
+    
+        <div class="toggler">
+          <label for="toggle">
+            <input type="checkbox" id="toggle">
+            Toggle to enable submit button
+          </label>
+        </div>
+        <br>
+    
+        <input type="submit" value="Upload Article" disabled>
       </form>
+      <script>
+          const toggle = document.querySelector('#toggle');
+  const submitBtn = document.querySelector('input[type="submit"]');
+
+  toggle.addEventListener('change', () => {
+    submitBtn.disabled = !toggle.checked;
+  });
+      </script>
     </div>
     
     <div class="post-list-header">
