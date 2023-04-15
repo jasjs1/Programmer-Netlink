@@ -181,7 +181,7 @@ button:hover {
 
 .post-list-header {
   color: #6466E9;
-  margin-left: 40px;
+  margin-left: 420px;
 }
 
 .post-list {
@@ -190,11 +190,15 @@ button:hover {
   border: 1px solid #6466E9;
   /* color: #6466E9; */
   border-radius: 5px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 420px;
+  margin-right: 420px;
+  width: auto;
+  height: auto;
+  min-width: 45px;
+  min-height: 45px;
   inline-size: auto;
   overflow-wrap: break-word;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 .post {
