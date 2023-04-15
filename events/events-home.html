@@ -5,45 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Events - Programmer Netlink</title>
+
+    <title>ProgrammerIN - Events</title>
 </head>
 <body>
 
     <div class="header">
-        <h1>Programmer Netlink</h1>
-        <h3>Events</h3>
+      <h2>Programmer Netlink - Events</h2>
+      <p>Invite freinds, colleagues, or just your community to a programmming event</p>
     </div>
 
     <button id="show-container">+</button>
 
-    <div class="container" style="display:none;">
-      <form id="form">
-        <label for="event-title">Title</label>
-        <input type="text" name="event-title" required>
-    
-        <label for="event-description">Description</label>
-        <input type="text" name="event-description">
-    
-        <label for="event-start-date">Start Date</label>
-        <input type="date" name="event-start-date">
-    
-        <label for="event-start-time">Start Time</label>
-        <input type="time" name="event-start-time">
-    
-        <label for="event-end-date">End Date</label>
-        <input type="date" name="event-end-date">
-    
-        <label for="event-end-time">End Time</label>
-        <input type="time" name="event-end-time">
-    
-      </form>
-      <input type="submit" value="Create Event">
+    <div class="container">
+      <form id="event-form">
+    <h2>Create a New Event</h2>
+    <div class="fields">
+        <label for="event-type">Event Name:</label>
+        <input type="text" id="event-type" minlength="3" maxlength="35" required>
+        
+        <label for="event-date">Event Date:</label>
+        <input type="date" id="event-date" required>
+
+        <label for="event-time">Event Start Time:</label>
+        <input type="time" id="event-time" required>
+
+        <label for="event-location">Event Location:</label>
+        <input type="text" id="event-location" required>
+
+        <label for="whos-invited">Who's Invited:</label>
+        <input type="text" id="whos-invited" min="5" max="250" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" min="15" max="250" required>
+      </div>
+      <button type="submit">Add Event</button>
+</form>
     </div>
 
-    <div class="events-container">
-      <h2>Open Events: </h2>
+    <div class="event-container-header">
+      <h3>Open Events:</h3>
     </div>
-    
+
+<div id="event-container">
+    <!-- <h2>Events</h2> -->
+    <!-- <h2>Open Events</h2> -->
+</div>
     
 </body>
 <script src="script.js"></script>
