@@ -1,105 +1,120 @@
-    body {
-    background-color: #1c1f23;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    }
+body {
+background-color: #1c1f23;
+color: white;
+font-family: 'Open Sans', sans-serif;
+}
 
-    .header {
-    margin-top: 45px;
+.header {
+margin-top: 45px;
+text-align: center;
+}
+
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 20px;
+}
+
+.container h1, .container h2 {
+margin: 10px 0;
+}
+
+#show-container {
+font-size: 24px;
+margin-top: 20px;
+cursor: pointer;
+position: relative;
+}
+
+.dropdown-menu {
+position: absolute;
+top: 0;
+left: 100%;
+min-width: 100px;
+padding: 5px;
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+z-index: 1;
+}
+
+.dropdown-menu button {
+display: block;
+width: 100%;
+background-color: transparent;
+border: none;
+text-align: left;
+padding: 5px;
+cursor: pointer;
+}
+
+#queston-container, #answer-container {
+display: none;
+}
+
+#queston-container h2, #answer-container h2 {
+margin: 10px 0;
+}
+
+/* .container-type {
+margin-top: 20px;
+margin-bottom: 1120px;
+} */
+
+button {
+margin-top: 10px;
+padding: 10px;
+background-color: #6466E9;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #6466E0;
+}
+
+#show-container {
+position: fixed;
+bottom: 0;
+right: 0;
+font-size: 40px;
+font-weight: bold;
+margin-right: 14px;
+margin-bottom: 14px;
+}
+
+.looking-for-questons {
+    /* color: #6466E9; */
+    margin-top: 265px;
     text-align: center;
-    }
+}
 
-    .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    }
-
-    .container h1, .container h2 {
-    margin: 10px 0;
-    }
-
-    #show-container {
-    font-size: 24px;
-    margin-top: 20px;
-    cursor: pointer;
-    position: relative;
-    }
-
-    .dropdown-menu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    min-width: 100px;
-    padding: 5px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    z-index: 1;
-    }
-
-    .dropdown-menu button {
-    display: block;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    text-align: left;
-    padding: 5px;
-    cursor: pointer;
-    }
-
-    #queston-container, #answer-container {
-    display: none;
-    }
-
-    #queston-container h2, #answer-container h2 {
-    margin: 10px 0;
-    }
-
-    /* .container-type {
-    margin-top: 20px;
-    margin-bottom: 1120px;
-    } */
-
-    button {
-    margin-top: 10px;
-    padding: 10px;
+.nav-bar {
     background-color: #6466E9;
+    padding: 20px 20px 20px 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 19px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+a {
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    }
+}
 
-    button:hover {
-    background-color: #6466E0;
-    }
+input[type="text"] {
+    background-color: #1c1f23;
+    border-color: #6466E9;
+    color: whtie;
+}
 
-    #show-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 40px;
-    font-weight: bold;
-    margin-right: 14px;
-    margin-bottom: 14px;
-    }
-
-    .looking-for-questons {
-        /* color: #6466E9; */
-        margin-top: 265px;
-        text-align: center;
-    }
-
-    .nav-bar {
-        background-color: #6466E9;
-        padding: 20px 20px 20px 20px;
-        border-radius: 15px;
-        text-align: center;
-        font-size: 19px;
-        
-    }
-
-    a {
-        color: white;
-    }
+#container-type {
+    background-color: #1c1f23;
+    border: 2px solid;
+    border-color: #6466E9;
+    color: white;
+}
