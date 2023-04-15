@@ -90,9 +90,6 @@ function addNewTask() {
   }
 }
 
-
-
-
 startBtn.addEventListener('click', startTimer);
 stopBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
@@ -100,5 +97,26 @@ addTaskBtn.addEventListener('click', addNewTask);
 
 // Request permission for notifications
 if (Notification.permission !== 'granted') {
-  Notification.requestPermission();
+//   Notification.requestPermission();
+  console.log('Pomodoro timer update notifications allowed.');
 }
+
+if(Notification.permission !== "denied") {
+    Notification.requestPermission()
+    if (!localStorage.getItem('alertShown')) {
+      alert('Please turn on your notifications on for this site to get updated when the sessions are over.');
+      localStorage.setItem('alertShown', true);
+      Notification.requestPermission();
+    }
+  }
+
+  if(Notification.permission !== "default") {
+    Notification.requestPermission()
+    if (!localStorage.getItem('alertShown')) {
+      alert('Please turn on your notifications on for this site to get updated when the sessions are over.');
+      localStorage.setItem('alertShown', true);
+      Notification.requestPermission();
+    }
+  }
+  
+  
