@@ -95,16 +95,19 @@ stopBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
 addTaskBtn.addEventListener('click', addNewTask);
 
-// Request permission for notifications
+// Request notification prems
+
+const saveName = localStorage.getItem('signup-name');
+
 if (Notification.permission !== 'granted') {
 //   Notification.requestPermission();
-  console.log('Pomodoro timer update notifications allowed.');
+    console.log(saveName + ' has allowed system notifications for status updates on pomodoro timer.')
 }
 
 if(Notification.permission !== "denied") {
     Notification.requestPermission()
     if (!localStorage.getItem('alertShown')) {
-      alert('Please turn on your notifications on for this site to get updated when the sessions are over.');
+      alert('Hey ' + saveName + ' to get notifications about the status of the pomdoro timer you must turn notifications on. This will send notifications to your device through its notification system.');
       localStorage.setItem('alertShown', true);
       Notification.requestPermission();
     }
@@ -113,10 +116,9 @@ if(Notification.permission !== "denied") {
   if(Notification.permission !== "default") {
     Notification.requestPermission()
     if (!localStorage.getItem('alertShown')) {
-      alert('Please turn on your notifications on for this site to get updated when the sessions are over.');
+        alert('Hey ' + saveName + ' to get notifications about the status of the pomdoro timer you must turn notifications on. This will send notifications to your device through its notification system.');
       localStorage.setItem('alertShown', true);
       Notification.requestPermission();
     }
   }
-  
   
