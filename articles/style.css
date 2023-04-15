@@ -63,7 +63,7 @@
   .post-list-header {
   color: #6466E9;
   text-align: left;
-  margin-left: 40px;
+  margin-left: 110px;
   }
 
   .post-list {
@@ -72,8 +72,8 @@
   border: 1px solid #6466E9;
   /* color: #6466E9; */
   border-radius: 5px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 110px;
+  margin-right: 110px;
   inline-size: auto;
   overflow-wrap: break-word;
   text-align: left;
