@@ -52,12 +52,32 @@ body {
   font-size: 17px;
   padding-right: 12px;
   margin-top: 25px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
+.tab-bar {
+  font-size: 25px;
+  /* margin-left: 5px; */
+  font-weight: bold;
+  padding: 26px 18px 26px 26px;
+  border-radius: 10px;
+}
+
+.tab-bar :active {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.tab-bar :hover {
+  color: black;
+  font-weight: bolder;
+  
+}
 
 a {
   color: white;
-  font-weight: ;
+  font-weight: bold;
 }
 
 
@@ -240,4 +260,4 @@ button:hover {
 
 .msg {
   text-align: center;
-} 
+}
