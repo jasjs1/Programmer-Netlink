@@ -1,0 +1,89 @@
+body {
+  background-color: #1c1f23;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  padding-bottom: 5.5px;
+}
+
+.header {
+  margin-top: 35px;
+  margin-bottom: 45px;
+}
+
+.fields {
+  padding: auto;
+  padding-bottom: 12.2px;
+}
+
+.event-container-header {
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+#event-container {
+}
+
+.container {
+  display: none;
+}
+
+
+#show-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 14px;
+  margin-bottom: 14px;
+  background-color: #6466E9;
+  color: whitesmoke;
+  border-color: #6466E9;
+  box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5;
+}
+
+/* Input stylings */
+
+input[type="text"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="time"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="date"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-weight: bolder;
+}
+
+#description {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button[type="submit"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+}
+
+.close-btn {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-size: medium;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
