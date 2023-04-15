@@ -1,55 +1,57 @@
-body {
-    background-color: #1c1f23;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 
-.header {
-    margin-top: 15px;
-    margin-bottom: 30px;
-}
+    <title>ProgrammerIN - Events</title>
+</head>
+<body>
 
-#show-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 40px;
-    font-weight: bold;
-    margin-right: 14px;
-    margin-bottom: 14px;
-  }
+    <div class="header">
+      <h2>Programmer Netlink - Events</h2>
+      <p>Invite freinds, colleagues, or just your community to a programmming event</p>
+    </div>
 
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    border: 5.2px solid #6466e999;
-    border-radius: 5.2px;
-    box-shadow: 444px #6466e981;
-    margin-top: 42px;
-    margin-bottom: 42px;
-    display: flex;
-    flex-direction: column;
-}
+    <button id="show-container">+</button>
 
-  input[type="date"] {
-    font-family: 'Open Sans', sans-serif;
-  }
+    <div class="container">
+      <form id="event-form">
+    <h2>Create a New Event</h2>
+    <div class="fields">
+        <label for="event-type">Event Name:</label>
+        <input type="text" id="event-type" minlength="3" maxlength="35" required>
+        
+        <label for="event-date">Event Date:</label>
+        <input type="date" id="event-date" required>
 
-  input[type="time"] {
-    font-family: 'Open Sans', sans-serif;
-  }
+        <label for="event-time">Event Start Time:</label>
+        <input type="time" id="event-time" required>
 
-  input[type="submit"] {
-    background-color: #6466E9;
-    font-weight: bolder;
-    color: white;
-    font-size: 17px;
-    padding: 14px 14px 14px 14px;
-    border-radius: 5px;
-    margin-bottom: 24.5px;
-  }
+        <label for="event-location">Event Location:</label>
+        <input type="text" id="event-location" required>
 
+        <label for="whos-invited">Who's Invited:</label>
+        <input type="text" id="whos-invited" min="5" max="250" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" min="15" max="250" required>
+      </div>
+      <button type="submit">Add Event</button>
+</form>
+    </div>
+
+    <div class="event-container-header">
+      <h3>Open Events:</h3>
+    </div>
+
+<div id="event-container">
+    <!-- <h2>Events</h2> -->
+    <!-- <h2>Open Events</h2> -->
+</div>
+    
+</body>
+<script src="script.js"></script>
+</html>
