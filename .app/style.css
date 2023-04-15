@@ -41,11 +41,11 @@ body {
 }
 
 .tab-bar {
-  background-color: #6466E9;
+  background-color: #1c1f2395;
   text-align: center;
   color: white;
-  padding: 20px;
-  max-width: 600px;
+  padding: 15px;
+  max-width: 200px;
   margin: auto;
   width: 100%;
   border-radius: 5px;
@@ -70,7 +70,7 @@ body {
 }
 
 .tab-bar :hover {
-  color: black;
+  color: #6466E;
   font-weight: bolder;
   
 }
@@ -214,6 +214,7 @@ button:hover {
   margin: 0;
 }
 
+
 #show-container {
   position: fixed;
   bottom: 0;
@@ -224,6 +225,7 @@ button:hover {
   margin-bottom: 14px;
   background-color: #6466E9;
   color: whitesmoke;
+  border-color: #6466E9;
   box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5;
 }
 
