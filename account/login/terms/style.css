@@ -1,102 +1,25 @@
-body {
+    body {
     background-color: #1c1f23;
+    color: white;
     font-family: 'Open Sans', sans-serif;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-
-.header {
-    color: #6466E9;
-    font-weight: bold;
-}
-
-.redirect-to-signup {
-    padding-top: 30px;
-    
-}
-
-a {
-    color: #6466E9;
-    font-weight: bolder;
-}
-
-input[type=text] {
-    width: 82%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align: center;
-    background-color: #1c1f23;
-    color: white;
-    border-style: soild;
-    border-color: #6466E9;
-  }
-
-  input[type=text]::placeholder {
-    color: white;
-  }
-  
-  input[type=email] {
-    width: 82%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align: center;
-    background-color: #1c1f23;
-    color: white;
-    border-style: soild;
-    border-color: #6466E9;
-  }
-
-  input[type=email]::placeholder {
-    color: white;
-  }
-
-  input[type=password] {
-    width: 82%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    text-align: center;
-    background-color: #1c1f23;
-    color: white;
-    border-style: soild;
-    border-color: #6466E9;
-  }
-
-  input[type=password]::placeholder {
-    color: white;
-  }
-  
-  .myDiv:target{
-
-    display:block !important;
-    
     }
 
-    .expose {
-      display: flex;
-      flex-direction: row;
+    .header {
+    color: #6466E9;
+    font-weight: lighter;
     }
-    
-    .redirects {
-      margin-top: 85px;
+
+    .terms {
+    margin-top: 72px; 
     }
 
     button {
-      margin-top: 85px;
-      background-color: #1c1f23;
-      border: 1px solid #6466E9;
-      border-radius: 7px;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      }
-      
-      
+    margin-top: 85px;
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    border-radius: 7px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    }
