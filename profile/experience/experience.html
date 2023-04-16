@@ -37,6 +37,7 @@
       <option>Contract</option>
       <option>Self-Employed</option>
       <option>Seasonal Job</option>
+      <option>Volunteer</option>
       <option>Other</option>
     </select>
   
@@ -127,8 +128,10 @@
     <p>PDFs, doc, or docx are allowed.</p>
     </div>
 
-    <div class="uploader">
-    <input type="file" accept=".pdf,.doc,.docx" onchange="openFile(this.files[0])">
+    <div class="file-input-container">
+      <input type="file" accept=".pdf,.doc,.docx" onchange="openFile(this.files[0])">
+    </div>
+    
 
     <script>
 function openFile(file) {
