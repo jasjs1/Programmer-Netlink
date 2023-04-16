@@ -36,3 +36,21 @@ if (typeof(Storage) !== "undefined") {
 } else {
   console.log('Sorry! No Web Storage support..');
 }
+
+
+const jobStatusSelect = document.getElementById('job-status');
+const saveBtn = document.getElementById('save');
+
+// Load job status from localStorage if available
+const savedJobStatus = localStorage.getItem('jobStatus');
+if (savedJobStatus) {
+  jobStatusSelect.value = savedJobStatus;
+}
+
+// Save job status to localStorage when save button is clicked
+saveBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  const jobStatus = jobStatusSelect.value;
+  localStorage.setItem('jobStatus', jobStatus);
+  window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html';
+});
