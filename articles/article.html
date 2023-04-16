@@ -9,32 +9,29 @@
 </head>
 <body>
 
-  <div class="tab-bar">
-    <a href="http://127.0.0.1:5500/.app/app.html">Snipits</a>
-    <a href="http://127.0.0.1:5500/articles/article.html">Articles</a>
+  <div class="header">
+    <h1>Articles</h1>
   </div>
 
-
-    <div class="header">
-        <h1>Programmer Netlink</h1>
-        <h2>Articles</h2>
-    </div>
 
     <button id="show-container">+</button>
 
     <div class="container">
       <form>
-        <label for="article-title"><h3>Title:</h3></label>
-        <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required>
-        <br>
-    
-        <label for="article-body"><h3>Body:</h3></label>
-        <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required></textarea>
+        <div class="article-forms">
+          <label for="article-title"><h3>Title:</h3></label>
+          <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required placeholder=" Article Title Text Here">
+          <br>
+      
+          <label for="article-body"><h3>Body:</h3></label>
+          <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Article Body Text Here"></textarea>
+        </div>
         <br>
     
         <button type="button" onclick="createLink()">Add Link</button>
         <button type="button" onclick="createCode()">Add Code</button>
     
+
         <div class="toggler">
           <label for="toggle">
             <input type="checkbox" id="toggle">
