@@ -5,41 +5,6 @@
     text-align: center;
   }
 
-
-  .tab-bar {
-    background-color: #6466E9;
-    text-align: center;
-    color: white;
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 17px;
-    padding-right: 12px;
-    margin-top: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-  }
-  
-  .tab-bar {
-    font-size: 25px;
-    /* margin-left: 5px; */
-    font-weight: bold;
-    padding: 26px 18px 26px 26px;
-    border-radius: 10px;
-  }
-  
-  .tab-bar :active {
-    font-weight: bolder;
-    text-decoration: underline;
-  }
-  
-  .tab-bar :hover {
-    color: black;
-    font-weight: bolder;
-    
-  }
   .link {
     margin-top: 50px;
     font-size: 18px;
@@ -52,6 +17,7 @@
   }
 
   .header {
+    margin-top: 50px;
     margin-bottom: 50px;
   }
 
