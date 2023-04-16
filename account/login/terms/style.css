@@ -93,6 +93,10 @@ input[type=text] {
       margin-top: 85px;
       background-color: #1c1f23;
       border: 1px solid #6466E9;
+      border-radius: 7px;
+      color: white;
+      padding: 20px;
+      text-align: center;
       }
       
       
