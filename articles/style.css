@@ -5,6 +5,41 @@
     text-align: center;
   }
 
+  .topnav {
+  background-color: #1c1f23;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav a:hover {
+  background-color: #6466E9;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav a.active {
+  font-weight: bolder;
+  /* background-color: #6466E9; */
+  color: white;
+  text-align: center;
+  text-align: center;
+  align-items: center;
+}
+
+
   .link {
     margin-top: 50px;
     font-size: 18px;
