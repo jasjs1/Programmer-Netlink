@@ -1,3 +1,4 @@
+const savedName = localStorage.getItem('signup-name');
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('articles');
 
@@ -66,3 +67,16 @@ function toggleContainer(action) {
 showContainerButton.addEventListener('click', function() {
   toggleContainer('toggle');
 });
+
+
+// Check if articles data exists in local storage
+if (localStorage.getItem('articles')) {
+  // Render the articles data
+  const articles = JSON.parse(localStorage.getItem('articles'));
+  // Code to display the articles on the page
+} else {
+  // No articles data found, display a friendly message to the user
+  const message = document.createElement('p');
+  message.textContent = savedName + ' has not created any articles, yet.';
+  document.body.appendChild(message);
+}
