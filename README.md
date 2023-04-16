@@ -13,3 +13,5 @@ Programmer Netlink is programmer social media app
 # Liability:
 
 Programmer Netlink is not libale for anything that is posted onto this platform. The content that is postsed on this platform is not endorsed, nor associated with Programmmer Netlink 
+
+## This is not a real project, this is just a side-project for fun
