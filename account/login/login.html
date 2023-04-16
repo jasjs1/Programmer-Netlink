@@ -11,85 +11,105 @@
 
     <div class="header">
         <h1>Programmer Netlink</h1>
-        <h3>Signup</h3>
-        <p>Welcome! Glad to see you back!</p>
     </div>
 
-    <div class="fields">
+
+    <div class="expose">
+      <a href="#signup" ><h2>Signup __</h2></a>
+
+      <a href="#login"><h2>Login</h2></a>
+    </div>
+
+    
+    <div class="myDiv" id="signup" style="display:none">
+      <form>
+        <p>Name</p>
+        <input type="text" name="signup-name" placeholder="your name" required>
+               
+        <p>Email:</p>
+        <input type="email" name="signup-email" placeholder="your email" required>
+  
+        <p>Username:</p>
+        <input type="text" name="username" placeholder="username" required>
+            
+        <p>Password:</p>
+        <input type="password" name="signup-password" placeholder="your password" min="8" max="80" required>
+  
+        <p>Tag</p>
+        <p>What's your primary programming language?</p>
+        <select id="tag" required>
+          <option> </option>
+          <option>ada</option>
+          <option>assembly</option>
+          <option>awk</option>
+          <option>bash</option>
+          <option>c</option>
+          <option>c#</option>
+          <option>c++</option>
+          <option>clojure</option>
+          <option>cobol</option>
+          <option>coffeescript</option>
+          <option>commonlisp</option>
+          <option>crystal</option>
+          <option>css</option>
+          <option>dart</option>
+          <option>elixir</option>
+          <option>elm</option>
+          <option>erlang</option>
+          <option>f#</option>
+          <option>fortran</option>
+          <option>go</option>
+          <option>groovy</option>
+          <option>haskell</option>
+          <option>html</option>
+          <option>java</option>
+          <option>javascript</option>
+          <option>julia</option>
+          <option>kotlin</option>
+          <option>lua</option>
+          <option>matlab</option>
+          <option>objectivec</option>
+          <option>ocaml</option>
+          <option>pascal</option>
+          <option>perl</option>
+          <option>php</option>
+          <option>python</option>
+          <option>r</option>
+          <option>react</option>
+          <option>reactnative</option>
+          <option>ruby</option>
+          <option>rust</option>
+          <option>scala</option>
+          <option>scheme</option>
+          <option>sql</option>
+          <option>swift</option>
+          <option>typescript</option>
+  
+  
+        </select>
+      
+        <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/.app/app.html'">Create Account</button>
+    </div>
+    
+    <div class="myDiv" id="login" style="display:none">
+      <form>
         <p>Email:</p>
         <input type="email" name="signup-email" placeholder="email" required>
       
         <p>Password</p>
         <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
       
-
-        <div class="two-factor-login">
-          <h3>Enter 2FA pin to log in.</h3>
-          <form>
-              <label for="two-factor-code">Two Factor Code:</label>
-              <input type="text" name="two-factor-code" id="two-factor-code-input">
-              
-              <button id="login">Log In</button>
-          </form>
-      </div>
-      
-      <script>
-          const twoFactorCode = localStorage.getItem('twoFactorCode');
-          
-          if (twoFactorCode) {
-              const twoFactorLoginDiv = document.querySelector('.two-factor-login');
-              
-              const twoFactorCodeDisplay = document.createElement('p');
-              twoFactorCodeDisplay.textContent = `Your 2FA code is: ${twoFactorCode}`;
-              
-              twoFactorLoginDiv.insertBefore(twoFactorCodeDisplay, twoFactorLoginDiv.firstChild);
-          }
-          
-          const loginButton = document.querySelector('#login');
-          const twoFactorCodeInput = document.querySelector('#two-factor-code-input');
-          
-          loginButton.addEventListener('click', (event) => {
-              event.preventDefault();
-              
-              const enteredTwoFactorCode = twoFactorCodeInput.value;
-              
-              if (enteredTwoFactorCode === twoFactorCode) {
-                window.location.href = 'http://127.0.0.1:5500/.app/app.html';
-                console.log('2FA code entered correctly. Logging in..')
-              } else {
-                  alert('Incorrect 2FA code. Please try again.');
-                  console.error('Incorrect 2FA code inputed. User needs to input in the correct 2FA code to log in. USER ERROR')
-              }
-          });
-      </script>
-      
-
+  
         <button id="save" onclick="login()">Login</button>
-      </div>
-      
-      <script>
-      function login() {
-        // Get email and password input values
-        const email = document.querySelector('[name="signup-email"]').value;
-        const password = document.querySelector('[name="signup-password"]').value;
-        
-        // Check if email and password match the values in localStorage
-        const storedEmail = localStorage.getItem('signup-email');
-        const storedPassword = localStorage.getItem('signup-password');
-        
-        if (email === storedEmail && password === storedPassword) {
-          // Redirect to app.html
-          window.location.href = 'http://127.0.0.1:5500/.app/app.html';
-        } else {
-          // Display error message and log error in console
-          alert('Error logging in: Incorrect email or password. Close this to try again');
-          console.log('ISSUE LOGGING USER IN: Incorrect email or password provided that is in database.');
-        }
-      }
-      </script>
 
-      <div class="redirect-to-signup">
-        <a href="http://127.0.0.1:5500/account/signup-or-login/signup/signup.html">Accidently here? Go to signup</a>
-      </div>
+
+      </form>
+    </div>
+
+      
+      
+      
+      
 </body>
+<script src="script.js"></script>
 </html>
