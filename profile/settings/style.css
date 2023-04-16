@@ -121,3 +121,9 @@ input[type="password"] {
     width: 100%;
   }
   
+  select {
+    background-color: #1c1f23;
+    border: 1px solid;
+    border-color: #6466E9;
+    color: white;
+  }
