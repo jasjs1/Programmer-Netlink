@@ -1,4 +1,3 @@
-const savedName = localStorage.getItem('signup-name');
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('articles');
 
@@ -62,6 +61,8 @@ showContainerButton.addEventListener('click', function() {
   toggleContainer('toggle');
 });
 
+
+const savedName = localStorage.getItem('signup-name');
 
 if (localStorage.getItem('articles')) {
   const articles = JSON.parse(localStorage.getItem('articles'));
