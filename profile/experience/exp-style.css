@@ -40,5 +40,34 @@ body {
 }
 
 .cv-header {
-    margin-top: 105px;
+    margin-top: 15px;
 }
+
+.file-input-container {
+    text-align: center;
+  }
+  
+  .file-input-container input[type="file"] {
+    display: inline-block;
+  }
+  
+  input[type="text"] {
+    background-color: #1c1f23;
+    border: 1px solid;
+    border-color: #6466E9;
+    color: white;
+  }
+
+select  {
+    background-color: #1c1f23;
+    color: white;
+    border: 1px solid;
+    border-color: #6466E9;
+  }
+
+  button {
+    background-color: #1c1f23;
+    color: white;
+    border: 1px solid;
+    border-color: #6466E9;
+  }
