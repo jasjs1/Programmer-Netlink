@@ -74,3 +74,14 @@ input[type=text] {
     color: white;
   }
   
+  .myDiv:target{
+
+    display:block !important;
+    
+    }
+
+    .expose {
+      display: flex;
+      flex-direction: row;
+    }
+    
