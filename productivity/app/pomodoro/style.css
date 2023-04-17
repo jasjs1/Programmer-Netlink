@@ -7,11 +7,12 @@ body {
 }
 
 .header {
+	padding-top: 20px;
 	color: #6466E9;
 }
 
 .pomodoro {
-    margin-top: 175px;
+    /* margin-top: 15px; */
 	font-weight: 800px;
 	display: flex;
 	flex-direction: column;
@@ -25,7 +26,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 30px;
 	padding-bottom: 15px;
   }
   
