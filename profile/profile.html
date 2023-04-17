@@ -10,6 +10,7 @@
 <body>
 
       <div class="nav-bar">
+		<a href="http://127.0.0.1:5500/.app/app.html"><b>App Home</b></a>
         <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Your Articles</b></a>
         <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Your Snippits</b></a>
         <a href="http://127.0.0.1:5500/profile/experience/experience.html"><b>Expeirences</b></a>
@@ -17,50 +18,82 @@
       </div>
 
 
-	  <div class="profile-icon-selector-button">
-		  <input type="file" id="image-upload" style="display:none;">
-		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-		  <button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
-	  </div>
-      
-
-	  <div class="info">
-		<h2><span id="signup-name"></span></h2>
-		<h3><span id="user-username"></span></h3>
-		<h3><span id="tag"></span></h3>
+	  <script>
+		function uploadImage() {
+		  const fileInput = document.getElementById('image-upload');
+		  fileInput.accept = 'image/jpeg, image/png, image/heic, image/svg,'; // Add allowed file types here
 		
-		<script>
-		  // Load user name and tag from local storage
-		  const savedName = localStorage.getItem('signup-name') || '';
-		  const savedUserName = localStorage.getItem('username') || '';
-		  const savedTag = localStorage.getItem('tag') || '';
-	  
-		  // Update the user name and tag elements with the saved values
-		  const nameElement = document.getElementById('signup-name');
-		  nameElement.textContent = savedName;
-	  
-		  const userNameElement = document.getElementById('user-username');
-		  userNameElement.textContent = `${savedUserName}@${savedTag}.netlink`;
-	  
-		  const tagElement = document.getElementById('tag');
-		  tagElement.textContent = `#${savedTag}`;
-		</script>
-	  </div>
-	  
-	  <div class="username">
-		<h3><span id="username"></span></h3>
-		<script>
-		  const storedUsername = localStorage.getItem('user-name');
-		  const usernameElem = document.querySelector('#username');
-	  
-		  if (storedUsername) {
-			usernameElem.textContent = `@${storedUsername} `;
-		  } else {
-			// usernameElem.textContent = 'No username found in local storage';
+		  fileInput.addEventListener('change', (event) => {
+			const file = event.target.files[0];
+			const reader = new FileReader();
+		
+			reader.onload = (e) => {
+			  const uploadedImage = document.getElementById('uploaded-image');
+			  uploadedImage.style.backgroundImage = `url(${e.target.result})`; // Set the uploaded image as background
+			  uploadedImage.style.display = 'block';
+		
+			  // Save image data to localStorage
+			  localStorage.setItem('profileImage', e.target.result);
+			}
+		
+			reader.readAsDataURL(file);
+		  });
+		
+		  fileInput.click();
+		
+		  // Check if there is no image uploaded
+		  const uploadedImage = document.getElementById('uploaded-image');
+		  if (!uploadedImage.style.backgroundImage || uploadedImage.style.backgroundImage === 'none') {
+			  uploadedImage.style.backgroundImage = 'url(/profile/img/default-user-profile.svg)';
+			  uploadedImage.style.display = 'block';
+			localStorage.setItem('profileImage', '/	profile/img/default-user-profile.svg');
 		  }
+		}
 		</script>
-	  </div>
+		
+		<div class="main-content">
+		  <div class="profile-icon-selector-button">
+			<input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
+			<img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
+			<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
+		  </div>
+		</div>		
+
+			
+
+
+			<div class="info">
+				<h2><span id="signup-name"></span></h2>
+				<h3><span id="user-username"></span></h3>
+				<h3><span id="tag"></span></h3>
+				
+				<script>
+				  // Load user name and tag from local storage
+				  const savedName = localStorage.getItem('signup-name') || '';
+				  const savedUserName = localStorage.getItem('username') || '';
+				  const savedTag = localStorage.getItem('tag') || '';
+			  
+				  // Update the user name and tag elements with the saved values
+				  const nameElement = document.getElementById('signup-name');
+				  nameElement.textContent = savedName;
+			  
+				  const userNameElement = document.getElementById('user-username');
+				  userNameElement.textContent = `@${savedUserName}.${savedTag}.netlink`;
+			  
+				  const tagElement = document.getElementById('tag');
+				  tagElement.textContent = `#${savedTag}`;
+
+				  if (storedUsername) {
+					usernameElem.textContent = `@${storedUsername} `;
+				  } else {
+					// usernameElem.textContent = 'No username found in local storage';
+				  }
+				</script>
+			  </div>
+	
+
 	  
+
 
 <div class="follower-class">
   <h3>Followers: <span id="follower-count">0</span></h3>
@@ -73,6 +106,20 @@
     <h2>Snippits <span id="user-name"></span></h2>
     <p>Snippits are like 'posts'.</p>
   </div> -->
+
+  <div class="snippits-redirect-link">
+    <h2>Masterpeices:</h2>
+    <h3>See the user's Snipits  and Articles.</h3>
+  </div>
+
+  <div class="button-1">
+    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
+  </div>
+
+  <div class="button-2">
+    <button onclick="window.location.href='http://127.0.0.1:5500/profile/articles/display-articles.html'">See Articles</button>
+  </div>
+
 
   <div class="description-header">
 		<h2>Bio:</h2>
@@ -150,18 +197,6 @@ descriptionText.addEventListener("keydown", (event) => {
 	  </script>
 </div>
 
-  <div class="snippits-redirect-link">
-    <h2>Masterpeices:</h2>
-    <h3>See the user's Snipits  and Articles.</h3>
-  </div>
-
-  <div class="button-1">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/snippits/user-snippts.html'">See Snippits</button>
-  </div>
-
-  <div class="button-2">
-    <button onclick="window.location.href='http://127.0.0.1:5500/profile/articles/display-articles.html'">See Articles</button>
-  </div>
 
   <div class="skills-header">
 	<h2>Skills:</h2>
