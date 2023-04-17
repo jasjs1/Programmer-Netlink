@@ -50,28 +50,6 @@ window.onload = () => {
     });
   };
 
-  function uploadImage() {
-    const fileInput = document.getElementById('image-upload');
-    fileInput.accept = 'image/jpeg, image/png, image/heic'; // Add allowed file types here
-  
-    fileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = (e) => {
-        const uploadedImage = document.getElementById('uploaded-image');
-        uploadedImage.style.backgroundImage = `url(${e.target.result})`; // Set the uploaded image as background
-        uploadedImage.style.display = 'block';
-  
-        // Save image data to localStorage
-        localStorage.setItem('profileImage', e.target.result);
-      }
-  
-      reader.readAsDataURL(file);
-    });
-  
-    fileInput.click();
-  }
   
   // Check if there is a saved image in localStorage and display it
   window.addEventListener('load', () => {
@@ -82,6 +60,7 @@ window.onload = () => {
       uploadedImage.style.display = 'block';
     }
   });
+  
   
   
   const containerDiv = document.querySelector('.container');
@@ -135,3 +114,4 @@ function toggleContainer(action) {
 showContainerButton.addEventListener('click', function() {
   toggleContainer('toggle');
 });
+
