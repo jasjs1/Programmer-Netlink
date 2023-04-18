@@ -164,3 +164,8 @@
     color: #6466E9;
     box-shadow: 5px 5px 5px 5px solid gray;
   }
+
+  .addons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
