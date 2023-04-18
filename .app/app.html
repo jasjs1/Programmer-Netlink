@@ -83,11 +83,19 @@
       <br>
       <label for="post-body"><h3>Body:</h3></label>
       <textarea id="post-body" name="post-body" placeholder="min 10 characters, max 450 characters" rows="4" minlength="10" maxlength="450"></textarea>
-      <div class="msg-1">
-        <label for="toggle-space">
-          <span>Toggle this to not have a body text:</span>
-          <input type="checkbox" id="toggle-space">
-        </label>      
+      <div class="msg-1"> 
+
+        <div class="addons">
+          <img src="/.app/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
+        </div>
+
+        <div class="toggle-c">
+          <label for="toggle-space">
+            <span>No body: </span>
+            <input type="checkbox" id="toggle-space">
+          </label> 
+        </div>    
+
       </div>
       <br>
       <input type="submit" value="Upload Snippit">
