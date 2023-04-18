@@ -45,7 +45,7 @@ form.addEventListener('submit', (event) => {
 
   // Add the new post to the list
   postsContainer.appendChild(postElement);
-
+ 
   // Save the new post to local storage
   savedPosts.push(post);
   localStorage.setItem('posts', JSON.stringify(savedPosts));
@@ -150,3 +150,57 @@ document.addEventListener('keydown', function(event) {
   document.getElementById("show-modal").addEventListener("click", function() {
     document.querySelector(".modal-overlay").style.display = "flex";
   });
+
+
+
+// Render existing posts
+if (savedPosts.length) {
+  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p></div>`).join('');
+  postsContainer.innerHTML = postsHTML;
+} else {
+  // Display 404 message if no saved posts
+  postsContainer.innerHTML = '<div class="post"><h2>404</h2><p>No snipits found.</p></div>';
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var signupLink = document.getElementById("signup-link");
+  var loginLink = document.getElementById("login-link");
+  var signupDiv = document.getElementById("signup");
+  var loginDiv = document.getElementById("login");
+
+  signupLink.addEventListener("click", function() {
+    signupDiv.style.display = "block";
+    loginDiv.style.display = "none";
+  });
+
+  loginLink.addEventListener("click", function() {
+    signupDiv.style.display = "none";
+    loginDiv.style.display = "block";
+  });
+});
+
+function createLink() {
+  var link;
+  do {
+    link = prompt("Enter the URL for the link (format: https://example.com/):", "https://example.com/");
+    if (link != null) {
+      if (link.startsWith("https://") && link.endsWith("/")) {
+        var body = document.getElementById("post-body");
+        var newLink = "<a href='" + link + "' target='_blank'>" + link + "</a>";
+        body.insertAdjacentHTML('beforeend', newLink);
+
+        // add event listener to newly created link
+        var links = body.getElementsByTagName("a");
+        var newLinkElement = links[links.length - 1]; // get last link element
+        newLinkElement.addEventListener("click", function(event) {
+          event.preventDefault(); // prevent default link behavior
+          window.open(newLinkElement.href, '_blank'); // open link in new tab
+        });
+      } else {
+        alert("ERR: Invalid URL format. Please enter a URL in the format: https://example.com/");
+        console.log('ERR: invalid url format. the user must enter a new URL in the format of: https://example.com/');
+      }
+    }
+  } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
+}
