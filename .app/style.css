@@ -268,8 +268,7 @@ button:hover {
   text-align: center;
 }
 a {
-  font-weight: 700;
-  font-size: x-large;
+  color: #6466E9;
 }
 
 .selector {
@@ -279,3 +278,20 @@ a {
   box-shadow: 7.3px 2.5px 2.5px #6466E9;
 }
 
+.toggle-c {
+  display: inline-block;
+}
+
+.toggle-c label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.toggle-c input[type="checkbox"] {
+  margin-left: 5px;
+}
+
+.addons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
