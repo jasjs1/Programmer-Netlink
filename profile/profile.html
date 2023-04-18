@@ -14,14 +14,13 @@
         <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Your Articles</b></a>
         <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Your Snippits</b></a>
         <a href="http://127.0.0.1:5500/profile/experience/experience.html"><b>Expeirences</b></a>
-        <a href="http://127.0.0.1:5500/profile/settings/profile-settings.html"><b>Profile Settings</b></a> 
       </div>
 
 
-	  <script>
+	  <script> 
 		function uploadImage() {
 		  const fileInput = document.getElementById('image-upload');
-		  fileInput.accept = 'image/jpeg, image/png, image/heic, image/svg,'; // Add allowed file types here
+		  fileInput.accept = 'image/jpeg, image/png, image/heic, image b/svg,'; // Add allowed file types here
 		
 		  fileInput.addEventListener('change', (event) => {
 			const file = event.target.files[0];
@@ -55,12 +54,51 @@
 		  <div class="profile-icon-selector-button">
 			<input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
 			<img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-			<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
 		  </div>
 		</div>		
 
-			
+		<!-- HTML for settings gear -->
+		<div class="settings" onclick="toggleSettingsContainer()">
+			<img src="/profile/img/gear.png" alt="settings gear image" width="auto" height="32">
+		</div>
+		
+		<!-- HTML for settings container -->
+		<div class="settings-container" id="settings-container" style="display: none;">
+			<div class="modal-overlay">
+			<div class="modal-container">
+				<div class="modal-header">
 
+					<div class="close">
+						<h3>X</h3>
+					</div>
+
+					<div class="settings-head">
+						<h2>Profile Quick Settings</h2>
+					</div>
+
+					<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
+
+					<div class="redirector">
+						<a href="http://127.0.0.1:5500/profile/settings/profile-settings.html" target="_blank">Proifle Settings Override</a>
+					</div>
+			
+				</div>
+			
+			</div>
+			</div>
+		</div>
+		
+		<script>
+			function toggleSettingsContainer() {
+			var container = document.getElementById("settings-container");
+			if (container.style.display === "none") {
+				container.style.display = "block";
+			} else {
+				container.style.display = "none";
+			}
+			}
+		</script>
+  
 
 			<div class="info">
 				<h2><span id="signup-name"></span></h2>
