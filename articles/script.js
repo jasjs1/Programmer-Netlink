@@ -1,17 +1,16 @@
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('articles');
 
+// Get saved articles from localStorage
 const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
 
-
+// Render saved articles on page load
 if (savedArticles.length) {
-  const articlesHTML = savedArticles.map(article => `<div class="article"><h3>${article.name}</h3><h2>${article.title}</h2><p>${article.body}</p></div>`).join('');
-  articlesContainer.innerHTML = articlesHTML;
+  renderArticles(savedArticles);
 }
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-
 
   const title = document.getElementById('article-title').value.trim();
   const body = document.getElementById('article-body').value.trim();
@@ -22,19 +21,28 @@ form.addEventListener('submit', (event) => {
     body,
   };
 
+  // Add the new article to the beginning of savedArticles
+  savedArticles.unshift(article);
 
-  savedArticles.push(article);
+  // Store savedArticles in localStorage
   localStorage.setItem('articles', JSON.stringify(savedArticles));
 
-
-  const articleElement = document.createElement('div');
-  articleElement.classList.add('article');
-  articleElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
-  articlesContainer.appendChild(articleElement);
-
+  // Render the new articles on the page
+  renderArticles(savedArticles);
 
   form.reset();
 });
+
+function renderArticles(articles) {
+  const articlesHTML = articles
+    .map(
+      (article) =>
+        `<div class="article"><h3>${article.title}</h3><p>${article.body}</p></div>`
+    )
+    .join('');
+  articlesContainer.innerHTML = articlesHTML;
+}
+
 
 const showContainerButton = document.getElementById('show-container');
 const containerDiv = document.querySelector('.container');
