@@ -18,8 +18,17 @@ const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
 // Render existing posts
 if (savedPosts.length) {
-  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p></div>`).join('');
-  postsContainer.innerHTML = postsHTML;
+  for (let i = savedPosts.length - 1; i >= 0; i--) {
+    const post = savedPosts[i];
+
+    // Create a new post element
+    const postElement = document.createElement('div');
+    postElement.classList.add('post');
+    postElement.innerHTML = `<h2>${post.title}</h2><p>${post.body}</p>`;
+
+    // Add the new post to the top of the list
+    postsContainer.prepend(postElement);
+  }
 }
 
 
@@ -41,18 +50,19 @@ form.addEventListener('submit', (event) => {
   // Create a new post element
   const postElement = document.createElement('div');
   postElement.classList.add('post');
-  postElement.innerHTML = `<<h2>${title}</h2><p>${body}</p>`;
+  postElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
 
-  // Add the new post to the list
-  postsContainer.appendChild(postElement);
- 
+  // Add the new post to the top of the list
+  postsContainer.prepend(postElement);
+
   // Save the new post to local storage
-  savedPosts.push(post);
+  savedPosts.unshift(post);
   localStorage.setItem('posts', JSON.stringify(savedPosts));
 
   // Reset the form
   form.reset();
 });
+
 
 const containerDiv = document.querySelector('.container');
 const showContainerButton = document.getElementById('show-container');
@@ -204,3 +214,23 @@ function createLink() {
     }
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
 }
+
+
+const checkbox = document.getElementById('toggle-space');
+
+// Check if the cookie exists and set the checkbox state accordingly
+if (document.cookie.includes('toggle-space=true')) {
+  checkbox.checked = true;
+}
+
+// Add an event listener to the checkbox
+checkbox.addEventListener('change', function() {
+  // Set the cookie when the checkbox is checked
+  if (this.checked) {
+    document.cookie = 'toggle-space=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
+  }
+  // Remove the cookie when the checkbox is unchecked
+  else {
+    document.cookie = 'toggle-space=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+  }
+});
