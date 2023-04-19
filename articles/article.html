@@ -49,7 +49,7 @@
           </label>
         </div>
         <br>
-        <input type="submit" value="Upload Article" disabled>
+        <input type="submit" value="Upload Article" disabled><P></P>
       </form>
     </div>
     
@@ -78,26 +78,6 @@ function createLink() {
     }
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
 }
-
-
-function createCode() {
-  // Create the pre element
-  var codeBlock = document.createElement("pre");
-  
-  // Add the code block to the pre element
-  var codeText = document.createTextNode("/* Your code block goes here */");
-  codeBlock.appendChild(codeText);
-  
-  // Get the article-body textarea and insert the code block after it
-  var articleBody = document.getElementById("article-body");
-  articleBody.insertAdjacentElement('afterend', codeBlock);
-  
-  // Prompt the user to paste their code in the code block
-  var code = prompt("Please paste your code in the code block.");
-  codeBlock.innerHTML = code;
-}
-
-
 
     
       const toggle = document.querySelector('#toggle');
