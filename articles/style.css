@@ -1,130 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Programmer Netlink - Articles</title>
-</head>
-<body>
+  body {
+    background-color: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
 
-  <div class="topnav">
-
-    <!-- <a><p>Programmer Netlink</p></a> -->
-    <a class="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Programmer Netlink</a>
-    <a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a>
-    <a class="active" href="http://127.0.0.1:5500/profile/articles/display-articles.html">Your Articles</a>
-    <a class="active" href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Log Out</a>
-  </div>
-
-  <div class="header">
-    <h1>Articles</h1>
-  </div>
-
-
-    <button id="show-container">+</button>
-
-    <div class="container">
-      <form>
-        <div class="article-forms">
-          <label for="article-title"><h3>Title:</h3></label>
-          <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required placeholder=" Article Title Text Here">
-          <br>
-      
-          <label for="article-body"><h3>Body:</h3></label>
-          <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Article Body Text Here"></textarea>
-          <a id="video-link" href="" target="_blank"></a>
-          <div id="video-container"></div>
-          
-          
-        </div>
-        <br>
-    
-        <div class="addons">
-          <img src="/articles/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
-          <img src="/articles/img/video.png" type="button" onclick="loadVideo()" alt="add video" width="35" height="35">
-        </div>
-    
-
-        <div class="toggler">
-          <label for="toggle">
-            <input type="checkbox" id="toggle">
-            Toggle to enable submit button
-          </label>
-        </div>
-        <br>
-        <input type="submit" value="Upload Article" disabled><P></P>
-      </form>
-    </div>
-    
-    <script>
-function createLink() {
-  var link;
-  do {
-    link = prompt("Enter the URL for the link (format: https://example.com/):", "https://example.com/");
-    if (link != null) {
-      if (link.startsWith("https://") && link.endsWith("/")) {
-        var body = document.getElementById("article-body");
-        var newLink = "<a href='" + link + "' target='_blank'>" + link + "</a>";
-        body.insertAdjacentHTML('beforeend', newLink);
-
-        // add event listener to newly created link
-        var links = body.getElementsByTagName("a");
-        var newLinkElement = links[links.length - 1]; // get last link element
-        newLinkElement.addEventListener("click", function(event) {
-          event.preventDefault(); // prevent default link behavior
-          window.open(newLinkElement.href, '_blank'); // open link in new tab
-        });
-      } else {
-        alert("ERR: Invalid URL format. Please enter a URL in the format: https://example.com/");
-        console.log('ERR: Invalid URl formatting. User must input a valid url in the format of: https://exampleurl.com/')
-      }
-    }
-  } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
+  .topnav {
+  background-color: #1c1f23;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
 }
 
-    
-      const toggle = document.querySelector('#toggle');
-      const submitBtn = document.querySelector('input[type="submit"]');
-    
-      toggle.addEventListener('change', () => {
-        submitBtn.disabled = !toggle.checked;
-      });
-    </script>
-    
-    
-    <div class="post-list-header">
-      <h2><span id="name"></span></h2>
-          
-      <script>
-        const storedUsername = localStorage.getItem('signup-name');
-        const usernameElem = document.querySelector('#name');
+.topnav a:hover {
+  background-color: #6466E9;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  align-items: center;
+}
 
-        if (storedUsername) {
-        usernameElem.textContent = `${storedUsername}'s Articles`;
-        } else {
-        usernameElem.textContent = 'No username found in local storage';
-
-        }
-      </script>
-    </div>
+.topnav a.active {
+  font-weight: bolder;
+  /* background-color: #6466E9; */
+  color: white;
+  text-align: center;
+  text-align: center;
+  align-items: center;
+}
 
 
-    <div class="post-list">
-        <div id="articles"></div>
-      </div>
-    </div>
+  .link {
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bolder;
+  }
 
-
-    <div class="finished">
-      <img src="/.app/img/undraw_astronaut_re_8c33.svg" alt="finished img">
-      <h3>You have reached the end of the Snippets made by this person.</h3>
-
-    </div>
-  </div>
+  a {
+    color: #6466E9;
+    font-weight: bold;
+  }
   
-    
-</body>
-<script src="script.js"></script>
-</html>
+  a :hover {
+    color: #5d5fce98;
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+
+  .header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  /* .create-article {
+    border: 1px solid #19376D;
+    border-radius: 5px;
+  } */
+
+  .post-list-header {
+  color: #6466E9;
+  text-align: left;
+  margin-left: 110px;
+  }
+
+  .post-list {
+  margin-top: 20px;
+  padding: 13px;
+  border: 1px solid #6466E9;
+  /* color: #6466E9; */
+  border-radius: 5px;
+  margin-left: 110px;
+  margin-right: 110px;
+  inline-size: auto;
+  overflow-wrap: break-word;
+  text-align: left;
+  align-items: left;
+  }
+
+  label[for="article-title"] {
+    padding-bottom: 10px;
+    width: 100%;
+    height: 200px;
+    resize: horizontal;
+  }
+
+  input[type="submit"] {
+    background-color: #6466E9;
+    font-weight: bolder;
+    font-size: 17px;
+    color: white;
+    padding: 17px;
+    border-radius: 5px;
+    margin-bottom: 24.5px;
+  }
+
+
+  #article-title {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    color: white;
+    width: 76%;
+    height: 40px;
+    background-color: #1c1f23;
+    border-color: #6466E9;
+  }
+
+
+  #article-body {
+    width: 76%;
+    height: 200px;
+    background-color: #1c1f23;
+    border-color: #6466E9;
+    margin-bottom: 35px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  } 
+
+
+  #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #6466E9;
+    color: whitesmoke;
+    box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5; 
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #6466E9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .container {
+    display: none;
+  }
+
+
+  ::selection {
+  color: white;
+  background: #4c4eb5fd;
+  }
+
+  input[type="checkmark"] {
+    background-color: #6466E9;
+  }
+
+  .toggler :hover {
+    font-weight: bolder;
+    color: #6466E9;
+    box-shadow: 5px 5px 5px 5px solid gray;
+  }
+
+  .addons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+
+  .finished {
+    text-align: center;
+    margin-top: 20px;
+  
+  }
+  
+  .finished img {
+    height: 110px;
+    width: auto;
+    margin-top: 20px;
+  }
