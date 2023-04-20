@@ -34,11 +34,16 @@
       
           <label for="article-body"><h3>Body:</h3></label>
           <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Article Body Text Here"></textarea>
+          <a id="video-link" href="" target="_blank"></a>
+          <div id="video-container"></div>
+          
+          
         </div>
         <br>
     
         <div class="addons">
           <img src="/articles/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
+          <img src="/articles/img/video.png" type="button" onclick="loadVideo()" alt="add video" width="35" height="35">
         </div>
     
 
@@ -73,7 +78,7 @@ function createLink() {
         });
       } else {
         alert("ERR: Invalid URL format. Please enter a URL in the format: https://example.com/");
-        console.log('ERR: invalid url format. the user must enter a new URL in the format of: https://example.com/');
+        console.log('ERR: Invalid URl formatting. User must input a valid url in the format of: https://exampleurl.com/')
       }
     }
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
@@ -110,6 +115,14 @@ function createLink() {
         <div id="articles"></div>
       </div>
     </div>
+
+
+    <div class="finished">
+      <img src="/.app/img/undraw_astronaut_re_8c33.svg" alt="finished img">
+      <h3>You have reached the end of the Snippets made by this person.</h3>
+
+    </div>
+  </div>
   
     
 </body>
