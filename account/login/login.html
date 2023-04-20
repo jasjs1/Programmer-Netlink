@@ -23,19 +23,19 @@
     
     <div class="myDiv" id="signup" style="display:none">
       <form>
-        <p>Name</p>
-        <input type="text" name="signup-name" placeholder="your name" required>
+        <!-- <p>Name</p>
+        <input type="text" name="signup-name" placeholder="your name" required> -->
                
-        <p>Email:</p>
-        <input type="email" name="signup-email" placeholder="your email" required>
+          <p>Email:</p>
+          <input type="email" name="signup-email" placeholder="your email" required>
   
-        <p>Username:</p>
-        <input type="text" name="username" placeholder="username" required>
+        <!-- <p>Username:</p>
+        <input type="text" name="username" placeholder="username" required> -->
             
         <p>Password:</p>
         <input type="password" name="signup-password" placeholder="your password" min="8" max="80" required>
   
-        <p>Tag</p>
+        <!-- <p>Tag</p>
         <p>What's your primary programming language?</p>
         <select id="tag" required>
           <option> </option>
@@ -86,13 +86,15 @@
           <option>typescript</option>
   
   
-        </select>
+        </select> -->
       
-        <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/.app/app.html'">Create Account</button>
+        <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/account/signup-or-login/login/terms/terms.html'">Create Account</button>
     </div>
     
     <div class="myDiv" id="login" style="display:none">
       <form>
+
+  
         <p>Email:</p>
         <input type="email" name="signup-email" placeholder="email" required>
       
@@ -100,8 +102,7 @@
         <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
       
   
-        <button id="save" onclick="login()">Login</button>
-
+        <button id="save" onclick='http://127.0.0.1:5500/.app/app.html'>Login</button>
 
       </form>
     </div>
