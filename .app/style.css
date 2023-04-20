@@ -69,11 +69,6 @@ body {
   text-decoration: underline;
 }
 
-.tab-bar :hover {
-  color: #6466E;
-  font-weight: bolder;
-  
-}
 
 a {
   color: white;
@@ -294,4 +289,16 @@ a {
 .addons {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.finished {
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+.finished img {
+  height: 110px;
+  width: auto;
+  margin-top: 20px;
 }
