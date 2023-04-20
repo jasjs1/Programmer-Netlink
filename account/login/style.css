@@ -51,8 +51,11 @@ input[type="email"] {
   box-sizing: border-box;
   width: 100%;
   max-width: 400px;
+  color: white;
   background-color: #1c1f23;
 }
+
+
 
   input[type=password] {
     font-size: 16px;
@@ -62,6 +65,7 @@ input[type="email"] {
     box-sizing: border-box;
     width: 100%;
     max-width: 400px;
+    color: white;
     background-color: #1c1f23;
   }
   
