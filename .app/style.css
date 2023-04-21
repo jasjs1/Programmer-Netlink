@@ -41,33 +41,30 @@ body {
 }
 
 .tab-bar {
-  background-color: #1c1f2395;
+  background-color: #1c1f2350;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   padding: 15px;
   max-width: 200px;
   margin: auto;
   width: 100%;
   border-radius: 5px;
-  font-size: 17px;
-  padding-right: 12px;
-  margin-top: 25px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-.tab-bar {
-  font-size: 25px;
-  /* margin-left: 5px; */
+  font-size: 30px;
   font-weight: bold;
   padding: 26px 18px 26px 26px;
   border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 
-.tab-bar :active {
+.tab-bar:active {
   font-weight: bolder;
   text-decoration: underline;
 }
+
 
 
 a {
