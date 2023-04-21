@@ -39,10 +39,13 @@ body {
     text-align: center;
     align-items: center;
   }
+  
 
   .hi {
     color: #6466E9;
-    margin-top: 46px;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .why-programmer-netlink-header {
@@ -54,9 +57,9 @@ body {
 
   .vertical-box {
     display: inline-block; /* makes the box display as an inline element */
-    max-width: 250px; /* sets the maximum width of the box */
+    max-width: 1111px; /* sets the maximum width of the box */
     padding: 20px; /* adds padding to the box */
-    border: 2px solid #6466E9; /* adds an outline of color #6466E9 to the box */
+    border: 10px solid #6466E9; /* adds an outline of color #6466E9 to the box */
     border-radius: 20px; /* rounds the corners of the box */
     display: inline block;
     margin: 15px;
@@ -70,6 +73,7 @@ body {
   padding: 40px;
   background-color: #1c1f23ca;
   border-radius: 20px;
+  margin-left: 85px;
 }
 
 .image {
@@ -120,4 +124,134 @@ p {
   padding: 10px;
   background-color: #6466E9;
   border-radius: 20px;
+}
+
+.reason1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reason1 .vertical-box {
+  width: 300px;
+  text-align: center;
+}
+
+.reason1 .vertical-box h3 {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.reason1 .vertical-box p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.reason1 .vertical-box .redirect-signup-link a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #008CBA;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.reason1 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.reason1 .container .image {
+  flex: 1;
+  max-width: 300px;
+  margin-right: 50px;
+}
+
+.reason1 .container .text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.reason1 .container h2 {
+  font-size: 2em;
+  margin-top: 0;
+}
+
+.reason1 .container p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.myDiv:target{
+
+  display:block !important;
+  
+  }
+
+  .expose a {
+    color: #6466E9;
+    text-align: center;
+    margin-top: 15px;
+    display: inline-flex;
+    flex-wrap: nowrap;
+  }
+
+  
+  
+  .redirects {
+    margin-top: 85px;
+  }
+
+  button {
+    margin-top: 85px;
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    border-radius: 7px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    }
+    
+    
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      text-indent: 100%; 
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
+    input[type="email"] {
+      background-color: #1c1f23;
+      border: 1px solid;
+      border-color: #6466E9;
+      width: 210px;
+      height: 45px;
+      border: 1px solid;
+      border-color: #6466E9;
+      border-radius: 5px;
+      padding: 15px;
+      color: white;
+  }
+
+
+  input[type="password"] {
+    background-color: #1c1f23;
+    border: 1px solid;
+    border-color: #6466E9;
+    width: 210px;
+    height: 45px;
+    border: 1px solid;
+    border-color: #6466E9;
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
 }
