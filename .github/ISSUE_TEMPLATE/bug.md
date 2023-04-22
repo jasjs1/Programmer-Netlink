@@ -22,6 +22,9 @@ Please provide a set of steps to reproduce the issue
 ### Path:
 Folder path of bug:
 
+### Screenshot(s) of the issue:
+
+
 
 ### Environment
 
