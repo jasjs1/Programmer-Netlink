@@ -92,14 +92,16 @@ body {
   }
   
   input[type="submit"] {
-    background-color: #6466E9;
+    background-color: #1c1f23;
     font-weight: bolder;
     color: white;
     font-size: 17px;
-    padding: 17px 17px 17px 17px;
+    border: 1.5px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 15px;
     border-radius: 5px;
     margin-bottom: 24.5px;
-    margin-left: 6px;
     border-color: #6466E9;
   }
   
@@ -108,7 +110,7 @@ body {
   #post-title {
     font-family: 'Open Sans', sans-serif;
     background-color: #1c1f23;
-    border-radius: 5px; 
+    border-radius: 5px;
     border-color: #6466E9;
     color: white;
     font-size: 14.5px;
@@ -242,19 +244,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5); /* 50% transparent black */
-    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
   }
+  
   
   /* Style for modal container */
   .modal-container {
     background-color: #fff;
-    padding: 20px;
+    padding: 40px; /* Increase the padding to 40px */
     border-radius: 5px;
   }
+  
   
   .msg {
     text-align: center;
