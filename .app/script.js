@@ -208,9 +208,16 @@ function createLink() {
           window.open(newLinkElement.href, '_blank'); // open link in new tab
         });
       } else {
-        alert("ERR: Invalid URL format. Please enter a URL in the format: https://example.com/");
+        alert("ERR: Invalid URL format. Please enter a URL with the correct formatting: https://example.com/");
         console.log('ERR: invalid url format. the user must enter a new URL in the format of: https://example.com/');
       }
+
+      var linkForm = document.getElementById("link-form");
+    if (linkForm.style.display === "none") {
+        linkForm.style.display = "block";
+    } else {
+        linkForm.style.display = "none";
+    }
     }
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
 }
