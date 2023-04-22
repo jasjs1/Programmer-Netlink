@@ -1,4 +1,3 @@
----
 name: '🐞 Bug Report'
 about: 'report a bug with an existing effect'
 title: 'Bug - '
@@ -6,9 +5,6 @@ labels:
   - bug
 assignees:
   - runewake2
-  projects:
-  - name: 'BUGS' # name of the project where you want to add this issue
-
 
 ---
 
