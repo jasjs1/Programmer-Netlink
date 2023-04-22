@@ -1,4 +1,4 @@
-  body {
+body {
     background-color: #1c1f23;
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -127,6 +127,22 @@
     font-family: Arial, Helvetica, sans-serif;
   } 
 
+  #credits {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    color: white;
+    width: 76%;
+    height: 40px;
+    background-color: #1c1f23;
+    border-color: #6466E9;
+  }
+
+  .credits {
+    font-size: 19px;
+    text-align: center;
+  }
+
 
   #show-container {
     position: fixed;
@@ -164,6 +180,7 @@
   input[type="checkmark"] {
     background-color: #6466E9;
   }
+
 
   .toggler :hover {
     font-weight: bolder;
