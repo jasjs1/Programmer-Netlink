@@ -14,22 +14,17 @@ form.addEventListener('submit', (event) => {
 
   const title = document.getElementById('article-title').value.trim();
   const body = document.getElementById('article-body').value.trim();
-  const credits = document.getElementById('credits').value.trim() || " "; // get the value of the Credits input field and set it to " " if it's not entered
+  const credits = document.getElementById('credits').value.trim() || " ";
 
-  // Create a new article object
   const article = {
     title,
     body,
-    credits // add the credits property to the article object
+    credits,
+    date: Date.now()
   };
 
-  // Add the new article to the beginning of savedArticles
   savedArticles.unshift(article);
-
-  // Store savedArticles in localStorage
   localStorage.setItem('articles', JSON.stringify(savedArticles));
-
-  // Render the new articles on the page
   renderArticles(savedArticles);
 
   form.reset();
@@ -42,10 +37,12 @@ function renderArticles(articles) {
       (article) =>
         `<div class="article">
           <h3>${article.title}</h3>
-          <<p>${article.body}</p>
-          ${
-            article.credits ? `<p>Credits: ${article.credits}</p>` : ''
-          }
+          <p>${article.body}</p>
+          ${article.credits ? `<p>Credits: ${article.credits}</p>` : ''}
+          <p><img src="/articles/img/calendar.png" alt="Image Description" width="15" height="15" /> Shared on: ${new Date(article.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(',', '').replace(/\//g, '.')}&nbsp;${new Date(article.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/^(\d{1,2}):(\d{2})\s*([ap]m)$/i, (match, hour, minute, period) => `${hour}:${minute}${period.toLowerCase().charAt(0)}`)}</p>
+
+
+
         </div>`
     )
     .join('');
