@@ -85,3 +85,9 @@ function login() {
   
   // call the displayValue function when the page loads
   window.onload = displayValue;
+
+
+  const selectElement = document.getElementById('country');
+  const selectedCountry = selectElement.value;
+  localStorage.setItem('country', selectedCountry);
+  window.location.href = 'http://127.0.0.1:5500/.app/app.html';
