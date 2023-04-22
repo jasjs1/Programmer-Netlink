@@ -40,11 +40,11 @@ form.addEventListener('submit', (event) => {
   const title = document.getElementById('post-title').value.trim();
   const body = document.getElementById('post-body').value.trim();
 
-  // Create a new post object
+  // Create a new post object with a date property
   const post = {
     title,
-    name,
     body,
+    date: Date.now()
   };
 
   // Create a new post element
@@ -55,13 +55,23 @@ form.addEventListener('submit', (event) => {
   // Add the new post to the top of the list
   postsContainer.prepend(postElement);
 
-  // Save the new post to local storage
+  // Add the new post to the beginning of the savedPosts array
   savedPosts.unshift(post);
+
+  // Save the updated savedPosts array to local storage
   localStorage.setItem('posts', JSON.stringify(savedPosts));
 
   // Reset the form
   form.reset();
+  
+  // Call renderArticles to update the articles list
+  renderArticles();
 });
+
+// Call renderArticles to render the initial list of articles on page load
+renderArticles();
+
+
 
 
 const containerDiv = document.querySelector('.container');
@@ -165,7 +175,8 @@ document.addEventListener('keydown', function(event) {
 
 // Render existing posts
 if (savedPosts.length) {
-  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p></div>`).join('');
+  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p><span class="post-date">${new Date(post.date).toLocaleString()}</span></div>`);
+
   postsContainer.innerHTML = postsHTML;
 } else {
   // Display 404 message if no saved posts
@@ -241,3 +252,22 @@ checkbox.addEventListener('change', function() {
     document.cookie = 'toggle-space=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
   }
 });
+
+const postBody = document.querySelector('#post-body');
+
+postBody.addEventListener('input', () => {
+  const text = postBody.value;
+  if (text.length >= 10 && text.length <= 450) {
+    postBody.style.fontWeight = 'bold';
+  } else {
+    postBody.style.fontWeight = 'normal';
+  }
+});
+
+if (savedPosts.length) {
+  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p><span class="post-date">${new Date(post.date).toLocaleString()}</span></div>`).join('');
+  postsContainer.innerHTML = postsHTML;
+} else {
+  // Display 404 message if no saved posts
+  postsContainer.innerHTML = '<p>No posts found.</p>';
+}
