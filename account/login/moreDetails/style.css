@@ -2,6 +2,8 @@ body {
     background-color: #1c1f23;
     color: white;
     font-family: 'Open Sans', sans-serif;
+    margin-left: 45px;
+    margin-right: 45px;
 }
 
 
@@ -14,7 +16,7 @@ input[type="text"] {
     background-color: #1c1f23;
     border: 1px solid;
     border-color: #6466E9;
-    width: 825px;
+    width: 1105px;
     height: 45px;
     border: 1px solid;
     border-color: #6466E9;
@@ -28,11 +30,12 @@ select {
     background-color: #1c1f23;
     border: 1px solid;
     border-color: #6466E9;
-    width: 825px;
+    width: 1105px;
     height: 45px;
     color: white;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14
+    px;
     border-radius: 5px;
     border-width: 1px;
     border-style: solid;
@@ -42,7 +45,7 @@ select {
     border: 1px solid;
     border-color: #6466E9;
     border-radius: 5px;
-    padding: 15px;
+    padding: 14px;
 }
 
 button {
