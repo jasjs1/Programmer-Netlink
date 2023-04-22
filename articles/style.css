@@ -87,6 +87,10 @@ body {
   align-items: left;
   }
 
+  #article-title {
+    color: #6466E9;
+  }
+
   label[for="article-title"] {
     padding-bottom: 10px;
     width: 100%;
