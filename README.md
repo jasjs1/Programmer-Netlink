@@ -14,4 +14,8 @@ Programmer Netlink is a social media platform oreanted towards programmers. And 
 
 Programmer Netlink is not libale for anything that is posted onto this platform. The content that is postsed on this platform is not endorsed, nor associated with Programmmer Netlink 
 
-## This is not a real project, this is just a side-project for fun
+## Bug Reporting:
+If you do find a bug here is the procedure that you must follow:
+1. Go to the Issues tab and create a bug report
+2. Fill out the **all** the fields (unless they are not required)
+3. Add screenshots in the screenshot field to help show the bug
