@@ -74,40 +74,14 @@ renderArticles();
 
 
 
-const containerDiv = document.querySelector('.container');
 const showContainerButton = document.getElementById('show-container');
-
-function checkTitleLength() {
-  const titleValue = titleInput.value;
-  if (titleValue.length < titleInput.minLength) {
-    console.log(`Title must be at least ${titleInput.minLength} characters`);
-    toggleContainer('show');
-  } else if (titleValue.length > titleInput.maxLength) {
-    console.log(`Title must be no more than ${titleInput.maxLength} characters`);
-    toggleContainer('show');
-  } else {
-    console.log(""); // empty console.log statement to clear any previous messages
-    toggleContainer('hide');
-  }
-
-  // Function to check the length of the body inputs
-  const bodyValue = bodyInput.value;
-  if (bodyValue.length < bodyInput.minLength) {
-    console.log(`Body must be at least ${bodyInput.minLength} characters`);
-    toggleContainer('show');
-  } else if (bodyValue.length > bodyInput.maxLength) {
-    console.log(`Body must be no more than ${bodyInput.maxLength} characters`);
-    toggleContainer('show');
-  } else {
-    console.log(""); // empty console.log statement to clear any previous messages
-    toggleContainer('hide');
-  }
-}
+const containerDiv = document.querySelector('.container');
 
 function toggleContainer(action) {
   if (action === 'show') {
     containerDiv.style.display = 'block';
     showContainerButton.textContent = '-';
+    hash(); // add this line to set the hash value
   } else if (action === 'hide') {
     containerDiv.style.display = 'none';
     showContainerButton.textContent = '+';
@@ -115,12 +89,22 @@ function toggleContainer(action) {
     if (containerDiv.style.display === 'none') {
       containerDiv.style.display = 'block';
       showContainerButton.textContent = '-';
+      hash(); // add this line to set the hash value
     } else {
       containerDiv.style.display = 'none';
       showContainerButton.textContent = '+';
     }
   }
 }
+
+
+function hash() {
+  console.log('hash function called');
+  articlesContainer.style.display = 'block';
+  window.location.hash = 'create';
+  
+}
+
 
 showContainerButton.addEventListener('click', function() {
   toggleContainer('toggle');
