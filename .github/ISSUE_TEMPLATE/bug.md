@@ -14,8 +14,8 @@ Please describe what is happening
 
 
 ### Reproduction Steps
-Please provide a set of steps to reproduce the issue
-* 1. 
+Please provide a set of steps to reproduce the issue:
+1. [describe here]
 
 ### Expected Behavior
 
