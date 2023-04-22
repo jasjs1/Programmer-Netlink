@@ -1,8 +1,8 @@
 # Programmer-Netlink
 Programmer Netlink is programmer social media app
 
-## THIS IS IN ALPHA STAGE, SOME FEATURES MAY NOT BE ADDED, WORKING, ECT.
-## IT IS RECCOMENDED THAT YOU USE THIS APP ON A COMPUTER. SOME THINGS MAY NOT BE DISPLAYED, WORKINGP PROPERLY, OR NOT DISPLAY ON MOBILE.
+## What is Programmer Netlink?
+Programmer Netlink is a social media platform oreanted towards programmers. And programmers only. You can unleash your inner geek to everyone and have geek-like conversations about code, bugs, life, ect, ect. Have fun exploring!
 
 ## Links:
 * Signup: http://127.0.0.1:5500/account/signup-or-login/signup/signup.html
