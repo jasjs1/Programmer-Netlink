@@ -6,6 +6,9 @@ labels:
   - bug
 assignees:
   - runewake2
+  projects:
+  - name: 'BUGS' # name of the project where you want to add this issue
+
 
 ---
 
