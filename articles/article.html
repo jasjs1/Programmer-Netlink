@@ -27,23 +27,30 @@
 
     <div class="container">
       <form>
-        <div class="article-forms">
-          <label for="article-title"><h3>Title:</h3></label>
-          <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required placeholder=" Article Title Text Here">
+          <div class="article-forms">
+            <label for="article-title"><h3>Title:</h3></label>
+            <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required placeholder=" Article Title Text Here">
+            <br>
+        
+            <label for="article-body"><h3>Body:</h3></label>
+            <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Article Body Text Here"></textarea>
+            <a id="video-link" href="" target="_blank"></a>
+            <div id="video-container"></div>
+
+
+            <div class="credits">
+              <p>Credits</p>
+              <input type="text" id="credits" name="credits" placeholder=" Credit the soruces from this article, this is optional.">
+            </div>
+            
+            
+          </div>
           <br>
-      
-          <label for="article-body"><h3>Body:</h3></label>
-          <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Article Body Text Here"></textarea>
-          <a id="video-link" href="" target="_blank"></a>
-          <div id="video-container"></div>
-          
-          
-        </div>
-        <br>
     
         <div class="addons">
           <img src="/articles/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
           <img src="/articles/img/video.png" type="button" onclick="loadVideo()" alt="add video" width="35" height="35">
+          <img src="/articles/img/quote-2.png" onclick="showCredits()" width="35" height="35">
         </div>
     
 
