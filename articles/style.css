@@ -116,6 +116,7 @@ body {
     height: 40px;
     background-color: #1c1f23;
     border-color: #6466E9;
+    color: #6466E9;
   }
 
 
@@ -146,6 +147,14 @@ body {
     font-size: 19px;
     text-align: center;
   }
+
+  input::placeholder {
+    color: #6466E9;
+}
+
+#article-body::placeholder {
+  color: #6466E9;
+}
 
 
   #show-container {
