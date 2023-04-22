@@ -26,7 +26,7 @@
 
 
   <div class="tab-bar">
-    <a href="http://127.0.0.1:5500/.app/app.html">Snipits_</a>
+    <a href="http://127.0.0.1:5500/.app/app.html">Snipits</a>
     <a href="http://127.0.0.1:5500/articles/article.html">Articles</a>
   </div>
   
@@ -69,12 +69,6 @@
 <div class="modal-overlay">
   <div class="modal-container">
     <div class="modal-header">
-      <h2>Create something!</h2>
-
-      <div class="selector">
-        <a href="http://127.0.0.1:5500/.app/app.html"><strong><u>Snipits</u></strong></a>
-        <a href="http://127.0.0.1:5500/articles/article.html">Article</a>
-      </div>
     </div>  
     <form>
       <label for="post-title"><h3>Title:</h3></label>
@@ -97,7 +91,7 @@
 
       </div>
       <br>
-      <input type="submit" value="Upload Snippit">
+      <input type="submit" value="SHARE">
     </form>
     <div class="close-container">
       <div class="msg">
@@ -179,33 +173,13 @@
     </div>
 
     <div class="post-list">
+
       <div id="posts">
-        <!-- Posts will be dynamically added here -->
+        
       </div>
-      <!-- <div id="no-posts-message" style="display: none;">
-        No Snippets created, yet.
-        Share something by pressing the + button.
-      </div> -->
+
     </div>
-    
-    <script>
-      const posts = JSON.parse(localStorage.getItem('posts'));
-    
-      if (posts && posts.length > 0) {
-        // Display the posts
-        const postsDiv = document.getElementById('posts');
-        posts.forEach(post => {
-          const postElement = document.createElement('div');
-          postElement.textContent = post;
-          postsDiv.appendChild(postElement);
-        });
-      } else {
-        // Display the no posts message
-        const noPostsMessage = document.getElementById('no-posts-message');
-        noPostsMessage.style.display = 'block';
-      }
-    </script>
-    
+
     <div class="finished">
       <img src="/.app/img/undraw_astronaut_re_8c33.svg" alt="finished img">
       <h3>You have reached the end of the Snippets made by this person.</h3>
