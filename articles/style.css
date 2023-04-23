@@ -10,6 +10,7 @@ body {
   overflow: hidden;
   text-align: center;
   align-items: center;
+  margin-bottom: 40px;
 }
 .topnav a {
   float: left;
@@ -99,11 +100,12 @@ body {
   }
 
   input[type="submit"] {
-    background-color: #6466E9;
+    background-color: #1c1f23;
     font-weight: bolder;
     font-size: 17px;
     color: white;
     padding: 17px;
+    border: 2px solid #6466E9;
     border-radius: 5px;
     margin-bottom: 24.5px;
   }
