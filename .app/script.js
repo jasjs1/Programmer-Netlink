@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.querySelector('form'); 
 const postsContainer = document.getElementById('posts');
 
 // Check if name exists in local storage
