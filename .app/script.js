@@ -1,4 +1,4 @@
-const form = document.querySelector('form'); 
+const form = document.querySelector('form');
 const postsContainer = document.getElementById('posts');
 
 // Check if name exists in local storage
@@ -259,14 +259,19 @@ if (savedPosts.length) {
 function addTag() {
   // Prompt the user for the text to add
   const inputText = prompt('Enter text to add: ');
-
+  // console.log('prompt showing.')
+  
   // Get the post-body element and its current value
   const postBody = document.getElementById('post-body');
   const currentText = postBody.innerHTML;
-
+  
   // Add the input text to the current text
   const newText = currentText + inputText;
-
+  
   // Set the value of the post-body element to the new text
   postBody.innerHTML = '#' + newText;
+  console.log('Fetched tag: ' + newText);
+
+  alert('You can not add any more tags during this session.');
+  console.log('User can not add any more tags during this session.');
 }
