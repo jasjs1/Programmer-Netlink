@@ -255,3 +255,18 @@ if (savedPosts.length) {
   // Display 404 message if no saved posts
   postsContainer.innerHTML = '<p>No posts found.</p>';
 }
+
+function addTag() {
+  // Prompt the user for the text to add
+  const inputText = prompt('Enter text to add: ');
+
+  // Get the post-body element and its current value
+  const postBody = document.getElementById('post-body');
+  const currentText = postBody.innerHTML;
+
+  // Add the input text to the current text
+  const newText = currentText + inputText;
+
+  // Set the value of the post-body element to the new text
+  postBody.innerHTML = '#' + newText;
+}
