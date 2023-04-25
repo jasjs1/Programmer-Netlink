@@ -76,6 +76,36 @@
 						<h2>Profile Quick Settings</h2>
 					</div>
 
+					<div class="status">
+						<h3>Displayed Status</h3>
+						<p>Visible to all users.</p>
+						<select id="status">
+						  <option value="online">🟢 Online</option>
+						  <option value="busy">🤫 Busy</option>
+						  <option value="idle">🌙 Idle</option>
+						  <option value="offline">🔘 Offline</option>
+						</select>
+					  </div>
+					  
+					  <script>
+						const defaultStatus = 'online';
+						const isOffline = document.getElementById('status input').value('offline');
+						// Save selected status to local storage
+						function saveStatus() {
+						  const selectedStatus = document.getElementById("status").value;
+						  localStorage.setItem("status", selectedStatus);
+						}
+					
+						const storedStatus = localStorage.getItem("status");
+						if (storedStatus) {
+						  document.getElementById("status").value = storedStatus;
+						}
+					  
+						// Add event listener to save status when it changes
+						document.getElementById("status").addEventListener("change", saveStatus);
+					  </script>
+					  
+
 					<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
 
 					<div class="redirector">
@@ -176,60 +206,60 @@
 	  </div>
 	  
 	  <script>
-const descriptionText = document.getElementById("description-text");
-const createDescriptionBtn = document.getElementById("create-description-btn");
-const descriptionModal = document.getElementById("description-modal");
-const saveDescriptionBtn = document.getElementById("save-description-btn");
-const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
-const maxChars = 150;
+		const descriptionText = document.getElementById("description-text");
+		const createDescriptionBtn = document.getElementById("create-description-btn");
+		const descriptionModal = document.getElementById("description-modal");
+		const saveDescriptionBtn = document.getElementById("save-description-btn");
+		const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
+		const maxChars = 150;
 
-// Load description from local storage
-const description = localStorage.getItem("description");
-if (description) {
-  descriptionText.textContent = description;
-}
+		// Load description from local storage
+		const description = localStorage.getItem("description");
+		if (description) {
+		descriptionText.textContent = description;
+		}
 
-// Open description modal
-createDescriptionBtn.addEventListener("click", () => {
-  descriptionModal.style.display = "block";
-  document.getElementById("new-description").value = description || "";
-});
+		// Open description modal
+		createDescriptionBtn.addEventListener("click", () => {
+		descriptionModal.style.display = "block";
+		document.getElementById("new-description").value = description || "";
+		});
 
-// Save description
-saveDescriptionBtn.addEventListener("click", () => {
-  const newDescription = document.getElementById("new-description").value;
-  const charCount = newDescription.length;
+		// Save description
+		saveDescriptionBtn.addEventListener("click", () => {
+		const newDescription = document.getElementById("new-description").value;
+		const charCount = newDescription.length;
 
-  if (charCount > 150) {
-    alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
-  } else {
-    localStorage.setItem("description", newDescription);
-    descriptionText.textContent = newDescription;
-    descriptionModal.style.display = "none";
-  }
-});
+		if (charCount > 150) {
+			alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
+		} else {
+			localStorage.setItem("description", newDescription);
+			descriptionText.textContent = newDescription;
+			descriptionModal.style.display = "none";
+		}
+		});
 
-// Cancel editing description
-cancelDescriptionBtn.addEventListener("click", () => {
-  descriptionModal.style.display = "none";
-});
+		// Cancel editing description
+		cancelDescriptionBtn.addEventListener("click", () => {
+		descriptionModal.style.display = "none";
+		});
 
-// Edit description
-descriptionText.addEventListener("click", () => {
-  descriptionModal.style.display = "block";
-  document.getElementById("new-description").value = descriptionText.textContent || "";
-});
+		// Edit description
+		descriptionText.addEventListener("click", () => {
+		descriptionModal.style.display = "block";
+		document.getElementById("new-description").value = descriptionText.textContent || "";
+		});
 
-// Add new line when Enter key is pressed
-descriptionText.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    let currentText = descriptionText.value;
-    const cursorPosition = descriptionText.selectionStart;
-    currentText = currentText.substring(0, cursorPosition) + "\n" + currentText.substring(cursorPosition);
-    descriptionText.value = currentText;
-  }
-});
+		// Add new line when Enter key is pressed
+		descriptionText.addEventListener("keydown", (event) => {
+		if (event.key === "Enter") {
+			event.preventDefault();
+			let currentText = descriptionText.value;
+			const cursorPosition = descriptionText.selectionStart;
+			currentText = currentText.substring(0, cursorPosition) + "\n" + currentText.substring(cursorPosition);
+			descriptionText.value = currentText;
+		}
+		});
 
 
 	  </script>
