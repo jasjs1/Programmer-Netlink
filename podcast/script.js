@@ -5,7 +5,7 @@ function toggleContainer(action) {
   if (action === 'show') {
     containerDiv.style.display = 'block';
     showContainerButton.textContent = '-';
-    hash(); // add this line to set the hash value
+    hash();
   } else if (action === 'hide') {
     containerDiv.style.display = 'none';
     showContainerButton.textContent = '+';
@@ -13,7 +13,7 @@ function toggleContainer(action) {
     if (containerDiv.style.display === 'none') {
       containerDiv.style.display = 'block';
       showContainerButton.textContent = '-';
-      hash(); // add this line to set the hash value
+      hash();
     } else {
       containerDiv.style.display = 'none';
       showContainerButton.textContent = '+';
@@ -35,35 +35,23 @@ const shareButton = document.querySelector('button[type="submit"]');
 shareButton.addEventListener('click', savePodcast);
 
 function savePodcast(event) {
-  event.preventDefault(); // prevent the form from submitting normally
+  event.preventDefault();
 
-  // extract form data
   const title = document.getElementById('ep-title').value;
   const number = document.getElementById('ep-num').value;
   const description = document.getElementById('ep-description').value;
-  const audioFile = document.getElementById('audio-file-input').files[0];
+  const link = document.getElementById('ep-link-text').value;
 
-  // create audio element and set its source to the uploaded file
-  const audioElement = document.createElement('audio');
-  audioElement.controls = true;
-  const audioSource = document.createElement('source');
-  audioSource.src = URL.createObjectURL(audioFile);
-  audioSource.type = 'audio/mpeg';
-  audioElement.appendChild(audioSource);
-
-  // save to local storage
   const podcastData = {
     title: title,
     episodeNumber: number,
     description: description,
-    audioURL: URL.createObjectURL(audioFile),
-    audioElement: audioElement  // store the audio element in the object
+    link: link
   };
   const storedPodcasts = JSON.parse(localStorage.getItem('podcast-uploads')) || [];
   storedPodcasts.push(podcastData);
   localStorage.setItem('podcast-uploads', JSON.stringify(storedPodcasts));
 
-  // update the podcasts list on the page
   displayPodcasts();
 }
 
@@ -72,7 +60,7 @@ const podcastsContainer = document.getElementById('podcasts');
 function displayPodcasts() {
   const podcastsData = localStorage.getItem('podcast-uploads');
   if (!podcastsData) {
-    podcastsContainer.innerHTML = '<p>No podcasts uploaded yet.</p>';
+    podcastsContainer.innerHTML = '<p>No podcasts uploaded, yet.</p>';
     return;
   }
   const podcasts = JSON.parse(podcastsData);
@@ -82,13 +70,14 @@ function displayPodcasts() {
   }
   let podcastsHTML = '';
   for (const podcast of podcasts) {
-    const { title, episodeNumber, description, audioElement } = podcast;
+    const { title, episodeNumber, description, link } = podcast;
     podcastsHTML += `
       <div class="podcast-episode">
+      <p>------------------------------------------------</p>
         <h3>${title}</h3>
         <p>Episode ${episodeNumber}</p>
         <p>${description}</p>
-        ${audioElement.outerHTML}  // add the audio element to the HTML
+        <p><a href="${link}</a></p>
       </div>
     `;
   }
@@ -96,3 +85,66 @@ function displayPodcasts() {
 }
 
 displayPodcasts();
+
+const linksButton = document.getElementById('add-link');
+linksButton.addEventListener('click', () => {
+  const linkForm = document.getElementById('link-form');
+  if (linkForm.style.display === 'none') {
+    linkForm.style.display = 'block';
+  } else {
+    linkForm.style.display = 'none';
+  }
+});
+
+const createLinkButton = document.getElementById('create-link');
+createLinkButton.addEventListener('click', () => {
+  createLink();
+});
+
+const clearStorageButton = document.getElementById('clear-storage');
+clearStorageButton.addEventListener('click', () => {
+  localStorage.clear();
+  displayPodcasts();
+});
+
+
+function createLink() {
+  let link;
+  do {
+    link = prompt("Enter the URL for the link (format: https://example.com/):", "https://example.com/");
+    if (link != null) {
+      if (link.startsWith("https://") && link.endsWith("/")) {
+        const body = document.getElementById("ep-link-text");
+        const newLink = `<a href="${link}" target="_blank">${link}</a>`;
+        body.insertAdjacentHTML('beforeend', newLink);
+
+        const links = body.getElementsByTagName("a");
+        const newLinkElement = links[links.length - 1]; // fixed line here
+        const linksButton = document.getElementById('add-link');
+        linksButton.addEventListener('click', () => {
+          const linkForm = document.getElementById('link-form');
+          if (linkForm.style.display === 'none') {
+            linkForm.style.display = 'block';
+          } else {
+            linkForm.style.display = 'none';
+          }
+        });
+
+        const createLinkButton = document.getElementById('create-link');
+        createLinkButton.addEventListener('click', () => {
+          createLink();
+        });
+
+        const clearStorageButton = document.getElementById('clear-storage');
+        clearStorageButton.addEventListener('click', () => {
+          localStorage.clear();
+          displayPodcasts();
+        });
+      }
+    }
+  } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
+}
+
+
+const link = document.querySelector('a[href="${link}"]');
+link.setAttribute('target', '_blank');
