@@ -4,19 +4,19 @@ const containerDiv = document.querySelector('.container');
 function toggleContainer(action) {
   if (action === 'show') {
     containerDiv.style.display = 'block';
-    showContainerButton.textContent = '-';
+    showContainerButton.textContent = 'CLOSE';
     hash();
   } else if (action === 'hide') {
     containerDiv.style.display = 'none';
-    showContainerButton.textContent = '+';
+    showContainerButton.textContent = 'CREATE PODCAST';
   } else if (action === 'toggle') {
     if (containerDiv.style.display === 'none') {
       containerDiv.style.display = 'block';
-      showContainerButton.textContent = '-';
+      showContainerButton.textContent = 'CLOSE';
       hash();
     } else {
       containerDiv.style.display = 'none';
-      showContainerButton.textContent = '+';
+      showContainerButton.textContent = 'CREATE PODCAST';
     }
   }
 }
