@@ -90,20 +90,25 @@ body {
     padding-bottom: 10px;
     width: 2500px;
   }
+
+  #credits {
+    background-color: #1c1f23 !important;
+    color: white !important;
+    border: 1px solid #6466E9 !important;
+ }
+ 
   
-  input[type="submit"] {
-    background-color: #1c1f23;
-    font-weight: bolder;
-    color: white;
-    font-size: 17px;
-    border: 1.5px solid;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 24.5px;
-    border-color: #6466E9;
-  }
+ input[type="submit"] {
+  background-color: #1c1f23;
+  font-weight: bolder;
+  font-size: 17px;
+  
+  color: white;
+  padding: 17px;
+  border: 2px solid #6466E9;
+  border-radius: 5px;
+  margin-bottom: 24.5px;
+}
   
   
   
@@ -114,7 +119,7 @@ body {
     border-color: #6466E9;
     color: white;
     font-size: 14.5px;
-    width: 312px;
+    width: auto;
     height: 39px;
   }
   
@@ -124,7 +129,7 @@ body {
     border-radius: 5px;
     border-color: #6466E9;
     color: white;
-    width: 312px;
+    width: auto;
     height: 200px;
   }
   
@@ -220,7 +225,6 @@ body {
     background-color: #6466E9;
     color: whitesmoke;
     border-color: #6466E9;
-    box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5;
   }
   
   .msg-1 {
@@ -257,7 +261,7 @@ body {
   /* Style for modal container */
   .modal-container {
     background-color: #fff;
-    padding: 40px; /* Increase the padding to 40px */
+    padding: 20px; /* Increase the padding to 40px */
     border-radius: 5px;
   }
   
@@ -311,3 +315,8 @@ body {
     margin-top: 12px;
     font-weight: bold;
   }
+
+  a[href^="#"] + * {
+    color: red;
+  }
+    
