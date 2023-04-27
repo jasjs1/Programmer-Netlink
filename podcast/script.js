@@ -51,6 +51,8 @@ function savePodcast(event) {
   const storedPodcasts = JSON.parse(localStorage.getItem('podcast-uploads')) || [];
   storedPodcasts.push(podcastData);
   localStorage.setItem('podcast-uploads', JSON.stringify(storedPodcasts));
+  
+  alert('Podcast has been shared with no errors!'); 
 
   displayPodcasts();
 }
@@ -60,7 +62,7 @@ const podcastsContainer = document.getElementById('podcasts');
 function displayPodcasts() {
   const podcastsData = localStorage.getItem('podcast-uploads');
   if (!podcastsData) {
-    podcastsContainer.innerHTML = '<p>No podcasts uploaded, yet.</p>';
+    podcastsContainer.innerHTML = '<p>No podcasts uploaded yet.</p>';
     return;
   }
   const podcasts = JSON.parse(podcastsData);
@@ -77,7 +79,7 @@ function displayPodcasts() {
         <h3>${title}</h3>
         <p>Episode ${episodeNumber}</p>
         <p>${description}</p>
-        <p><a href="${link}</a></p>
+        <p><a href="${link}"</a></p>
       </div>
     `;
   }
@@ -145,6 +147,7 @@ function createLink() {
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
 }
 
+// Link JavaScript styling (basicly)
 
 const link = document.querySelector('a[href="${link}"]');
 link.setAttribute('target', '_blank');
