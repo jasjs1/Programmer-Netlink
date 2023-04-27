@@ -1,0 +1,111 @@
+
+body {
+  background: #1c1f23;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+  .container {
+    display: none;
+  }
+
+  #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    padding: 18px 18px 18px 18px;
+    background-color: #6466E9;
+    color: whitesmoke;
+    border-color: #6466E9;
+  }
+
+  #ep-title {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 13px 13px 13px 13px;
+  }
+
+  #ep-num {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 13px 13px 13px 13px;
+  }
+
+  #ep-description {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 13px 13px 13px 13px;
+  }
+
+  input[type="url"] {
+      background-color: #1c1f23;
+      border: 1px solid #6466E9;
+      padding: 13px 13px 13px 13px;
+      color: white;
+  }
+
+  #signup-name, #podcasts {
+    display: inline-block;
+  }
+
+  #name {
+    color: #6466E9;
+    font-weight: bold;
+  }
+  
+  .podcast-container {
+    margin-top: 20px;
+    padding: 13px;
+    border: 1px solid #6466E9;
+    border-radius: 5px;
+    margin-left: 120px;
+    margin-right: 120px;
+    width: auto;
+    height: auto;
+    inline-size: auto;
+    overflow-wrap: break-word;
+    padding-top: 20px;
+    min-height: 50px;
+    min-width: 50px;
+  }
+
+  /* .podcast-container * {
+    padding: 2.5px;
+  } */
+
+  a {
+    color: #6466E9;
+    text-decoration: underline;
+  }
+
+  textarea {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 13px 13px 13px 13px;
+    resize: none;
+    margin-top: 13px;
+  }
+
+  /* button[type="submit"]  {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 13px 13px 13px 13px;
+  } */
+
+  button[type="ep-link"]  {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 13px 13px 13px 13px;
+  }
