@@ -109,3 +109,10 @@ body {
     color: white;
     padding: 13px 13px 13px 13px;
   }
+
+  button {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    padding: 9.5px 9.5px 9.5px 9.5px;
+  }
