@@ -1,177 +1,157 @@
-window.onload = () => {
-    const followButton = document.getElementById("follow-button");
-    const unfollowButton = document.getElementById("unfollow-button");
-    const followerCountElement = document.getElementById("follower-count");
-
-    // Check if there's a stored follower count in local storage
-    let followerCount = localStorage.getItem("followerCount");
-    if (!followerCount) {
-      followerCount = 0;
-    }
-
-    // Update the follower count element with the current follower count
-    followerCountElement.textContent = followerCount;
-
-    // Update the button text based on whether the user is following or not
-    if (followerCount > 0) {
-      followButton.style.display = "none";
-      unfollowButton.style.display = "inline-block";
-    } else {
-      followButton.style.display = "inline-block";
-      unfollowButton.style.display = "none";
-    }
-
-    // Add a click event listener to the follow button
-    followButton.addEventListener("click", () => {
-      // Add 1 to the follower count
-      followerCount++;
-
-      // Save the updated follower count to local storage
-      localStorage.setItem("followerCount", followerCount);
-
-      // Update the follower count element and button display based on whether the user is following or not
-      followerCountElement.textContent = followerCount;
-      followButton.style.display = "none";
-      unfollowButton.style.display = "inline-block";
-    });
-
-    // Add a click event listener to the unfollow button
-    unfollowButton.addEventListener("click", () => {
-      // Subtract 1 from the follower count
-      followerCount--;
-
-      // Save the updated follower count to local storage
-      localStorage.setItem("followerCount", followerCount);
-
-      // Update the follower count element and button display based on whether the user is following or not
-      followerCountElement.textContent = followerCount;
-      followButton.style.display = "inline-block";
-      unfollowButton.style.display = "none";
-    });
-  };
-
-  
-  // Check if there is a saved image in localStorage and display it
-  window.addEventListener('load', () => {
-    const profileImage = localStorage.getItem('profileImage');
-    if (profileImage) {
-      const uploadedImage = document.getElementById('uploaded-image');
-      uploadedImage.style.backgroundImage = `url(${profileImage})`;
-      uploadedImage.style.display = 'block';
-    }
-  });
-  
-
-  function uploadImage() {
-    const fileInput = document.getElementById('image-upload');
-    fileInput.accept = 'image/jpeg, image/png, image/heic'; // Add allowed file types here
-  
-    fileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = (e) => {
-        const uploadedImage = document.getElementById('uploaded-image');
-        uploadedImage.style.backgroundImage = `url(${e.target.result})`; // Set the uploaded image as background
-        uploadedImage.style.display = 'block';
-  
-        // Save image data to localStorage
-        localStorage.setItem('profileImage', e.target.result);
-      }
-  
-      reader.readAsDataURL(file);
-    });
-  
-    fileInput.click();
-  }
-  
-  // Check if there is a saved image in localStorage and display it
-  window.addEventListener('load', () => {
-    const profileImage = localStorage.getItem('profileImage');
-    if (profileImage) {
-      const uploadedImage = document.getElementById('uploaded-image');
-      uploadedImage.style.backgroundImage = `url(${profileImage})`;
-      uploadedImage.style.display = 'block';
-    }
-  });
-
-  
-  
-  const containerDiv = document.querySelector('.container');
-  const showContainerButton = document.getElementById('show-container');
-
-function checkTitleLength() {
-  const titleValue = titleInput.value;
-  if (titleValue.length < titleInput.minLength) {
-    console.log(`Title must be at least ${titleInput.minLength} characters`);
-    toggleContainer('show');
-  } else if (titleValue.length > titleInput.maxLength) {
-    console.log(`Title must be no more than ${titleInput.maxLength} characters`);
-    toggleContainer('show');
-  } else {
-    console.log(""); // empty console.log statement to clear any previous messages
-    toggleContainer('hide');
-  }
-
-  // Function to check the length of the body inputs
-  const bodyValue = bodyInput.value;
-  if (bodyValue.length < bodyInput.minLength) {
-    console.log(`Body must be at least ${bodyInput.minLength} characters`);
-    toggleContainer('show');
-  } else if (bodyValue.length > bodyInput.maxLength) {
-    console.log(`Body must be no more than ${bodyInput.maxLength} characters`);
-    toggleContainer('show');
-  } else {
-    console.log(""); // empty console.log statement to clear any previous messages
-    toggleContainer('hide');
-  }
-}
+const showContainerButton = document.getElementById('show-container');
+const containerDiv = document.querySelector('.container');
 
 function toggleContainer(action) {
   if (action === 'show') {
     containerDiv.style.display = 'block';
-    showContainerButton.textContent = '-';
+    showContainerButton.textContent = 'CLOSE';
+    hash();
   } else if (action === 'hide') {
     containerDiv.style.display = 'none';
-    showContainerButton.textContent = '+';
+    showContainerButton.textContent = 'CREATE PODCAST';
   } else if (action === 'toggle') {
     if (containerDiv.style.display === 'none') {
       containerDiv.style.display = 'block';
-      showContainerButton.textContent = '-';
+      showContainerButton.textContent = 'CLOSE';
+      hash();
     } else {
       containerDiv.style.display = 'none';
-      showContainerButton.textContent = '+';
+      showContainerButton.textContent = 'CREATE PODCAST';
     }
   }
 }
 
-showContainerButton.addEventListener('click', function() {
+showContainerButton.addEventListener('click', () => {
   toggleContainer('toggle');
 });
 
-var modalOverlay = document.querySelector('.modal-overlay');
-var modalContainer = document.querySelector('.modal-container');
+function hash() {
+  console.log('hash function called');
+  containerDiv.style.display = 'block';
+  window.location.hash = 'create-podcast';
+}
 
-// Hide modal container when X is clicked
-modalContainer.querySelector('h3').addEventListener('click', function() {
-  modalOverlay.style.display = 'none';
-});
+const shareButton = document.querySelector('button[type="submit"]');
+shareButton.addEventListener('click', savePodcast);
 
-// Hide modal container when user clicks outside of it
-window.onclick = function(event) {
-  if (event.target == modalOverlay) {
-    modalOverlay.style.display = 'none';
+function savePodcast(event) {
+  event.preventDefault();
+
+  const title = document.getElementById('ep-title').value;
+  const number = document.getElementById('ep-num').value;
+  const description = document.getElementById('ep-description').value;
+  const link = document.getElementById('ep-link-text').value;
+
+  const podcastData = {
+    title: title,
+    episodeNumber: number,
+    description: description,
+    link: link
+  };
+  const storedPodcasts = JSON.parse(localStorage.getItem('podcast-uploads')) || [];
+  storedPodcasts.push(podcastData);
+  localStorage.setItem('podcast-uploads', JSON.stringify(storedPodcasts));
+  
+  alert('Podcast has been shared with no errors!'); 
+
+  displayPodcasts();
+}
+
+const podcastsContainer = document.getElementById('podcasts');
+
+function displayPodcasts() {
+  const podcastsData = localStorage.getItem('podcast-uploads');
+  if (!podcastsData) {
+    podcastsContainer.innerHTML = '<p>No podcasts uploaded yet.</p>';
+    return;
   }
-};
+  const podcasts = JSON.parse(podcastsData);
+  if (podcasts.length === 0) {
+    podcastsContainer.innerHTML = '<p>No podcasts uploaded yet.</p>';
+    return;
+  }
+  let podcastsHTML = '';
+  for (const podcast of podcasts) {
+    const { title, episodeNumber, description, link } = podcast;
+    podcastsHTML += `
+      <div class="podcast-episode">
+      <p>------------------------------------------------</p>
+        <h3>${title}</h3>
+        <p>Episode ${episodeNumber}</p>
+        <p>${description}</p>
+        <p><a href="${link}"</a></p>
+      </div>
+    `;
+  }
+  podcastsContainer.innerHTML = podcastsHTML;
+}
 
-// Hide modal container when user presses the Escape key
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    modalOverlay.style.display = 'none';
+displayPodcasts();
+
+const linksButton = document.getElementById('add-link');
+linksButton.addEventListener('click', () => {
+  const linkForm = document.getElementById('link-form');
+  if (linkForm.style.display === 'none') {
+    linkForm.style.display = 'block';
+  } else {
+    linkForm.style.display = 'none';
   }
 });
 
-// Show modal container when user clicks button
-document.getElementById('show-modal').addEventListener('click', function() {
-  modalOverlay.style.display = 'flex';
+const createLinkButton = document.getElementById('create-link');
+createLinkButton.addEventListener('click', () => {
+  createLink();
 });
+
+const clearStorageButton = document.getElementById('clear-storage');
+clearStorageButton.addEventListener('click', () => {
+  localStorage.clear();
+  displayPodcasts();
+});
+
+
+function createLink() {
+  let link;
+  do {
+    link = prompt("Enter the URL for the link (format: https://example.com/):", "https://example.com/");
+    if (link != null) {
+      if (link.startsWith("https://") && link.endsWith("/")) {
+        const body = document.getElementById("ep-link-text");
+        const newLink = `<a href="${link}" target="_blank">${link}</a>`;
+        body.insertAdjacentHTML('beforeend', newLink);
+
+        const links = body.getElementsByTagName("a");
+        const newLinkElement = links[links.length - 1]; // fixed line here
+        const linksButton = document.getElementById('add-link');
+        linksButton.addEventListener('click', () => {
+          const linkForm = document.getElementById('link-form');
+          if (linkForm.style.display === 'none') {
+            linkForm.style.display = 'block';
+          } else {
+            linkForm.style.display = 'none';
+          }
+        });
+
+        const createLinkButton = document.getElementById('create-link');
+        createLinkButton.addEventListener('click', () => {
+          createLink();
+        });
+
+        const clearStorageButton = document.getElementById('clear-storage');
+        clearStorageButton.addEventListener('click', () => {
+          localStorage.clear();
+          displayPodcasts();
+        });
+      }
+    }
+  } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
+}
+
+// Link JavaScript styling (basicly)
+
+const link = document.querySelector('a[href="${link}"]');
+link.setAttribute('target', '_blank');
+
+function redirectPodcastProfile() {
+  window.location.href = "http://127.0.0.1:5500/podcasts/podcast-profile/podcast-profile.html";
+}
