@@ -82,10 +82,14 @@
       <textarea id="post-body" name="post-body" placeholder="min 10 characters, max 450 characters" rows="4" minlength="10" maxlength="450"></textarea>
       <div class="msg-1"> 
 
-        <div class="addons">
+        <div class="add-tags" style="display: none;">
+          <label for="tags">Tags:</label>
+          <input type="text" id="tags" name="tags">
+        </div>
 
+        <div class="addons">
+          <img src="/.app/img/hastag.png" type="button" onclick="showAddTagsDiv()" alt="Add Tag" width="35" height="35"/>
           <img src="/.app/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
-          <img src="/.app/img/hastag.png" type="button" onclick="addTag()" alt="Add Tag" width="35" height="35"/>
         </div>
 
         <div class="toggle-c">
