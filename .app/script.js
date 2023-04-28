@@ -9,7 +9,6 @@ if (!name) {
   localStorage.setItem('name', name);
 }
 
-
 // Update the page title to include the user's name
 // document.title = `${name}'s Social Media App`;
 
@@ -24,13 +23,30 @@ if (savedPosts.length) {
     // Create a new post element
     const postElement = document.createElement('div');
     postElement.classList.add('post');
-    postElement.innerHTML = `<h2>${post.title}</h2><p>${post.body}</p>`;
+    postElement.innerHTML = `
+      <h2>${post.title}</h2>
+      <p>${post.body}</p>
+      <p>Tags: ${post.tags}</p>
+    `;
 
     // Add the new post to the top of the list
     postsContainer.prepend(postElement);
   }
 }
 
+function renderArticles(posts) {
+  const articlesHTML = posts
+    .map(
+      (article) =>
+        `<div class="posts">
+          <h3>${post.title}</h3>
+          <p>${post.body}</p>
+          <p><img src="/articles/img/date+time.png" alt="Image Description" width="15" height="15" /> ${new Date(article.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(',', '').replace(/\//g, '.')}&nbsp;${new Date(article.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/^(\d{1,2}):(\d{2})\s*([ap]m)$/i, (match, hour, minute, period) => `${hour}:${minute}${period.toLowerCase().charAt(0)}`)}</p>
+        </div>`
+    )
+    .join('');
+  articlesContainer.innerHTML = articlesHTML;
+}
 
 // Add new post and save to local storage
 form.addEventListener('submit', (event) => {
@@ -39,18 +55,24 @@ form.addEventListener('submit', (event) => {
   // Get the input values
   const title = document.getElementById('post-title').value.trim();
   const body = document.getElementById('post-body').value.trim();
+  const tags = document.getElementById('tags').value.trim();
 
-  // Create a new post object with a date property
+  // Create a new post object with title, body, tags, and a date property
   const post = {
     title,
     body,
+    tags,
     date: Date.now()
   };
 
   // Create a new post element
   const postElement = document.createElement('div');
   postElement.classList.add('post');
-  postElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
+  postElement.innerHTML = `
+    <h2>${title}</h2>
+    <p>${body}</p>
+    <p>Tags: ${tags}</p>
+  `;
 
   // Add the new post to the top of the list
   postsContainer.prepend(postElement);
@@ -63,14 +85,13 @@ form.addEventListener('submit', (event) => {
 
   // Reset the form
   form.reset();
-  
+
   // Call renderArticles to update the articles list
   renderArticles();
 });
 
 // Call renderArticles to render the initial list of articles on page load
 renderArticles();
-
 
 
 
@@ -217,6 +238,12 @@ function createLink() {
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
 }
 
+function showAddTagsDiv() {
+  var addTagsDiv = document.querySelector('.add-tags');
+  addTagsDiv.style.display = 'block';
+}
+
+
 
 const checkbox = document.getElementById('toggle-space');
 
@@ -274,4 +301,13 @@ function addTag() {
 
   alert('You can not add any more tags during this session.');
   console.log('User can not add any more tags during this session.');
+}
+
+
+// Get the signup name from local storage
+const signupName = localStorage.getItem("signup-name");
+
+// Display the signup name if it exists in local storage
+if (signupName) {
+  document.getElementById("signup-name").textContent = `Welcome, ${signupName}!`;
 }
