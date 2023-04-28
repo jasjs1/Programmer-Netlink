@@ -320,3 +320,16 @@ body {
     color: red;
   }
     
+
+
+  #tags {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    border: 1px solid #6466E9;
+    color: white;
+    font-size: 14.5px;
+    padding: 10px 10px 50px 50px;
+
+  }
+  
