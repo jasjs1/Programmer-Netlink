@@ -26,7 +26,7 @@ if (savedPosts.length) {
     postElement.innerHTML = `
       <h2>${post.title}</h2>
       <p>${post.body}</p>
-      <p>Tags: ${post.tags}</p>
+      <p>${post.tags}</p>
     `;
 
     // Add the new post to the top of the list
@@ -71,8 +71,13 @@ form.addEventListener('submit', (event) => {
   postElement.innerHTML = `
     <h2>${title}</h2>
     <p>${body}</p>
-    <p>Tags: ${tags}</p>
+    <p>${tags}</p>
   `;
+
+  if (tags !== '') {
+    postElement.innerHTML += `<p>${tags}</p>`;
+  }
+
 
   // Add the new post to the top of the list
   postsContainer.prepend(postElement);
@@ -311,3 +316,36 @@ const signupName = localStorage.getItem("signup-name");
 if (signupName) {
   document.getElementById("signup-name").textContent = `Welcome, ${signupName}!`;
 }
+
+
+const tagsInput = document.getElementById('tags');
+
+tagsInput.addEventListener('input', (event) => {
+  const value = event.target.value;
+  const hashtags = value.match(/#\w+/g); // Find all hashtags in the input
+
+  // Wrap each hashtag in a span with the 'hashtag' class
+  const taggedValue = value.replace(/#\w+/g, '<span class="hashtag">$&</span>');
+  event.target.value = taggedValue;
+});
+
+
+
+// const tagsInput = document.getElementById('tags');
+tagsInput.addEventListener('input', function() {
+  const tagsValue = tagsInput.value.trim();
+  if (tagsValue === '') {
+    tagsInput.classList.add('no-tags');
+    localStorage.setItem('noTags', 'true');
+  } else {
+    tagsInput.classList.remove('no-tags');
+    localStorage.setItem('noTags', 'false');
+  }
+});
+
+// On page load, check if noTags is true and add the class if it is
+const noTags = localStorage.getItem('noTags');
+if (noTags === 'true') {
+  tagsInput.classList.add('no-tags');
+}
+
