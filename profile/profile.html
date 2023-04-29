@@ -101,9 +101,9 @@
   
 
 			<div class="info">
-				<h2><span id="signup-name"></span></h2>
+				<h3><span id="signup-name"></span></h3>
 				<h3><span id="user-username"></span></h3>
-				<h3><span id="tag"></span></h3>
+				<h4><span id="tag"></span></h4>
 				
 				<script>
 				  // Load user name and tag from local storage
@@ -116,7 +116,7 @@
 				  nameElement.textContent = savedName;
 			  
 				  const userNameElement = document.getElementById('user-username');
-				  userNameElement.textContent = `@${savedUserName}.${savedTag}.netlink`;
+				  userNameElement.textContent = `@${savedUserName}.${savedTag}.pr`;
 			  
 				  const tagElement = document.getElementById('tag');
 				  tagElement.textContent = `#${savedTag}`;
