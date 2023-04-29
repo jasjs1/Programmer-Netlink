@@ -12,5 +12,5 @@ form.addEventListener('submit', function(event) {
   localStorage.setItem('comp-email', companyEmailInput.value);
   localStorage.setItem('comp-password', companyPasswordInput.value);
 
-  window.location.href = 'http://127.0.0.1:3000/company/account/.moredetials/comp-more-details.html';
+  window.location.href = 'http://127.0.0.1:5500/company/.app/company-app.html';
 });
