@@ -100,7 +100,9 @@ body {
 }
 
 a {
-  color: white; /* Set link color to red */
+  color: #6466E9;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 
@@ -191,6 +193,11 @@ p {
   display:block !important;
   
   }
+
+  .expose {
+    padding: 0 330px; /* Change the value as per your requirement */
+  }
+  
 
   .expose a {
     color: #6466E9;
