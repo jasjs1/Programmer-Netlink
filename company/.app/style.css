@@ -5,6 +5,11 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  .top-msg {
+    color: #6466E9;
+    font-weight: bolder;
+  }
   
   .topnav {
     background-color: #1c1f23;
