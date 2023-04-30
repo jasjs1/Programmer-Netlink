@@ -3,6 +3,7 @@ const companyNameInput = document.getElementById('comp-name');
 const companyEmailInput = document.getElementById('comp-email');
 const companyPasswordInput = document.getElementById('comp-password');
 const companyLogoInput = document.getElementById('comp-logo');
+const companyUsername = document.getElementById('comp-username');
 
 form.addEventListener('submit', function(event) {
 
@@ -18,6 +19,7 @@ form.addEventListener('submit', function(event) {
     localStorage.setItem('comp-email', companyEmailInput.value);
     localStorage.setItem('comp-password', companyPasswordInput.value);
     localStorage.setItem('comp-logo', companyLogoBase64);
+    localStorage.setItem('comp-username', companyUsername.value)
 
     // Redirect to company app
     window.location.href = 'http://127.0.0.1:5500/company/.app/company-app.html';
