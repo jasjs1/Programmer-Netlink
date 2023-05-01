@@ -38,7 +38,6 @@ form.addEventListener('submit', function(e) {
   form.reset();
 });
 
-
 // Define a function to create a job listing element
 function createJobListingElement(title, location, description, fullPosting, applyHere) {
   var jobListingElement = document.createElement('div');
@@ -56,13 +55,15 @@ function createJobListingElement(title, location, description, fullPosting, appl
   descriptionElement.classList.add('job-description');
   descriptionElement.textContent = description;
 
-  var fullPostingElement = document.createElement('p');
+  var fullPostingElement = document.createElement('a');
   fullPostingElement.classList.add('job-full-posting');
-  fullPostingElement.textContent = fullPosting;
+  fullPostingElement.textContent = 'View full posting';
+  fullPostingElement.href = fullPosting;
 
-  var applyHereElement = document.createElement('p');
+  var applyHereElement = document.createElement('a');
   applyHereElement.classList.add('job-apply-here');
-  applyHereElement.textContent = applyHere;
+  applyHereElement.textContent = ' Apply here';
+  applyHereElement.href = applyHere;
 
   jobListingElement.appendChild(titleElement);
   jobListingElement.appendChild(locationElement);
