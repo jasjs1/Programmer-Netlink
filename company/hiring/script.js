@@ -86,3 +86,23 @@ for (var i = 0; i < jobListings.length; i++) {
   var jobListingElement = createJobListingElement(jobListing.title, jobListing.location, jobListing.description, jobListing.fullPosting, jobListing.applyHere);
   jobsHome.appendChild(jobListingElement);
 }
+
+function isHiring() {
+  const hiringLS = localStorage.getItem('jobListings');
+
+  if (hiringLS !== null) {
+    localStorage.setItem('isHiring', true);
+  } else {
+    localStorage.setItem('isHiring', false);
+  }
+
+  const isHiring = localStorage.getItem('isHiring') === 'true';
+
+  if (isHiring) {
+    console.log('Company is hiring = TRUE');
+  } else {
+    console.log('Company is hiring = FALSE');
+  }
+}
+
+setInterval(isHiring, 15000); // Call isHiring() every second
