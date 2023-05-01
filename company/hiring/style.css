@@ -68,3 +68,8 @@ body {
     overflow-wrap: break-word;
     padding-top: 20px;
   }
+
+  a {
+    color: #6466E9;
+    font-weight: bold;
+  }
