@@ -68,7 +68,6 @@ form.addEventListener('submit', (event) => {
   postElement.innerHTML = `
     <h2>${title}</h2>
     <p>${body}</p>
-    <p>${tags}</p>
   `;
 
   if (tags !== '') {
