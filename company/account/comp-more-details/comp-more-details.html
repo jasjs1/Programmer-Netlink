@@ -27,7 +27,15 @@
             <label for="comp-url">Company Website URL</label>
             <input type="url" name="comp-url" id="comp-url" required>
 
-            <button type="submit" id="submit-button" onclick="redirectToCompanyApp()">Sign Up & Go To App</button>
+
+            <label for="hiring">Hiring?</label>
+            <select id="hiring" required>
+                <option> </option>
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+
+            <button type="submit" id="submit-button" onclick="redirectToPhase3()">Continue to phase 3</button>
 
         </form>
     </div>
