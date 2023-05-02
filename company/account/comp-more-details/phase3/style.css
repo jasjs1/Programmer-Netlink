@@ -4,8 +4,20 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-input[type="url"] {
+#comp-github-url {
     background-color: #1c1f23;
     color: white;
     font-family: 'Open Sans', sans-serif;
+    padding: 13px 13px 13px 13px;
+    border: 1px solid #6466E9 radius 5%;
 }
+
+
+#comp-linkedln-url {
+    background-color: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding: 13px 13px 13px 13px;
+    border: 1px solid #6466E9 radius 5%;
+}
+
