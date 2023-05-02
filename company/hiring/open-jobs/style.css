@@ -1,0 +1,27 @@
+body {
+    background: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    color: #6466E9;
+    font-weight: bold;
+}
+
+.hiring-status {
+    padding: 15px 15px 15px 15px;
+    border: 1.5px solid #6466E9;
+    border-radius: 5px;
+    flex: 1;
+    margin-left: 9.5px;
+    min-width: 100px;
+    min-height: 75px;
+  }
+
+  h1 {
+    /* Set font size to 24px */
+    font-size: 124px;
+    /* Make the font bold */
+    font-weight: bold;
+  }
