@@ -1,12 +1,12 @@
 const form = document.querySelector('form');
-const githubURL = document.getElementById('github-url');
-const linkedlnURL = document.getElementById('linkedln-url');
+const githubURL = document.getElementById('comp-github-url');
+const linkedlnURL = document.getElementById('comp-linkedln-url');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  localStorage.setItem('github-url', githubURL.value);
-  localStorage.setItem('linkedln-url', linkedlnURL.value);
+  localStorage.setItem('comp-github-url', githubURL.value);
+  localStorage.setItem('comp-linkedln-url', linkedlnURL.value);
 });
 
 function redirectToCompanyApp() {
