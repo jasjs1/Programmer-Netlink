@@ -21,6 +21,6 @@ form.addEventListener('submit', function(event) {
   fileReader.readAsDataURL(companyLogo.files[0]);
 });
 
-function redirectToCompanyApp() {
+function redirectToPhase3() {
   window.location.href = 'http://127.0.0.1:5500/company/account/comp-more-details/phase3/more-details-ph3.html';
 }
