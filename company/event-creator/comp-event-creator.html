@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Company Event Creator - Programmer Netlink</title>
+</head>
+<body>
+
+    <div class="head">
+        <h2>Create a Company Event</h2>
+    </div>
+    <div class="fields">
+        <form>
+      
+          <label for="comp-event-name">Event Name</label>
+          <input type="text" name="comp-event-name" id="comp-event-name">
+      
+          <label for="comp-event-description">Event Description</label>
+          <input type="text" name="comp-event-description" id="comp-event-description">
+      
+          <label for="comp-event-location">Event Location</label>
+          <input type="text" name="comp-event-location" id="comp-event-location">
+      
+          <label for="comp-event-hosts">Event Hosts</label>
+          <input type="text" name="comp-event-hosts" id="comp-event-hosts">
+      
+        </form>
+      
+        <button type="submit" id="create-company-event">Create Company Event</button>
+      </div>
+      
+      <script>
+        document.getElementById('create-company-event').addEventListener('click', function(event) {
+          event.preventDefault(); 
+      
+          // get input field values
+          var eventName = document.getElementById('comp-event-name').value;
+          var eventDescription = document.getElementById('comp-event-description').value;
+          var eventLocation = document.getElementById('comp-event-location').value;
+          var eventHosts = document.getElementById('comp-event-hosts').value;
+      
+
+          var eventData = {
+            eventName: eventName,
+            eventDescription: eventDescription,
+            eventLocation: eventLocation,
+            eventHosts: eventHosts
+          };
+      
+
+          var companyEvents = JSON.parse(localStorage.getItem('comp-events')) || [];
+          companyEvents.push(eventData);
+          localStorage.setItem('comp-events', JSON.stringify(companyEvents));
+      
+          console.log('Company event created successfully!');
+        });
+      </script>
+      
+</body>
+<script src="script.js"></script>
+</html>
