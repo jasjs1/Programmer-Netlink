@@ -26,7 +26,7 @@ if (savedPosts.length) {
     postElement.innerHTML = `
       <h2>${post.title}</h2>
       <p>${post.body}</p>
-      <p>${post.tags}</p>
+      <h4>${post.tags}</h4>
     `;
 
     // Add the new post to the top of the list
