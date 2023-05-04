@@ -296,62 +296,6 @@ renderSkills();
 
   </script>
 
-  <div class="contact-container">
-
-	<label for="contact-type">Contact Type</label>
-	<input type="text" for="contact-type" required>
-
-	<label for="contact-information">Contact At:</label>
-	<input type="text" for="contact-information" required>
-
-	<label for="used-often">Checked Often:</label>
-	<input type="checkbox" for="used-often" required>
-
-	<button id="save">Add Contact Type</button>
-
-	<ul id="contact-display"></ul>
-
-	<script>
-		const contactForm = document.querySelector('#contact-form');
-		const contactDisplay = document.querySelector('#contact-display');
-		let contactsArray = JSON.parse(localStorage.getItem('contact-info')) || [];
-
-		function renderContacts() {
-		contactDisplay.innerHTML = '';
-		for (let i = 0; i < contactsArray.length; i++) {
-			const contactItem = document.createElement('li');
-			contactItem.textContent = `${contactsArray[i].type}: ${contactsArray[i].info} (Checked often: ${contactsArray[i].often})`;
-			contactDisplay.appendChild(contactItem);
-		}
-		}
-
-		function addContact(event) {
-		event.preventDefault();
-		const typeInput = document.querySelector('#contact-type');
-		const typeValue = typeInput.value.trim();
-		const infoInput = document.querySelector('#contact-information');
-		const infoValue = infoInput.value.trim();
-		const oftenInput = document.querySelector('#used-often');
-		const oftenValue = oftenInput.checked;
-		if (typeValue && infoValue) {
-			contactsArray.push({
-			type: typeValue,
-			info: infoValue,
-			often: oftenValue
-			});
-			localStorage.setItem('contact-info', JSON.stringify(contactsArray));
-			typeInput.value = '';
-			infoInput.value = '';
-			oftenInput.checked = false;
-			renderContacts();
-		}
-		}
-
-		contactForm.addEventListener('submit', addContact);
-
-
-	</script>
-  </div>
 
   <div class="profile-settings-renav">
 	<a href="http://127.0.0.1:5500/profile/settings/profile-settings.html">Go to Profile Settings</a>
