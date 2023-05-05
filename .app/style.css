@@ -282,6 +282,11 @@ body {
     box-shadow: 7.3px 2.5px 2.5px #6466E9;
   }
   
+  select {
+    padding: 2px 2px 2px 2px;
+    color: white;
+    border: 1px solid #6466E9 radius 5%;
+  }
   
   .toggle-c label {
     align-items: center;
@@ -334,3 +339,16 @@ body {
   .post-content p span.tag {
     color: #6466E9;
   }
+
+  h4 {
+    color: #6466E9;
+  }
+
+  .quick-options {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
