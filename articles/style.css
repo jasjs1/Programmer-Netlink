@@ -147,6 +147,7 @@ body {
     height: 40px;
     background-color: #1c1f23;
     border-color: #6466E9;
+    display: none;
   }
 
   .credits {
@@ -227,4 +228,12 @@ body {
 
   .assign-tag {
     display: none;
+}
+
+select {
+  background-color: #1c1f23;
+  border: 1px solid #6466E9;
+  border-radius: 5%;
+  padding: 13px 13px 13px 13px;
+  color: white;
 }
