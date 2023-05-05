@@ -16,10 +16,12 @@ form.addEventListener('submit', (event) => {
   const body = document.getElementById('article-body').value.trim();
   const credits = document.getElementById('credits').value.trim() || " ";
 
+  const tags = document.getElementById('tags').value;
   const article = {
     title,
     body,
     credits,
+    tags,
     date: Date.now()
   };
 
@@ -39,6 +41,7 @@ function renderArticles(articles) {
           <h3>${article.title}</h3>
           <p>${article.body}</p>
           ${article.credits ? `<p>Credits: ${article.credits}</p>` : ''}
+          <p>${article.tags}</p>
           <p><img src="/articles/img/date+time.png" alt="Image Description" width="15" height="15" /> ${new Date(article.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(',', '').replace(/\//g, '.')}&nbsp;${new Date(article.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/^(\d{1,2}):(\d{2})\s*([ap]m)$/i, (match, hour, minute, period) => `${hour}:${minute}${period.toLowerCase().charAt(0)}`)}</p>
 
 
@@ -158,3 +161,7 @@ function loadVideo() {
       });
     }
     
+    function showAddTagsDiv() {
+      var addTagsDiv = document.querySelector('.assign-tag');
+      addTagsDiv.style.display = 'block';
+    }
