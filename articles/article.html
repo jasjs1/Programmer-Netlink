@@ -38,7 +38,6 @@
 
 
             <div class="credits">
-              <p>Credits</p>
               <input type="text" id="credits" name="credits" placeholder=" Credit the soruces from this article, this is optional."> 
             </div>
             
@@ -46,12 +45,61 @@
           </div>
 
           <div class="assign-tag">
-e
-          </div>
+            <label for="tags">Tags:</label>
+            <select id="tags" name="tags">
+                <option>#uncategorized</option>
+                <option>#ada</option>
+                <option>#assembly</option>
+                <option>#angular</option>
+                <option>#bash</option>
+                <option>#awk</option>
+                <option>#c</option>
+                <option>#c#</option>
+                <option>#c++</option>
+                <option>#clojure</option>
+                <option>#cobol</option>
+                <option>#coffeescript</option>
+                <option>#commonlisp</option>
+                <option>#crystal</option>
+                <option>#css</option>
+                <option>#dart</option>
+                <option>#elixir</option>
+                <option>#elm</option>
+                <option>#erlang</option>
+                <option>#fortran</option>
+                <option>#go</option>
+                <option>#groovy</option>
+                <option>#haskell</option>
+                <option>#html</option>
+                <option>#java</option>
+                <option>#javascript</option>
+                <option>#julia</option>
+                <option>#kotlin</option>
+                <option>#lua</option>
+                <option>#matlab</option>
+                <option>#objectivec</option>
+                <option>#ocaml</option>
+                <option>#pascal</option>
+                <option>#perl</option>
+                <option>#php</option>
+                <option>#python</option>
+                <option>#r</option>
+                <option>#react</option>
+                <option>#reactnative</option>
+                <option>#ruby</option>
+                <option>#rust</option>
+                <option>#scala</option>
+                <option>#scheme</option>
+                <option>#sql</option>
+                <option>#swift</option>
+                <option>#typescript</option>
+            </select>
+        </div>
+        
           <br>
     
         <div class="addons">
-          <img src="/articles/img/hastag.png" type="button" onclick=""
+          <img src="/articles/img/hastag.png" type="button" onclick="showAddTagsDiv()" alt="Add Tag to article" width="35" height="35"/>
           <img src="/articles/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
           <img src="/articles/img/video.png" type="button" onclick="loadVideo()" alt="add video" width="35" height="35">
           <img src="/articles/img/quote-2.png" onclick="showCredits()" width="35" height="35">
