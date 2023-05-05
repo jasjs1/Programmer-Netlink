@@ -347,3 +347,18 @@ const noTags = localStorage.getItem('noTags');
 if (noTags === 'true') {
   tagsInput.classList.add('no-tags');
 }
+
+// redirect to other pags when user clicks on a image
+
+function redirectToAppDrawer() {
+  window.location.href = 'http://www.google.com'; 
+}
+
+function redirectToProfilePage() {
+  window.location.href = 'http://127.0.0.1:5500/profile/profile.html'; 
+}
+
+function logout() {
+  window.location.href = 'http://127.0.0.1:5500/logout';
+}
+
