@@ -17,4 +17,7 @@ ACCEPTIONS:
 
 ## Do not violate anything in the 'NO' section.
 
+
+### BY PARTICIPATING IN A COMMUNITY YOU ABIDE BY THE TERMS OF SERVICE
+
 Please be a nice person.
