@@ -14,43 +14,28 @@
 
   <nav role="navigation">
     <div id="menuToggle">
-      <!--
-      A fake / hidden checkbox is used as click reciever,
-      so you can use the :checked selector on it.
-      -->
+
       <input type="checkbox" />
       
-      <!--
-      Some spans to act as a hamburger.
-      
-      They are acting like a real hamburger,
-      not that McDonalds stuff.
-      -->
       <span></span>
       <span></span>
       <span></span>
       
-      <!--
-      Too bad the menu has to be inside of the button
-      but hey, it's pure CSS magic.
-      -->
       <ul id="menu">
-        <a href="#"><li>Home</li></a>
-        <a href="#"><li>About</li></a>
-        <a href="#"><li>Info</li></a>
-        <a href="#"><li>Contact</li></a>
-        <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+        <li><a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/profile/settings/profile-settings.html">Settings</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/articles/article.html">Articles</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/podcasts/podcasts.html">Podcasts</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/productivity/app/app-selector/selector.html">Productivity Suite</a></li>
+
+
+        <img src="/.app/img/quick-options/user-img.png" onclick="redirectToProfilePage()" width="35px" height="35px">
+        <img src="/.app/img/quick-options/logout.png" onclick="logout()" width="35px" height="35px">
+        
       </ul>
-    </div>
-  </nav>
-  
-
-  <div class="quick-options">
-    <img src="/.app/img/quick-options/app-drawer.png" onclick="redirectToAppDrawer()" width="35px" height="35px">
-    <img src="/.app/img/quick-options/user-img.png" onclick="redirectToProfilePage()" width="35px" height="35px">
-    <img src="/.app/img/quick-options/logout.png" onclick="logout()" width="35px" height="35px">
-  </div>
-
+      </div>
+      </nav>
+    
 
 
   <div class="tab-bar">
