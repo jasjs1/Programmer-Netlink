@@ -345,11 +345,7 @@ body {
   }
 
   .quick-options {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin-right: 10px;
-    margin-top: 10px;
+    padding: 7px;
   }
   
   #menuToggle
@@ -469,7 +465,10 @@ body {
     padding: 50px;
     padding-top: 125px;
     
-    background: #1c1f23;
+    background: #3033379d;
+    opacity: 1 Imp !important;
+    box-shadow: 4px 4px 4px 4px transparent;
+    border-radius: 5px;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     /* to stop flickering of text in safari */
