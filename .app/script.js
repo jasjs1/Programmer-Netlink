@@ -360,6 +360,9 @@ function redirectToProfilePage() {
 }
 
 function logout() {
-  window.location.href = 'http://127.0.0.1:5500/logout';
+  window.location.href = 'http://127.0.0.1:5500/hook-page/hook.html#login';
 }
 
+function redirectToSettings() {
+  window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html';
+}
