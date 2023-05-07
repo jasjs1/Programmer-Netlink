@@ -27,12 +27,40 @@ if (savedPosts.length) {
       <h2>${post.title}</h2>
       <p>${post.body}</p>
       <h4>${post.tags}</h4>
+      <div class="interact">
+
+      <button class="bookmark-button" type="button">Bookmark</button>
+
+      </div>
     `;
 
     // Add the new post to the top of the list
     postsContainer.prepend(postElement);
+
+// Attach click event listener to bookmark button
+const bookmarkButton = postElement.querySelector('.bookmark-button');
+bookmarkButton.addEventListener('click', function() {
+  // Retrieve existing bookmarks from localStorage or initialize an empty array
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+  // Check if the post is already bookmarked
+  const bookmarkIndex = bookmarks.findIndex(bookmark => bookmark.title === post.title);
+  if (bookmarkIndex !== -1) {
+    // Post is already bookmarked, so remove it
+    bookmarks.splice(bookmarkIndex, 1);
+    console.log('Removed ' + post.title + ' from post bookmarks.',);
+  } else {
+    // Post is not bookmarked, so add it
+    bookmarks.push(post);
+    console.log('Added ' + post.title + ' to post bookmarks.',);
+  }
+
+  // Save the updated bookmarks array to localStorage
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    });
   }
 }
+
 
 function renderArticles(posts) {
   const articlesHTML = posts
@@ -217,12 +245,13 @@ function createLink() {
     link = prompt("Enter the URL for the link (format: https://example.com/):", "https://example.com/");
     if (link != null) {
       if (link.startsWith("https://") && link.endsWith("/")) {
-        var body = document.getElementById("post-body");
+        var postTitleInput = document.getElementById("post-title");
+        var existingValue = postTitleInput.value;
         var newLink = "<a href='" + link + "' target='_blank'>" + link + "</a>";
-        body.insertAdjacentHTML('beforeend', newLink);
+        postTitleInput.value = existingValue + newLink;
 
         // add event listener to newly created link
-        var links = body.getElementsByTagName("a");
+        var links = postTitleInput.getElementsByTagName("a");
         var newLinkElement = links[links.length - 1]; // get last link element
         newLinkElement.addEventListener("click", function(event) {
           event.preventDefault(); // prevent default link behavior
@@ -230,18 +259,19 @@ function createLink() {
         });
       } else {
         alert("ERR: Invalid URL format. Please enter a URL with the correct formatting: https://example.com/");
-        console.error('ERR: invalid url format. the user must enter a new URL in the format of: https://example.com/');
+        console.error('ERR: invalid URL format. The user must enter a new URL in the format of: https://example.com/');
       }
 
       var linkForm = document.getElementById("link-form");
-    if (linkForm.style.display === "none") {
+      if (linkForm.style.display === "none") {
         linkForm.style.display = "block";
-    } else {
+      } else {
         linkForm.style.display = "none";
-    }
+      }
     }
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
-} 
+}
+
 
 function showAddTagsDiv() {
   var addTagsDiv = document.querySelector('.add-tags');
