@@ -74,7 +74,11 @@ body {
   
   
   .container {
-    max-width: 600px;
+
+    margin-left: 120px;
+    margin-right: 120px;
+
+    /* max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
@@ -83,13 +87,22 @@ body {
     border-radius: 5.2px;
     box-shadow: 444px #6466e981;
     margin-top: 42px;
-    margin-bottom: 42px;
+    margin-bottom: 42px; */
   }
   
   label[for="post-title"] {
     padding-bottom: 10px;
-    width: 2500px;
+    width: -150px;
+    margin-left: 225px;
+    margin-right: 225px;
   }
+
+
+  input[type="image"] {
+    width: 35px;
+    height: auto;
+  }
+
 
   #credits {
     background-color: #1c1f23 !important;
@@ -100,14 +113,18 @@ body {
   
  input[type="submit"] {
   background-color: #1c1f23;
-  font-weight: bolder;
-  font-size: 17px;
-  
-  color: white;
-  padding: 17px;
-  border: 2px solid #6466E9;
+  border: 1px solid #6466E9;
   border-radius: 5px;
-  margin-bottom: 24.5px;
+  color: white;
+  padding: 20px 20px 20px 20px;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin-left: 225px;
+  margin-right: 225px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
   
   
@@ -120,17 +137,23 @@ body {
     color: white;
     font-size: 14.5px;
     width: auto;
-    height: 39px;
+    height: 79px;
+    margin-left: 225px;
+    margin-right: 225px;
   }
   
   #post-body {
-    font-family: 'Open Sans', sans-serif;
+
+    display: none;
+    visibility: hidden;
+
+    /* font-family: 'Open Sans', sans-serif;
     background-color: #1c1f23;
     border-radius: 5px;
     border-color: #6466E9;
     color: white;
     width: auto;
-    height: 200px;
+    height: 200px; */
   }
   
   textarea {
@@ -165,13 +188,11 @@ body {
   
   
   button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #6466E9;
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    border-radius: 7px;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    
   }
   
   button:hover {
@@ -297,8 +318,9 @@ body {
   }
   
   .addons {
-    margin-top: 10px;
+    text-align: center;
     margin-bottom: 10px;
+    padding: 15px 15px;
   }
   
   .finished {
@@ -341,10 +363,13 @@ body {
   }
 
   h4 {
+    margin-top: -1px;
     color: #6466E9;
   }
 
   .quick-options {
+
+    margin-top: 10px;
     padding: 7px;
   }
   
@@ -491,4 +516,14 @@ body {
   #menuToggle input:checked ~ ul
   {
     transform: none;
+  }
+
+
+  .form-inline {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-inline input[type="image"] {
+    margin-right: 10px;
   }
