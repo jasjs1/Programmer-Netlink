@@ -230,7 +230,7 @@ function createLink() {
         });
       } else {
         alert("ERR: Invalid URL format. Please enter a URL with the correct formatting: https://example.com/");
-        console.log('ERR: invalid url format. the user must enter a new URL in the format of: https://example.com/');
+        console.error('ERR: invalid url format. the user must enter a new URL in the format of: https://example.com/');
       }
 
       var linkForm = document.getElementById("link-form");
@@ -241,7 +241,7 @@ function createLink() {
     }
     }
   } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
-}
+} 
 
 function showAddTagsDiv() {
   var addTagsDiv = document.querySelector('.add-tags');
