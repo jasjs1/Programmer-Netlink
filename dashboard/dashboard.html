@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programmer Netlink - Dashboard</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Settings')">Account</button>
+  <button class="tablinks" onclick="openCity(event, 'Podcasts')">Podcasts</button>
+  <button class="tablinks" onclick="openCity(event, 'Courses')">Courses</button>
+  <button class="tabLinks" onclick="openCity(event, 'Bookmarks')">Bookmarks</button>
+</div>
+
+<div id="Settings" class="tabcontent">
+    <div class="header">
+      <h3>Settings</h3>
+        <p>Configure your profile information in here.</p>
+    </div>
+
+    <div class="acccount-details-header">
+        <h2>Reset Account Details</h2>
+        <p>Accidently inputted the wrong details during signup? Change them here.</p>
+    </div>
+
+    <div class="account-details-change">
+        <h3>Name:</h3>
+        <input type="text" name="name" placPeholder="your name">
+        <h3>Email:</h3>
+        <input type="email" name="signup-email" placeholder="email">
+
+        <h3>Password:</h3>
+        <input type="password" name="signup-password" placeholder="password" min="8" max="80">
+
+
+        <p>Tag</p>
+        <p>Accidently put in the wrong langauge, or changed your primary langauge. Change it here: </p>
+        <select id="tag">
+          <option> </option>
+          <option>ada</option>
+          <option>assembly</option>
+          <option>awk</option>
+          <option>bash</option>
+          <option>c</option>
+          <option>c#</option>
+          <option>c++</option>
+          <option>clojure</option>
+          <option>cobol</option>
+          <option>coffeescript</option>
+          <option>commonlisp</option>
+          <option>crystal</option>
+          <option>css</option>
+          <option>dart</option>
+          <option>elixir</option>
+          <option>elm</option>
+          <option>erlang</option>
+          <option>f#</option>
+          <option>fortran</option>
+          <option>go</option>
+          <option>groovy</option>
+          <option>haskell</option>
+          <option>html</option>
+          <option>java</option>
+          <option>javascript</option>
+          <option>julia</option>
+          <option>kotlin</option>
+          <option>lua</option>
+          <option>matlab</option>
+          <option>objectivec</option>
+          <option>ocaml</option>
+          <option>pascal</option>
+          <option>perl</option>
+          <option>php</option>
+          <option>python</option>
+          <option>r</option>
+          <option>react</option>
+          <option>reactnative</option>
+          <option>ruby</option>
+          <option>rust</option>
+          <option>scala</option>
+          <option>scheme</option>
+          <option>sql</option>
+          <option>swift</option>
+          <option>typescript</option>
+  
+  
+        </select>
+        
+        <div class="sel">
+            <p>Job Status</p>
+            <select id="job-status">
+                <option> </option>
+                <option>Employed</option>
+                <option>Unemployed</option>
+                <option>Searching For Jobs</option>
+            </select>
+        </div>
+
+        <button class="save" id="save" onclick="window.location.href = 'http://127.0.0.1:5500/profile/dashboard/dashboard.html'">Update Account Information</button>
+
+
+
+    </div>
+
+    <div class="security-header">
+        <h2>Security</h2>
+        <p>Add security to your account in this section:</p>
+    </div>
+
+    <div class="two-factor-create">
+        <h3>Add 2FA (characters and digits and special characters allowed)</h3>
+        <p>2FA is a added security that lessens that chance of someone hacking into your account. This will be useful if someone tries to impersontate you and post something.</p>
+
+        <label for="two-factor-code">Two Factor Code (text): </label>
+        <input type="text" name="two-factor-code" placeholder="input 2fa code here">
+        
+        <button class="submit" id="submit">Add 2FA Code</button>
+
+        <script>
+            const twoFactorCodeInput = document.querySelector('input[name="two-factor-code"]');
+            const submitButton = document.querySelector('#submit');
+            
+            submitButton.addEventListener('click', () => {
+                const twoFactorCode = twoFactorCodeInput.value;
+                localStorage.setItem('twoFactorCode', twoFactorCode);
+            });
+        </script>
+    </div>
+</div>
+
+<div id="Podcasts" class="tabcontent">
+  <h3>Podcasts</h3>
+  <p>Create a podcast here.</p> 
+
+  <div class="container" style="display: none;">
+    <form>
+      <label for="ep-title">Episode Title</label>
+      <input type="text" name="ep-title" id="ep-title" required>
+  
+      <label for="ep-num">Episode Number</label>
+      <input type="number" name="ep-num" id="ep-num" min="1" max="999999999999999999999999999999999999999999999999999999999999999" required>
+  
+      <label for="ep-description">Episode Description</label>
+      <input type="text" name="ep-description" id="ep-description" required>
+  
+      <label for="ep-link-text">Episode Link</label>
+      <textarea name="ep-link-text" id="ep-link-text"></textarea>
+      <button id="ep-link-button" onclick="createLink()" type="button">Add Episode Link</button>
+      
+
+
+      <button type="submit">SHARE PODCAST</button>
+    </form>
+  </div>
+
+</div>
+
+<div id="Courses" class="tabcontent">
+  <h3>Courses</h3>
+  <p>Create a course here.</p>
+
+  <div class="container">
+    <form>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title">
+      
+      <label for="description">Description:</label>
+      <input type="text" id="description">
+  
+      <label for="taught-by">Taught By:</label>
+      <input type="text" id="taught-by">
+  
+      <label for="link">Course Link:</label>
+      <input type="url" id="link" name="link" required>
+      
+      <button type="submit" name="submit-button">SHARE COURSE</button>
+    </form>
+  
+    <script>
+      document.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+  
+        // Get the input values
+        const title = document.getElementById('title').value.trim();
+        const description = document.getElementById('description').value.trim();
+        const instructor = document.getElementById('taught-by').value.trim();
+        const link = document.getElementById('link').value.trim();
+  
+        // Save the link to localStorage
+        localStorage.setItem('courseLink', link);
+  
+        // Create a new course object with a date property
+        const course = {
+          title,
+          description,
+          instructor,
+          link,
+          date: Date.now()
+        };
+  
+        // Add the new course to the beginning of the savedCourses array
+        savedCourses.unshift(course);
+  
+        // Save the updated savedCourses array to local storage
+        localStorage.setItem('courses', JSON.stringify(savedCourses));
+  
+        // Create a new course element
+        const courseElement = document.createElement('div');
+        courseElement.classList.add('course');
+        courseElement.innerHTML = `<h2>${title}</h2><p>${description}</p><p>${instructor}</p><p><a href="${link}" target="_blank">${link}</a></p>`;
+  
+        // Add the new course to the top of the list
+        const coursesContainer = document.getElementById('courses-container');
+        coursesContainer.prepend(courseElement);
+  
+        // Reset the form
+        document.querySelector('form').reset();
+  
+        // Call renderCourses to update the courses list
+        renderCourses(savedCourses);
+      });
+    </script>
+  
+    <div id="courses-container"></div>
+  </div>
+  
+
+
+<div id="Bookmarks" class="tabcontent">
+  <h3>Bookmarks</h3>
+  <p>This is the bookmarks tab content.</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Show the "Settings" tab by default
+document.getElementById("defaultOpen").click();
+
+</script>
+   
+</body>
+</html> 
+
+    
+
+</body>
+<script src="overwrite.js"></script>
+</html>
