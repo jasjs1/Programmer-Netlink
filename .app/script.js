@@ -89,7 +89,6 @@ form.addEventListener('submit', (event) => {
   // Create a new post object with title, body, tags, and a date property
   const post = {
     title,
-    body,
     tags,
     date: Date.now()
   };
