@@ -23,9 +23,8 @@
       
       <ul id="menu">
         <h4>Programmer Netlink | Navigation Menu</h4>
-        <li><a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/profile/settings/profile-settings.html">Settings</a></li>
         <li><a class="active" href="http://127.0.0.1:5500/articles/article.html">Articles</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a></li>
         <li><a class="active" href="http://127.0.0.1:5500/podcasts/podcasts.html">Podcasts</a></li>
         <li><a class="active" href="http://127.0.0.1:5500/servers/server-page/server-page.html">Servers</a></li>
         <li><a class="active" href="http://127.0.0.1:5500/productivity/app/app-selector/selector.html">Productivity Suite</a></li>
@@ -41,62 +40,14 @@
     
 
 
-  <div class="tab-bar">
-    <a href="http://127.0.0.1:5500/.app/app.html">Snipits_</a>
-    <a href="http://127.0.0.1:5500/articles/article.html">_Articles</a>
-    <p id="signup-name"></p>
-  </div>
-
-  
-  
-
-  <style>
-    /* Style for modal overlay */
-    .modal-overlay {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    }
-
-    .modal-container {
-    position: relative;
-    /* z-index: 2; */
-    background-color: #1c1f23;
-    color: white;
-    padding: 60px 60px 60px 60px;
-    border-radius: 10px; 
-    max-width: 500px;
-}
-
-
-    .modal-container input,
-    .modal-container textarea {
-    width: 100%;
-    box-sizing: border-box;
-    /* add any other styling here  or just delete it all*/
-    }
-
-</style>
-<!-- HTML for modal container -->
-<div class="modal-overlay">
-  <div class="modal-container">
-    <div class="modal-header">
-    </div>  
+  <div class="container">
     <form>
       <label for="post-title"><h3>Title:</h3></label>
-      <input type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" minlength="5" maxlength="35" required>
+      <input type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" minlength="3" maxlength="450" required>
       <br>
-      <label for="post-body"><h3>Body:</h3></label>
-      <textarea id="post-body" name="post-body" placeholder="min 10 characters, max 450 characters" rows="4" minlength="10" maxlength="450"></textarea>
-      <div class="msg-1"> 
-
+      <!-- <label for="post-body"><h3>Body:</h3></label style="display:none"> -->
+      <textarea id="post-body" name="post-body" placeholder="minium 10 characters, max 74 characters" rows="4" minlength="10" maxlength="74"></textarea>
+      <br>
         <div class="add-tags" style="display: none;">
           <label for="tags">Tags:</label>
           <select id="tags" name="tags">
@@ -153,28 +104,13 @@
           <img src="/.app/img/hastag.png" type="button" onclick="showAddTagsDiv()" alt="Add Tag" width="35" height="35"/>
           <img src="/.app/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
         </div>
-
-        <div class="toggle-c">
-          <label for="toggle-space">
-            <p><strong>Remove body text:</strong></p>
-            <input type="checkbox" id="toggle-space" unchecked>
-          </label> 
-        </div>
-      </div>
-      <br>
-      <input type="submit" value="SHARE SNIPPET">
+      <input type="submit" value="Create Snippit">
+      <!-- <form action="your-action-url" method="post"> -->
+        <!-- <input type="image" src="/.app/img/share/share-2.png" alt="Submit" width="X" height="35"> -->
+      <!-- </form> -->
+      
     </form>
-    <div class="close-container">
-      <div class="msg">
-        <p><strong>Press escape to close.</strong></p>
-        <!-- <p><strong>Click off of this to also close.</strong></p> -->
-      </div>
-    </div>
   </div>
-</div>
-
-<!-- HTML for "+" button -->
-<button id="show-container">+</button>
 
 <script>
   // Show modal container when user clicks "+" button
