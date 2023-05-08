@@ -1,450 +1,563 @@
-const form = document.querySelector('form');
-const postsContainer = document.getElementById('posts');
+body {
+    background: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .topnav {
+    background-color: #1c1f23;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+  }
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .topnav a:hover {
+    background-color: #6466E9;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .topnav a.active {
+    font-weight: bolder;
+    /* background-color: #6466E9; */
+    color: white;
+    text-align: center;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .tab-bar {
+    background-color: #1c1f2350;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 15px;
+    max-width: 200px;
+    margin: auto;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 26px 18px 26px 26px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+  }
+  
+  .tab-bar:active {
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+  
+  
+  
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  
+  
+  .container {
 
-// Check if name exists in local storage
-let name = localStorage.getItem('name');
-if (!name) {
-  // If not, prompt the user for their name and store it in local storage
-  name = prompt('Please enter your name:');
-  localStorage.setItem('name', name);
+    margin-left: 120px;
+    margin-right: 120px;
+
+    /* max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    border: 5.2px solid #6466e999;
+    border-radius: 5.2px;
+    box-shadow: 444px #6466e981;
+    margin-top: 42px;
+    margin-bottom: 42px; */
+  }
+  
+  label[for="post-title"] {
+    padding-bottom: 10px;
+    width: -150px;
+    margin-left: 225px;
+    margin-right: 225px;
+  }
+
+
+  input[type="image"] {
+    width: 35px;
+    height: auto;
+  }
+
+
+  #credits {
+    background-color: #1c1f23 !important;
+    color: white !important;
+    border: 1px solid #6466E9 !important;
+ }
+ 
+  
+ input[type="submit"] {
+  background-color: #1c1f23;
+  border: 1px solid #6466E9;
+  border-radius: 5px;
+  color: white;
+  padding: 20px 20px 20px 20px;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin-left: 225px;
+  margin-right: 225px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
 }
+  
+  
+  
+  #post-title {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    border-color: #6466E9;
+    color: white;
+    font-size: 14.5px;
+    width: auto;
+    height: 79px;
+    margin-left: 225px;
+    margin-right: 225px;
+  }
+  
+  #post-body {
 
-// Update the page title to include the user's name
-// document.title = `${name}'s Social Media App`;
+    display: none;
+    visibility: hidden;
 
-// Load existing posts from local storage
-const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
-
-// Render existing posts
-if (savedPosts.length) {
-  for (let i = savedPosts.length - 1; i >= 0; i--) {
-    const post = savedPosts[i];
-
-    // Create a new post element
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-    const author = localStorage.getItem('signup-name');
-    postElement.innerHTML = `
-      <h2><span id="author">${author}</span></h2>
-      <h2>${post.title}</h2>
-      <p>${post.body}</p>
-      <h4>${post.tags}</h4>
-      <div class="interact">
-        <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
-      </div>
-    `;
-
+    /* font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    border-color: #6466E9;
+    color: white;
+    width: auto;
+    height: 200px; */
+  }
+  
+  textarea {
+    font-size: 14.5px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input, textarea {
+    margin-bottom: 10px;
+    width: 1000px;
+    padding: 5px;
+  }
+  
+  input[type="checkbox"] {
+    appearance: square;
+    background-color: #6466E9;
+    color: white;
+    padding: 15px 15px 15px 15px;
+  }
+  
+  
+  button {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    border-radius: 7px;
+    color: white;
     
+  }
+  
+  button:hover {
+    background-color: #6466E0;
+  }
+  
+  
+  .post-list {
+    margin-top: 20px;
+    padding: 13px;
+    border-radius: 5px;
+    margin-left: 140px;
+    margin-right: 140px;
+    border: 2.5px solid #6466E9;
+    border-radius: 10px;
+    padding: 30px;
+    width: auto;
+    height: auto;
+    inline-size: auto;
+    overflow-wrap: break-word;
+    padding-top: 20px;
+    min-height: 50px;
+    min-width: 50px;
+  }
+  
+  .post {
+    margin-bottom: 15px;
+  }
+  
+  .post h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .post p {
+    margin: 0;
+  }
+  
+  
+  #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 5.5%;
+    margin-bottom: 3.5px;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #6466E9;
+    color: whitesmoke;
+    border-color: #6466E9;
+  }
+  
+  .msg-1 {
+    text-align: center;
+  }
+  
+  ::selection {
+    color: white;
+    background: #4c4eb5fd;
+  }
+  
+  .modal-header {
+    text-align: center;
+    color: #6466E9;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  
+  /* Style for modal container */
+  .modal-container {
+    background-color: #fff;
+    padding: 20px; /* Increase the padding to 40px */
+    border-radius: 5px;
+  }
+  
+  
+  .msg {
+    text-align: center;
+  }
+  a {
+    color: #6466E9;
+  }
+  
+  .selector {
+    margin-top: 20px;
+    padding: 15px 15px 15px 15px;
+    background-color: #1d1f2186;
+    box-shadow: 7.3px 2.5px 2.5px #6466E9;
+  }
+  
+  select {
+    padding: 2px 2px 2px 2px;
+    color: white;
+    border: 1px solid #6466E9 radius 5%;
+  }
+  
+  .toggle-c label {
+    align-items: center;
+  }
+  
+  .toggle-c input[type="checkbox"] {
+    margin-left: 5px;
+  }
+  
+  .addons {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 15px 15px;
+  }
+  
+  .finished {
+    text-align: center;
+    margin-top: 20px;
+  
+  }
+  
+  .finished img {
+    height: 110px;
+    width: auto;
+    margin-top: 20px;
+  }
+
+  #no-posts-message {
+    text-align: center;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+
+  a[href^="#"] + * {
+    color: red;
+  }
     
 
-    // Add the new post to the top of the list
-    postsContainer.prepend(postElement);
 
-// Attach click event listener to bookmark button
-const bookmarkButton = postElement.querySelector('.bookmark-button');
-bookmarkButton.addEventListener('click', function() {
-  // Retrieve existing bookmarks from localStorage or initialize an empty array
-  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+  #tags {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    border: 1px solid #6466E9;
+    color: white;
+    font-size: 14.5px;
+    padding: 10px 10px 50px 50px;
 
-  // Check if the post is already bookmarked
-  const bookmarkIndex = bookmarks.findIndex(bookmark => bookmark.title === post.title);
-  if (bookmarkIndex !== -1) {
-    // Post is already bookmarked, so remove it
-    bookmarks.splice(bookmarkIndex, 1);
-    console.log('Removed ' + post.title + ' from post bookmarks.',);
-  } else {
-    // Post is not bookmarked, so add it
-    bookmarks.push(post);
-    console.log('Added ' + post.title + ' to post bookmarks.',);
+  }
+  
+  .post-content p span.tag {
+    color: #6466E9;
   }
 
-  // Save the updated bookmarks array to localStorage
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    });
-  }
-}
-
-
-function renderArticles(posts) {
-  const articlesHTML = posts
-    .map(
-      (article) =>
-        `<div class="posts">
-          <h3>${post.title}</h3>
-          <p>${post.body}</p>
-          <h4>${post.tags}</h4>
-          <p><img src="/articles/img/date+time.png" alt="Image Description" width="15" height="15" /> ${new Date(article.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(',', '').replace(/\//g, '.')}&nbsp;${new Date(article.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/^(\d{1,2}):(\d{2})\s*([ap]m)$/i, (match, hour, minute, period) => `${hour}:${minute}${period.toLowerCase().charAt(0)}`)}</p>
-        </div>`
-    )
-    .join('');
-  articlesContainer.innerHTML = articlesHTML;
-}
-
-// Add new post and save to local storage
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  // Get the input values
-  const title = document.getElementById('post-title').value.trim();
-  const body = document.getElementById('post-body').value.trim();
-  const tags = document.getElementById('tags').value.trim();
-
-  // Create a new post object with title, body, tags, and a date property
-  const post = {
-    title,
-    tags,
-    date: Date.now()
-  };
-
-  // Create a new post element
-  const postElement = document.createElement('div');
-  postElement.classList.add('post');
-  postElement.innerHTML = `
-    <h2>${title}</h2>
-    <p>${body}</p>
-  `;
-
-  if (tags !== '') {
-    postElement.innerHTML += `<p>${tags}</p>`;
+  h4 {
+    margin-top: -1px;
+    color: #6466E9;
   }
 
+  .quick-options {
 
-  // Add the new post to the top of the list
-  postsContainer.prepend(postElement);
-
-  // Add the new post to the beginning of the savedPosts array
-  savedPosts.unshift(post);
-
-  // Save the updated savedPosts array to local storage
-  localStorage.setItem('posts', JSON.stringify(savedPosts));
-
-  // Reset the form
-  form.reset();
-  location.reload();
-
-  // Call renderArticles to update the articles list
-  renderArticles();
-});
-
-// Call renderArticles to render the initial list of articles on page load
-renderArticles();
-
-
-
-const showContainerButton = document.getElementById('show-container');
-const containerDiv = document.querySelector('.container');
-
-function toggleContainer(action) {
-  if (action === 'show') {
-    containerDiv.style.display = 'block';
-    showContainerButton.textContent = '-';
-    hash(); // add this line to set the hash value
-  } else if (action === 'hide') {
-    containerDiv.style.display = 'none';
-    showContainerButton.textContent = '+';
-  } else if (action === 'toggle') {
-    if (containerDiv.style.display === 'none') {
-      containerDiv.style.display = 'block';
-      showContainerButton.textContent = '-';
-      hash(); // add this line to set the hash value
-    } else {
-      containerDiv.style.display = 'none';
-      showContainerButton.textContent = '+';
-    }
+    margin-top: 10px;
+    padding: 7px;
   }
-}
+  
+  #menuToggle
+  {
+    display: block;
+    position: relative;
+    top: 20px;
+    left: 50px;
+    margin-top: 10px;
+    
+    z-index: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  #menuToggle a
+  {
+    text-decoration: none;
+    color: white;
+    
+    transition: color 0.3s ease;
+  }
+  
+  #menuToggle a:hover
+  {
+    font-weight: bolder;
+  }
+  
+  
+  #menuToggle input
+  {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    
+    cursor: pointer;
+    
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    
+    -webkit-touch-callout: none;
+  }
+  
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle span
+  {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: #cdcdcd;
+    border-radius: 3px;
+    
+    z-index: 1;
+    
+    transform-origin: 4px 0px;
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  #menuToggle span:first-child
+  {
+    transform-origin: 0% 0%;
+  }
+  
+  #menuToggle span:nth-last-child(2)
+  {
+    transform-origin: 0% 100%;
+  }
+  
+  /* 
+   * Transform all the slices of hamburger
+   * into a crossmark.
+   */
+  #menuToggle input:checked ~ span
+  {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: white;
+  }
+  
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked ~ span:nth-last-child(3)
+  {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  /*
+   * Ohyeah and the last one should go the other direction
+   */
+  #menuToggle input:checked ~ span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu
+  {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    
+    background: #3033379d;
+    opacity: 1 Imp !important;
+    box-shadow: 4px 4px 4px 4px transparent;
+    border-radius: 5px;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+  
+  #menu li
+  {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  
+  /*
+   * And let's slide it in from the left
+   */
+  #menuToggle input:checked ~ ul
+  {
+    transform: none;
+  }
 
 
-function hash() {
-  console.log('hash function called');
-  articlesContainer.style.display = 'block';
-  window.location.hash = 'create';
+  .form-inline {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-inline input[type="image"] {
+    margin-right: 10px;
+  }
+
+  .bookmark-button {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    border-radius: 10px;
+    padding: 14px 14px 14px 14px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .bookmark-button.clicked {
+    background-color: #6466E9;
+    /* border: 1px solid #6466E9; */
+    border-radius: 9%;
+    padding: 14px 14px 14px 14px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .interact {
+    display: flex;
+    align-items: center;
+    padding-right: 115px;
+  }
+
+.profile-image-container {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
   
 }
-
-
-showContainerButton.addEventListener('click', function() {
-  toggleContainer('toggle');
-});
-
-const bodyTextarea = document.getElementById('post-body');
-const container = document.getElementById('container');
-
-bodyTextarea.addEventListener('keydown', function(event) {
-  if (event.code === 'Space') {
-    event.stopPropagation();
-  }
-});
-
-var modalOverlay = document.querySelector('.modal-overlay');
-var modalContainer = document.querySelector('.modal-container');
-
-window.onclick = function(event) {
-  if (event.target == modalOverlay) {
-    modalOverlay.style.display = 'none';
-  }
-}
-
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    modalOverlay.style.display = 'none';
-  }
-});
-
-
-  var modalOverlay = document.querySelector('.modal-overlay');
-  var modalContainer = document.querySelector('.modal-container');
-
-  window.onclick = function(event) {
-    if (event.target == modalOverlay) {
-      modalOverlay.style.display = 'none';
-    }
-  }
-
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      modalOverlay.style.display = 'none';
-    }
-  });
-
-  // Show modal container when user clicks button
-  document.getElementById("show-modal").addEventListener("click", function() {
-    document.querySelector(".modal-overlay").style.display = "flex";
-  });
-
-
-
-// Render existing posts
-if (savedPosts.length) {
-  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p><span class="post-date">${new Date(post.date).toLocaleString()}</span></div>`);
-
-  postsContainer.innerHTML = postsHTML;
-} else {
-  // Display 404 message if no saved posts
-  postsContainer.innerHTML = '<div class="post"><h2>404</h2><p>No snipits found.</p></div>';
-}
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  var signupLink = document.getElementById("signup-link");
-  var loginLink = document.getElementById("login-link");
-  var signupDiv = document.getElementById("signup");
-  var loginDiv = document.getElementById("login");
-
-  signupLink.addEventListener("click", function() {
-    signupDiv.style.display = "block";
-    loginDiv.style.display = "none";
-  });
-
-  loginLink.addEventListener("click", function() {
-    signupDiv.style.display = "none";
-    loginDiv.style.display = "block";
-  });
-});
-
-function createLink() {
-  var link;
-  do {
-    link = prompt("Enter the URL for the link (format: https://example.com/):", "https://example.com/");
-    if (link != null) {
-      if (link.startsWith("https://") && link.endsWith("/")) {
-        var postTitleInput = document.getElementById("post-title");
-        var existingValue = postTitleInput.value;
-        var newLink = "<a href='" + link + "' target='_blank'>" + link + "</a>";
-        postTitleInput.value = existingValue + newLink;
-
-        // add event listener to newly created link
-        var links = postTitleInput.getElementsByTagName("a");
-        var newLinkElement = links[links.length - 1]; // get last link element
-        newLinkElement.addEventListener("click", function(event) {
-          event.preventDefault(); // prevent default link behavior
-          window.open(newLinkElement.href, '_blank'); // open link in new tab
-        });
-      } else {
-        alert("ERR: Invalid URL format. Please enter a URL with the correct formatting: https://example.com/");
-        console.error('ERR: invalid URL format. The user must enter a new URL in the format of: https://example.com/');
-      }
-
-      var linkForm = document.getElementById("link-form");
-      if (linkForm.style.display === "none") {
-        linkForm.style.display = "block";
-      } else {
-        linkForm.style.display = "none";
-      }
-    }
-  } while (link != null && (!link.startsWith("https://") || !link.endsWith("/")));
-}
-
-
-function showAddTagsDiv() {
-  var addTagsDiv = document.querySelector('.add-tags');
-  addTagsDiv.style.display = 'block';
-}
-
-
-
-const checkbox = document.getElementById('toggle-space');
-
-// Check if the cookie exists and set the checkbox state accordingly
-if (document.cookie.includes('toggle-space=true')) {
-  checkbox.checked = true;
-}
-
-// Add an event listener to the checkbox
-checkbox.addEventListener('change', function() {
-  // Set the cookie when the checkbox is checked
-  if (this.checked) {
-    document.cookie = 'toggle-space=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
-  }
-  // Remove the cookie when the checkbox is unchecked
-  else {
-    document.cookie = 'toggle-space=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
-  }
-});
-
-const postBody = document.querySelector('#post-body');
-
-postBody.addEventListener('input', () => {
-  const text = postBody.value;
-  if (text.length >= 10 && text.length <= 450) {
-    postBody.style.fontWeight = 'bold';
-  } else {
-    postBody.style.fontWeight = 'normal';
-  }
-});
-
-if (savedPosts.length) {
-  const postsHTML = savedPosts.map(post => `<div class="post"><h2>${post.title}</h2><p>${post.body}</p><span class="post-date">${new Date(post.date).toLocaleString()}</span></div>`).join('');
-  postsContainer.innerHTML = postsHTML;
-} else {
-  // Display 404 message if no saved posts
-  postsContainer.innerHTML = '<p>No posts found.</p>';
-}
-
-function addTag() {
-  // Prompt the user for the text to add
-  const inputText = prompt('Enter text to add: ');
-  // console.log('prompt showing.')
-  
-  // Get the post-body element and its current value
-  const postBody = document.getElementById('post-body');
-  const currentText = postBody.innerHTML;
-  
-  // Add the input text to the current text
-  const newText = currentText + inputText;
-  
-  // Set the value of the post-body element to the new text
-  postBody.innerHTML = '#' + newText;
-  console.log('Fetched tag: ' + newText);
-
-  alert('You can not add any more tags during this session.');
-  console.log('User can not add any more tags during this session.');
-}
-
-
-// Get the signup name from local storage
-const signupName = localStorage.getItem("signup-name");
-
-// Display the signup name if it exists in local storage
-if (signupName) {
-  document.getElementById("signup-name").textContent = `Welcome, ${signupName}!`;
-}
-
-
-const tagsInput = document.getElementById('tags');
-
-tagsInput.addEventListener('input', (event) => {
-  const value = event.target.value;
-  const hashtags = value.match(/#\w+/g); // Find all hashtags in the input
-
-  // Wrap each hashtag in a span with the 'hashtag' class
-  const taggedValue = value.replace(/#\w+/g, '<span class="hashtag">$&</span>');
-  event.target.value = taggedValue;
-});
-
-
-
-// const tagsInput = document.getElementById('tags');
-tagsInput.addEventListener('input', function() {
-  const tagsValue = tagsInput.value.trim();
-  if (tagsValue === '') {
-    tagsInput.classList.add('no-tags');
-    localStorage.setItem('noTags', 'true');
-  } else {
-    tagsInput.classList.remove('no-tags');
-    localStorage.setItem('noTags', 'false');
-  }
-});
-
-// On page load, check if noTags is true and add the class if it is
-const noTags = localStorage.getItem('noTags');
-if (noTags === 'true') {
-  tagsInput.classList.add('no-tags');
-}
-
-// redirect to other pags when user clicks on a image
-
-function redirectToAppDrawer() {
-  window.location.href = 'http://www.google.com'; 
-}
-
-function redirectToProfilePage() {
-  window.location.href = 'http://127.0.0.1:5500/profile/profile.html'; 
-}
-
-function logout() {
-  window.location.href = 'http://127.0.0.1:5500/hook-page/hook.html#login';
-}
-
-function redirectToSettings() {
-  window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html';
-}
-
-function displayProfileRelatedLinks() {
-  var divElement = document.getElementById('profileLinks');
-
-  // Set the display property of the div element to "block"
-  divElement.style.display = 'block';
-}
-
-const showSub = document.getElementById('profile-image-container');
-const subContainer = document.querySelector('.profile-image-sub-container'); // Added '.' before the class name
-
-function toggleContainer(action) {
-  if (action === 'show') {
-    subContainer.style.display = 'block'; // Changed containerDiv to subContainer
-    showSub.textContent = '-'; // Changed showContainerButton to showSub
-    hash(); // add this line to set the hash value
-  } else if (action === 'hide') {
-    subContainer.style.display = 'none'; // Changed containerDiv to subContainer
-    showSub.textContent = '+'; // Changed showContainerButton to showSub
-  } else if (action === 'toggle') {
-    if (subContainer.style.display === 'none') { // Changed containerDiv to subContainer
-      subContainer.style.display = 'block'; // Changed containerDiv to subContainer
-      showSub.textContent = '-'; // Changed showContainerButton to showSub
-      hash(); // add this line to set the hash value
-    } else {
-      subContainer.style.display = 'none'; // Changed containerDiv to subContainer
-      showSub.textContent = '+'; // Changed showContainerButton to showSub
-    }
-  }
-}
-
-// The HTML div you provided
-const profileLinksDiv = document.getElementById('profileLinks');
-
-// Adding event listener to the showSub button
-showSub.addEventListener('click', function() {
-  toggleContainer('toggle');
-});
-
-// Initially hiding the profileLinksDiv
-subContainer.style.display = 'none'; // Changed containerDiv to subContainer
-
-
-const button = document.getElementById('bookmark-button');
-
-button.addEventListener('click', function() {
-  button.style.backgroundColor = 'orange';
-});
-
