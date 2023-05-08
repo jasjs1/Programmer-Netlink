@@ -120,6 +120,7 @@ form.addEventListener('submit', (event) => {
 
   // Reset the form
   form.reset();
+  location.reload();
 
   // Call renderArticles to update the articles list
   renderArticles();
