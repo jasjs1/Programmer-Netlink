@@ -23,16 +23,19 @@ if (savedPosts.length) {
     // Create a new post element
     const postElement = document.createElement('div');
     postElement.classList.add('post');
+    const author = localStorage.getItem('signup-name');
     postElement.innerHTML = `
+      <h2><span id="author">${author}</span></h2>
       <h2>${post.title}</h2>
       <p>${post.body}</p>
       <h4>${post.tags}</h4>
       <div class="interact">
-
-      <button class="bookmark-button" type="button">Bookmark</button>
-
+        <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
       </div>
     `;
+
+    
+    
 
     // Add the new post to the top of the list
     postsContainer.prepend(postElement);
@@ -395,3 +398,52 @@ function logout() {
 function redirectToSettings() {
   window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html';
 }
+
+function displayProfileRelatedLinks() {
+  var divElement = document.getElementById('profileLinks');
+
+  // Set the display property of the div element to "block"
+  divElement.style.display = 'block';
+}
+
+const showSub = document.getElementById('profile-image-container');
+const subContainer = document.querySelector('.profile-image-sub-container'); // Added '.' before the class name
+
+function toggleContainer(action) {
+  if (action === 'show') {
+    subContainer.style.display = 'block'; // Changed containerDiv to subContainer
+    showSub.textContent = '-'; // Changed showContainerButton to showSub
+    hash(); // add this line to set the hash value
+  } else if (action === 'hide') {
+    subContainer.style.display = 'none'; // Changed containerDiv to subContainer
+    showSub.textContent = '+'; // Changed showContainerButton to showSub
+  } else if (action === 'toggle') {
+    if (subContainer.style.display === 'none') { // Changed containerDiv to subContainer
+      subContainer.style.display = 'block'; // Changed containerDiv to subContainer
+      showSub.textContent = '-'; // Changed showContainerButton to showSub
+      hash(); // add this line to set the hash value
+    } else {
+      subContainer.style.display = 'none'; // Changed containerDiv to subContainer
+      showSub.textContent = '+'; // Changed showContainerButton to showSub
+    }
+  }
+}
+
+// The HTML div you provided
+const profileLinksDiv = document.getElementById('profileLinks');
+
+// Adding event listener to the showSub button
+showSub.addEventListener('click', function() {
+  toggleContainer('toggle');
+});
+
+// Initially hiding the profileLinksDiv
+subContainer.style.display = 'none'; // Changed containerDiv to subContainer
+
+
+const button = document.getElementById('bookmark-button');
+
+button.addEventListener('click', function() {
+  button.style.backgroundColor = 'orange';
+});
+
