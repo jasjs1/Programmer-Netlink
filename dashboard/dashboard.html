@@ -28,10 +28,21 @@
 </div>
 
 <div id="Settings" class="tabcontent">
+
+  <script>
+    function settingsHash() {
+    console.log('settings hash function called');
+    Settings.style.display = 'block';
+    window.location.hash = '/settings';
+}
+    settingsHash()
+  </script>
+
     <div class="header">
       <h2>Settings</h2>
       <h3>Configure your profile information in here.</h3>
     </div>
+
 
     <div class="acccount-details-header">
         <h2>Reset Account Details</h2>
@@ -118,6 +129,8 @@
     </div>
 
     <div class="security-header">
+
+
         <h2>Security</h2>
         <h3>Add security to your account in this section:</h3>
     </div>
@@ -144,6 +157,15 @@
 </div>
 
 <div id="Podcasts" class="tabcontent">
+  <script>
+    function podcastHash() {
+console.log('podcast hash function called');
+Podcasts.style.display = 'block';
+window.location.hash = '/podcasts';
+}
+podcastHash();
+  </script>
+
   <h2>Podcasts</h2>
   <h3>Create a podcast here.</h3> 
 
@@ -171,6 +193,16 @@
 </div>
 
 <div id="Courses" class="tabcontent">
+
+  <script>
+    function coursesHash() {
+console.log('courses hash function called');
+Courses.style.display = 'block';
+window.location.hash = '/courses';
+}
+coursesHash();
+  </script>
+
   <h2>Courses</h2>
   <h3>Create a course here.</h3>
 
@@ -291,6 +323,16 @@ renderCourses();
 
 
 <div id="Bookmarks" class="tabcontent">
+
+  <script>
+    function bookmarkHash() {
+console.log('podcast hash function called');
+Podcasts.style.display = 'block';
+window.location.hash = '/bookmarks';
+}
+bookmarkHash();
+  </script>
+
   <h2>Bookmarks</h2>
   <h3>This is the bookmarks tab content.</h3>
 
