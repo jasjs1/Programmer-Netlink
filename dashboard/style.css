@@ -173,3 +173,14 @@ input[type="password"] {
   border-top: none;
   color: white;
 }
+
+
+a {
+  color: #6466E9;
+  font-weight: bold;
+}
+
+.lnk {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
