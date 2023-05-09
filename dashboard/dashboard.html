@@ -171,9 +171,13 @@
   <h3>Courses</h3>
   <p>Create a course here.</p>
 
+  <div class="lnk">
+    <a href="http://127.0.0.1:5500/courses/hm-page/courese.html">Courses Home Page</a>
+  </div>
+
   <div class="container">
     <form>
-      <label for="title">Title:</label>
+      <!-- <label for="title">Title:</label>
       <input type="text" id="title" name="title">
       
       <label for="description">Description:</label>
@@ -185,7 +189,7 @@
       <label for="link">Course Link:</label>
       <input type="url" id="link" name="link" required>
       
-      <button type="submit" name="submit-button">SHARE COURSE</button>
+      <button type="submit" name="submit-button">SHARE COURSE</button> -->
     </form>
   
     <script>
@@ -241,6 +245,35 @@
 <div id="Bookmarks" class="tabcontent">
   <h3>Bookmarks</h3>
   <p>This is the bookmarks tab content.</p>
+
+  <div id="user-saved-bookmarks"></div>
+<script>
+  // Retrieve bookmarks from localStorage
+const bookmarksJSON = localStorage.getItem('bookmarks');
+
+if (bookmarksJSON) {
+  // Parse bookmarks JSON into an array
+  const bookmarks = JSON.parse(bookmarksJSON);
+
+  // Get the reference to the <div> element
+  const bookmarksContainer = document.getElementById('user-saved-bookmarks');
+
+  // Create a string to hold the HTML content
+  let bookmarksHTML = '';
+
+  // Iterate over the bookmarks array and append to the HTML string
+  bookmarks.forEach((bookmark) => {
+    bookmarksHTML += '<p>' + bookmark.title + '</p>';
+  });
+
+  // Set the HTML content of the <div> container
+  bookmarksContainer.innerHTML = bookmarksHTML;
+
+  console.log(bookmarks);
+}
+</script>
+
+  <script src="displayBookmarks.js"></script>
 </div>
 
 <script>
