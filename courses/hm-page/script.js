@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const postsContainer = document.getElementById('posts');
 
+
 // Function to load courses from local storage and display them
 function loadCourses() {
   // Load existing courses from local storage
@@ -36,12 +37,14 @@ form.addEventListener('submit', (event) => {
   const description = document.getElementById('course-description').value.trim();
   const link = document.getElementById('course-link').value.trim();
   const type = document.getElementById('course-type').value;
+  const skillLevel = document.getElementById('course-skill-level').value.trim();
 
   // Create a new course object with title, description, link, and type properties
   const course = {
     title,
     description,
     link,
+    skillLevel,
     type,
   };
 
@@ -62,3 +65,4 @@ form.addEventListener('submit', (event) => {
 
 // Load courses when the page is first loaded
 loadCourses();
+
