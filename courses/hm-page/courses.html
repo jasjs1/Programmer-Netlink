@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Courses Home - Programmer Netlink</title>
+</head>
+<body>
+
+
+  <nav role="navigation">
+    <div id="menuToggle">
+
+      <input type="checkbox" />
+      
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      <ul id="menu">
+        <h4>Programmer Netlink | Navigation Menu</h4>
+        <li><a class="active" href="http://127.0.0.1:5500/.app/app.html"><u>Snippets (App)</u></a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/articles/article.html">Articles</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/podcasts/podcasts.html">Podcasts</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/servers/server-page/server-page.html">Servers</a></li>
+        <li><a class="active" href="http://127.0.0.1:5500/productivity/app/app-selector/selector.html">Productivity Suite</a></li>
+
+        <div class="quick-options">
+          <img src="/.app/img/quick-options/gear.png" onclick="redirectToSettings()" width="35px" height="35px" alt="profile settings">
+          <img src="/.app/img/quick-options/logout.png" onclick="logout()" width="35px" height="35px">
+        </div>
+
+      </ul>
+      </div>
+      </nav>
+
+    <div class="container">
+        <form>
+        
+          <label for="course-title">Course Title</label>
+          <input type="text" id="course-title" name="course-title" placeholder="Tell peopel the title of this course." required minlength="3" maxlength="80">
+
+          <label for="course-description">Course Description</label>
+          <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="250" placeholder="Tell people what this course is about.">
+
+          <label for="course-link">Course Link</label>
+          <input type="url" id="course-link" name="course-link" placeholder="Give people a link to go for the course." required> 
+
+          <label for="course-type">Course Type</label>
+          <select id="course-type" name="course-type" required>
+            <option value="free">Free</option>
+            <option value="paid">Paid</option>
+          </select>
+          
+          <input type="submit">SHARE COURSE
+        </form>
+      </div>
+    
+    <script>
+      // Show modal container when user clicks "+" button
+      document.getElementById("show-container").addEventListener("click", function() {
+        document.querySelector(".modal-overlay").style.display = "flex";
+      });
+    
+      // Hide modal container when user presses "Escape" key
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          document.querySelector(".modal-overlay").style.display = "none";
+        }
+      });
+    
+      // Add space character to body if toggle is checked
+      const bodyField = document.getElementById("post-body");
+      const toggleSpace = document.getElementById("toggle-space");
+      
+      toggleSpace.addEventListener("change", function() {
+        if (toggleSpace.checked) {
+          bodyField.removeAttribute("required");
+          bodyField.disabled = true;
+          bodyField.classList.add("disabled");
+        } else {
+          bodyField.setAttribute("required", "");
+          bodyField.disabled = false;
+          bodyField.classList.remove("disabled");
+        }
+      });
+    
+      bodyField.addEventListener("keydown", function(event) {
+        if (toggleSpace.checked && event.key === " ") {
+          event.preventDefault(); // Prevent default behavior of inserting a space
+          const startPos = bodyField.selectionStart;
+          const endPos = bodyField.selectionEnd;
+          const newValue = bodyField.value.substring(0, startPos) + " " + bodyField.value.substring(endPos);
+          bodyField.value = newValue;
+          bodyField.selectionStart = bodyField.selectionEnd = startPos + 1;
+        }
+      });
+    </script>
+    
+    <style>
+      .disabled {
+        background-color: #f4f4f4;
+        color: #aaa;
+        cursor: not-allowed;
+      }
+    </style>
+    
+    
+    
+        <!-- <div class="post-list-header">
+          <h2><span id="name"></span></h2>
+              
+          <script>
+            const storedUsername = localStorage.getItem('signup-name');
+            const usernameElem = document.querySelector('#name');
+    
+            if (storedUsername) {
+            usernameElem.textContent = `${storedUsername}'s Snippits`;
+            } else {
+              usernameElem.textContent = 'No value of "signup-name" found in local storage';
+    
+            }
+          </script>
+        </div> -->
+    
+        <div class="post-list">
+    
+          <div id="posts">
+            
+          </div>
+    
+        </div>
+    
+        <div class="finished">
+          <img src="/.app/img/undraw_astronaut_re_8c33.svg" alt="finished img">
+          <h3>You have reached the end of the Snippets made by this person.</h3>
+    
+        </div>
+      </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
