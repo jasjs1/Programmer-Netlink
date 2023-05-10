@@ -1,5 +1,7 @@
 const form = document.querySelector('form');
 const postsContainer = document.getElementById('posts');
+const courseTypeSelect = document.getElementById('course-type');
+const paidDiv = document.getElementById('paid-div');
 
 // Function to load courses from local storage and display them
 function loadCourses() {
@@ -19,7 +21,6 @@ function loadCourses() {
       <h2>${course.title}</h2>
       <p>${course.description}</p>
       <h4>${course.type}</h4>
-      <video src="${course.link}" controls></video> <!-- Display the video using the 'src' attribute -->
       <div class="interact">
         <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
       </div>
@@ -35,7 +36,7 @@ form.addEventListener('submit', (event) => {
   // Get the input values
   const title = document.getElementById('course-title').value.trim();
   const description = document.getElementById('course-description').value.trim();
-  const link = document.getElementById('course-link').files[0]; // Get the uploaded file
+  const link = document.getElementById('course-link').value.trim();
   const type = document.getElementById('course-type').value;
   const skillLevel = document.getElementById('course-skill-level').value.trim();
 
@@ -43,7 +44,7 @@ form.addEventListener('submit', (event) => {
   const course = {
     title,
     description,
-    link: URL.createObjectURL(link), // Generate a URL for the uploaded file
+    link,
     skillLevel,
     type,
   };
@@ -65,3 +66,16 @@ form.addEventListener('submit', (event) => {
 
 // Load courses when the page is first loaded
 loadCourses();
+
+
+// Add event listener to the course type select element
+courseTypeSelect.addEventListener('change', () => {
+  const selectedValue = courseTypeSelect.value;
+
+  // Show/hide the paid div based on the selected value
+  if (selectedValue === 'Paid') {
+    paidDiv.style.display = 'block';
+  } else {
+    paidDiv.style.display = 'none';
+  }
+});
