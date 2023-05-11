@@ -17,9 +17,9 @@ function loadCourses() {
     courseElement.classList.add('post');
     const author = localStorage.getItem('signup-name');
     courseElement.innerHTML = `
-      <h2><span id="author">${author}</span></h2>
       <h2>${course.title}</h2>
       <p>${course.description}</p>
+      <h3><span id="author">Instructor: ${author}</span></h3>
       <h4>${course.type}</h4>
       <div class="interact">
         <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
@@ -39,7 +39,7 @@ form.addEventListener('submit', (event) => {
   const link = document.getElementById('course-link').value.trim();
   const type = document.getElementById('course-type').value;
   const skillLevel = document.getElementById('course-skill-level').value.trim();
-
+  
   // Create a new course object with title, description, link, and type properties
   const course = {
     title,
