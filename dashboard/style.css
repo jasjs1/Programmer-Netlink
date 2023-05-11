@@ -219,3 +219,8 @@ button {
   color: white;
   padding: 15px 15px 15px 15px;
 }
+
+.course-header {
+  text-align: left;
+  align-items: left;
+}
