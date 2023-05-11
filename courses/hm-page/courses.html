@@ -40,37 +40,90 @@
       </div>
       </nav>
 
-    <div class="container">
-        <form>
-        
-          <label for="course-title">Course Title</label>
-          <input type="text" id="course-title" name="course-title" placeholder="Tell peopel the title of this course." required minlength="3" maxlength="80">
-
-          <label for="course-description">Course Description</label>
-          <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="250" placeholder="Tell people what this course is about.">
-
-          <label for="course-link">Course Link</label>
-          <input type="url" id="course-link" name="course-link" placeholder="Give people a link to go for the course." required> 
-
-
-          <label for="course-type">Course Type</label>
-          <select id="course-type" name="course-type" required>
-            <option value="Free">Free</option>
-            <option value="Paid">Paid</option>
-          </select>
-
+      <style>
+        /* Style for modal overlay */
+        .modal-overlay {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+         background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        }
+    
+        .modal-container {
+        position: relative;
+        /* z-index: 2; */
+        background-color: #1c1f23;
+        color: white;
+        padding: 60px 60px 60px 60px;
+        border-radius: 10px; 
+        max-width: 500px;
+    }
+    
+    
+        .modal-container input,
+        .modal-container textarea {
+        width: 100%;
+        box-sizing: border-box;
+        /* add any other styling here  or just delete it all*/
+        }
+    
+    </style>
+    <!-- HTML for modal container -->
+    <div class="modal-overlay">
+      <div class="modal-container">
+        <div class="modal-header">
+        </div>  
+        <div class="container">
+          <form>
           
-          <label for="course-skill-level">Skill Level</label>
-          <select id="course-skill-level" name="course-skill-level" required>
-            <option value="All Levels">All Levels</option>
-            <opton value="Beginner">Beginner</opton>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-          
-          <input type="submit">
-        </form>
+            <label for="course-title">Course Title</label>
+            <input type="text" id="course-title" name="course-title" placeholder="Tell people the title of this course." required minlength="3" maxlength="80">
+  
+            <label for="course-description">Course Description</label>
+            <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="250" placeholder="Tell people what this course is about.">
+  
+            <label for="course-link">Course Link</label>
+            <input type="url" id="course-link" name="course-link" placeholder="Give people a link to go for the course." required> 
+  
+  
+            <label for="course-type">Course Type</label>
+            <select id="course-type" name="course-type" required>
+              <option value="Free">Free</option>
+              <option value="Paid">Paid</option>
+            </select>
+  
+            
+            <label for="course-skill-level">Skill Level</label>
+            <select id="course-skill-level" name="course-skill-level" required>
+              <option value="All Levels">All Levels</option>
+              <opton value="Beginner">Beginner</opton>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            
+            <div class="center-container">
+              <input type="submit" class="share-snippets">
+            </div>
+            
+          </form>
+        </div>
+        <div class="close-container">
+          <div class="msg">
+            <p><strong>Press escape to close.</strong></p>
+            <!-- <p><strong>Click off of this to also close.</strong></p> -->
+          </div>
+        </div>
       </div>
+    </div>
+    
+    <!-- HTML for "+" button -->
+    <button id="show-container">+</button>
     
     <script>
       // Show modal container when user clicks "+" button
@@ -112,14 +165,6 @@
         }
       });
     </script>
-    
-    <style>
-      .disabled {
-        background-color: #f4f4f4;
-        color: #aaa;
-        cursor: not-allowed;
-      }
-    </style>
     
     
     
