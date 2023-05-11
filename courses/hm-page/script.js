@@ -20,7 +20,7 @@ function loadCourses() {
     courseElement.innerHTML = `
       <h2>${course.title}</h2>
       <p>${course.description}</p>
-      <h3><span id="author">Instructor: ${author}</span></h3>
+      <h5><span id="author">Instructed by: ${author}</span></h5>
       <h4>${course.type}</h4>
       <div class="interact">
         <button class="bookmark-button" type="button">Bookmark</button>
@@ -74,7 +74,8 @@ form.addEventListener('submit', (event) => {
 
   // Reset the form
   form.reset();
-  // Reload the courses
+  location.reload();
+
   loadCourses();
 });
 
@@ -134,3 +135,15 @@ bookmarkButton.addEventListener('click', () => {
   }
 });
 
+
+  // Show modal container when user clicks "+" button
+  document.getElementById("show-container").addEventListener("click", function() {
+    document.querySelector(".modal-overlay").style.display = "flex";
+  });
+
+  // Hide modal container when user presses "Escape" key
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      document.querySelector(".modal-overlay").style.display = "none";
+    }
+  });
