@@ -186,9 +186,11 @@ margin-bottom: 25px;
 }
 
 #created-courses {
-text-align: left;
-border: 2px solid #6466E9;
-border-radius: 10px;
+  text-align: left;
+  border: 2px solid #6466E9;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 select {
@@ -202,9 +204,18 @@ margin-bottom: 14px;
 #courses-container {
   min-width: 60px;
   min-height: 60px;
+  padding: 10px;
 }
 
 #no-courses {
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+button {
+  background-color: #1c1f23;
+  border: 2px solid #6466E9;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 15px 15px 15px;
 }
