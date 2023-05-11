@@ -24,6 +24,7 @@ function loadCourses() {
       <h4>${course.type}</h4>
       <div class="interact">
         <button class="bookmark-button" type="button">Bookmark</button>
+
       </div>
     `;
     const bookmarkButton = courseElement.querySelector('.bookmark-button');
