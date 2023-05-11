@@ -394,34 +394,37 @@ bookmarkHash();
   </script>
 
   <h2>Bookmarks</h2>
+</div>
 
-  <div id="user-saved-bookmarks"></div>
+<div id="user-saved-bookmarks"></div>
+
 <script>
   // Retrieve bookmarks from localStorage
-const bookmarksJSON = localStorage.getItem('bookmarks');
-
-if (bookmarksJSON) {
-  // Parse bookmarks JSON into an array
-  const bookmarks = JSON.parse(bookmarksJSON);
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 
   // Get the reference to the <div> element
-  const bookmarksContainer = document.getElementById('user-saved-bookmarks');
+  const bookmarksDiv = document.getElementById('user-saved-bookmarks');
 
-  // Create a string to hold the HTML content
-  let bookmarksHTML = '';
+  // Check if bookmarks exist
+  if (bookmarks && bookmarks.length > 0) {
+    // Create a string variable to store the HTML content
+    let bookmarksHTML = '';
 
-  // Iterate over the bookmarks array and append to the HTML string
-  bookmarks.forEach((bookmark) => {
-    bookmarksHTML += '<p>' + bookmark.title + '</p>';
-  });
+    // Loop through each bookmark
+    bookmarks.forEach((bookmark) => {
+      // Append the bookmark to the HTML content
+      bookmarksHTML += `<p>${bookmark}</p>`;
+    });
 
-  // Set the HTML content of the <div> container
-  bookmarksContainer.innerHTML = bookmarksHTML;
-
-  console.log(bookmarks);
-}
+    // Set the HTML content of the <div> element
+    bookmarksDiv.innerHTML = bookmarksHTML;
+  } else {
+    // If there are no bookmarks, display a message
+    bookmarksDiv.textContent = 'No bookmarks found.';
+  }
 </script>
-</div>
+
+
 
 <div id="Snippets" class="tabcontent"></div>
 </div> 
