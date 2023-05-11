@@ -2,6 +2,7 @@ const form = document.querySelector('form');
 const postsContainer = document.getElementById('posts');
 const courseTypeSelect = document.getElementById('course-type');
 const paidDiv = document.getElementById('paid-div');
+const bookmarksContainer = document.getElementById('courses-bookmarks');
 
 // Function to load courses from local storage and display them
 function loadCourses() {
@@ -22,11 +23,23 @@ function loadCourses() {
       <h3><span id="author">Instructor: ${author}</span></h3>
       <h4>${course.type}</h4>
       <div class="interact">
-        <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
+        <button class="bookmark-button" type="button">Bookmark</button>
       </div>
     `;
+    const bookmarkButton = courseElement.querySelector('.bookmark-button');
+    bookmarkButton.addEventListener('click', () => {
+      saveBookmark(course);
+    });
     postsContainer.appendChild(courseElement);
   }
+}
+
+// Function to save a course bookmark
+function saveBookmark(course) {
+  const savedBookmarks = JSON.parse(localStorage.getItem('courses-bookmarks')) || [];
+  savedBookmarks.push(course);
+  localStorage.setItem('courses-bookmarks', JSON.stringify(savedBookmarks));
+  // You can perform any additional actions or UI updates here
 }
 
 // Add event listener to the form submit button
@@ -67,7 +80,6 @@ form.addEventListener('submit', (event) => {
 // Load courses when the page is first loaded
 loadCourses();
 
-
 // Add event listener to the course type select element
 courseTypeSelect.addEventListener('change', () => {
   const selectedValue = courseTypeSelect.value;
@@ -79,3 +91,45 @@ courseTypeSelect.addEventListener('change', () => {
     paidDiv.style.display = 'none';
   }
 });
+
+// Function to save or remove a course bookmark
+function toggleBookmark(course) {
+  const savedBookmarks = JSON.parse(localStorage.getItem('courses-bookmarks')) || [];
+  const index = savedBookmarks.findIndex((bookmark) => bookmark.title === course.title);
+  if (index > -1) {
+    savedBookmarks.splice(index, 1);
+  } else {
+    savedBookmarks.push(course);
+  }
+  localStorage.setItem('courses-bookmarks', JSON.stringify(savedBookmarks));
+  // You can perform any additional actions or UI updates here
+}
+
+// Function to check if a course is bookmarked
+function isCourseBookmarked(course) {
+  const savedBookmarks = JSON.parse(localStorage.getItem('courses-bookmarks')) || [];
+  return savedBookmarks.some((bookmark) => bookmark.title === course.title);
+}
+
+// Inside the loadCourses function, update the bookmark button state for each course
+const bookmarkButton = courseElement.querySelector('.bookmark-button');
+if (isCourseBookmarked(course)) {
+  bookmarkButton.textContent = 'Bookmarked';
+  bookmarkButton.classList.add('bookmarked');
+} else {
+  bookmarkButton.textContent = 'Bookmark';
+  bookmarkButton.classList.remove('bookmarked');
+}
+
+// Inside the bookmarkButton event listener, toggle the bookmark and update the button state
+bookmarkButton.addEventListener('click', () => {
+  toggleBookmark(course);
+  if (isCourseBookmarked(course)) {
+    bookmarkButton.textContent = 'Bookmarked';
+    bookmarkButton.classList.add('bookmarked');
+  } else {
+    bookmarkButton.textContent = 'Bookmark';
+    bookmarkButton.classList.remove('bookmarked');
+  }
+});
+
