@@ -232,6 +232,11 @@ coursesHash();
     <a href="http://127.0.0.1:5500/courses/hm-page/courese.html">Courses Home Page</a>
   </div>
 
+
+  
+
+  
+
   <div id="no-courses" style="display: none;">
     <!-- Content of the div goes here -->
     <h3>You haven't created any courses, yet. </h3>
@@ -273,8 +278,6 @@ function renderCourses() {
       <h4>${course.link}</h4>
       <h4>${course.type}</h4>
       <div class="interact">
-      <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
-      <button id="placeholder" class="placeholder" type="button">Placeholder Test</button>
       </div>
     `;
 
@@ -370,6 +373,7 @@ renderCourses();
     <script>
       document.addEventListener("DOMContentLoaded", function() {
   var myDiv = document.getElementById("no-bookmarks");
+  var localStorageItem = localStorage.getItem("bookmarks");
   
   if (!localStorageItem) {
     myDiv.style.display = "block";
