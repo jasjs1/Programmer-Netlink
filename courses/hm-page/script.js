@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const postsContainer = document.getElementById('posts');
+const postsContainer = document.getElementById('courses');
 const courseTypeSelect = document.getElementById('course-type');
 const paidDiv = document.getElementById('paid-div');
 const bookmarksContainer = document.getElementById('courses-bookmarks');
