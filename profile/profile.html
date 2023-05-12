@@ -15,11 +15,11 @@
 
 
 
-	  <script> 
+	<script> 
 		function uploadImage() {
 		  const fileInput = document.getElementById('image-upload');
-		  fileInput.accept = 'image/jpeg, image/png, image/heic, image b/svg,'; // Add allowed file types here
-		
+		  fileInput.accept = 'image/jpeg, image/png, image/heic, image/svg+xml'; // Fix typo in MIME type
+		  
 		  fileInput.addEventListener('change', (event) => {
 			const file = event.target.files[0];
 			const reader = new FileReader();
@@ -31,29 +31,42 @@
 		
 			  // Save image data to localStorage
 			  localStorage.setItem('profileImage', e.target.result);
+	  
+			  // Reload the page
+			  location.reload();
 			}
 		
 			reader.readAsDataURL(file);
 		  });
 		
 		  fileInput.click();
-		
-		  // Check if there is no image uploaded
-		  const uploadedImage = document.getElementById('uploaded-image');
-		  if (!uploadedImage.style.backgroundImage || uploadedImage.style.backgroundImage === 'none') {
-			  uploadedImage.style.backgroundImage = 'url(/profile/img/default-user-profile.svg)';
-			  uploadedImage.style.display = 'block';
-			localStorage.setItem('profileImage', '/	profile/img/default-user-profile.svg');
-		  }
 		}
-		</script>
-		
-		<div class="main-content">
-		  <div class="profile-icon-selector-button">
-			<input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
-			<img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-		  </div>
-		</div>		
+	  
+		// Check if there is a previously saved image in localStorage upon page load
+		window.addEventListener('load', () => {
+		  const uploadedImage = document.getElementById('uploaded-image');
+		  const savedImage = localStorage.getItem('profileImage');
+	  
+		  if (savedImage) {
+			uploadedImage.style.backgroundImage = `url(${savedImage})`;
+			uploadedImage.style.display = 'block';
+		  } else {
+			uploadedImage.style.backgroundImage = 'url(/profile/img/default-user-profile.svg)';
+			uploadedImage.style.display = 'block';
+			localStorage.setItem('profileImage', '/profile/img/default-user-profile.svg');
+		  }
+		});
+	  </script>
+	  
+	  <div class="main-content">
+		<div class="profile-icon-selector-button">
+		  <input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
+		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
+		</div>
+	  </div>
+	  
+	  
+	  
 
 		<!-- HTML for settings gear -->
 		<div class="settings" onclick="toggleSettingsContainer()">
@@ -251,7 +264,7 @@ descriptionText.value = currentText;
 	  }
   
 	  // Update the page title to include the user's name
-	  document.title = `${name}'s Social Media App`;
+	  document.title = `${savedName}'s Profile - Programmer Netlink`;
   
 	  // Load existing posts from local storage
 	  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
