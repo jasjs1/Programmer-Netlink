@@ -15,13 +15,6 @@ function openCity(evt, cityName) {
   // Create the buttons dynamically
   var tabButtonsContainer = document.getElementById("tabButtons");
   
-  var snippetsButton = document.createElement("button");
-  snippetsButton.className = "tablinks";
-  snippetsButton.innerHTML = "Snippets";
-  snippetsButton.onclick = function(event) {
-    openCity(event, "Snippets");
-  };
-  
   var articlesButton = document.createElement("button");
   articlesButton.className = "tablinks";
   articlesButton.innerHTML = "Articles";
@@ -29,7 +22,6 @@ function openCity(evt, cityName) {
     openCity(event, "Articles");
   };
   
-  tabButtonsContainer.appendChild(snippetsButton);
   tabButtonsContainer.appendChild(articlesButton);
   
   // Show the "Settings" tab by default
