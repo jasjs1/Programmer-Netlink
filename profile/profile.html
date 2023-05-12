@@ -12,12 +12,7 @@
 </head>
 <body>
 
-      <div class="nav-bar">
-		<a href="http://127.0.0.1:5500/.app/app.html"><b>App Home</b></a>
-        <a href="http://127.0.0.1:5500/profile/articles/display-articles.html"><b>Your Articles</b></a>
-        <a href="http://127.0.0.1:5500/profile/snippits/user-snippts.html"><b>Your Snippits</b></a>
-        <a href="http://127.0.0.1:5500/profile/experience/experience.html"><b>Expeirences</b></a>
-      </div>
+
 
 
 	  <script> 
@@ -154,7 +149,7 @@
 	  </div>
 
   <!-- <div class="user-post-header">
-    <h2>Snippits <span id="user-name"></span></h2>
+    <h2>snpits <span id="user-name"></span></h2>
     <p>Snippits are like 'posts'.</p>
   </div> -->
 
@@ -168,7 +163,7 @@
 	<label for="new-description">Updated Bio:</label>
 	<input type="text" id="new-description">
 	<button id="save-description-btn">Update Bio</button>
-	<button id="cancel-description-btn">Cancel</button>
+	<button id="cancel-description-btn">Close</button>
   </div>
   
   <script>
@@ -231,6 +226,156 @@ descriptionText.value = currentText;
   </script>
 </div>
 
+
+
+<div class="tab">
+	<button class="tablinks" onclick="openCity(event, 'Snippets')">Snippets</button>
+	<button class="tablinks" onclick="openCity(event, 'Articles')">Articles</button>
+	<button class="tablinks" onclick="openCity(event, 'Experience')">Experience</button>
+  </div>
+
+  <div id="Snippets" class="tabcontent">
+	<form></form>
+	<div id="user-created-snippets" class="user-created-snippets"></div>
+  
+	<script>
+	  const form = document.querySelector('form');
+	  const postsContainer = document.getElementById('user-created-snippets');
+  
+	  // Check if name exists in local storage
+	  let name = localStorage.getItem('name');
+	  if (!name) {
+		// If not, prompt the user for their name and store it in local storage
+		name = prompt('Please enter your name:');
+		localStorage.setItem('name', name);
+	  }
+  
+	  // Update the page title to include the user's name
+	  document.title = `${name}'s Social Media App`;
+  
+	  // Load existing posts from local storage
+	  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+  
+	  // Render existing posts
+	  if (savedPosts.length) {
+		for (let i = savedPosts.length - 1; i >= 0; i--) {
+		  const post = savedPosts[i];
+  
+		  // Create a new post element
+		  const postElement = document.createElement('div');
+		  postElement.classList.add('post');
+		  const author = localStorage.getItem('signup-name');
+		  postElement.innerHTML = `
+			<h2><span id="author">${author}</span></h2>
+			<h2>${post.title}</h2>
+			<h4>${post.tags}</h4>
+			<div class="interact">
+			  <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
+			  <div class="follower-class">
+				<p>Total Profile Follows: <span id="follower-count">0</span></p>
+			  </div>
+			  <button id="follow-button">Follow</button>
+			  <button id="unfollow-button" style="display:none">Unfollow</button>
+			</div>
+		  `;
+  
+		  // Add the new post to the top of the list
+		  postsContainer.prepend(postElement);
+  
+		  // Attach click event listener to bookmark button
+		  const bookmarkButton = postElement.querySelector('.bookmark-button');
+		  bookmarkButton.addEventListener('click', function() {
+			// Retrieve existing bookmarks from localStorage or initialize an empty array
+			const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+  
+			// Check if the post is already bookmarked
+			const bookmarkIndex = bookmarks.findIndex(bookmark => bookmark.title === post.title);
+			if (bookmarkIndex !== -1) {
+			  // Post is already bookmarked, so remove it
+			  bookmarks.splice(bookmarkIndex, 1);
+			  console.log('Removed ' + post.title + ' from post bookmarks.');
+			} else {
+			  // Post is not bookmarked, so add it
+			  bookmarks.push(post);
+			  console.log('Added ' + post.title + ' to post bookmarks.');
+			}
+  
+			// Save the updated bookmarks array to localStorage
+			localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+		  });
+		}
+	  }
+
+const noPostsMessage = document.getElementById('no-posts-message');
+
+
+// Render existing posts
+let numPostsShown = 0;
+const maxPostsToShow = 5;
+
+function renderPosts() {
+  const endIndex = Math.min(numPostsShown + maxPostsToShow, savedPosts.length);
+
+  if (endIndex === 0) {
+	var text = 'There are no posts created by ' + savedName;
+
+	element.innerHTML = text
+    noPostsMessage.style.display = 'block';
+  } else {
+    // Hide the no posts message
+    noPostsMessage.style.display = 'none';
+
+    for (let i = numPostsShown; i < endIndex; i++) {
+      const post = savedPosts[i];
+
+      // Create a new post element
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+      // Render the content of the post element
+      // ...
+
+      // Add the new post to the container
+      postsContainer.appendChild(postElement);
+
+      numPostsShown++;
+    }
+  }
+
+  // Hide the "Load More" button if all posts have been shown
+  if (numPostsShown >= savedPosts.length) {
+    loadMoreButton.style.display = 'none';
+  }
+}
+
+
+renderPosts();
+
+	</script>
+
+<div id="end-message">
+	<script>
+      // JavaScript code to display savedName at the end
+      document.addEventListener("DOMContentLoaded", function() {
+
+        var endMessage = document.getElementById("end-message");
+        endMessage.innerHTML +=
+          "<h3>You have reached the end of the Snippets created by " +
+          savedName + '.'
+          "</h3>";
+      });
+	</script>
+</div>
+
+</div>
+  </div>
+
+  <div id="Articles" class="tabcontent">
+	<div id="user-created-articles" class="user-created-articles"></div>
+  </div>
+
+  <div id="Experience" class="tabcontent">
+	  <div id="user-experiences" class="user-experiences"></div>
+</div>
 
 
   <div class="skills-header">
@@ -304,4 +449,6 @@ renderSkills();
 
 </body>
 <script src="script.js"></script>
+<script src="tabs.js"></script>
+<scirpt src="displayContent.js"></scirpt>
 </html>
