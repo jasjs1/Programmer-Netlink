@@ -1,8 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Bug Report
-    url: https://github.com/jasjs1/Programmer-Netlink/blob/pages/.github/ISSUE_TEMPLATE/bug.md
-    about: Report a bug for me to fix.
-  - name: GitHub Security Bug Bounty
-    url: https://bounty.github.com/
-    about: Please report security vulnerabilities here.
+    url: https://github.com/jasjs1/Programmer-Netlink/blob/pages/.github/ISSUE_TEMPLATE/bugreport.md
+    about: Report a bug for me to fix, and I will do my best to squash it!
