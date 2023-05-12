@@ -70,7 +70,6 @@ body {
   }
 
   .info {
-    margin-top: 17px;
     text-align: left;
     /* display: flex; */
     justify-content: left;
@@ -100,6 +99,13 @@ body {
   margin-bottom: 20px;
   margin-right: 40px;
   word-wrap: break-word;
+  margin-top: -35px;
+  color: white;
+}
+
+#new-description {
+  color: white;
+  font-weight: 700;
 }
 
 
@@ -230,3 +236,53 @@ button {
   border-radius: 5%;
   padding: 15px 15px 15px 15px;
 }
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  /* border: 2px solid #6466E9; */
+  border-radius: 10px;
+  color: white;
+  background-color: #1c1f23;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: white;
+  font-size: 21px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+  background-color: #1c1f23;
+  color: #6466E9;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+  color: #6466E9;
+  font-weight: 200;
+  text-decoration: underline;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  color: white;
+  }
+
+  .post-contents {
+    display: inline-block;
+    margin-right: 25px;
+    margin-bottom: 25px;
+  }
