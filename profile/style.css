@@ -67,7 +67,7 @@ body {
     background-color: #1c1f23;
     border: 1px solid #6466E9;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 13px 13px 13px 13px;
   }
 
@@ -75,7 +75,9 @@ body {
     text-align: left;
     /* display: flex; */
     justify-content: left;
-
+    position: relative;
+    top: -50px;
+    left: 195px;
   }
   
   .username {
@@ -319,3 +321,24 @@ button {
     height: 48px;
     width: 48px;
   }
+
+  #uploaded-image {
+    position: relative;
+    top: 50px;
+    width: auto;
+    height: 125px;
+    border-radius: circle;
+  }
+
+.skill-header {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#create-description-btn {
+  position: relative;
+  top: -50px;
+  left: 195px;
+  width: 20%;
+  border-radius: 10px;
+}
