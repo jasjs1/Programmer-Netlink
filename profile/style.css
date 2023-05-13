@@ -3,6 +3,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     padding: 3px;
+    margin-left: 150px;
+    margin-left: 150px;
 }
 
 .nav-bar {
@@ -73,6 +75,7 @@ body {
     text-align: left;
     /* display: flex; */
     justify-content: left;
+
   }
   
   .username {
@@ -99,7 +102,7 @@ body {
   margin-bottom: 20px;
   margin-right: 40px;
   word-wrap: break-word;
-  margin-top: -35px;
+  margin-top: -0.0000005px;
   color: white;
 }
 
@@ -285,4 +288,34 @@ button {
     display: inline-block;
     margin-right: 25px;
     margin-bottom: 25px;
+  }
+
+  #end-message {
+  margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .username-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  h3, h4 {
+    margin: 0;
+  }
+
+  h4 {
+    margin-left: 5px;
+  }
+
+  .person-edit-img-button {
+    fill: #6466E9;
+    color: #6466E9;
+    height: 48px;
+    width: 48px;
   }
