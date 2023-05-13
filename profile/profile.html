@@ -70,7 +70,7 @@
 
 		<!-- HTML for settings gear -->
 		<div class="settings" onclick="toggleSettingsContainer()">
-			<img src="/profile/img/gear.png" alt="settings gear image" width="auto" height="32">
+			<svg viewBox="0 0 24 24" height="48" width="48" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-sc-ea9ulj-0 hRnJPC"><title>PersonEdit icon</title><path d="M12.5 17.86 16.35 14H6.26C5 14 4 15 4 16.25v.92c0 .57.18 1.13.51 1.6 1.4 1.94 3.57 3 6.49 3.2 0-.18.02-.37.06-.56l.46-1.83c.16-.65.5-1.24.97-1.71zM12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm7.1 10.67-5.9 5.9c-.35.35-.6.78-.7 1.25l-.47 1.83c-.2.8.53 1.52 1.32 1.32l1.83-.46c.47-.12.9-.36 1.25-.7l5.9-5.9a2.29 2.29 0 0 0-3.23-3.24z" class="person-edit-img-button"></path></svg>
 		</div>
 		
 		<!-- HTML for settings container -->
@@ -105,10 +105,6 @@
 					  <button type="submit">Add Skill</button>
 						</form>
 					</div>
-
-					<div class="redirector">
-						<a href="http://127.0.0.1:5500/profile/settings/profile-settings.html" target="_blank">Account Settings</a>
-					</div>
 			
 				</div>
 			
@@ -128,11 +124,15 @@
 		</script>
   
 
-			<div class="info">
-				<h3><span id="signup-name"></span></h3>
-				<h3><span id="user-username"></span></h3>
-				<h4><span id="tag"></span></h4>
-				<h4><span id="likes"></span></h4>
+  <div class="info">
+	<h3><span id="signup-name"></span></h3>
+	<div class="username-container">
+	  <h3><span id="user-username"></span></h3>
+	  <h4><span id="tag"></span></h4>
+	</div>
+	<p id="description-text"></p>
+  </div>
+  
 				
 				<script>
 				  // Load user name and tag from local storage
@@ -168,7 +168,6 @@
 
 
 <div>
-	<p id="description-text"></p>
 	<button id="create-description-btn">Update Bio</button>
   </div>
   
