@@ -155,3 +155,8 @@ link.setAttribute('target', '_blank');
 function redirectPodcastProfile() {
   window.location.href = "http://127.0.0.1:5500/podcasts/podcast-profile/podcast-profile.html";
 }
+
+
+function reloadCurrentPage() {
+  location.reload();
+}
