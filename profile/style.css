@@ -67,7 +67,7 @@ body {
     background-color: #1c1f23;
     border: 1px solid #6466E9;
     color: white;
-    border-radius: 10px;
+    border-radius: px;
     padding: 13px 13px 13px 13px;
   }
 
@@ -131,20 +131,7 @@ body {
     color: white;
     font-size: 15px;
   }
-  
-  #uploaded-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Make it circular */
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-    /* Add the following line to hide the fallback content */
-    text-indent: 100%; 
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
+
   /* .container {
     max-width: 600px;
     margin: 0 auto;
@@ -178,13 +165,6 @@ body {
     align-items: center; /* centers items vertically */
   }
 
-  
-  .info {
-    display: flex;
-    flex-direction: column;
-    padding: 1px;
-  }
-  
   
   
   .modal-header {
@@ -297,22 +277,10 @@ button {
     margin-bottom: 15px;
   }
 
-  .info {
-    display: flex;
-    flex-direction: column;
-  }
 
   .username-container {
     display: flex;
     align-items: baseline;
-  }
-
-  h3, h4 {
-    margin: 0;
-  }
-
-  h4 {
-    margin-left: 5px;
   }
 
   .person-edit-img-button {
@@ -324,10 +292,37 @@ button {
 
   #uploaded-image {
     position: relative;
-    top: 50px;
+    top: 81.5px;
     width: auto;
     height: 125px;
     border-radius: circle;
+    width: 125px;
+    height: 125px;
+  }
+
+  #uploaded-image {
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    /* Add the following line to hide the fallback content */
+    text-indent: 100%; 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3, h4 {
+    margin: 0;
+  }
+
+  h4 {
+    margin-left: 5px;
   }
 
 .skill-header {
@@ -335,10 +330,31 @@ button {
   margin-bottom: 25px;
 }
 
+  .info {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+    top: -50px;
+  }
+  
+
+
 #create-description-btn {
   position: relative;
   top: -50px;
   left: 195px;
   width: 20%;
   border-radius: 10px;
+}
+
+#new-skill {
+  color: white;
+}
+
+#skill-type {
+  color: white;
+}
+
+#skill-description {
+  color: white;
 }
