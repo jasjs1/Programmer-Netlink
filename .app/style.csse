@@ -1,0 +1,331 @@
+body {
+    background-color: #1c1f23;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    padding: 3px;
+    margin-left: 150px;
+    margin-left: 150px;
+}
+
+.nav-bar {
+  background-color: #1c1f23;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  }
+
+  .nav-bar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 18.6px;
+  }
+
+  .nav-bar :hover {
+    background-color: #6466E9;
+    font-weight: bold;
+  }
+  
+  a {
+    color: white;
+  }
+
+  .settings {
+    margin-left: 1002px;
+    margin-top: -100px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 20px; /* adjust this value as needed */
+    margin-right: 20px; /* adjust this value as needed */
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .settings :hover {
+    width: 41px;
+    height: auto;
+    opacity: 1.5;
+
+  }
+
+  .settings-container {
+    margin-left: 1002px;
+    margin-top: -100px;
+  }
+
+  #settings-container {
+    display: none;
+  }
+  
+
+  button {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    color: white;
+    border-radius: 5px;
+    padding: 13px 13px 13px 13px;
+  }
+
+  .info {
+    text-align: left;
+    /* display: flex; */
+    justify-content: left;
+
+  }
+  
+  .username {
+    text-transform: lowercase;
+  }
+  
+
+.follower-class {
+    margin-top: 15px;
+    /* padding-top: 15px; */
+    display: flex;
+}
+
+.snippits-redirect-link {
+  margin-top: 20px;
+}
+
+.description-header {
+  margin-top: 3px;
+}
+
+#description-text {
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  word-wrap: break-word;
+  margin-top: -0.0000005px;
+  color: white;
+}
+
+#new-description {
+  color: white;
+  font-weight: 700;
+}
+
+
+/* .user-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user-post-header {
+    color: #6466E9;
+    margin-bottom: 15px;
+    padding-bottom: 24.5px;
+} */
+
+  
+  select {
+    background-color: #1c1f23;
+    color: white;
+    font-size: 15px;
+  }
+  
+  #uploaded-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    /* Add the following line to hide the fallback content */
+    text-indent: 100%; 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    border: 5.2px solid #6466e999;
+    border-radius: 5.2px;
+    box-shadow: 444px #6466e981;
+    margin-top: 42px;
+    margin-bottom: 42px;
+  }
+   */
+
+   #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #6466E9;
+    color: whitesmoke;
+  }
+
+
+
+  .main-content {
+    display: flex;
+    align-items: center; /* centers items vertically */
+  }
+
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+  }
+  
+  
+  
+  .modal-header {
+    text-align: center;
+    color: #6466E9;
+   
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* 50% transparent black */
+    backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style for modal container */
+  .modal-container {
+    background-color: #1c1f23;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    padding-bottom: 80px;
+
+  }
+
+  .close {
+    margin-left: auto;
+    margin-bottom: 40;
+    margin-left: 450px;
+    cursor: pointer;
+  }
+
+  .redirector {
+    margin-top: 60px;
+  }
+
+  input[type="text"] {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    border-radius: 5%;
+    padding: 13px 13px 13px 13px;
+  }
+
+button {
+  background-color: #1c1f23;
+  border: 1px solid #6466E9;
+  border-radius: 5%;
+  padding: 15px 15px 15px 15px;
+}
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  /* border: 2px solid #6466E9; */
+  border-radius: 10px;
+  color: white;
+  background-color: #1c1f23;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: white;
+  font-size: 21px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+  background-color: #1c1f23;
+  color: #6466E9;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+  color: #6466E9;
+  font-weight: 200;
+  text-decoration: underline;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  color: white;
+  }
+
+  .post-contents {
+    display: inline-block;
+    margin-right: 25px;
+    margin-bottom: 25px;
+  }
+
+  #end-message {
+  margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .username-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  h3, h4 {
+    margin: 0;
+  }
+
+  h4 {
+    margin-left: 5px;
+  }
+
+  .person-edit-img-button {
+    fill: #6466E9;
+    color: #6466E9;
+    height: 48px;
+    width: 48px;
+  }
+
+  #uploaded-image {
+    position: ;
+  }
+
+  .nav-menus {
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 0;
+  }
