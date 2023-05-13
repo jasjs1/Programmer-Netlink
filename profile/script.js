@@ -25,68 +25,6 @@ showContainerButton.addEventListener('click', () => {
   toggleContainer('toggle');
 });
 
-function hash() {
-  console.log('hash function called');
-  containerDiv.style.display = 'block';
-  window.location.hash = 'create-podcast';
-}
-
-const shareButton = document.querySelector('button[type="submit"]');
-shareButton.addEventListener('click', savePodcast);
-
-function savePodcast(event) {
-  event.preventDefault();
-
-  const title = document.getElementById('ep-title').value;
-  const number = document.getElementById('ep-num').value;
-  const description = document.getElementById('ep-description').value;
-  const link = document.getElementById('ep-link-text').value;
-
-  const podcastData = {
-    title: title,
-    episodeNumber: number,
-    description: description,
-    link: link
-  };
-  const storedPodcasts = JSON.parse(localStorage.getItem('podcast-uploads')) || [];
-  storedPodcasts.push(podcastData);
-  localStorage.setItem('podcast-uploads', JSON.stringify(storedPodcasts));
-  
-  alert('Podcast has been shared with no errors!'); 
-
-  displayPodcasts();
-}
-
-const podcastsContainer = document.getElementById('podcasts');
-
-function displayPodcasts() {
-  const podcastsData = localStorage.getItem('podcast-uploads');
-  if (!podcastsData) {
-    podcastsContainer.innerHTML = '<p>No podcasts uploaded yet.</p>';
-    return;
-  }
-  const podcasts = JSON.parse(podcastsData);
-  if (podcasts.length === 0) {
-    podcastsContainer.innerHTML = '<p>No podcasts uploaded yet.</p>';
-    return;
-  }
-  let podcastsHTML = '';
-  for (const podcast of podcasts) {
-    const { title, episodeNumber, description, link } = podcast;
-    podcastsHTML += `
-      <div class="podcast-episode">
-      <p>------------------------------------------------</p>
-        <h3>${title}</h3>
-        <p>Episode ${episodeNumber}</p>
-        <p>${description}</p>
-        <p><a href="${link}"</a></p>
-      </div>
-    `;
-  }
-  podcastsContainer.innerHTML = podcastsHTML;
-}
-
-displayPodcasts();
 
 const linksButton = document.getElementById('add-link');
 linksButton.addEventListener('click', () => {
@@ -159,4 +97,8 @@ function redirectPodcastProfile() {
 
 function reloadCurrentPage() {
   location.reload();
+}
+
+function toggleSkillMaker() {
+  
 }
