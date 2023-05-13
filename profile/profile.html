@@ -88,24 +88,6 @@
 					</div>
 
 					<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
-
-					<div class="container">
-						<h3 class="skill-header">Add a Skill:</h3>
-
-						<form id="skills-form">
-				
-					  <label for="new-skill">Skill Name:</label>
-					  <input type="text" id="new-skill" name="new-skill" placeholder="name of the skill" minlength="2" max="20">
-				
-					  <label for="skill-type">Skill Type:</label>
-					  <input type="text" id="skill-type" name="new-skill" placeholder="type of the skill that you have" minlength="2" max="15">
-				
-					  <label for="skill-description">Skill Description:</label>
-					  <input type="text" id="skill-description" name="skill-description" placeholder="short breif description" minlength="5" maxlength="25">
-				
-					  <button type="submit">Add Skill</button>
-						</form>
-					</div>
 			
 				</div>
 			
@@ -126,7 +108,7 @@
   
 
   <div class="info">
-	<h2><span id="signup-name"></span></h2 style>
+	<h2 style="color: #6466E9"><span id="signup-name"></span></h2 style>
 	<div class="username-container">
 	  <h3><span id="user-username"></span></h3>
 	  <h4><span id="tag"></span></h4>
@@ -169,7 +151,7 @@
 
 
 <div>
-	<button id="create-description-btn">Edit Bio</button>
+	<button id="create-description-btn">Edit Profile</button>
   </div>
   
   <div id="description-modal" style="display: none">
@@ -387,78 +369,202 @@ renderPosts();
   </div>
 
   <div id="Experience" class="tabcontent">
-	  <div id="user-experiences" class="user-experiences"></div>
-</div>
+	  <!-- <div id="user-experiences" class="user-experiences"></div> -->
+
+	  <button id="show-container">+ ADD SKILL</button>
 
 
-  <div class="skills-header">
-	<h2>Skills:</h2>
-
+	  <div id="container" class="container" style="display: none;">
+		<h3 class="skill-header">Add a Skill:</h3>
+	  
+		<form id="skills-form">
+			<label for="new-skill">Skill Name:</label>
+			<input type="text" id="new-skill" name="new-skill" placeholder="name of the skill" minlength="2" max="20">
+	  
+			<label for="skill-type">Skill Type:</label>
+			<input type="text" id="skill-type" name="skill-type" placeholder="type of the skill that you have" minlength="2" max="15">
+	  
+			<label for="skill-description">Skill Description:</label>
+			<input type="text" id="skill-description" name="skill-description" placeholder="short brief description" minlength="5" maxlength="25">
+	  
+			<button type="submit">Add Skill to Profile</button>
+		</form>
+	</div>
+	
+	<script>
+		// Show container when user clicks on it
+		document.getElementById("container").addEventListener("click", function() {
+			document.getElementById("container").style.display = "flex";
+		});
+	
+		// Hide container when user presses "Escape" key
+		document.addEventListener("keydown", function(event) {
+			if (event.key === "Escape") {
+				document.getElementById("container").style.display = "none";
+			}
+		});
+	</script>
+	
+	<div class="skills-header">
+		<h2>Skills:</h2>
+	
+		<ul id="skills-list"></ul>
+	</div>
+	
+	<script>
+		const skillsForm = document.querySelector('#skills-form');
+		const skillsList = document.querySelector('#skills-list');
+		let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
+	
+		// Function to render skills 
+		function renderSkills() {
+			skillsList.innerHTML = '';
+			for (let i = 0; i < skillsArray.length; i++) {
+				const skillItem = document.createElement('li');
+				const skillName = document.createElement('span');
+				skillName.textContent = skillsArray[i].name;
+				const skillType = document.createElement('span');
+				skillType.textContent = skillsArray[i].type;
+				const skillDescription = document.createElement('span');
+				skillDescription.textContent = skillsArray[i].description;
+	
+				// add comma and space between spans
+				const comma = document.createTextNode(', ');
+				skillItem.appendChild(skillName);
+				skillItem.appendChild(comma);
+				skillItem.appendChild(skillType);
+				skillItem.appendChild(comma.cloneNode());
+				skillItem.appendChild(skillDescription);
+	
+				skillsList.appendChild(skillItem);
+			}
+		}
+	
+	
+		// Function to handle form submission
+		function handleFormSubmit(event) {
+			event.preventDefault();
+			const skillInput = document.querySelector('#new-skill');
+			const skillValue = skillInput.value.trim();
+			const skillTypeInput = document.querySelector('#skill-type');
+			const skillTypeValue = skillTypeInput.value.trim();
+			const skillDescriptionInput = document.querySelector('#skill-description');
+			const skillDescriptionValue = skillDescriptionInput.value.trim();
+			if (skillValue && skillTypeValue && skillDescriptionValue) {
+				const skillObj = { name: skillValue, type: skillTypeValue, description: skillDescriptionValue };
+				skillsArray.push(skillObj);
+				localStorage.setItem('skills', JSON.stringify(skillsArray));
+				skillInput.value = '';
+				skillTypeInput.value = '';
+				skillDescriptionInput.value = '';
+				renderSkills();
+			}
+		}
+	
+		// Attach event listener
+		skillsForm.addEventListener('submit', handleFormSubmit);
+	
+		// Render initial skills
+		renderSkills();
+	</script>
 	
 
-  <ul id="skills-list"></ul>
-  <script>
-const skillsForm = document.querySelector('#skills-form');
-const skillsList = document.querySelector('#skills-list');
-let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
+	<button id="show-add-past-job" onclick="showModalOverlay()">+ ADD PAST JOB</button>
 
-// Function to render skills 
-function renderSkills() {
-  skillsList.innerHTML = '';
-  for (let i = 0; i < skillsArray.length; i++) {
-    const skillItem = document.createElement('li');
-    const skillName = document.createElement('span');
-    skillName.textContent = skillsArray[i].name;
-    const skillType = document.createElement('span');
-    skillType.textContent = skillsArray[i].type;
-    const skillDescription = document.createElement('span');
-    skillDescription.textContent = skillsArray[i].description;
+	<style>
+	  /* Style for modal overlay */
+	  .modal-overlay {
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(10px);
+		display: none; /* Hidden by default */
+		justify-content: center;
+		align-items: center;
+	  }
+	  
+	  .modal-container {
+		position: relative;
+		background-color: #1c1f23;
+		color: white;
+		padding: 60px;
+		border-radius: 10px; 
+		max-width: 500px;
+	  }
+	  
+	  .modal-container input,
+	  .modal-container textarea {
+		width: 100%;
+		box-sizing: border-box;
+		/* add any other styling here or just delete it all */
+	  }
+	</style>
+	
+	<!-- HTML for modal container -->
+	<div class="modal-overlay" id="modalOverlay">
+	  <div class="modal-container">
+		<div class="add-job-container">
 
-    // add comma and space between spans
-    const comma = document.createTextNode(', ');
-    skillItem.appendChild(skillName);
-    skillItem.appendChild(comma);
-    skillItem.appendChild(skillType);
-    skillItem.appendChild(comma.cloneNode());
-    skillItem.appendChild(skillDescription);
-
-    skillsList.appendChild(skillItem);
-  }
-}
-
-
-// Function to handle form submission
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const skillInput = document.querySelector('#new-skill');
-  const skillValue = skillInput.value.trim();
-  const skillTypeInput = document.querySelector('#skill-type');
-  const skillTypeValue = skillTypeInput.value.trim();
-  const skillDescriptionInput = document.querySelector('#skill-description');
-  const skillDescriptionValue = skillDescriptionInput.value.trim();
-  if (skillValue && skillTypeValue && skillDescriptionValue) {
-    const skillObj = { name: skillValue, type: skillTypeValue, description: skillDescriptionValue };
-    skillsArray.push(skillObj);
-    localStorage.setItem('skills', JSON.stringify(skillsArray));
-    skillInput.value = '';
-    skillTypeInput.value = '';
-    skillDescriptionInput.value = '';
-    renderSkills();
-  }
-}
-
-// Attach event listeners
-skillsForm.addEventListener('submit', handleFormSubmit);
-
-// Render initial skills
-renderSkills();
-
-  </script>
+			<h1 style="font-weight: lighter; color: #6466E9; font-size: 1.5rem;">Add a pervious job</h1>
 
 
-  <div class="profile-settings-renav">
-	<a href="http://127.0.0.1:5500/profile/settings/profile-settings.html">Go to Profile Settings</a>
-  </div>
+			<h3 style="font-size: 0.875rem; font-weight: lighter;">Add an enriching experience to showcase the old places that you have worked professionally. Jot down a internship, career, or just a gig.</h3>
+
+
+			<form>
+
+				<label for="company-name">Company Name</label>
+				<input type="text" id="company-name" placeholder="What was the companies name?" required>
+
+				<label for="employment-type">Employee Type</label>
+				<select id="employment-type" required>
+					<option value="Full-time" selected>Full-time</option>
+					<option value="Part-time">Part-time</option>
+					<option value="Internship">Internship</option>
+					<option value="Self-employed">Self-employed</option>
+					<option value="Freelance">Freelance</option>
+					<option vlaue="Seasonal">Seasonal</option>
+				</select>
+				
+				<label for="role">Role</label>
+				<input type="text" id="role" placeholder="What was the role?" required>
+
+				<label for="start-date">Start Date</label>
+				<input type="date" id="start-date" required>
+
+				<label for="end-date">End Date</label>
+				<input type="date" id="end-date" required>
+
+				<label for="location">Location</label>
+				<select id="location" required>
+					<option value="In Person" selected>In Person</option>
+					<option value="Virtual">Virtual</option>
+					<option value="Hybrid">Hybrid</option>
+				</select>
+
+				<label for="more-info">More Info</label>
+				<input type="text" id="more-info" placeholder="Give some more information about your old job!" required>
+
+				<button id="submit" type="submit" id="submit">SHARE</button>
+			</form>
+		</div>
+		</div>
+	  </div>
+	</div>
+	
+	<script>
+	  function showModalOverlay() {
+		const modalOverlay = document.getElementById("modalOverlay");
+		modalOverlay.style.display = "flex";
+	  }
+	</script>
+	
+	
+
 
 </body>
 <script src="script.js"></script>
