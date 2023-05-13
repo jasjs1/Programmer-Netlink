@@ -102,3 +102,35 @@ function reloadCurrentPage() {
 function toggleSkillMaker() {
   
 }
+
+function submitPastJob() {
+  // Get the input values
+  const companyName = document.getElementById('company-name').value.trim();
+  const employmentType = document.getElementById('employment-type').value.trim();
+  const role = document.getElementById('role').value.trim();
+  const startDate = document.getElementById('start-date').value;
+  const endDate = document.getElementById('end-date').value;
+  const location = document.getElementById('location').value;
+  const moreInfo = document.getElementById('more-info').value;
+  
+  // Create a new job object with the input values
+  const jobData = {
+    companyName,
+    employmentType,
+    role,
+    startDate,
+    endDate,
+    location,
+    moreInfo,
+  };
+
+  
+  let existingData = JSON.parse(localStorage.getItem('past-jobs')) || [];
+
+
+  existingData.unshift(jobData);
+
+  localStorage.setItem('past-jobs', JSON.stringify(existingData));
+
+  form.reset();
+}
