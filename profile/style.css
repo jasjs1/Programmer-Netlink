@@ -76,7 +76,7 @@ body {
     /* display: flex; */
     justify-content: left;
     position: relative;
-    top: -50px;
+    top: -40px;
     left: 195px;
   }
   
@@ -293,7 +293,7 @@ button {
 
   #uploaded-image {
     position: relative;
-    top: 81.5px;
+    top: 71.5px;
     width: auto;
     height: 125px;
     border-radius: circle;
@@ -412,4 +412,10 @@ input[type="date"] {
 #more-info {
   border-radius: 10px;
   color: white;
+}
+
+#jobs {
+  border: 1px solid #6466E9;
+  border-radius: 10px;
+  padding-left: 5px;
 }
