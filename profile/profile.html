@@ -12,6 +12,34 @@
 </head>
 <body>
 
+	<script>
+
+
+function snippetsHash() {
+    console.log('snippets hash function called');
+    articlesContainer.style.display = 'block';
+    window.location.hash = savedName + '/snippets';
+}
+
+function podcastHash() {
+    console.log('podcast hash function called');
+    articlesContainer.style.display = 'block';
+    window.location.hash = '/podcasts';
+}
+
+function coursesHash() {
+    console.log('courses hash function called');
+    articlesContainer.style.display = 'block';
+    window.location.hash = '/courses';
+}
+
+function bookmarkHash() { 
+    console.log('bookmark hash function called');
+    articlesContainer.style.display = 'block';
+    window.location.pathname = '/bookmarks';
+}
+	</script>
+
 
 
 
@@ -128,7 +156,7 @@
 				  nameElement.textContent = savedName;
 			  
 				  const userNameElement = document.getElementById('user-username');
-				  userNameElement.textContent = `@${savedUserName}.${savedTag}.pr`;
+				  userNameElement.textContent = `@${savedUserName}.${savedTag}.pr  · `;
 			  
 				  const tagElement = document.getElementById('tag');
 				  tagElement.textContent = `#${savedTag}`;
@@ -230,6 +258,9 @@ descriptionText.value = currentText;
   </div>
 
   <div id="Snippets" class="tabcontent">
+	<script>
+		snippetsHash()
+	</script>
 	<form></form>
 	<div id="user-created-snippets" class="user-created-snippets"></div>
   
@@ -261,16 +292,10 @@ descriptionText.value = currentText;
 		  postElement.classList.add('post');
 		  const author = localStorage.getItem('signup-name');
 		  postElement.innerHTML = `
-			<h2><span id="author">${author}</span></h2>
-			<h2>${post.title}</h2>
-			<h4>${post.tags}</h4>
+		  <h2 style="font-weight: 600; color: white;">${post.title}</h2>
+			<h4 style="color: #6466E9;">${post.tags}</h4>
 			<div class="interact">
 			  <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
-			  <div class="follower-class">
-				<p>Total Profile Follows: <span id="follower-count">0</span></p>
-			  </div>
-			  <button id="follow-button">Follow</button>
-			  <button id="unfollow-button" style="display:none">Unfollow</button>
 			</div>
 		  `;
   
@@ -509,16 +534,19 @@ renderPosts();
 	  <div class="modal-container">
 		<div class="add-job-container">
 
-			<h1 style="font-weight: lighter; color: #6466E9; font-size: 1.5rem;">Add a pervious job</h1>
+			<h1 style="font-weight: lighter; color: #6466E9; font-size: 1.5rem;">Add a job</h1>
 
 
-			<h3 style="font-size: 0.875rem; font-weight: lighter;">Add an enriching experience to showcase the old places that you have worked professionally. Jot down a internship, career, or just a gig.</h3>
+			<h3 style="font-size: 0.875rem; font-weight: lighter;">Add a job that you are currently working at or have worked at, so other developers can see your showcase of experience.</h3>
 
 
 			<form>
 
 				<label for="company-name">Company Name</label>
 				<input type="text" id="company-name" placeholder="What was the companies name?" required>
+
+				<label for="company-logo">Company Logo</label>
+				<input type="file" id="company-logo" accept="image/png, image/jpeg, image/jpg" placeholder="Company Logo" required>
 
 				<label for="employment-type">Employee Type</label>
 				<select id="employment-type" required>
@@ -538,6 +566,8 @@ renderPosts();
 
 				<label for="end-date">End Date</label>
 				<input type="date" id="end-date" required>
+				<label for="currently-working-here">Still working here?</label>
+				<input type="checkbox" id="currently-working-here">
 
 				<label for="location">Location</label>
 				<select id="location" required>
@@ -554,7 +584,105 @@ renderPosts();
 		</div>
 		</div>
 	  </div>
-	</div>
+
+
+	  <h2>Jobs:</h2>
+	
+	  <div id="jobs" class="jobs"></div>
+
+	  <script>
+		// Function to display job data in the jobs container
+		function displayJobs() {
+		  // Select the jobs container element
+		  const jobsContainer = document.getElementById('jobs');
+	  
+		  // Clear the existing content of the jobs container
+		  jobsContainer.innerHTML = '';
+	  
+		  // Retrieve job data from localStorage
+		  const jobsData = JSON.parse(localStorage.getItem('yourJobs')) || [];
+	  
+		  // Generate HTML markup for each job and append it to the jobs container
+		  jobsData.forEach(job => {
+			const jobElement = document.createElement('div');
+			jobElement.classList.add('job');
+			jobElement.innerHTML = `
+			<div class="main-informaiton">
+				<h3 style="color: #6466E9; font-size: 1.5rem">${job.companyName}</h3>
+				<p style="font-size: 1rem">${job.role} · ${job.employmentType}</p>
+			</div>
+
+			<div class="more-information">
+				<p style="font-size: 1rem">${job.startDate} - ${job.endDate}</p>
+			</div>
+
+			<div class="extra-information">
+				<p style="font-size: 1rem">${job.location}</p>
+			<p style="font-size: 1rem" margin-bottom="10rem">${job.moreInfo}</p>
+			</div>
+			  
+			`;
+			jobsContainer.appendChild(jobElement);
+		  }); // ADD A WAY THAT THE USER HAS TO IMPORT A IMAGE AND THEN THE IMAGE WILL BE USED FOR THE EXP USE LIKE LINKEDIN
+		}
+	  
+		// Call displayJobs() initially to load the existing job data from localStorage
+		displayJobs();
+	  
+		function submitPastJob() {
+		  // Get the input values
+		  const companyName = document.getElementById('company-name').value.trim();
+		  const employmentType = document.getElementById('employment-type').value.trim();
+		  const role = document.getElementById('role').value.trim();
+		  const startDate = document.getElementById('start-date').value;
+		  const endDate = document.getElementById('end-date').value;
+		  const location = document.getElementById('location').value;
+		  const moreInfo = document.getElementById('more-info').value;
+	  
+		  // Create a new job object with the input values
+		  const jobData = {
+			companyName,
+			employmentType,
+			role,
+			startDate,
+			endDate,
+			location,
+			moreInfo,
+		  };
+	  
+		  // Retrieve existing data from localStorage
+		  let existingData = JSON.parse(localStorage.getItem('yourJobs')) || [];
+	  
+		  // Add new job data to the existing data
+		  existingData.unshift(jobData);
+	  
+		  // Save the updated data in localStorage
+		  localStorage.setItem('yourJobs', JSON.stringify(existingData));
+	  
+		  // Clear the input values
+		  document.getElementById('company-name').value = '';
+		  document.getElementById('employment-type').value = '';
+		  document.getElementById('role').value = '';
+		  document.getElementById('start-date').value = '';
+		  document.getElementById('end-date').value = '';
+		  document.getElementById('location').value = '';
+		  document.getElementById('more-info').value = '';
+	  
+		  // Display the job data in the jobs container
+		  displayJobs();
+		}
+
+		function formatDate(dateString) {
+  const date = new Date(dateString);
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${month}/${day}/${year}`;
+}
+	  </script>
+	  
+
 	
 	<script>
 	  function showModalOverlay() {
@@ -562,12 +690,12 @@ renderPosts();
 		modalOverlay.style.display = "flex";
 	  }
 	</script>
-	
-	
+
 
 
 </body>
 <script src="script.js"></script>
 <script src="tabs.js"></script>
 <scirpt src="displayContent.js"></scirpt>
+<script src="hash.js"></script>
 </html>
