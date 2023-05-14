@@ -12,37 +12,6 @@
 </head>
 <body>
 
-	<script>
-
-
-function snippetsHash() {
-    console.log('snippets hash function called');
-    articlesContainer.style.display = 'block';
-    window.location.hash = savedName + '/snippets';
-}
-
-function podcastHash() {
-    console.log('podcast hash function called');
-    articlesContainer.style.display = 'block';
-    window.location.hash = '/podcasts';
-}
-
-function coursesHash() {
-    console.log('courses hash function called');
-    articlesContainer.style.display = 'block';
-    window.location.hash = '/courses';
-}
-
-function bookmarkHash() { 
-    console.log('bookmark hash function called');
-    articlesContainer.style.display = 'block';
-    window.location.pathname = '/bookmarks';
-}
-	</script>
-
-
-
-
 	<script> 
 		function uploadImage() {
 		  const fileInput = document.getElementById('image-upload');
@@ -253,7 +222,6 @@ descriptionText.value = currentText;
 
 <div class="tab">
 	<button class="tablinks" onclick="openCity(event, 'Snippets')">Snippets</button>
-	<button class="tablinks" onclick="openCity(event, 'Articles')">Articles</button>
 	<button class="tablinks" onclick="openCity(event, 'Experience')">Experience</button>
   </div>
 
@@ -389,11 +357,34 @@ renderPosts();
 </div>
   </div>
 
-  <div id="Articles" class="tabcontent">
-	<div id="user-created-articles" class="user-created-articles"></div>
-  </div>
 
-  <div id="Experience" class="tabcontent">
+  <div id="Experience" class="tabcontent" onclick="experienceHash()"></div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+	var experienceDiv = document.getElementById('Experience');
+	experienceDiv.addEventListener('click', experienceHash);
+  
+	function experienceHash() {
+	  console.log('experience hash function called');
+  
+	  var articlesHashContainer = document.getElementById('articlesHashContainer');
+	  if (articlesHashContainer) {
+		articlesHashContainer.style.display = 'block';
+	  }
+  
+	  var savedName = 'example'; // Replace with the actual value of savedName variable
+  
+	  if (savedName) {
+		window.location.hash = savedName + '/experience';
+	  } else {
+		console.error('savedName is undefined or empty.');
+	  }
+	}
+  });
+  </script>
+  
+
 	  <!-- <div id="user-experiences" class="user-experiences"></div> -->
 
 	  <button id="show-container">+ ADD SKILL</button>
@@ -564,7 +555,7 @@ renderPosts();
 				<input type="date" id="start-date" required min="1955" max="2025">
 
 				<label for="end-date">End Date</label>
-				<input type="date" id="end-date" required>
+				<input type="date" id="end-date">
 				<label for="currently-working-here">Still working here?</label>
 				<input type="checkbox" id="currently-working-here">
 
@@ -855,17 +846,16 @@ renderPosts();
 			</div>
 
 			<div class="more-information">
-				<p style="font-size: 1rem">${job.startDate} - ${job.endDate}</p>
+				<p style="font-size: 1rem">${job.startDate} -  ${job.endDate}</p>
 			</div>
 
 			<div class="extra-information">
-
 			<p style="font-size: 1rem" margin-bottom="10rem">${job.moreInfo}</p>
 			</div>
 			  
 			`;
 			jobsContainer.appendChild(jobElement);
-		  }); // ADD A WAY THAT THE USER HAS TO IMPORT A IMAGE AND THEN THE IMAGE WILL BE USED FOR THE EXP USE LIKE LINKEDIN
+		  }); 
 		}
 	  
 		// Call displayJobs() initially to load the existing job data from localStorage
