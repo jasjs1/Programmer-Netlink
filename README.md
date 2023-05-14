@@ -1,5 +1,5 @@
 # Programmer-Netlink
-Programmer Netlink is programmer social media app
+Programmer Netlink is a social media platform, orentated towards programmers. This is a place that we talk about coding, and anything tech related! Unlease your inner nerd out, by signing up today!
 
 ### Site status:
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a48d9433-d36e-4fe8-8aa8-d88687cbc721/deploy-status)](https://app.netlify.com/sites/splendorous-starburst-4b6934/deploys)
