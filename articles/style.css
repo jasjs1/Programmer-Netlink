@@ -90,6 +90,9 @@ body {
 
   #article-title {
     color: #6466E9;
+    margin-bottom: 15px;
+    border: 2.5px solid #6466E9;
+    border-radius: 10px;
   }
 
   label[for="article-title"] {
@@ -123,6 +126,7 @@ body {
     background-color: #1c1f23;
     border-color: #6466E9;
     color: #6466E9;
+    padding-left: 2.5px;
   }
 
 
@@ -136,6 +140,11 @@ body {
     font-weight: lighter;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    color: #6466E9;
+    margin-bottom: 15px;
+    border: 2.5px solid #6466E9;
+    border-radius: 10px;
+    padding-left: 2.5px;
   } 
 
   #credits {
@@ -242,4 +251,13 @@ select {
 h4 {
   color: #6466E9;
   font-weight: bold;
+}
+
+.article-body {
+  cursor: pointer;
+}
+
+h3 {
+  font-size: inherit; /* Ensure initial font size is applied */
+  transition: font-size 0.3s ease; /* Optional: Add a smooth transition effect */
 }
