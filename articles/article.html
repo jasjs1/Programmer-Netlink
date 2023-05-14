@@ -30,8 +30,8 @@
             <label for="article-title"><h3>Title:</h3></label>
             <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required placeholder=" Article Title Text Here">
             <br>
-        
-            <label for="article-body"><h3>Body:</h3></label>
+
+
             <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Article Body Text Here"></textarea>
             <a id="video-link" href="" target="_blank"></a>
             <div id="video-container"></div>
@@ -99,17 +99,22 @@
           <br>
     
         <div class="addons">
-          <img src="/articles/img/hastag.png" type="button" onclick="showAddTagsDiv()" alt="Add Tag to article" width="35" height="35"/>
           <img src="/articles/img/link.png" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
-          <img src="/articles/img/video.png" type="button" onclick="loadVideo()" alt="add video" width="35" height="35">
+          
           <img src="/articles/img/quote-2.png" onclick="showCredits()" width="35" height="35">
+
+          <img src="/assets/svg/hashtag.svg" onclick="showAddTagsDiv()" alt="Add tag to article (img) error displaying image" width="35" height="35">
+
+
+          <img src="/assets/svg/video.svg" onclick="loadVideo()" alt="Load video image (error showing images)" width="35" height="35">
+
         </div>
     
 
         <div class="toggler">
           <label for="toggle">
             <input type="checkbox" id="toggle">
-            Remove from drafts
+            Toggle this to post this article.
           </label>
         </div>
         <br>
