@@ -418,4 +418,7 @@ input[type="date"] {
   border: 1px solid #6466E9;
   border-radius: 10px;
   padding-left: 5px;
+  padding: 25px;
+  word-wrap: break-word;
+  margin-right: 150px;
 }
