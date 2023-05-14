@@ -561,7 +561,7 @@ renderPosts();
 				<input type="text" id="role" placeholder="What was the role?" required>
 
 				<label for="start-date">Start Date</label>
-				<input type="date" id="start-date" required>
+				<input type="date" id="start-date" required min="1955" max="2025">
 
 				<label for="end-date">End Date</label>
 				<input type="date" id="end-date" required>
@@ -819,7 +819,7 @@ renderPosts();
 				</select>
 
 				<label for="more-info">More Info</label>
-				<input type="text" id="more-info" placeholder="Give some more information about your old job!" required>
+				<input type="text" id="more-info" placeholder="Give a description on what you did there, how you liked it, the type of work ethic, etc, etc." minlength="3" maxlength="425">
 
 				<button id="submit" type="submit" id="submit" onclick="submitPastJob()">SHARE</button>
 			</form>
