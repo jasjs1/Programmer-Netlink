@@ -66,42 +66,64 @@
 	  
 
 		
-		<div class="settings" onclick="toggleSettingsContainer()">
-			<svg viewBox="0 0 24 24" height="48" width="48" focusable="false" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="StyledIconBase-sc-ea9ulj-0 hRnJPC"><title>PersonEdit icon</title><path d="M12.5 17.86 16.35 14H6.26C5 14 4 15 4 16.25v.92c0 .57.18 1.13.51 1.6 1.4 1.94 3.57 3 6.49 3.2 0-.18.02-.37.06-.56l.46-1.83c.16-.65.5-1.24.97-1.71zM12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm7.1 10.67-5.9 5.9c-.35.35-.6.78-.7 1.25l-.47 1.83c-.2.8.53 1.52 1.32 1.32l1.83-.46c.47-.12.9-.36 1.25-.7l5.9-5.9a2.29 2.29 0 0 0-3.23-3.24z" class="person-edit-img-button"></path></svg>
+	  <div class="main-content">
+		<div class="profile-icon-selector-button">
+		  <input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
+		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
 		</div>
+	  </div>
+	  
+	  <!-- HTML for settings gear -->
+	  <div class="settings" onclick="toggleSettingsContainer('settings-modal')">
+		<img src="/assets/svg/profile.svg" alt="settings gear image" width="auto" height="32" class="person-edit-img-button" style="color: #6466E9;">
+
+	  </div>
+	  
+	  <!-- HTML for settings container -->
+	  <div id="settings-modal" class="modal-overlay" style="display: none;">
+		<div class="modal-container">
+			<div class="settings-head">
+				<h2>Profile Quick Settings</h2>
+			</div>
+
+			<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
+
+			<div class="container">
+				<h3>Add a Skill:</h3>
+				<form id="skills-form">
 		
-		<!-- HTML for settings container -->
-		<div class="settings-container" id="settings-container" style="display: none;">
-			<div class="modal-overlay">
-			<div class="modal-container">
-				<div class="modal-header">
-
-					<div class="close">
-						<h3 onclick="reloadCurrentPage()">X</h3>
-					</div>
-
-					<div class="settings-head">
-						<h2>Profile Quick Settings</h2>
-					</div>
-
-					<button class="selector-button" onclick="uploadImage()">Add Profile Image</button>
-			
-				</div>
-			
+			  <label for="new-skill">Skill Name:</label>
+			  <input type="text" id="new-skill" name="new-skill" placeholder="name of the skill" minlength="2" max="20">
+		
+			  <label for="skill-type">Skill Type:</label>
+			  <input type="text" id="skill-type" name="new-skill" placeholder="type of the skill that you have" minlength="2" max="15">
+		
+			  <label for="skill-description">Skill Description:</label>
+			  <input type="text" id="skill-description" name="skill-description" placeholder="short breif description" minlength="5" maxlength="25">
+		
+			  <button type="submit">Add Skill</button>
+				</form>
 			</div>
+
+			<div class="redirector">
+				<a href="http://127.0.0.1:5500/profile/settings/profile-settings.html" target="_blank">Account Settings</a>
 			</div>
+	
 		</div>
-		
-		<script>
-			function toggleSettingsContainer() {
-			var container = document.getElementById("settings-container");
-			if (container.style.display === "none") {
-				container.style.display = "block";
-			} else {
-				container.style.display = "none";
-			}
-			}
-		</script>
+	  </div>
+	  
+	  <script>
+		function toggleSettingsContainer(modalId) {
+		  var container = document.getElementById(modalId);
+		  if (container.style.display === "none") {
+			container.style.display = "block";
+		  } else {
+			container.style.display = "none";
+		  }
+		}
+	  </script>
+	  
+  
   
 
   <div class="info">
@@ -552,7 +574,7 @@ renderPosts();
 				<input type="text" id="role" placeholder="What was the role?" required>
 
 				<label for="start-date">Start Date</label>
-				<input type="date" id="start-date" required min="1955" max="2025">
+				<input type="date" id="start-date" required min="1955" max="2077">
 
 				<label for="end-date">End Date</label>
 				<input type="date" id="end-date">
