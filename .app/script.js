@@ -26,8 +26,8 @@ if (savedPosts.length) {
     const author = localStorage.getItem('signup-name');
     postElement.innerHTML = `
       <h2><span id="author">${author}</span></h2>
-      <h2>${post.title}</h2>
-      <h4>${post.tags}</h4>
+      <h2 style="font-size: 1.2rem; margin-bottom: 5px;">${post.title}</h2>
+      <h4 style="margin-top: -1px; color: #6466E9;">${post.tags}</h4>
       <div class="interact">
         <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
 	</div>
@@ -400,7 +400,7 @@ function logout() {
 }
 
 function redirectToSettings() {
-  window.location.href = 'http://127.0.0.1:5500/profile/settings/profile-settings.html';
+  window.location.href = 'http://127.0.0.1:5500/profile/dashboard/dashboard.html#/bookmarks';
 }
 
 function displayProfileRelatedLinks() {
