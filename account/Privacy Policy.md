@@ -26,4 +26,4 @@ We may update this Privacy Policy from time to time. If we make any material cha
 
 Contact Us:
 
-If you have any questions or concerns about our Privacy Policy, please contact us at privacy@programmernetlink.com.
+If you have any questions or concerns about our Privacy Policy, please contact me on the GitHub Issues page. I am a one person team. So features may take a little longer to be implemented into the project. Thanks for your understanding!
