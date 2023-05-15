@@ -193,7 +193,7 @@ body {
   input[type="checkbox"] {
     appearance: square;
     background-color: #6466E9;
-    color: white;
+    color: orange;
     padding: 15px 15px 15px 15px;
   }
   
@@ -581,4 +581,31 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
+}
+
+
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #6466E9;
+  fill: #6466E0;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #6466E9;
+}
+
+.custom-checkbox:checked::after {
+  content: "\2713";
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
 }
