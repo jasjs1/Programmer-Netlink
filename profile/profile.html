@@ -842,6 +842,27 @@ renderPosts();
 
 
 	  <h2>Jobs:</h2>
+
+		<p id="no-jobs-id">
+<script>
+	var paragraph = document.getElementById("no-jobs-id");
+
+	paragraph.innerHTML = "This user has not created any jobs, yet.";
+</script>
+		</p>
+	  
+	  <script>
+		// Check if "yourJobs" data exists in localStorage
+	const hasYourJobsData = JSON.parse(localStorage.getItem('yourJobs')) || [];
+	
+	// Show or hide the "no-jobs" div based on data presence
+	const noJobsDiv = document.getElementById('no-jobs');
+	noJobsDiv.style.display = hasYourJobsData.length === 0 ? 'block' : 'none';
+	
+	
+
+
+	</script>
 	
 	  <div id="jobs" class="jobs"></div>
 
@@ -944,6 +965,12 @@ renderPosts();
 		modalOverlay.style.display = "flex";
 	  }
 	</script>
+
+<div id="Repositories" class="tabcontent" onclick="repositoriesHash()">
+	<script>
+
+	</script>
+</div>
 
 
 
