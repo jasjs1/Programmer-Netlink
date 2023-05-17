@@ -77,9 +77,9 @@ body {
   .post-list {
   margin-top: 20px;
   padding: 13px;
-  border: 1px solid #6466E9;
+  border: 2.5px solid #6466E9;
   /* color: #6466E9; */
-  border-radius: 5px;
+  border-radius: 10px;
   margin-left: 110px;
   margin-right: 110px;
   inline-size: auto;
@@ -183,7 +183,7 @@ body {
     margin-bottom: 14px;
     background-color: #6466E9;
     color: whitesmoke;
-    box-shadow: 2.7px 2.7px 2.7px 2.7px #5456bcb5; 
+  
   }
 
   button {
