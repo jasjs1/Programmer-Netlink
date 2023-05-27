@@ -112,43 +112,37 @@ input[type="image"] {
 
 
 input[type="submit"] {
-background-color: #1c1f23;
-border: 1px solid #6466E9;
-border-radius: 5px;
-color: white;
-padding: 20px 20px 20px 20px;
-width: 50%;
-align-items: center;
-text-align: center;
-margin-left: 225px;
-margin-right: 225px;
-font-size: 20px;
-font-weight: bold;
-margin-bottom: 20px;
-text-align: center;
-display: flex; 
-align-items: center;
-justify-content: center;
-margin: 0 auto;
+  position: fixed;
+  top: 55px;
+  left: 1310px;
+  z-index: 9999;
+  background-color: inherit;
+  color: white;
+  border: 2px solid #6466E9;
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 
-
 #post-title {
-display: flex; /* Use flexbox layout */
-align-items: center; /* Center vertically */
-justify-content: center; /* Center horizontally */
-text-align: center;
-font-family: 'Open Sans', sans-serif;
-background-color: #1c1f23;
-border-radius: 5px;
-border-color: #6466E9;
-color: white;
-font-size: 14.5px;
-height: 50px;
-width: 475px;
-margin: 0 auto; /* Set horizontal margins to auto */
-margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #1c1f23;
+  border-radius: 5px;
+  border-color: #6466E9;
+  color: white;
+  font-size: 14.5px;
+  height: auto; /* Reset height to auto */
+  width: 675px;
+  margin: 0 auto;
+  margin-top: 45px;
+  text-align: left;
+  overflow: hidden; /* Hide overflowing text */
+  height: 60px;
 }
 
 
@@ -216,8 +210,7 @@ button:hover {
   padding: 13px;
   border-radius: 5px;
   margin-left: 140px;
-  margin-right: 140px;
-  border: 2.5px solid #6466E9;
+  margin-right: 140px;;
   border-radius: 10px;
   padding: 30px;
   width: auto;
@@ -326,10 +319,22 @@ select {
 }
 
 .addons {
-  text-align: center;
-  margin-bottom: 10px;
-  padding: 15px 15px;
+  display: flex;
+  fill: #5D97CF;
+  color: #5D97CF;
+  position: absolute;
+  top: 12.5%;
+  left: 31%;
+  margin-bottom: 15px;
 }
+
+ .assignTag {
+  color: black;
+  top: 17%;
+  left: 7%;
+  position: absolute;
+  display: none;
+ }
 
 .finished {
   text-align: center;
