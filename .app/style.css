@@ -112,7 +112,7 @@ input[type="image"] {
 
 
 input[type="submit"] {
-  position: fixed;
+  position: absolute;
   top: 55px;
   left: 1310px;
   z-index: 9999;
@@ -215,7 +215,7 @@ button:hover {
   padding: 30px;
   width: auto;
   height: auto;
-  inline-size: auto;
+  inline-size: 65%;
   overflow-wrap: break-word;
   padding-top: 20px;
   min-height: 50px;
@@ -624,6 +624,10 @@ line-height: 16px;
   top: 65px;
   right: 20px;
   float: right; 
+  font-size: 20px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 
@@ -636,6 +640,10 @@ line-height: 16px;
   top: 65px;
   right: 20px;
   float: right; 
+  font-size: 20px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 .plus {
@@ -655,6 +663,9 @@ line-height: 16px;
 }
 
 .quick-stuff {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
   float: right;
   padding: 5px;
 }
@@ -668,4 +679,11 @@ line-height: 16px;
   top: 65px;
   right: 20px;
   float: right; 
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+#posts {
+  margin-left: 450px;
 }
