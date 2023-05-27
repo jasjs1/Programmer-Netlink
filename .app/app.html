@@ -12,9 +12,94 @@
 </head>
 <body>
 
+  <script>
+     function toggleAppDrawer() {
+        var profileSelector = document.getElementById("app-select");
+        if (profileSelector.style.display === "none") {
+        profileSelector.style.display = "block";
+        } else {
+        profileSelector.style.display = "none";
+        }
+        }
+
+        function toggleProfileSelector() {
+  var profileSelector = document.getElementById("profile-selector");
+  if (profileSelector.style.display === "none") {
+    profileSelector.style.display = "block";
+  } else {
+    profileSelector.style.display = "none";
+  }
+} 
+function toggleContentMaker() {
+        var profileSelector = document.getElementById("content-selector");
+        if (profileSelector.style.display === "none") {
+        profileSelector.style.display = "block";
+        } else {
+        profileSelector.style.display = "none";
+        }
+        }
+  </script>
+
+ <div class="quick-stuff">
+   <img class="plus" src="/assets/svg/+.svg" onclick="toggleContentMaker()" height="40px" width="40px">
+   <img class="app-dwr" src="/assets/svg/apps.svg" onclick="toggleAppDrawer()" height="40px" width="40px">
+   <img class="account" src="/assets/svg/person.svg" onclick="toggleProfileSelector()" height="40" width="40">
+ </div>
+
+  <div id="profile-selector" style="display: none;">
+    <a href="http://127.0.0.1:5500/profile/profile.html">Profile</a>
+    <br>
+    <a href="http://127.0.0.1:5500/profile/dashboard/profile-dashboard.html">Dashboard</a>
+    <br>
+    <a href="http://127.0.0.1:5500/landing/landing.html">Logout</a>
+
+    <script>
+      function toggleProfileSelector() {
+var profileSelector = document.getElementById("profile-selector");
+if (profileSelector.style.display === "none") {
+profileSelector.style.display = "block";
+} else {
+profileSelector.style.display = "none";
+}
+}
+    </script>
+  </div>
+
+  <div id="content-selector" style="display: none;">
+    <a class="no-underline" href="#">Snippets</a>
+    <br>
+    <a class="no-underline" href="http://127.0.0.1:5500/articles/article.html">Article</a>
+    <br>
+
+    <script>
+  function toggleContentMaker() {
+    var profileSelector = document.getElementById("content-selector");
+    if (profileSelector.style.display === "none") {
+    profileSelector.style.display = "block";
+    } else {
+    profileSelector.style.display = "none";
+    }
+    }
+    </script>
+  </div>
+
+  <div id="app-select" style="display: none;">
+    <a href="http://127.0.0.1:5500/article/article.html">Articles</a>
+<script>
+    function toggleAppDrawer() {
+    var profileSelector = document.getElementById("app-select");
+    if (profileSelector.style.display === "none") {
+    profileSelector.style.display = "block";
+    } else {
+    profileSelector.style.display = "none";
+    }
+    }
+</script>
+  </div>
+
  <div class="nav-menus" style="position: sticky; display: flex !important;">
   <div class="profile-image-container">
-    <img src="/assets/svg/happy.svg" onclick="displayProfileRelatedLinks()">
+    
 
     <script>
       function displayProfileRelatedLinks() {
@@ -72,7 +157,8 @@ function displayMediaMaker() {
 
   <div class="container">
     <form>
-      <input type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" minlength="3" maxlength="450" required>
+
+        <textarea type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" required></textarea>
       <br>
       <!-- <label for="post-body"><h3>Body:</h3></label style="display:none"> -->
       <textarea id="post-body" name="post-body" placeholder="minium 10 characters, max 74 characters" rows="4" minlength="10" maxlength="74"></textarea>
@@ -136,10 +222,7 @@ function displayMediaMaker() {
           <img src="/.app/img/hastag.png" type="button" onclick="showAddTagsDiv()" alt="Add Tag" width="35" height="35"/>
 
         </div>
-      <input type="submit" value="Create Snippit">
-      <!-- <form action="your-action-url" method="post"> -->
-        <!-- <input type="image" src="/.app/img/share/share-2.png" alt="Submit" width="X" height="35"> -->
-      <!-- </form> -->
+      <input type="submit" value="Share Snippit">
       
     </form>
   </div>
@@ -185,6 +268,7 @@ function displayMediaMaker() {
   });
 </script>
 
+
 <style>
   .disabled {
     background-color: #f4f4f4;
@@ -218,12 +302,8 @@ function displayMediaMaker() {
       </div>
 
     </div>
-
-    <div class="finished">
-      <h3>You have reached the end of the Snippets made by this person.</h3>
-
-    </div>
   </div>
+
 
   
   
