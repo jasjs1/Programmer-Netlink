@@ -24,9 +24,10 @@ if (savedPosts.length) {
     const postElement = document.createElement('div');
     postElement.classList.add('post');
     const author = localStorage.getItem('signup-name');
+    // EDIT POSTS HERE: 
     postElement.innerHTML = `
-      <h2><span id="author">${author}</span></h2>
-      <h2 style="font-size: 1.2rem; margin-bottom: 5px;">${post.title}</h2>
+      <h2 id="post-author" style="#6466E9" onclick="window.location.href='http://127.0.0.1:5500/profile/profile.html'"><span id="author">${author}</span></h2>
+      <h3 style="font-size: 1.2rem; margin-bottom: 5px;">${post.title}</h3>
       <h4 style="margin-top: -1px; color: #6466E9;">${post.tags}</h4>
       <div class="interact">
         <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
@@ -457,4 +458,3 @@ const urlRegex = /https?:\/\/[^\s/$.?#]+\.[^\s]*/gi;
 postElement.innerHTML = postElement.innerHTML.replace(urlRegex, function(url) {
   return `<a href="${url}" target="_blank">${url}</a>`;
 });
-
