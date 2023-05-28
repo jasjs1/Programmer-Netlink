@@ -244,8 +244,8 @@ descriptionText.value = currentText;
 
 
 <div class="tab">
-	<button class="tablinks" onclick="openCity(event, 'Snippets')">Snippets</button>
 	<button class="tablinks" onclick="openCity(event, 'Experience')">Experience</button>
+	<button class="tablinks" onclick="openCity(event, 'Snippets')">Snippets</button>
   </div>
 
   <div id="Snippets" class="tabcontent">
@@ -842,13 +842,13 @@ renderPosts();
 	  </div>
 
 
-	  <h2>Jobs:</h2>
+	  <h2 id="repo-header" style="font-size: 20px; font-weight: lighter; color: #6466E9">Jobs:</h3>
 
 		<p id="no-jobs-id">
 <script>
 	var paragraph = document.getElementById("no-jobs-id");
 
-	paragraph.innerHTML = "This user has not created any jobs, yet.";
+	// paragraph.innerHTML = "This user has not created any jobs, yet.";
 </script>
 		</p>
 	  
@@ -975,88 +975,105 @@ renderPosts();
 
 <button id="show-add-repo" onclick="showRepositoryOverlay()">+ ADD REPOSITORY</button>
 
-<h3 id="repo-header" class="text-indigo-700">Repositories</h3>
+<h2 id="repo-header" style="font-size: 20px; font-weight: lighter; color: #6466E9">Repositories:</h3>
 
-<div id="add-repo" style="display: none;">
-	<h3 class="text-xl">Repository Name:</h3>
-	<input type="text" id="repo-name" name="repo-name" required>
+	<div id="add-repo" style="display: none;">
+		<h3 class="text-xl">Repository Name:</h3>
+		<input type="text" id="repo-name" name="repo-name" required>
+		
+		<p>Repository Link</p>
+		<input type="url" id="repo-link" required>
 	
-	<p>Repository Link</p>
-	<input type="url" id="repo-link" required>
+		<p>Project Type</p>
+		<select id="project-type">
+			<option>Select</option>
+			<option value="Website">Website</option>
+			<option value="Backend">Backend</option>
+			<option value="Side Project">Side Project</option>
+			<option value="Mobile Application">Mobile Application</option>
+			<option value="Desktop Application">Desktop Application</option>
+			<option value="Framework">Framework</option>
+			<option value="Product + Software">Product + Software</option>
+			<option value="SASS">SASS</option>
+			<option value="Payment Software">Payment Software</option>
+		</select>
+		
+		<p>Description</p>
+		<input type="text" id="repo-description" minlength="3" maxlength="100" required>
 	
-	<p>Description</p>
-	<input type="text" id="repo-description" minlength="3" maxlength="100" required>
-
-	<input type="submit" value="Share Repository" onclick="saveRepository()">
-</div>
-
-<div id="repos" class="repos"></div>
-
-<script>
-function saveRepository() {
-    var repository = {
-        name: document.getElementById('repo-name').value,
-        link: document.getElementById('repo-link').value,
-        description: document.getElementById('repo-description').value
-    };
-
-    // Get existing repositories from local storage or initialize an empty array
-    var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
-
-    // Add the new repository to the array
-    repositories.push(repository);
-
-    // Store the updated repositories array in local storage
-    localStorage.setItem('repositories', JSON.stringify(repositories));
-
-    console.log('Repository saved successfully!');
-
-    var form = document.getElementById('add-repo');
-    form.reset();
-
-    location.reload();
-}
-
-// Function to display repositories in the 'repos' div
-function displayRepositories() {
-    var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
-
-    var reposDiv = document.getElementById('repos');
-    reposDiv.innerHTML = ''; // Clear existing content
-
-    // Loop through each repository and create a corresponding HTML element
-    for (var i = 0; i < repositories.length; i++) {
-        var repository = repositories[i];
-
-        var repoElement = document.createElement('div');
-        repoElement.className = 'article';
-
-        repoElement.innerHTML = `
-			<div id="repo-layout" style="margin-top: 10px;">
-				<h2 style="font-weight: bold;">${repository.name}</h2>
-				<h3>${repository.description}</h3>
-				<a id="repo-link">${repository.link ? `<a href="${repository.link}">${repository.link}</a>` : ''}</a>
-			</div>
-        `;
-
-        reposDiv.appendChild(repoElement);
-    }
-}
-
-// Call the displayRepositories function to initially populate the div
-displayRepositories();
-
-// Function to show/hide the repository form
-function showRepositoryOverlay() {
-    var addRepoDiv = document.getElementById('add-repo');
-
-    if (addRepoDiv.style.display === 'none') {
-        addRepoDiv.style.display = 'block';
-    } else {
-        addRepoDiv.style.display = 'none';
-    }
-}
-</script>
+		<input type="submit" value="Share Repository" onclick="saveRepository()">
+	</div>
+	
+	<div id="repos" class="repos"></div>
+	
+	<script>
+	function saveRepository() {
+		var repository = {
+			name: document.getElementById('repo-name').value,
+			link: document.getElementById('repo-link').value,
+			type: document.getElementById('project-type').value,
+			description: document.getElementById('repo-description').value
+		};
+	
+		// Get existing repositories from local storage or initialize an empty array
+		var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
+	
+		// Add the new repository to the array
+		repositories.push(repository);
+	
+		// Store the updated repositories array in local storage
+		localStorage.setItem('repositories', JSON.stringify(repositories));
+	
+		console.log('Repository saved successfully!');
+	
+		var form = document.getElementById('add-repo');
+		form.reset();
+	
+		location.reload();
+	}
+	
+	// Function to display repositories in the 'repos' div
+	function displayRepositories() {
+		var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
+	
+		var reposDiv = document.getElementById('repos');
+		reposDiv.innerHTML = ''; // Clear existing content
+	
+		// Loop through each repository and create a corresponding HTML element
+		for (var i = 0; i < repositories.length; i++) {
+			var repository = repositories[i];
+	
+			var repoElement = document.createElement('div');
+			repoElement.className = 'article';
+	
+			repoElement.innerHTML = `
+				<div id="repo-layout" style="margin-top: 10px;">
+					<h2 style="color: #6466E9; font-size: 1.5rem">${repository.name}</h2>
+					<h3>${repository.description}</h3>
+					<h3 style="color: #6466E9;">${repository.type}</h3>
+					<a id="repo-link">${repository.link ? `<a href="${repository.link}">${repository.link}</a>` : ''}</a>
+				</div>
+			`;
+	
+			reposDiv.appendChild(repoElement);
+		}
+	}
+	
+	// Call the displayRepositories function to initially populate the div
+	displayRepositories();
+	
+	// Function to show/hide the repository form
+	function showRepositoryOverlay() {
+		var addRepoDiv = document.getElementById('add-repo');
+	
+		if (addRepoDiv.style.display === 'none') {
+			addRepoDiv.style.display = 'block';
+		} else {
+			addRepoDiv.style.display = 'none';
+		}
+	}
+	</script>
+	
 
 
 </body>
