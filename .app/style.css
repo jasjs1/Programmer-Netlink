@@ -721,3 +721,13 @@ svg {
   width: 13px;
   height: auto;
 }
+
+#post-author {
+  color: #6466E9;
+}
+
+#post-author :hover {
+  color: #6466E9;
+  text-decoration: underline;
+  font-weight: bold;
+}
