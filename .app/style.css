@@ -731,3 +731,20 @@ svg {
   text-decoration: underline;
   font-weight: bold;
 }
+
+.bookmark-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bookmark-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.bookmark-button svg:hover {
+  width: 22px;
+  height: 22px;
+}
