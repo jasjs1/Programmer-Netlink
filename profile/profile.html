@@ -128,12 +128,12 @@
   
 
   <div class="info">
-	<h2 style="color: #6466E9"><span id="signup-name"></span></h2 style>
+	<h2 style="color: #6466E9; font-size: 24px; font-weight: bolder;"><span id="signup-name"></span></h2 style>
 	<div class="username-container">
-	  <h3><span id="user-username"></span></h3>
-	  <h4><span id="tag"></span></h4>
+	  <h1><span id="user-username"></span></h1>
+	  <h2><span id="tag"></span></h2>
 	</div>
-	<p id="description-text"></p>
+	<h3 id="description-text"></h3>
   </div>
   
 				
@@ -148,10 +148,10 @@
 				  nameElement.textContent = savedName;
 			  
 				  const userNameElement = document.getElementById('user-username');
-				  userNameElement.textContent = `@${savedUserName}.${savedTag}.pr  · `;
+				  userNameElement.textContent = `@${savedUserName}.${savedTag}.pr  · `; // username formatting
 			  
 				  const tagElement = document.getElementById('tag');
-				  tagElement.textContent = `#${savedTag}`;
+				  tagElement.textContent = ` #${savedTag}`;
 
 				  if (storedUsername) {
 					usernameElem.textContent = `@${storedUsername} `;
