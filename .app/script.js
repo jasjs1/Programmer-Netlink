@@ -10,92 +10,79 @@ if (!name) {
 }
 
 // Update the page title to include the user's name
-// document.title = `${name}'s Social Media App`;
+document.title = `${name}'s Social Media App`;
 
 // Load existing posts from local storage
 const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
 
 // Render existing posts
 if (savedPosts.length) {
-  for (let i = savedPosts.length - 1; i >= 0; i--) {
+  savedPosts.reverse(); // Reverse the order of savedPosts to display the latest posts first
+  for (let i = 0; i < savedPosts.length; i++) {
     const post = savedPosts[i];
 
     // Create a new post element
     const postElement = document.createElement('div');
     postElement.classList.add('post');
+    
     const author = localStorage.getItem('signup-name');
-    // EDIT POSTS HERE: 
+    
     postElement.innerHTML = `
-    <h2 id="post-author" style="#6466E9" onclick="window.location.href=='http://127.0.0.1:5500/profile/profile.html'">
-    <span id="author">${author} · ${formatDate(post.date)}</span>
+      <h2 class="post-author" style="color: #6466E9;" onclick="window.location.href='http://127.0.0.1:5500/profile/profile.html'">
+        <span id="author">${author} · ${formatDate(post.date)}</span>
+      </h2>
       <h3 style="font-size: 1.2rem; margin-bottom: 5px;">${post.title}</h3>
       <h4 style="margin-top: -1px; color: #6466E9;">${post.tags}</h4>
       <div class="interact">
-        <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
-	</div>
-
-	
+      <button type="button" class="bookmark-button">
+      <svg fill="currentColor" viewBox="0 0 16 16" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 relative top-[-1px] fill-gray-500 hover:fill-indigo-500 cursor-pointer">
+        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" fill="#6466E9"></path>
+      </svg>
+    </button>
+    
 
       </div>
     `;
 
-    function formatDate(dateString) {
-      const options = {
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      };
-  
-      const formattedDate = new Date(dateString).toLocaleString('en-US', options);
-      const [date, time] = formattedDate.split(', ');
-  
-      return `${date.split('/').join('.')} ${time}`;
-    }
-    
-
     // Add the new post to the top of the list
-    postsContainer.prepend(postElement);
+    postsContainer.appendChild(postElement);
 
-// Attach click event listener to bookmark button
-const bookmarkButton = postElement.querySelector('.bookmark-button');
-bookmarkButton.addEventListener('click', function() {
-  // Retrieve existing bookmarks from localStorage or initialize an empty array
-  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+    const bookmarkButton = postElement.querySelector('.bookmark-button');
+    bookmarkButton.addEventListener('click', function() {
+      // Retrieve existing bookmarks from localStorage or initialize an empty array
+      const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
-  // Check if the post is already bookmarked
-  const bookmarkIndex = bookmarks.findIndex(bookmark => bookmark.title === post.title);
-  if (bookmarkIndex !== -1) {
-    // Post is already bookmarked, so remove it
-    bookmarks.splice(bookmarkIndex, 1);
-    console.log('Removed ' + post.title + ' from post bookmarks.',);
-  } else {
-    // Post is not bookmarked, so add it
-    bookmarks.push(post);
-    console.log('Added ' + post.title + ' to post bookmarks.',);
-  }
+      // Check if the post is already bookmarked
+      const bookmarkIndex = bookmarks.findIndex(bookmark => bookmark.title === post.title);
+      if (bookmarkIndex !== -1) {
+        // Post is already bookmarked, so remove it
+        bookmarks.splice(bookmarkIndex, 1);
+        console.log('Removed ' + post.title + ' from post bookmarks.');
+      } else {
+        // Post is not bookmarked, so add it
+        bookmarks.push(post);
+        console.log('Added ' + post.title + ' to post bookmarks.');
+      }
 
-  // Save the updated bookmarks array to localStorage
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      // Save the updated bookmarks array to localStorage
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     });
   }
 }
 
+function formatDate(dateString) {
+  const options = {
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  };
 
-function renderArticles(posts) {
-  const articlesHTML = posts
-    .map(
-      (article) =>
-        `<div class="posts">
-          <h3>${post.title}</h3>
-          <p>${post.body}</p>
-          <h4>${post.tags}</h4>
-          <p><img src="/articles/img/date+time.png" alt="Image Description" width="15" height="15" /> ${new Date(article.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(',', '').replace(/\//g, '.')}&nbsp;${new Date(article.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/^(\d{1,2}):(\d{2})\s*([ap]m)$/i, (match, hour, minute, period) => `${hour}:${minute}${period.toLowerCase().charAt(0)}`)}</p>
-        </div>`
-    )
-    .join('');
-  articlesContainer.innerHTML = articlesHTML;
+  const formattedDate = new Date(dateString).toLocaleString('en-US', options);
+  const [date, time] = formattedDate.split(', ');
+
+  return `${date.split('/').join('.')} ${time}`;
 }
 
 // Add new post and save to local storage
@@ -107,45 +94,27 @@ form.addEventListener('submit', (event) => {
   const body = document.getElementById('post-body').value.trim();
   const tags = document.getElementById('tags').value.trim();
 
-  // Create a new post object with title, body, tags, and a date property
+  // Create a new post object
   const post = {
     title,
+    body,
     tags,
-    date: Date.now()
+    date: new Date().toISOString()
   };
 
-  // Create a new post element
-  const postElement = document.createElement('div');
-  postElement.classList.add('post');
-  postElement.innerHTML = `
-    <h2>${title}</h2>
-    <p>${body}</p>
-  `;
-
-  if (tags !== '') {
-    postElement.innerHTML += `<p>${tags}</p>`;
-  }
-
-
-  // Add the new post to the top of the list
-  postsContainer.prepend(postElement);
-
-  // Add the new post to the beginning of the savedPosts array
+  // Add the new post to the savedPosts array
   savedPosts.unshift(post);
 
   // Save the updated savedPosts array to local storage
   localStorage.setItem('posts', JSON.stringify(savedPosts));
 
-  // Reset the form
+  // Reset the form values
   form.reset();
-  location.reload();
 
-  // Call renderArticles to update the articles list
-  renderArticles();
+  // Refresh the page to display the new post
+  location.reload();
 });
 
-// Call renderArticles to render the initial list of articles on page load
-renderArticles();
 
 
 
