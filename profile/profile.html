@@ -7,6 +7,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+	<link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Programer Netlink - Profile</title>
 </head>
@@ -607,7 +608,7 @@ renderPosts();
 					<option value="Barbados">Barbados</option>
 					<option value="Belarus">Belarus</option>
 					<option value="Belgium">Belgium</option>
-					<option value="Belize">Belize</option>
+					<option value="Belize">Belize</option>	
 					<option value="Benin">Benin</option>
 					<option value="Bermuda">Bermuda</option>
 					<option value="Bhutan">Bhutan</option>
@@ -964,14 +965,98 @@ renderPosts();
 		const modalOverlay = document.getElementById("modalOverlay");
 		modalOverlay.style.display = "flex";
 	  }
+
+
+	  function showRepositoryOverlay() {
+		const modalOverlay = document.getElementById("add-repo");
+		modalOverlay.style.display = "flex";
+	  }
 	</script>
 
-<div id="Repositories" class="tabcontent" onclick="repositoriesHash()">
-	<script>
+<button id="show-add-repo" onclick="showRepositoryOverlay()">+ ADD REPOSITORY</button>
 
-	</script>
+<h3 id="repo-header" class="text-indigo-700">Repositories</h3>
+
+<div id="add-repo" style="display: none;">
+	<h3 class="text-xl">Repository Name:</h3>
+	<input type="text" id="repo-name" name="repo-name" required>
+	
+	<p>Repository Link</p>
+	<input type="url" id="repo-link" required>
+	
+	<p>Description</p>
+	<input type="text" id="repo-description" minlength="3" maxlength="100" required>
+
+	<input type="submit" value="Share Repository" onclick="saveRepository()">
 </div>
 
+<div id="repos" class="repos"></div>
+
+<script>
+function saveRepository() {
+    var repository = {
+        name: document.getElementById('repo-name').value,
+        link: document.getElementById('repo-link').value,
+        description: document.getElementById('repo-description').value
+    };
+
+    // Get existing repositories from local storage or initialize an empty array
+    var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
+
+    // Add the new repository to the array
+    repositories.push(repository);
+
+    // Store the updated repositories array in local storage
+    localStorage.setItem('repositories', JSON.stringify(repositories));
+
+    console.log('Repository saved successfully!');
+
+    var form = document.getElementById('add-repo');
+    form.reset();
+
+    location.reload();
+}
+
+// Function to display repositories in the 'repos' div
+function displayRepositories() {
+    var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
+
+    var reposDiv = document.getElementById('repos');
+    reposDiv.innerHTML = ''; // Clear existing content
+
+    // Loop through each repository and create a corresponding HTML element
+    for (var i = 0; i < repositories.length; i++) {
+        var repository = repositories[i];
+
+        var repoElement = document.createElement('div');
+        repoElement.className = 'article';
+
+        repoElement.innerHTML = `
+			<div id="repo-layout" style="margin-top: 10px;">
+				<h2 style="font-weight: bold;">${repository.name}</h2>
+				<h3>${repository.description}</h3>
+				<a id="repo-link">${repository.link ? `<a href="${repository.link}">${repository.link}</a>` : ''}</a>
+			</div>
+        `;
+
+        reposDiv.appendChild(repoElement);
+    }
+}
+
+// Call the displayRepositories function to initially populate the div
+displayRepositories();
+
+// Function to show/hide the repository form
+function showRepositoryOverlay() {
+    var addRepoDiv = document.getElementById('add-repo');
+
+    if (addRepoDiv.style.display === 'none') {
+        addRepoDiv.style.display = 'block';
+    } else {
+        addRepoDiv.style.display = 'none';
+    }
+}
+</script>
 
 
 </body>
