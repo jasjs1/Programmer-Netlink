@@ -114,7 +114,7 @@ input[type="image"] {
 input[type="submit"] {
   position: absolute;
   top: 55px;
-  left: 1310px;
+  right: 450px;
   z-index: 9999;
   background-color: inherit;
   color: white;
@@ -125,24 +125,52 @@ input[type="submit"] {
   border-radius: 10px;
 }
 
-
 #post-title {
+  /* Existing styles */
   display: flex;
   justify-content: center;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   background-color: #1c1f23;
   border-radius: 5px;
-  border-color: #6466E9;
+  border: 0.6px solid #6466e9;
   color: white;
   font-size: 14.5px;
-  height: auto; /* Reset height to auto */
+  height: auto;
   width: 675px;
   margin: 0 auto;
   margin-top: 45px;
   text-align: left;
-  overflow: hidden; /* Hide overflowing text */
+  overflow: hidden;
   height: 60px;
+}
+
+.post-list {
+  /* Existing styles */
+  margin-top: 20px;
+  padding: 13px;
+  border-radius: 5px;
+  border-radius: 10px;
+  padding: 30px;
+  width: auto;
+  height: auto;
+  inline-size: 65%;
+  overflow-wrap: break-word;
+  padding-top: 20px;
+  min-height: 50px;
+  min-width: 50px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%; /* Adjust the width as needed */
+
+  /* New styles */
+  margin-top: 0;
+  margin-bottom: 20px;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Center the element horizontally */
 }
 
 
@@ -209,8 +237,6 @@ button:hover {
   margin-top: 20px;
   padding: 13px;
   border-radius: 5px;
-  margin-left: 140px;
-  margin-right: 140px;;
   border-radius: 10px;
   padding: 30px;
   width: auto;
@@ -220,6 +246,8 @@ button:hover {
   padding-top: 20px;
   min-height: 50px;
   min-width: 50px;
+  align-items: center;
+  margin-left: -200px;
 }
 
 .post {
@@ -650,7 +678,7 @@ line-height: 16px;
   position: absolute;
   top: 10;
   right: 80px;
-  margin-right: 15px;
+
   float: right;
 }
 
@@ -668,6 +696,7 @@ line-height: 16px;
   top: 0;
   float: right;
   padding: 5px;
+  display: flex;
 }
 
 #app-select {
@@ -686,4 +715,9 @@ line-height: 16px;
 
 #posts {
   margin-left: 450px;
+}
+
+svg {
+  width: 13px;
+  height: auto;
 }
