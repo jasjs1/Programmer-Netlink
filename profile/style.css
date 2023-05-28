@@ -105,7 +105,8 @@ margin-bottom: 20px;
 margin-right: 40px;
 word-wrap: break-word;
 margin-top: -0.0000005px;
-color: white;
+color: rgba(255, 255, 255, 0.665);
+font-size: 20px;
 }
 
 #new-description {
