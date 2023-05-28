@@ -26,7 +26,8 @@ if (savedPosts.length) {
     const author = localStorage.getItem('signup-name');
     // EDIT POSTS HERE: 
     postElement.innerHTML = `
-      <h2 id="post-author" style="#6466E9" onclick="window.location.href='http://127.0.0.1:5500/profile/profile.html'"><span id="author">${author}</span></h2>
+    <h2 id="post-author" style="#6466E9" onclick="window.location.href=='http://127.0.0.1:5500/profile/profile.html'">
+    <span id="author">${author} · ${formatDate(post.date)}</span>
       <h3 style="font-size: 1.2rem; margin-bottom: 5px;">${post.title}</h3>
       <h4 style="margin-top: -1px; color: #6466E9;">${post.tags}</h4>
       <div class="interact">
@@ -38,7 +39,20 @@ if (savedPosts.length) {
       </div>
     `;
 
-    
+    function formatDate(dateString) {
+      const options = {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      };
+  
+      const formattedDate = new Date(dateString).toLocaleString('en-US', options);
+      const [date, time] = formattedDate.split(', ');
+  
+      return `${date.split('/').join('.')} ${time}`;
+    }
     
 
     // Add the new post to the top of the list
