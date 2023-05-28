@@ -117,7 +117,7 @@ function submitPastJob() {
   // Check if the "Still working here?" checkbox is selected
   const stillWorkingCheckbox = document.getElementById('currently-working-here');
   if (stillWorkingCheckbox.checked) {
-    endDate = 'Currently working at: ' + companyName; // Set the end date to "Present" if still working
+    endDate = 'Currently working at ' + companyName; // Set the end date to "Present" if still working
   } else {
     const startDateParts = startDate.split('/');
     const endDateParts = endDate.split('/');
