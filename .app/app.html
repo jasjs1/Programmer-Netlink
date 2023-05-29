@@ -7,7 +7,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-  <link rel="stylesheet" href="style.css">  
+  <link rel="stylesheet" href="style.css">
+  <link href="/dist/output.css" rel="stylesheet">
   <title>Programmer Netlink</title> 
 </head>
 <body>
@@ -68,7 +69,7 @@ profileSelector.style.display = "none";
   <div id="content-selector" style="display: none;">
     <a class="no-underline" href="#">Snippets</a>
     <br>
-    <a class="no-underline" href="http://127.0.0.1:5500/articles/article.html">Article</a>
+    <a class="no-underline" href="http://127.0.0.1:5500/articles/create/create-article.html">Article</a>
     <br>
 
     <script>
@@ -269,31 +270,7 @@ function displayMediaMaker() {
 </script>
 
 
-<style>
-  .disabled {
-    background-color: #f4f4f4;
-    color: #aaa;
-    cursor: not-allowed;
-  }
-</style>
 
-
-
-    <!-- <div class="post-list-header">
-      <h2><span id="name"></span></h2>
-          
-      <script>
-        const storedUsername = localStorage.getItem('signup-name');
-        const usernameElem = document.querySelector('#name');
-
-        if (storedUsername) {
-        usernameElem.textContent = `${storedUsername}'s Snippits`;
-        } else {
-          usernameElem.textContent = 'No value of "signup-name" found in local storage';
-
-        }
-      </script>
-    </div> -->
 
     <div class="post-list">
 
@@ -304,9 +281,8 @@ function displayMediaMaker() {
     </div>
   </div>
 
+  
 
-  
-  
 
 </body>
 <script src="script.js"></script>
