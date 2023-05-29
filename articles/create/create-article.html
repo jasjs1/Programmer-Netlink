@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" href="style.css">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Create Article · Programmer Netlink</title>
+</head>
+<body>
+
+    <h2 id="head1">Write an Article to Programmer Netlink</h2>
+    <a id="head2" href="http://127.0.0.1:5500/articles/article.html">View all created Articles</a>
+    
+    <div class="container">
+        <form id="article-form">
+            <p>Title<span class="red-asterisk">*</span></p>
+            <input type="text" id="article-title" name="article-title" minlength="10" maxlength="45" required placeholder="Title of your Article">
+            <br>
+
+            <div class="assign-tag">
+                <p>Tag<span class="red-asterisk">*</span></p>
+                <select id="tags" name="tags">
+                <option>Choose the most relevant Tag for this Article</option>
+                    <option>#ada</option>
+                    <option>#assembly</option>
+                    <option>#angular</option>
+                    <option>#bash</option>
+                    <option>#awk</option>
+                    <option>#c</option>
+                    <option>#c#</option>
+                    <option>#c++</option>
+                    <option>#clojure</option>
+                    <option>#cobol</option>
+                    <option>#coffeescript</option>
+                    <option>#commonlisp</option>
+                    <option>#crystal</option>
+                    <option>#css</option>
+                    <option>#dart</option>
+                    <option>#elixir</option>
+                    <option>#elm</option>
+                    <option>#erlang</option>
+                    <option>#fortran</option>
+                    <option>#go</option>
+                    <option>#groovy</option>
+                    <option>#haskell</option>
+                    <option>#html</option>
+                    <option>#java</option>
+                    <option>#javascript</option>
+                    <option>#julia</option>
+                    <option>#kotlin</option>
+                    <option>#lua</option>
+                    <option>#matlab</option>
+                    <option>#objectivec</option>
+                    <option>#ocaml</option>
+                    <option>#pascal</option>
+                    <option>#perl</option>
+                    <option>#php</option>
+                    <option>#python</option>
+                    <option>#r</option>
+                    <option>#react</option>
+                    <option>#reactnative</option>
+                    <option>#ruby</option>
+                    <option>#rust</option>
+                    <option>#scala</option>
+                    <option>#scheme</option>
+                    <option>#sql</option>
+                    <option>#swift</option>
+                    <option>#typescript</option>
+                </select>
+
+            <p>Content<span class="red-asterisk">*</span></p>
+            <textarea id="article-body" name="article-body" rows="4" minlength="45" maxlength="2500" required placeholder="Body of your Article"></textarea>
+
+            
+            
+          </div>
+
+    
+            <input type="submit" value="SHARE ARTICLE">
+        </form>
+    </div>
+    
+    <script>
+        const form = document.getElementById('article-form');
+    
+        function saveArticleToLocalStorage(event) {
+            event.preventDefault();
+    
+            const title = document.getElementById('article-title').value.trim();
+            const body = document.getElementById('article-body').value.trim();
+            const tags = document.getElementById('tags').value;
+    
+            const article = {
+                title,
+                body,
+                tags,
+                date: Date.now()
+            };
+    
+            // Retrieve saved articles from local storage
+            const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+    
+            savedArticles.unshift(article);
+            localStorage.setItem('articles', JSON.stringify(savedArticles));
+            // renderArticles(savedArticles); // Uncomment if the renderArticles function is defined
+    
+            form.reset();
+        }
+    
+        form.addEventListener('submit', saveArticleToLocalStorage);
+    </script>
+    
+      
+      
+    
+</body>
+<script src="saveArticle.js"></script>
+<script src="link.js"></script>
+<script src="script.js"></script>
+</html>
