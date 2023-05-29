@@ -18,22 +18,17 @@
         <div class="container">
           <form>
           
-            <label for="course-title">Course Title</label>
+            <p>Title<span class="red-asterisk">*</span></p>
             <br>
             <input type="text" id="course-title" name="course-title" placeholder="Tell people the title of this course." required minlength="3" maxlength="80">
             <br>
 
-            <label for="course-description">Course Description</label>
+            <p>Description<span class="red-asterisk">*</span></p>
             <br>
             <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="250" placeholder="Tell people what this course is about.">
             <br>
-
-            <label for="course-link">Course Link</label>
-            <br>
-            <input type="url" id="course-link" name="course-link" placeholder="Give people a link to go for the course." required> 
-            <br>
   
-            <label for="course-type">Course Type</label>
+            <p>Type<span class="red-asterisk">*</span></p>
             <br>
             <select id="course-type" name="course-type" required>
               <option value="Free">Free</option>
@@ -41,7 +36,7 @@
             </select>
   
             <br>
-            <label for="course-skill-level">Skill Level</label>
+            <p>Skill Level<span class="red-asterisk">*</span></p>
             <br>
             <select id="course-skill-level" name="course-skill-level" required>
               <option value="All Levels">All Levels</option>
