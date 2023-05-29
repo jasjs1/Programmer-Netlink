@@ -24,75 +24,21 @@ function loadCourses() {
       <h4>${course.type}</h4>
       <div class="interact">
         <button class="bookmark-button" type="button">Bookmark</button>
-
       </div>
     `;
     const bookmarkButton = courseElement.querySelector('.bookmark-button');
     bookmarkButton.addEventListener('click', () => {
       saveBookmark(course);
+      updateBookmarkButtonState(courseElement, course);
     });
     postsContainer.appendChild(courseElement);
+    
+    // Update the bookmark button state
+    updateBookmarkButtonState(courseElement, course);
   }
 }
 
-// Function to save a course bookmark
-function saveBookmark(course) {
-  const savedBookmarks = JSON.parse(localStorage.getItem('courses-bookmarks')) || [];
-  savedBookmarks.push(course);
-  localStorage.setItem('courses-bookmarks', JSON.stringify(savedBookmarks));
-  // You can perform any additional actions or UI updates here
-}
-
-// Add event listener to the form submit button
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  // Get the input values
-  const title = document.getElementById('course-title').value.trim();
-  const description = document.getElementById('course-description').value.trim();
-  const link = document.getElementById('course-link').value.trim();
-  const type = document.getElementById('course-type').value;
-  const skillLevel = document.getElementById('course-skill-level').value.trim();
-  
-  // Create a new course object with title, description, link, and type properties
-  const course = {
-    title,
-    description,
-    link,
-    skillLevel,
-    type,
-  };
-
-  // Load existing courses from local storage
-  const savedCourses = JSON.parse(localStorage.getItem('courses')) || [];
-
-  // Add the new course to the beginning of the savedCourses array
-  savedCourses.unshift(course);
-
-  // Save the updated savedCourses array to local storage
-  localStorage.setItem('courses', JSON.stringify(savedCourses));
-
-  // Reset the form
-  form.reset();
-  location.reload();
-
-  loadCourses();
-});
-
-// Load courses when the page is first loaded
-loadCourses();
-
-// Add event listener to the course type select element
-courseTypeSelect.addEventListener('change', () => {
-  const selectedValue = courseTypeSelect.value;
-
-  // Show/hide the paid div based on the selected value
-  if (selectedValue === 'Paid') {
-    paidDiv.style.display = 'block';
-  } else {
-    paidDiv.style.display = 'none';
-  }
-});
+// Rest of the code...
 
 // Function to save or remove a course bookmark
 function toggleBookmark(course) {
@@ -113,19 +59,9 @@ function isCourseBookmarked(course) {
   return savedBookmarks.some((bookmark) => bookmark.title === course.title);
 }
 
-// Inside the loadCourses function, update the bookmark button state for each course
-const bookmarkButton = courseElement.querySelector('.bookmark-button');
-if (isCourseBookmarked(course)) {
-  bookmarkButton.textContent = 'Bookmarked';
-  bookmarkButton.classList.add('bookmarked');
-} else {
-  bookmarkButton.textContent = 'Bookmark';
-  bookmarkButton.classList.remove('bookmarked');
-}
-
-// Inside the bookmarkButton event listener, toggle the bookmark and update the button state
-bookmarkButton.addEventListener('click', () => {
-  toggleBookmark(course);
+// Function to update the bookmark button state
+function updateBookmarkButtonState(courseElement, course) {
+  const bookmarkButton = courseElement.querySelector('.bookmark-button');
   if (isCourseBookmarked(course)) {
     bookmarkButton.textContent = 'Bookmarked';
     bookmarkButton.classList.add('bookmarked');
@@ -133,17 +69,11 @@ bookmarkButton.addEventListener('click', () => {
     bookmarkButton.textContent = 'Bookmark';
     bookmarkButton.classList.remove('bookmarked');
   }
-});
+}
 
+// Rest of the code...
 
-  // Show modal container when user clicks "+" button
-  document.getElementById("show-container").addEventListener("click", function() {
-    document.querySelector(".modal-overlay").style.display = "flex";
-  });
+// Load courses when the page is first loaded
+loadCourses();
 
-  // Hide modal container when user presses "Escape" key
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-      document.querySelector(".modal-overlay").style.display = "none";
-    }
-  });
+// Rest of the code...
