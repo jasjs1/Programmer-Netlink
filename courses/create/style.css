@@ -102,9 +102,32 @@ border: 2px solid #4D5562;
         }
 
         #head1 {
-            margin-bottom: -4px;
+            margin-bottom: 2px;
         }
 
         #head2 {
             margin-bottom: 25px;
+        }
+
+        button {
+            background-color: inherit;
+            border: 1px solid #4D5562;
+            border-radius: 10px;
+            color: white;
+            padding: 15px;
+        }
+
+        #lecture-content {
+            background-color: #1c1f23;
+            color: #c2c9d6;
+            border: 2px solid #4D5562;
+            border-radius: 5px;
+            height: 65px;
+            font-size: 15px;
+            min-height: 350px;
+            /* max-height: 9999px; */
+            width: 810px;
+            min-width: 300px;
+            font-family: inherit;
+            max-width: 1250px;
         }
