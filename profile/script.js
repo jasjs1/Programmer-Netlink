@@ -1,5 +1,7 @@
 const showContainerButton = document.getElementById('show-container');
 const containerDiv = document.querySelector('.container');
+const name = localStorage.getItem('signup-name');
+document.title = `${name}'s Proifle · Programmer Netlink`;
 
 function toggleContainer(action) {
   if (action === 'show') {
