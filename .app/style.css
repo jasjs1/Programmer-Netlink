@@ -648,15 +648,13 @@ line-height: 16px;
   border: 2px solid #6C727F;
   border-radius: 10px;
   width: 9.6%;
-  position: absolute;
-  top: 65px;
-  right: 20px;
-  float: right; 
-  font-size: 20px;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 50px;
+  right: 12px;
 }
+
+
+
 
 
 #content-selector {
@@ -664,14 +662,11 @@ line-height: 16px;
   border: 2px solid #6C727F;
   border-radius: 10px;
   width: 9.6%;
-  position: absolute;
-  top: 65px;
-  right: 20px;
   float: right; 
   font-size: 20px;
-  position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 0;
+  top: 45px; /* Set the desired offset value */
+  right: 80px;
 }
 
 .plus {
@@ -704,14 +699,12 @@ line-height: 16px;
   border: 2px solid #6C727F;
   border-radius: 10px;
   width: 9.6%;
-  position: absolute;
-  top: 65px;
-  right: 20px;
-  float: right; 
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 50px;
+  right: 30px;
 }
+
+
 
 #posts {
   margin-left: 450px;
