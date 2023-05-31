@@ -37,6 +37,7 @@ function renderArticles(articles) {
   const articlesHTML = articles
     .map(
       (article) =>
+      p
         `<div class="article">
           <h3>${article.title}</h3>
           <p>${article.body}</p>
