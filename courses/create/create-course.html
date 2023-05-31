@@ -8,59 +8,149 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
     <link rel="stylesheet" href="style.css">
-    <title>Courses Home - Programmer Netlink</title>
+    <title>Create Course · Programmer Netlink</title>
 </head>
-<body>
+<body> 
 
+  <h2 id="head1">Create an Article to Programmer Netlink</h2>
+  <a style="margin-bottom: 15px;" id="head2" href="http://127.0.0.1:5500/courses/courses.html">View all created Courses</a>
 
-<div id="course-head">
-   <h2>Courses</h2>
-  <a href="http://127.0.0.1:5500/courses/create/create-course.html">Create a Course</a>
-</div>
+  <div class="container">
+    <form>
 
-  <nav role="navigation" style="display: none;">
-    <div id="menuToggle">
+      <p>Title<span class="red-asterisk">*</span></p>
+      <br>
+      <input type="text" id="course-title" name="course-title" placeholder="Tell people the title of this course." required minlength="3" maxlength="80">
+      <br>
 
-      <input type="checkbox" />
-      
-      <span></span>
-      <span></span>
-      <span></span>
-      
-      <ul id="menu">
-        <h4>Programmer Netlink | Navigation Menu</h4>
-        <li><a class="active" href="http://127.0.0.1:5500/.app/app.html"><u>Snippets (App)</u></a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/articles/article.html">Articles</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/podcasts/podcasts.html">Podcasts</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/servers/server-page/server-page.html">Servers</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/productivity/app/app-selector/selector.html">Productivity Suite</a></li>
+      <p>Description<span class="red-asterisk">*</span></p>
+      <br>
+      <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="250" placeholder="Tell people what this course is about.">
+      <br>
 
-        <div class="quick-options">
-          <img src="/.app/img/quick-options/gear.png" onclick="redirectToSettings()" width="35px" height="35px" alt="profile settings">
-          <img src="/.app/img/quick-options/logout.png" onclick="logout()" width="35px" height="35px">
-        </div>
+      <p>Type<span class="red-asterisk">*</span></p>
+      <br>
+      <select id="course-type" name="course-type" required>
+        <option value="Free">Free</option>
+        <option value="Paid">Paid</option>
+      </select>
+      <br>
 
-      </ul>
+      <p>Skill Level<span class="red-asterisk">*</span></p>
+      <br>
+      <select id="course-skill-level" name="course-skill-level" required>
+        <option value="All Levels">All Levels</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+      <br>
+
+      <p>Course Overview<span class="red-asterisk">*</span></p>
+      <input type="url" id="course-overview" required>
+
+      <p>Lecture Content<span class="red-asterisk">*</span></p>
+      <div id="addButtons">
+        <button type="button" class="add-lecture" onclick="addLecture()">Add Lecture</button>
+        <button type="button" class="add-chapter" onclick="addChapter()">Add Chapter</button>
       </div>
-      </nav>
-    
-        <div class="course-list">
-    
-          <div id="courses">
-            
-          </div>
-    
-        </div>
-    
-        <div class="finished">
-          <img src="/assets/svg/checkerdflag.svg" alt="finished img">
-          <h3>Finished! You have finished the courses made by Programmer Netlink</h3>
-    
-        </div>
+      <br>
+      <textarea class="lecture-content" id="lecture-content" name="lecture-content" minlength="35" maxlength="9999" required></textarea>
+
+      <div class="center-container">
+        <input type="submit" class="share-snippets" onclick="saveCourses()" value="SHARE COURSE">
       </div>
-      
-    
-</body>
+
+    </form>
+  </div>
+
+<script>
+const form = document.querySelector('form');
+const postsContainer = document.getElementById('courses');
+const courseTypeSelect = document.getElementById('course-type');
+const paidDiv = document.getElementById('paid-div');
+const bookmarksContainer = document.getElementById('courses-bookmarks');
+const courseContent = document.getElementById('lecture-content').value;
+
+// Function to load courses from local storage and display them
+function loadCourses() {
+  // Load existing courses from local storage
+  const savedCourses = JSON.parse(localStorage.getItem('courses')) || [];
+
+  // Clear the posts container
+  postsContainer.innerHTML = '';
+
+  // Loop through the saved courses and create course elements
+  for (const course of savedCourses) {
+    const courseElement = document.createElement('div');
+    courseElement.classList.add('post');
+    const author = localStorage.getItem('signup-name');
+    courseElement.innerHTML = `
+      <h2>${course.title}</h2>
+      <p>${course.description}</p>
+      <h5><span id="author">Instructed by: ${author}</span></h5>
+      <h4>${course.type}</h4>
+    `;
+    const bookmarkButton = courseElement.querySelector('.bookmark-button');
+    bookmarkButton.addEventListener('click', () => {
+      saveBookmark(course);
+    });
+    postsContainer.appendChild(courseElement);
+  }
+}
+
+// Function to save a course bookmark
+function saveBookmark(course) {
+  const savedBookmarks = JSON.parse(localStorage.getItem('courses-bookmarks')) || [];
+  savedBookmarks.push(course);
+  localStorage.setItem('courses-bookmarks', JSON.stringify(savedBookmarks));
+  // You can perform any additional actions or UI updates here
+}
+
+// Add event listener to the form submit button
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Get the input values
+  const title = document.getElementById('course-title').value.trim();
+  const description = document.getElementById('course-description').value.trim();
+  const type = document.getElementById('course-type').value;
+  const skillLevel = document.getElementById('course-skill-level').value.trim();
+  const courseContent = document.getElementById('lecture-content').value;
+  const overview = document.getElementById('course-overview').value; // <-- Add .value
+
+  // Create a new course object with title, description, type, and skillLevel properties
+  const course = {
+    title,
+    description,
+    type,
+    skillLevel,
+    overview, // <-- Assign the value of overview
+    courseContent,
+    coursePublishDate: Date.now()
+  };
+
+  // Load existing courses from local storage
+  const savedCourses = JSON.parse(localStorage.getItem('courses')) || [];
+
+  // Add the new course to the beginning of the savedCourses array
+  savedCourses.unshift(course);
+
+  // Save the updated savedCourses array to local storage
+  localStorage.setItem('courses', JSON.stringify(savedCourses));
+
+  // Reset the form
+  form.reset();
+  location.reload();
+
+  loadCourses();
+});
+
+// Load courses when the page is first loaded
+loadCourses();
+
+</script>
+
 <script src="script.js"></script>
+</body>
 </html>
