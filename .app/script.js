@@ -9,8 +9,6 @@ if (!name) {
   localStorage.setItem('name', name);
 }
 
-// Update the page title to include the user's name
-document.title = `${name}'s Social Media App`;
 
 // Load existing posts from local storage
 const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
@@ -28,15 +26,15 @@ if (savedPosts.length) {
     const author = localStorage.getItem('signup-name');
     
     postElement.innerHTML = `
-      <h2 class="post-author" style="color: #6466E9;" onclick="window.location.href='http://127.0.0.1:5500/profile/profile.html'">
-        <span id="author">${author} · ${formatDate(post.date)}</span>
+    <h2 class="post-author" style="color: #6466E9;" onclick="window.location.href='http://127.0.0.1:5500/profile/profile.html'">
+    ${author} · ${post.tags}
+  </h2>  
       </h2>
       <h3 style="font-size: 1.2rem; margin-bottom: 5px;">${post.title}</h3>
-      <h4 style="margin-top: -1px; color: #6466E9;">${post.tags}</h4>
       <div class="interact">
       <button type="button" class="bookmark-button">
       <svg fill="currentColor" viewBox="0 0 16 16" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 relative top-[-1px] fill-gray-500 hover:fill-indigo-500 cursor-pointer">
-        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" fill="#6466E9"></path>
+        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" fill="#4D5562" id="bookmark-btn"></path>
       </svg>
     </button>
     
