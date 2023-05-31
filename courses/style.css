@@ -207,7 +207,6 @@ body {
     border-radius: 5px;
     margin-left: 140px;
     margin-right: 140px;
-    border: 2.5px solid #6466E9;
     border-radius: 10px;
     padding: 30px;
     width: auto;
@@ -845,3 +844,34 @@ form {
   white-space: pre-wrap;
 }
 
+#course-head {
+  margin-left: 155px;
+}
+
+#course-title {
+  color: #6466E9;
+  font-size: larger;
+  font-weight: 600;
+  margin-top: -25px;
+}
+
+#course-overview {
+  font-size: small;
+  color: #6466E9;
+}
+
+#courseContent {
+  font-size: medium;
+}
+
+#details {
+  margin-top: 50px;
+  color: #6466E9;
+  font-weight: lighter;
+  font-size: 11px;
+  margin-bottom: 40px;
+}
+
+#details-1 a {
+  text-decoration: none;
+}
