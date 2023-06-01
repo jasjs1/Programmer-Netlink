@@ -165,12 +165,11 @@ select {
   font-weight: bold;
   margin-right: 14px;
   margin-bottom: 14px;
-  background-color: #1c1f23;
-  border: 2px solid #6466E9;
-  color: whitesmoke;
-  color: #6466E9;
   border-radius: 2.995px;
-  margin-top: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid #6466E9;
 }
 
 .main-content {
@@ -380,16 +379,15 @@ color: white;
 }
 
 #show-add-past-job {
-font-size: 16px;
-font-weight: bold;
-margin-right: 14px;
-margin-bottom: 14px;
-background-color: #1c1f23;
-border: 2px solid #6466E9;
-color: whitesmoke;
-color: #6466E9;
-border-radius: 2.995px;
-margin-top: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 14px;
+  margin-bottom: 14px;
+  border-radius: 2.995px;
+  margin-top: 30px;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid #6466E9;
 }
 
 
