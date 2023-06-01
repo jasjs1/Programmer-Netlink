@@ -25,7 +25,7 @@
 
       <p>Description<span class="red-asterisk">*</span></p>
       <br>
-      <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="250" placeholder="Tell people what this course is about.">
+      <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="550" placeholder="Tell people what this course is about.">
       <br>
 
       <p>Type<span class="red-asterisk">*</span></p>
@@ -49,13 +49,9 @@
       <p>Course Overview<span class="red-asterisk">*</span></p>
       <input type="url" id="course-overview" required>
 
-      <p>Lecture Content<span class="red-asterisk">*</span></p>
-      <div id="addButtons">
-        <button type="button" class="add-lecture" onclick="addLecture()">Add Lecture</button>
-        <button type="button" class="add-chapter" onclick="addChapter()">Add Chapter</button>
-      </div>
+      <p>Enroll to Course URL<span class="red-asterisk">*</span></p>
       <br>
-      <textarea class="lecture-content" id="lecture-content" name="lecture-content" minlength="35" maxlength="9999" required></textarea>
+      <input type="url" class="lecture-content" id="lecture-content" name="lecture-content" required></input>
 
       <div class="center-container">
         <input type="submit" class="share-snippets" onclick="saveCourses()" value="SHARE COURSE">
