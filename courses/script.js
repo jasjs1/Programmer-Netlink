@@ -22,8 +22,7 @@ function loadCourses() {
       <h2 id="course-title">${course.title}</h2>
       <p>${course.description}</p>
       <p><a href="${course.overview}" target="_blank">Course Overview</a></p>
-
-      <p id="courseContent">${course.courseContent}</p>
+      <button id="enroll-to-course"><a href="${course.courseContent}" target="_blank">ENROLL TO COURSE</a></button>
 
     `;
     postsContainer.appendChild(courseElement);
