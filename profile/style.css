@@ -62,6 +62,18 @@ a {
   display: none;
 }
 
+#settings-modal {
+    position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 button {
   background-color: #1c1f23;
@@ -437,6 +449,7 @@ margin-right: 150px;
 }
 
 
+
 #modal-overlay2 {
   position: fixed;
   z-index: 999;
@@ -471,4 +484,14 @@ margin-right: 150px;
 #show-add-repo {
   margin-top: 15px;
   border-radius: 10px;
+}
+
+
+
+#x {
+  position: absolute;
+  float: right;
+  right: 5px;
+  top: 5px;
+  color: #6466E9;
 }
