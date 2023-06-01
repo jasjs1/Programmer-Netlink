@@ -117,20 +117,7 @@ border: 2px solid #4D5562;
             padding: 15px;
         }
 
-        #lecture-content {
-            background-color: #1c1f23;
-            color: #c2c9d6;
-            border: 2px solid #4D5562;
-            border-radius: 5px;
-            height: 65px;
-            font-size: 15px;
-            min-height: 350px;
-            /* max-height: 9999px; */
-            width: 810px;
-            min-width: 300px;
-            font-family: inherit;
-            max-width: 1250px;
-        }
+        #
 
         .red-asterisk {
             color: #f25244;
@@ -149,4 +136,5 @@ border: 2px solid #4D5562;
             max-width: 1250px;
         }
 
+        
         
