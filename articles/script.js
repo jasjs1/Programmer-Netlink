@@ -1,5 +1,8 @@
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('articles');
+const savedName = localStorage.getItem('signup-name');
+const authorName = localStorage.getItem('signup-name');
+
 
 // Get saved articles from localStorage
 const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
@@ -33,25 +36,23 @@ form.addEventListener('submit', (event) => {
 });
 
 
-function renderArticles(articles) {
+function renderArticles(articles, author) {
   const articlesHTML = articles
     .map(
       (article) =>
-      p
-        `<div class="article">
-          <h3>${article.title}</h3>
-          <p>${article.body}</p>
+        `
+        <div class="article">
+          <a id="details" href="http://127.0.0.1:5500/profile/profile.html">${authorName} · ${article.tags}</a>
+          <h3 id="article-title">${article.title}</h3>
+          <p id="article-body">${article.body}</p>
           ${article.credits ? `<p>Credits: ${article.credits}</p>` : ''}
-          <h4>${article.tags}</h4>
-          <p><img src="/articles/img/date+time.png" alt="Image Description" width="15" height="15" /> ${new Date(article.date).toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }).replace(',', '').replace(/\//g, '.')}&nbsp;${new Date(article.date).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/^(\d{1,2}):(\d{2})\s*([ap]m)$/i, (match, hour, minute, period) => `${hour}:${minute}${period.toLowerCase().charAt(0)}`)}</p>
-
-
-
+          
         </div>`
-    )
+  )
     .join('');
   articlesContainer.innerHTML = articlesHTML;
 }
+
 
 
 
@@ -90,9 +91,6 @@ function hash() {
 showContainerButton.addEventListener('click', function() {
   toggleContainer('toggle');
 });
-
-
-const savedName = localStorage.getItem('signup-name');
 
 if (localStorage.getItem('articles')) {
   const articles = JSON.parse(localStorage.getItem('articles'));
