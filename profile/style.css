@@ -81,7 +81,7 @@ button {
   color: white;
   border-radius: px;
   border-radius: 10px;
-  padding: 13px 13px 13px 13px;
+  padding: 15px;
 }
 
 .info {
@@ -494,4 +494,20 @@ margin-right: 150px;
   right: 5px;
   top: 5px;
   color: #6466E9;
+}
+
+textarea {
+    background-color: inherit;
+    border: 2px solid #6466E9;
+    border-radius: 10px;
+    min-height: 30px;
+    max-height: 100px;
+}
+
+#submit { 
+  background-color: inherit;
+  border: 2px solid #6466E9;
+  border-radius: 10px;
+  padding: 13px;
+  margin-top: 15px;
 }
