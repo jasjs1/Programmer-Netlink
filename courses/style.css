@@ -194,12 +194,7 @@ body {
     border-radius: 7px;
     color: white;
     
-  }
-  
-  button:hover {
-    background-color: #6466E0;
-  }
-  
+  }  
   
   .course-list {
     margin-top: 20px;
@@ -875,3 +870,16 @@ form {
 #details-1 a {
   text-decoration: none;
 }
+
+#enroll-to-course {
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+#enroll-to-course :hover {
+  color: white;
+  background-color: inherit;
+  text-decoration: none;
+}
+
