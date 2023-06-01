@@ -16,7 +16,7 @@
 	<script> 
 		function uploadImage() {
 		  const fileInput = document.getElementById('image-upload');
-		  fileInput.accept = 'image/jpeg, image/png, image/heic, image/svg+xml'; // Fix typo in MIME type
+		  fileInput.accept = 'image/jpeg, image/png, image/svg+xml';
 		  
 		  fileInput.addEventListener('change', (event) => {
 			const file = event.target.files[0];
