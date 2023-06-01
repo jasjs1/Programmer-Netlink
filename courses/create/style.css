@@ -2,6 +2,7 @@ body {
     background-color: #1c1f23;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    margin-left: 120px;
 }
 
 .container {
@@ -136,5 +137,4 @@ border: 2px solid #4D5562;
             max-width: 1250px;
         }
 
-        
         
