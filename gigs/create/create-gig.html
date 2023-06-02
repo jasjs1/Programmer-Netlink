@@ -39,6 +39,11 @@
           <p>Description of Your Gig<span class="red-asterisk">*</span></p>
           <textarea id="gig-description" minlength="15" maxlength="500" required></textarea>
           <br>
+
+          <p>Contact<span class="red-asterisk">*</span></p>
+          <br>
+          <input type="email" name="contact" id="contact">
+
           <input type="submit" value="SHARE GIG">
         </form>
     </div>
@@ -56,13 +61,15 @@
           const gigCategory = document.getElementById('gig-category').value;
           const payRate = document.getElementById('pay-rate').value;
           const gigDescription = document.getElementById('gig-description').value;
+          const contactFreelancer = document.getElementById('contact').value;
       
           // Create an object to store the gig data
           const gigData = {
             gigTitle: gigName,
             category: gigCategory,
             rate: payRate,
-            description: gigDescription
+            description: gigDescription,
+            contact: contactFreelancer,
           };
       
           // Check if 'gigs' key already exists in localStorage
