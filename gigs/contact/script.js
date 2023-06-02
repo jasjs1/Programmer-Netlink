@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('gigs');
+const freelancerName = localStorage.getItem('signup-name');
 
 // Get saved articles from localStorage
 const savedArticles = JSON.parse(localStorage.getItem('gigs')) || [];
@@ -22,3 +23,11 @@ function renderArticle(article) {
 
   articlesContainer.innerHTML = articleHTML;
 }
+
+
+window.onload = function() {
+    var link = document.getElementById("rateFreelancer");
+    const freelancerName = localStorage.getItem('signup-name');
+link.innerHTML = `Rate this: ${freelancerName} freelancer`;
+
+  };
