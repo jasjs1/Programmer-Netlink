@@ -4,7 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-} 
+}
 
 .topnav {
   background-color: #1c1f23;
@@ -645,6 +645,7 @@ line-height: 16px;
 
 #profile-selector {
   padding: 15px;
+  color: #a4a6ac;
   border: 2px solid #6C727F;
   border-radius: 10px;
   width: 9.6%;
@@ -658,12 +659,12 @@ line-height: 16px;
 
 
 #content-selector {
+  color: #a4a6ac;
   padding: 15px;
   border: 2px solid #6C727F;
   border-radius: 10px;
   width: 9.6%;
   float: right; 
-  font-size: 20px;
   position: sticky;
   top: 45px; /* Set the desired offset value */
   right: 80px;
@@ -698,6 +699,7 @@ line-height: 16px;
   padding: 15px;
   border: 2px solid #6C727F;
   border-radius: 10px;
+  color: #a4a6ac;
   width: 9.6%;
   position: fixed;
   top: 50px;
