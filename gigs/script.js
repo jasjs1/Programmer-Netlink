@@ -19,7 +19,7 @@ function renderArticles(articles) {
       return `
         <div id="gig-layout">
           <div id="gig-freelancer-information">
-            <h3 id="info">${freelancer} · 1 rating</h3>
+            <h3 id="info">${freelancer} · x ratings</h3>
           </div>
           <h2 id="gig-title">${gigTitle}</h2>
           <h3 id="gig-description">${gig.description}</h3>
