@@ -13,10 +13,15 @@ button {
     padding: 14px;
     border-radius: 10px;
     font-size: 15px;
+    color: #6446E9;
 }
 
 #head {
     color: #6446E9;
     font-weight: bold;
-    
+}
+
+#rateFreelancer {
+    background-color: inherit;
+    color: #6446E9;
 }
