@@ -1,0 +1,86 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    margin-left: 120px;
+}
+
+#head1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6466E9;
+  }
+
+  #head2 {
+    margin-bottom: 15px;
+    color: #6466E9;
+    text-decoration: underline;
+    margin-bottom: 35px;
+  }
+
+  .red-asterisk {
+    color: red;
+  }
+
+  #container {
+    margin-top: 100px;
+  }
+
+  input[type="text"] {
+    background-color: inherit;
+    color: #c2c9d6;
+    border: 2px solid #4D5562;
+    border-radius: 5px;
+    height: 65px;
+    font-size: 35px;
+    width: 810px;
+    min-width: 300px;
+    max-width: 1250px;
+  }
+
+  select {
+    background-color: inherit;
+    color: #c2c9d6;
+    border: 2px solid #4D5562;
+    border-radius: 5px;
+    height: 65px;
+    font-size: 35px;
+    width: 810px;
+    min-width: 300px;
+    max-width: 1250px;
+  }
+
+  input[type="number"] {
+    background-color: inherit;
+    color: #c2c9d6;
+    border: 2px solid #4D5562;
+    border-radius: 5px;
+    height: 65px;
+    font-size: 35px;
+    width: 810px;
+    min-width: 300px;
+    max-width: 1250px;
+  }
+
+  textarea {
+    background-color: inherit;
+    color: #c2c9d6;
+    border: 2px solid #4D5562;
+    border-radius: 5px;
+    height: 165px;
+    font-size: 15px;
+    width: 810px;
+    min-width: 300px;
+    max-width: 1250px;
+  }
+
+  #head1 {
+    margin-top: 15px;
+  }
+
+
+  input[type="submit"] {
+    padding: 15px;
+    border: 2px solid #4D5562;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
