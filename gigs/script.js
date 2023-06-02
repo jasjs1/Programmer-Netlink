@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('gigs');
+const freelancer = localStorage.getItem('signup-name');
 
 // Get saved articles from localStorage
 const savedArticles = JSON.parse(localStorage.getItem('gigs')) || [];
@@ -18,7 +19,7 @@ function renderArticles(articles) {
       return `
         <div id="gig-layout">
           <div id="gig-freelancer-information">
-            <h3 id="info">${freelancerName} · 1 rating</h3>
+            <h3 id="info">${freelancer} · 1 rating</h3>
           </div>
           <h2 id="gig-title">${gigTitle}</h2>
           <h3 id="gig-description">${gig.description}</h3>
