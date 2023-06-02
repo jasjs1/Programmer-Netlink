@@ -114,7 +114,8 @@ input[type="image"] {
 input[type="submit"] {
   position: absolute;
   top: 55px;
-  right: 450px;
+  float: right;
+  right: 260px;
   z-index: 9999;
   background-color: inherit;
   color: white;
@@ -719,6 +720,15 @@ svg {
 
 #post-author {
   color: #6466E9;
+  text-transform: capitalize;
+  font-size: 1.25rem;
+}
+
+#post-author :hover {
+  cursor: pointer;
+  color: #5B5DCE;
+  font-size: 1.25rem;
+  font-weight: lighter;
 }
 
 #post-author :hover {
