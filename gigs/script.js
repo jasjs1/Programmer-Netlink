@@ -23,7 +23,7 @@ function renderArticles(articles) {
           <h2 id="gig-title">${gigTitle}</h2>
           <h3 id="gig-description">${gig.description}</h3>
           <h3 id="price">$${gig.rate}/hr</h3>
-          <button class="contact-freelancer" id="enroll-to-course"><a href="http://127.0.0.1:5500/courses/create/create-course.html" target="_blank">ENROLL TO COURSE</a></button>
+          <button class="contact-freelancer" id="enroll-to-course"><a href="http://127.0.0.1:5500/gigs/contact/contact-freelancer.html" target="_blank">CONTACT FREELANCER</a></button>
           
         </div>
       `;
