@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"  content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
@@ -90,6 +90,8 @@ profileSelector.style.display = "none";
     <a href="http://127.0.0.1:5500/articles/article.html">Articles</a>
     <br>
     <a class="no-underline" href="http://127.0.0.1:5500/courses/courses.html">Courses</a>
+    <br>
+    <a href="http://127.0.0.1:5500/gigs/gigs.html">Gigs</a>
 <script>
     function toggleAppDrawer() {
     var profileSelector = document.getElementById("app-select");
@@ -163,10 +165,10 @@ function displayMediaMaker() {
   <div class="container">
     <form>
 
-        <textarea type="text" id="post-title" name="post-title" placeholder="min 5 characters max 35 characters" required></textarea>
+        <textarea type="text" id="post-title" name="post-title" placeholder="Write about something..." minlength="10" maxlength="520" required></textarea>
       <br>
       <!-- <label for="post-body"><h3>Body:</h3></label style="display:none"> -->
-      <textarea id="post-body" name="post-body" placeholder="minium 10 characters, max 74 characters" rows="4" minlength="10" maxlength="74"></textarea>
+      <textarea id="post-body" name="post-body" placeholder="Write about something..." rows="4" minlength="10" maxlength="74"></textarea>
       <br>
       <div class="add-tags" style="display: none;">
           <label for="tags">Tags:</label>
@@ -229,6 +231,7 @@ function displayMediaMaker() {
         </div>
       <input type="submit" value="Share Snippit">
       
+      <!-- <img src="/assets/svg/outwardarrow.svg" id="share" type="submit"> -->
     </form>
   </div>
 
