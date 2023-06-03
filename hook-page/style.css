@@ -262,3 +262,11 @@ p {
     padding: 15px;
     color: white;
 }
+
+input[type="submit"] {
+  background-color: inherit !important;
+  color: inherit;
+  border: 2px solid #6446E9;
+  border-radius: 10px;
+  padding: 15px;
+}
