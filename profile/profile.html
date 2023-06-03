@@ -178,8 +178,14 @@
   </div> -->
 
 
-<div>
+<div id="buttons-1">
 	<button id="create-description-btn">Edit Profile</button>
+	<button id="visit-gig-profile-btn" onclick="goToGigProfile()">Gig Profile</button>
+	<script>
+		function goToGigProfile() {
+  location.href = "http://127.0.0.1:5500/gigs/profile/gig-profile.html";
+}
+	</script>
   </div>
   
   <div id="description-modal" style="display: none">
@@ -190,7 +196,7 @@
   </div>
   
   <script>
-const descriptionText = document.getElementById("description-text");
+const descriptionText = document.getElementById("	");
 const createDescriptionBtn = document.getElementById("create-description-btn");
 const descriptionModal = document.getElementById("description-modal");
 const saveDescriptionBtn = document.getElementById("save-description-btn");
