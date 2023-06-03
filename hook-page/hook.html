@@ -106,7 +106,16 @@
     
           </select> -->
         
-          <button id="save" onclick="window.location.href = 'http://127.0.0.1:5500/account/login/terms/terms.html'">Create Account</button>
+          <input type="submit" onclick="saveEmailAddress()" value="Create Account"/>
+          <script>
+        function saveEmailAddress() {
+            var email = document.querySelector('#signup input[name="signup-email"]').value;
+            localStorage.setItem('email', email);
+            console.log('Saving email address...');
+            console.log('Saved email address');
+            location.href = 'http://127.0.0.1:5500/account/login/moreDetails/more-details.html';
+        }
+          </script>
       </div>
       
       <div class="myDiv" id="login" style="display:none">
