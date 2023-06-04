@@ -43,7 +43,7 @@ body {
     border: 2px solid #4D5562;
     border-radius: 5px;
     height: 65px;
-    font-size: 35px;
+    font-size: 15px;
     width: 810px;
     min-width: 300px;
     max-width: 1250px;
@@ -83,4 +83,16 @@ body {
     border: 2px solid #4D5562;
     border-radius: 10px;
     margin-top: 15px;
+  }
+
+  input[type="email"] {
+      background-color: inherit;
+      color: #c2c9d6;
+      border: 2px solid #4D5562;
+      border-radius: 5px;
+      height: 65px;
+      font-size: 15px;
+      width: 810px;
+      min-width: 300px;
+      max-width: 1250px;
   }
