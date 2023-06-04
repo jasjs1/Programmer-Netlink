@@ -118,7 +118,7 @@ border: 2px solid #4D5562;
             padding: 15px;
         }
 
-        #
+        
 
         .red-asterisk {
             color: #f25244;
@@ -138,3 +138,8 @@ border: 2px solid #4D5562;
         }
 
         
+
+
+        textarea {
+            font-family: inherit;
+        }
