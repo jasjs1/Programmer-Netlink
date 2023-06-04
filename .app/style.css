@@ -95,6 +95,7 @@ label[for="post-title"] {
   width: -150px;
   margin-left: 225px;
   margin-right: 225px;
+  margin-right: 15px;
 }
 
 
@@ -115,7 +116,7 @@ input[type="submit"] {
   position: absolute;
   top: 55px;
   float: right;
-  right: 260px;
+  right: 290px;
   z-index: 9999;
   background-color: inherit;
   color: white;
@@ -354,7 +355,7 @@ select {
   position: absolute;
   top: 12.5%;
   left: 31%;
-  margin-bottom: 15px;
+  margin-bottom: 65px;
 }
 
  .assignTag {
@@ -752,4 +753,11 @@ svg {
 .bookmark-button svg:hover {
   width: 22px;
   height: 22px;
+}
+
+#logo {
+  float: left; 
+  position: sticky;
+  top: -45px; /* Set the desired offset value */
+  left: 0;
 }
