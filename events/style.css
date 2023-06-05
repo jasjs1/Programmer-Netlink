@@ -3,12 +3,16 @@ body {
   color: white;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  padding-bottom: 5.5px;
+  margin-left: 140px;
+  margin-right: 140px;
 }
 
-.header {
-  margin-top: 35px;
-  margin-bottom: 45px;
+#event-head {
+  position: absolute;
+  float: left;
+  top: -5px;
+  left: 0px;
+  color: #6466E9;
 }
 
 .fields {
@@ -22,10 +26,9 @@ body {
 }
 
 #event-container {
-  padding: 15px 15px 15px 15px;
-  border: 2px solid #6466E9;
-  border-radius: 10px;
   text-align: left;
+  margin-top: 150px;
+  margin-left: 5px;
 }
 
 .container {
@@ -90,4 +93,23 @@ button[type="submit"] {
   font-size: medium;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+
+#event-head {
+  text-align: left;
+  align-items: left;
+  position: absolute;
+  float: left;
+  top: 5px;
+  left: 140px;
+}
+
+.red-asterisk {
+  color: red;
+}
+
+a {
+  color: #6466E9;
+  font-weight: bold;
 }
