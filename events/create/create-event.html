@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Create Event · Programmer Netlink</title>
+</head>
+<body>
+
+    <h2 id="head1">Create an Event</h2>
+    <a id="head2" href="http://127.0.0.1:5500/events/events-home.html">View all created Events</a>
+
+
+    <div id="container">
+        <form id="event-form">
+
+            <p>Event Title<span class="red-asterisk">*</span></p>
+            <input type="text" id="event-type" minlength="3" maxlength="50" required>
+
+            <p>Start Date<span class="red-asterisk">*</span></p>
+            <input type="date" id="event-date" required>
+<br>
+            <!-- <p>Start Time <span class="red-asterisk">*</span></p> -->
+            <input type="time" id="event-time" required>
+
+            <p>Event Location<span class="red-asterisk">*</span></p>
+            <input type="text" id="event-location" required>
+
+            <p>Event Description<span class="red-asterisk">*</span></p>
+            <textarea id="event-description" required minlength="3" maxlength="1000"></textarea>
+
+            <input type="submit" value="SHARE EVENT" onclick="saveEvent()">
+            
+        
+              
+              <script>
+                function handleOptionChange() {
+                  var selectElement = document.getElementById("eventOption");
+                  var selectedValue = selectElement.options[selectElement.selectedIndex].value;
+              
+                  if (selectedValue === "In Person") {
+                    document.getElementById("newDiv").style.display = "block";
+                  } else {
+                    document.getElementById("newDiv").style.display = "block";
+                  }
+                }
+              
+                function inPersonEventLocation() {
+                  // Additional logic for handling the "In Person" option if needed
+                }
+              
+              </script>
+              
+
+
+
+        </form>
+    </div>
+    
+</body>
+<script src="createEvent.js"></script>
+<script src="adaptSizeOfTextArea.js"></script>
+</html>
