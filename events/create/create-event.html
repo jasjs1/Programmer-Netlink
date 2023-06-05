@@ -31,8 +31,45 @@
             <p>Event Location<span class="red-asterisk">*</span></p>
             <input type="text" id="event-location" required>
 
+            <p>Event Topic<span class="red-asterisk">*</span></p>
+            <select id="event-tag" required>
+              <option value="General">General</option>
+              <option value="Tech">Tech</option>
+              <option value="Programming">Programming</option>
+              <option value="Music">Music</option>
+              <option value="Sports">Sports</option>
+              <option value="Business">Business</option>
+              <option value="Education">Education</option>
+              <option value="Productivity">Productivity</option>
+              <option value="TV">TV</option>
+              <option value="Movies">Movies</option>
+              <option value="Fitness">Fitness</option>
+              <option value="Cooking">Cooking</option>
+              <option value="Baking">Baking</option>
+              <option value="Writing">Writing</option>
+              <option value="Working">Working</option>
+              <option value="Puzzles">Puzzles</option>
+              <option value="Brain Puzzles">Brain Puzzles</option>
+              <option value="Making Music">Making Music</option>
+              <option value="Instrments">Instruments</option>
+              <option value="Finances">Finances</option>
+              <option value="Math">Math</option>
+              <option value="Sciences">Science</option>
+              <option value="Automobiles">Automobiles</option>
+              <option value="Animation">Animation</option>
+              <option value="Photography">Photography</option>
+              <option value="Learning">Learning</option>
+              <option value="Teaching">Teaching</option>
+              <option value="Gardening">Gardening</option>
+              <option value="Environment">Environment</option>
+              <option value="Driving">Driving</option>
+              <option value="Other">Other</option>
+            </select>
+
             <p>Event Description<span class="red-asterisk">*</span></p>
             <textarea id="event-description" required minlength="3" maxlength="1000"></textarea>
+
+            <br>
 
             <input type="submit" value="SHARE EVENT" onclick="saveEvent()">
             
