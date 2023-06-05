@@ -91,3 +91,12 @@ textarea {
   font-family: inherit;
   max-width: 1250px;
 }
+
+input[type="submit"] {
+   padding: 13px;
+   background-color: inherit;
+   color: inherit;
+   border: 1.2px solid #4D5562;
+   border-radius: 10px;
+   margin-top: 15px;
+}
