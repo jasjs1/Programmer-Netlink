@@ -113,3 +113,19 @@ a {
   color: #6466E9;
   font-weight: bold;
 }
+
+#event-title {
+  text-transform: capitalize;
+}
+
+#details {
+  margin-top: 25px;
+}
+
+.close-btn {
+  padding: 10px;
+  border: 1.25px solid #6466E9;
+  border-radius: 10px;
+  margin-top: -5px;
+  margin-bottom: 29px;
+}
