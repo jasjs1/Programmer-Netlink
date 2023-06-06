@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Create Community · Programmer Netlink</title>
+</head>
+<body>
+
+    <h2 id="head1">Create a Community</h2>
+    <p id="head2">YOU CAN ONLY CREATE 1 COMMUNITY</p>
+
+    <div id="create-community">
+        <form id="create-community-form">
+
+            <p>Community Title<span class="red-asterisk">*</span></p>
+            <input type="text" id="community-title" required>
+
+            <p>Community Description<span class="red-asterisk">*</span></p>
+            <input type="text" id="community-description" required>
+
+            <p>Community Privacy</p>
+            <select id="community-privacy">
+                <option value="Public">Public</option>
+                <option value="Invite Only">Invite Only (ALPHA)</option>
+            </select>
+
+            <p>Community Topic <span id="red-asterisk">*</span></p>
+            <select id="community-topic" required>
+                <option value="General">General</option>
+                <option value="Tech">Tech</option>
+                <option value="Programming">Programming</option>
+                <option value="Music">Music</option>
+                <option value="Sports">Sports</option>
+                <option value="Business">Business</option>
+                <option value="Education">Education</option>
+                <option value="Productivity">Productivity</option>
+                <option value="TV">TV</option>
+                <option value="Movies">Movies</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Baking">Baking</option>
+                <option value="Writing">Writing</option>
+                <option value="Working">Working</option>
+                <option value="Puzzles">Puzzles</option>
+                <option value="Brain Puzzles">Brain Puzzles</option>
+                <option value="Making Music">Making Music</option>
+                <option value="Instrments">Instruments</option>
+                <option value="Finances">Finances</option>
+                <option value="Math">Math</option>
+                <option value="Sciences">Science</option>
+                <option value="Automobiles">Automobiles</option>
+                <option value="Animation">Animation</option>
+                <option value="Photography">Photography</option>
+                <option value="Learning">Learning</option>
+                <option value="Teaching">Teaching</option>
+                <option value="Gardening">Gardening</option>
+                <option value="Environment">Environment</option>
+                <option value="Driving">Driving</option>
+                <option value="Other">Other</option>
+            </select>
+            <br>
+            <input type="submit" value="Create Community">
+
+        </form>
+    </div>
+    
+</body>
+<script src="createCommunity.js"></script>
+</html>
