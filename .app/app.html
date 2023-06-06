@@ -173,7 +173,7 @@ function displayMediaMaker() {
   <div class="container">
     <form>
 
-        <textarea type="text" id="post-title" name="post-title" placeholder="Write about something..." minlength="10" maxlength="520" required></textarea>
+      <textarea id="post-title" name="post-title" placeholder="Write about something..." minlength="10" maxlength="520" required></textarea>
       <br>
       <!-- <label for="post-body"><h3>Body:</h3></label style="display:none"> -->
       <textarea id="post-body" name="post-body" placeholder="Write about something..." rows="4" minlength="10" maxlength="74"></textarea>
@@ -218,7 +218,7 @@ function displayMediaMaker() {
             <option>#php</option>
             <option>#python</option>
             <option>#r</option>
-            <option>#react</option>
+              <option>#react</option>
             <option>#reactnative</option>
             <option>#ruby</option>
             <option>#rust</option>
@@ -233,8 +233,8 @@ function displayMediaMaker() {
         
 
         <div class="addons">
-          <img src="/assets/svg/link.svg" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
-          <img src="/.app/img/hastag.png" type="button" onclick="showAddTagsDiv()" alt="Add Tag" width="35" height="35"/>
+          <img src="/assets/svg/postMakerLink.svg" type="button" onclick="createLink()" alt="Add Link" width="35" height="35"/>
+          <img src="/assets/svg/tag.svg" type="button" onclick="showAddTagsDiv()" alt="Add Tag" width="35" height="35"/>
 
         </div>
       <input type="submit" value="Share Snippit">
@@ -296,10 +296,60 @@ function displayMediaMaker() {
 
     </div>
   </div>
+<div id="popup"></div>
 
-  
+<script>
+  const textarea = document.getElementById('post-title');
+  const popup = document.getElementById('popup');
+
+  textarea.addEventListener('keyup', function(event) {
+    const text = textarea.value;
+    const caretPosition = textarea.selectionStart;
+
+    // Check if the # symbol was typed
+    if (text.charAt(caretPosition - 1) === '#') {
+      // Show the popup div
+      popup.style.display = 'block';
+
+      // Calculate the position for the popup
+      const textareaRect = textarea.getBoundingClientRect();
+      const caretCoordinates = getCaretCoordinates(textarea, caretPosition);
+      const popupLeft = textareaRect.left + caretCoordinates.left;
+      const popupTop = textareaRect.top + caretCoordinates.top + caretCoordinates.height;
+
+      // Set the position of the popup
+      popup.style.left = `${popupLeft}px`;
+      popup.style.top = `${popupTop}px`;
+    } else {
+      // Hide the popup div if # is not present
+      popup.style.display = 'none';
+    }
+  });
+
+  // Helper function to get caret coordinates
+  function getCaretCoordinates(element, position) {
+    const clone = document.createElement('div');
+    const computedStyle = getComputedStyle(element);
+
+    for (const prop of computedStyle) {
+      clone.style[prop] = computedStyle[prop];
+    }
+
+    clone.style.position = 'absolute';
+    clone.style.visibility = 'hidden';
+    clone.textContent = element.value.substring(0, position);
+
+    document.body.appendChild(clone);
+    const { top, left, height } = clone.getBoundingClientRect();
+    document.body.removeChild(clone);
+
+    return { top, left, height };
+  }
+</script>
+
 
 
 </body>
 <script src="script.js"></script>
+<script src="addTagAdder.js"></script>
 </html>
