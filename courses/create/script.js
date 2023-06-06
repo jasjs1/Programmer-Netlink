@@ -24,13 +24,14 @@ function loadCourses() {
       <h4>${course.type}</h4>
       <div class="interact">
         <button class="bookmark-button" type="button">Bookmark</button>
-
       </div>
     `;
+
     const bookmarkButton = courseElement.querySelector('.bookmark-button');
     bookmarkButton.addEventListener('click', () => {
       saveBookmark(course);
     });
+
     postsContainer.appendChild(courseElement);
   }
 }
@@ -53,7 +54,7 @@ form.addEventListener('submit', (event) => {
   const link = document.getElementById('course-link').value.trim();
   const type = document.getElementById('course-type').value;
   const skillLevel = document.getElementById('course-skill-level').value.trim();
-  
+
   // Create a new course object with title, description, link, and type properties
   const course = {
     title,
@@ -62,14 +63,8 @@ form.addEventListener('submit', (event) => {
     skillLevel,
     content,
     overview,
-    coursePublishDate: new Date() // Set the course publish date as a Date object
+    coursePublishDate: new Date(), // Set the course publish date as a Date object
   };
-  
-  // Function to format the date as "mm.dd hh:mm"
-function formatDate(date) {
-  const options = { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
-  return date.toLocaleString('en-US', options);
-}
 
   // Load existing courses from local storage
   const savedCourses = JSON.parse(localStorage.getItem('courses')) || [];
@@ -122,18 +117,9 @@ function isCourseBookmarked(course) {
 }
 
 // Inside the loadCourses function, update the bookmark button state for each course
-const bookmarkButton = courseElement.querySelector('.bookmark-button');
-if (isCourseBookmarked(course)) {
-  bookmarkButton.textContent = 'Bookmarked';
-  bookmarkButton.classList.add('bookmarked');
-} else {
-  bookmarkButton.textContent = 'Bookmark';
-  bookmarkButton.classList.remove('bookmarked');
-}
-
-// Inside the bookmarkButton event listener, toggle the bookmark and update the button state
-bookmarkButton.addEventListener('click', () => {
-  toggleBookmark(course);
+const courseElements = postsContainer.getElementsByClassName('post');
+for (const courseElement of courseElements) {
+  const bookmarkButton = courseElement.querySelector('.bookmark-button');
   if (isCourseBookmarked(course)) {
     bookmarkButton.textContent = 'Bookmarked';
     bookmarkButton.classList.add('bookmarked');
@@ -141,36 +127,40 @@ bookmarkButton.addEventListener('click', () => {
     bookmarkButton.textContent = 'Bookmark';
     bookmarkButton.classList.remove('bookmarked');
   }
-});
 
-
-  // Show modal container when user clicks "+" button
-  document.getElementById("show-container").addEventListener("click", function() {
-    document.querySelector(".modal-overlay").style.display = "flex";
-  });
-
-  // Hide modal container when user presses "Escape" key
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-      document.querySelector(".modal-overlay").style.display = "none";
+  // Inside the bookmarkButton event listener, toggle the bookmark and update the button state
+  bookmarkButton.addEventListener('click', () => {
+    toggleBookmark(course);
+    if (isCourseBookmarked(course)) {
+      bookmarkButton.textContent = 'Bookmarked';
+      bookmarkButton.classList.add('bookmarked');
+    } else {
+      bookmarkButton.textContent = 'Bookmark';
+      bookmarkButton.classList.remove('bookmarked');
     }
   });
+}
 
+// Show modal container when user clicks "+" button
+document.getElementById('show-container').addEventListener('click', function () {
+  document.querySelector('.modal-overlay').style.display = 'flex';
+});
 
-  function addLecture() {
-    var textarea = document.getElementById("lecture-content");
-    var boldChapterText = 'Lecture #';
-    textarea.value += boldChapterText;
+// Hide modal container when user presses "Escape" key
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    document.querySelector('.modal-overlay').style.display = 'none';
   }
-  
-  
-  
-  
+});
 
-  function addChapter() {
-    var textarea = document.getElementById("lecture-content");
-    var boldChapterText = 'Chapter #';
-    textarea.value += boldChapterText;
-  }
-  
-  
+function addLecture() {
+  var textarea = document.getElementById('lecture-content');
+  var boldChapterText = 'Lecture #';
+  textarea.value += boldChapterText;
+}
+
+function addChapter() {
+  var textarea = document.getElementById('lecture-content');
+  var boldChapterText = 'Chapter #';
+  textarea.value += boldChapterText;
+}
