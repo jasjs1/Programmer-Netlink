@@ -25,7 +25,7 @@
 
       <p>Description<span class="red-asterisk">*</span></p>
       <br>
-      <input type="text" id="course-description" name="course-description" required minlength="3" maxlength="550" placeholder="Tell people what this course is about.">
+      <textarea type="text" id="course-description" name="course-description" required minlength="3" maxlength="550" placeholder="Tell people what this course is about."></textarea>
       <br>
 
       <p>Type<span class="red-asterisk">*</span></p>
@@ -52,7 +52,7 @@
       <input type="url" class="lecture-content" id="lecture-content" name="lecture-content" required></input>
 
       <div class="center-container">
-        <input type="submit" class="share-snippets" onclick="saveCourses()" value="SHARE COURSE">
+        <input type="submit" class="share-snippets" value="SHARE COURSE">
       </div>
 
     </form>
@@ -61,10 +61,6 @@
 <script>
 const form = document.querySelector('form');
 const postsContainer = document.getElementById('courses');
-const courseTypeSelect = document.getElementById('course-type');
-const paidDiv = document.getElementById('paid-div');
-const bookmarksContainer = document.getElementById('courses-bookmarks');
-const courseContent = document.getElementById('lecture-content').value;
 
 // Function to load courses from local storage and display them
 function loadCourses() {
@@ -85,20 +81,8 @@ function loadCourses() {
       <h5><span id="author">Instructed by: ${author}</span></h5>
       <h4>${course.type}</h4>
     `;
-    const bookmarkButton = courseElement.querySelector('.bookmark-button');
-    bookmarkButton.addEventListener('click', () => {
-      saveBookmark(course);
-    });
     postsContainer.appendChild(courseElement);
   }
-}
-
-// Function to save a course bookmark
-function saveBookmark(course) {
-  const savedBookmarks = JSON.parse(localStorage.getItem('courses-bookmarks')) || [];
-  savedBookmarks.push(course);
-  localStorage.setItem('courses-bookmarks', JSON.stringify(savedBookmarks));
-  // You can perform any additional actions or UI updates here
 }
 
 // Add event listener to the form submit button
@@ -111,7 +95,6 @@ form.addEventListener('submit', (event) => {
   const type = document.getElementById('course-type').value;
   const skillLevel = document.getElementById('course-skill-level').value.trim();
   const courseContent = document.getElementById('lecture-content').value;
-  const overview = document.getElementById('course-overview').value; // <-- Add .value
 
   // Create a new course object with title, description, type, and skillLevel properties
   const course = {
@@ -119,7 +102,6 @@ form.addEventListener('submit', (event) => {
     description,
     type,
     skillLevel,
-    overview, // <-- Assign the value of overview
     courseContent,
     coursePublishDate: Date.now()
   };
@@ -135,8 +117,6 @@ form.addEventListener('submit', (event) => {
 
   // Reset the form
   form.reset();
-  location.reload();
-
   loadCourses();
 });
 
@@ -145,6 +125,5 @@ loadCourses();
 
 </script>
 
-<script src="script.js"></script>
 </body>
 </html>
