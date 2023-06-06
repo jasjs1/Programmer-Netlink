@@ -872,6 +872,8 @@ form {
 }
 
 #enroll-to-course {
+  margin-top: -1;
+  font-size: 25px !important;
   padding: 15px;
   color: white;
   text-decoration: none;
@@ -883,3 +885,14 @@ form {
   text-decoration: none;
 }
 
+
+#brain-img {
+  font-size: 15px;
+  width: 29px;
+  height: auto;
+}
+
+#enroll {
+  margin-top: -115px;
+  text-align: center;
+}
