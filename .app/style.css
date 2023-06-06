@@ -135,7 +135,7 @@ input[type="submit"] {
   font-family: 'Open Sans', sans-serif;
   background-color: #1c1f23;
   border-radius: 5px;
-  border: 0.6px solid #6466e9;
+  border: 0.6px solid #485958;
   color: white;
   font-size: 14.5px;
   height: auto;
@@ -149,31 +149,25 @@ input[type="submit"] {
 
 .post-list {
   /* Existing styles */
-  margin-top: 20px;
+  margin-top: 50px;
   padding: 13px;
   border-radius: 5px;
   border-radius: 10px;
   padding: 30px;
   width: auto;
   height: auto;
-  inline-size: 65%;
-  overflow-wrap: break-word;
   padding-top: 20px;
   min-height: 50px;
-  min-width: 50px;
   align-items: center;
   margin-left: auto;
-  margin-right: auto;
-  width: 65%; /* Adjust the width as needed */
+  width: 92%; /* Adjust the width as needed */
 
   /* New styles */
   margin-top: 0;
   margin-bottom: 20px;
   position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Center the element horizontally */
 }
+
 
 
 
@@ -193,6 +187,7 @@ input[type="submit"] {
 
 textarea {
   font-size: 14.5px;
+  
 }
 
 h1 {
@@ -211,7 +206,9 @@ label {
 input, textarea {
   margin-bottom: 10px;
   width: 1000px;
+  margin-right: 7px;
   padding: 5px;
+  border: 2px solid #485958;
 }
 
 input[type="checkbox"] {
@@ -243,13 +240,13 @@ button:hover {
   padding: 30px;
   width: auto;
   height: auto;
-  inline-size: 65%;
-  overflow-wrap: break-word;
   padding-top: 20px;
   min-height: 50px;
   min-width: 50px;
   align-items: center;
-  margin-left: -200px;
+  position: relative;
+  top: 70%;
+  left: -9%;
 }
 
 .post {
@@ -353,9 +350,9 @@ select {
   fill: #5D97CF;
   color: #5D97CF;
   position: absolute;
-  top: 12.5%;
-  left: 31%;
-  margin-bottom: 65px;
+  top: 14.5%;
+  left: 25%;
+  margin-bottom: 165px;
 }
 
  .assignTag {
@@ -692,6 +689,7 @@ line-height: 16px;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  right: 50px;
   float: right;
   padding: 5px;
   display: flex;
@@ -712,6 +710,8 @@ line-height: 16px;
 
 #posts {
   margin-left: 450px;
+  word-wrap: break-word;
+  margin-right: 2%;
 }
 
 svg {
@@ -760,4 +760,8 @@ svg {
   position: sticky;
   top: -45px; /* Set the desired offset value */
   left: 0;
+}
+
+#popup {
+  background-color: red;
 }
