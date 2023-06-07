@@ -38,12 +38,22 @@ form.addEventListener('submit', (event) => {
 
 function renderArticles(articles, author) {
   const articlesHTML = articles
-    .map(
+    .map( 
       (article) =>
         `
         <div class="article">
-          <a id="details" href="http://127.0.0.1:5500/profile/profile.html">${authorName} · ${article.tags}</a>
-          <h3 id="article-title">${article.title}</h3>
+        <h3 id="article-title">${article.title}</h3>
+
+        <div id="text">
+        <p id="author-text">Author: <span id="tag-text">Tag:</span></p>
+        <div>
+
+        
+        <p id="author-name" onclick="window.location.href='http://127.0.0.1:5500/profile/profile.html'">${authorName} <span id="article-tags">${article.tags}</span></p>
+
+
+
+
           <p id="article-body">${article.body}</p>
           ${article.credits ? `<p>Credits: ${article.credits}</p>` : ''}
           
