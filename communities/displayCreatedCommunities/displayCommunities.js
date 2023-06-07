@@ -1,3 +1,7 @@
+
+
+// !! DO NOT ADD ANYTHING IN HERE ACCEPT THE DISPLAY THE ELEMENTS OF THE COMMUNITY !!
+
 const form = document.querySelector('form');
 const articlesContainer = document.getElementById('communities');
 const savedName = localStorage.getItem('signup-name');
