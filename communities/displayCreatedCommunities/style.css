@@ -1,0 +1,52 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin-left: 144px;
+    margin-right: 44px;
+  }
+
+#article-head {
+    text-align: left;
+    align-items: left;
+    margin-left: 124px;
+    margin-bottom: 15px;
+  }
+
+  #article-link {
+    color: #6466E9;
+    font-weight: bold;
+  }
+
+  .community-display {
+    border: 2.25px solid #313845;
+    text-align: left;
+    padding: 11px;
+    max-width: 350px;
+    margin-left: 124px;
+    margin-top: 44px;
+  }
+
+  .community-title {
+    color: #6466E9;
+    font-weight: 450;
+  }
+
+  .community-description {
+    font-weight: 300;
+  }
+
+  .community-info {
+    font-weight: 300;
+  }
+
+  #myButton {
+    padding: 12px;
+    border: 2.5px solid #313845;
+    border-radius: 2.5px;
+    margin-top: 15px;
+    background-color: inherit;
+    color: inherit;
+    font-size: 13px;
+  }
