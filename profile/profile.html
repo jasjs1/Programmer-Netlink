@@ -13,46 +13,45 @@
 </head>
 <body>
 
-	<script> 
-		function uploadImage() {
+	<script>
+		function uploadImage(isCoverImage) {
 		  const fileInput = document.getElementById('image-upload');
 		  fileInput.accept = 'image/jpeg, image/png, image/svg+xml';
-		  
+	  
 		  fileInput.addEventListener('change', (event) => {
 			const file = event.target.files[0];
 			const reader = new FileReader();
-		
+	  
 			reader.onload = (e) => {
-			  const uploadedImage = document.getElementById('uploaded-image');
+			  const uploadedImage = isCoverImage ? document.getElementById('uploaded-cover-image') : document.getElementById('uploaded-image');
 			  uploadedImage.style.backgroundImage = `url(${e.target.result})`; // Set the uploaded image as background
 			  uploadedImage.style.display = 'block';
-		
+	  
 			  // Save image data to localStorage
-			  localStorage.setItem('profileImage', e.target.result);
+			  const key = isCoverImage ? 'profileCoverImage' : 'profileImage';
+			  localStorage.setItem(key, e.target.result);
 	  
 			  // Reload the page
 			  location.reload();
 			}
-		
+	  
 			reader.readAsDataURL(file);
 		  });
-		
+	  
 		  fileInput.click();
 		}
 	  
-		// Check if there is a previously saved image in localStorage upon page load
 		window.addEventListener('load', () => {
 		  const uploadedImage = document.getElementById('uploaded-image');
-		  const savedImage = localStorage.getItem('profileImage');
+		  const uploadedCoverImage = document.getElementById('uploaded-cover-image');
+		  const defaultProfileImage = '/profile/img/default-user-profile.svg';
+		  const defaultCoverImage = '/profile/img/default-cover-image.svg';
 	  
-		  if (savedImage) {
-			uploadedImage.style.backgroundImage = `url(${savedImage})`;
-			uploadedImage.style.display = 'block';
-		  } else {
-			uploadedImage.style.backgroundImage = 'url(/profile/img/default-user-profile.svg)';
-			uploadedImage.style.display = 'block';
-			localStorage.setItem('profileImage', '/profile/img/default-user-profile.svg');
-		  }
+		  uploadedImage.style.backgroundImage = `url(${localStorage.getItem('profileImage') || defaultProfileImage})`;
+		  uploadedImage.style.display = 'block';
+	  
+		  uploadedCoverImage.style.backgroundImage = `url(${localStorage.getItem('profileCoverImage') || defaultCoverImage})`;
+		  uploadedCoverImage.style.display = 'block';
 		});
 	  </script>
 	  
@@ -60,25 +59,16 @@
 		<div class="profile-icon-selector-button">
 		  <input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
 		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-		</div>
-	  </div>
-	  
-	  
-	  
-
-		
-	  <div class="main-content">
-		<div class="profile-icon-selector-button">
-		  <input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
-		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
+		  <img id="uploaded-cover-image" src="#"  style="display:none;">
 		</div>
 	  </div>
 	  
 	  <!-- HTML for settings gear -->
 	  <div class="settings" onclick="toggleSettingsContainer('settings-modal')">
-		<img src="/assets/svg/profile-edit.svg" alt="settings gear image" width="auto" height="32" class="person-edit-img-button" style="color: #6466E9;">
-
+		<img src="/assets/svg/profile-edit.svg" alt="Settings Gear Image" width="auto" height="32" class="person-edit-img-button" style="color: #6466E9;">
 	  </div>
+	  
+	  
 	  
 	  <!-- HTML for settings container -->
 	  <div id="settings-modal" class="modal-overlay" style="display: none;">
@@ -96,6 +86,7 @@
 			</div>
 
 			<button class="selector-button" onclick="uploadImage()">Update Profile Image</button>
+			<button class="selector-button" onclick="uploadCoverImage()">Upload Cover Image</button>
 
 			<div class="container">
 				<h3>Add a Skill:</h3>
@@ -139,7 +130,7 @@
 	<h2 style="color: #6466E9; font-size: 24px; font-weight: bolder;"><span id="signup-name"></span></h2 style>
 	<div class="username-container">
 	  <h1><span id="user-username"></span></h1>
-	  <h2><span id="tag"></span></h2>
+	  <h2><span id="tag">· </span></h2>
 	</div>
 	<h3 id="description-text"></h3>
   </div>
@@ -562,6 +553,9 @@ renderPosts();
 	<div class="modal-overlay" id="modalOverlay">
 	  <div class="modal-container">
 		<div class="add-job-container">
+
+
+			<h1 id="x" onclick="closeSettingsModal()">X</h1>
 
 			<h1 style="font-weight: lighter; color: #6466E9; font-size: 1.5rem;">Add a job</h1>
 
@@ -1088,6 +1082,9 @@ renderPosts();
 		}
 	}
 	</script>
+
+
+<h2 id="repo-header" style="font-size: 20px; font-weight: lighter; color: #6466E9">Projects:</h2>
 	
 
 
