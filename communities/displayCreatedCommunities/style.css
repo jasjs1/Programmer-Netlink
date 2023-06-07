@@ -48,5 +48,8 @@ body {
     margin-top: 15px;
     background-color: inherit;
     color: inherit;
-    font-size: 13px;
+    font-size: 16px;
+    /* background-color: #6466E9; */
+    width: 350px !important;
   }
+
