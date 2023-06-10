@@ -4,126 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
-    <link rel="stylesheet" href="style.css">
-    <title>Create Course · Programmer Netlink</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.svg" />
+    <link href="/dist/output.css" rel="stylesheet">
+    <link href="/components/nav/nav.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/components/markdownEditor/formatting.css"> <!-- For Markdown Editor -->
+    
+    <title>Create Project · CODEProjects</title>
 </head>
-<body> 
+<body>
+    <link rel="stylesheet" href="/components/nav/nav.css">
+    <iframe src="/components/nav/nav.html" style="width: 100%;"></iframe>
 
-  <h2 id="head1">Create an Article to Programmer Netlink</h2>
-  <a style="margin-bottom: 15px;" id="head2" href="http://127.0.0.1:5500/courses/courses.html">View all created Courses</a>
+    <div id="create-project">
+        <h2 id="create-project-text">Create a Project</h2>
 
-  <div class="container">
-    <form>
+        <form onsubmit="createProject(event)">
+            <p>Project Title<span id="red-asterisk">*</span></p>
+            <input type="text" id="project-title" required>
 
-      <p>Title<span class="red-asterisk">*</span></p>
-      <br>
-      <input type="text" id="course-title" name="course-title" placeholder="Tell people the title of this course." required minlength="3" maxlength="80">
-      <br>
+            <p>Project Description<span id="red-asterisk">*</span></p>
+            <input type="text" id="project-description" required>
 
-      <p>Description<span class="red-asterisk">*</span></p>
-      <br>
-      <textarea type="text" id="course-description" name="course-description" required minlength="3" maxlength="550" placeholder="Tell people what this course is about."></textarea>
-      <br>
+            <p>Project Cover Image<span id="red-asterisk">*</span></p>
+            <input type="file" id="project-cover" required>
+            <br>
 
-      <p>Type<span class="red-asterisk">*</span></p>
-      <br>
-      <select id="course-type" name="course-type" required>
-        <option value="Free">Free</option>
-        <option value="Paid">Paid</option>
-      </select>
-      <br>
+            <p>Skill Type<span id="red-asterisk">*</span></p>
+            <select id="skill-type">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
+                <option value="Any Skill Level">Any Skill Level</option>
+            </select>
 
-      <p>Skill Level<span class="red-asterisk">*</span></p>
-      <br>
-      <select id="course-skill-level" name="course-skill-level" required>
-        <option value="All Levels">All Levels</option>
-        <option value="Beginner">Beginner</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-      </select>
-      <br>
+            <div id="container">
+                <script src="/components/FontFlex/FontFlexComponents/scripts/createFormatting.js"></script>
+                <link rel="stylesheet" href="/components/FontFlex/FontFlexComponents/styles/formatting.css">
+                <script src="/src/projects/create/adaptSizeOfTextarea.js"></script>
 
+                <!-- <button class="FontFlex-formatting-button" onclick="addH1()">Add H1</button>
+                <button class="FontFlex-formatting-button" onclick="addH2()">Add H2</button>
+                <button class="FontFlex-formatting-button" onclick="addH3()">Add H3</button>
+                <button class="FontFlex-formatting-button" onclick="returnToNormalFont()">Return to Normal Font</button> -->
 
-      <p>Enroll to Course URL<span class="red-asterisk">*</span></p>
-      <br>
-      <input type="url" class="lecture-content" id="lecture-content" name="lecture-content" required></input>
+                <br>
+            </div>
 
-      <div class="center-container">
-        <input type="submit" class="share-snippets" value="SHARE COURSE">
-      </div>
+            <p>Project Content <span id="red-asterisk">*</span></p>
+            <textarea id="project-content"></textarea> <!-- THIS IS JUST TO SHOW THE RESULTS, YOU MAY REMOVE THIS IF YOU WANT. This can also be external (like in a different .html file.) -->
+            <br>
+            <div id="info">
+                <img src="/assets/svg/information.svg"><p>When you create a Project that goes to your profile, and is under your name. Make sure that this is a quality Project before creating.</p>
+            </div>
+            <br>
 
-    </form>
-  </div>
+            <button id="submit" type="submit">
+                Create Project
+            </button>
+        </form>
 
-<script>
-const form = document.querySelector('form');
-const postsContainer = document.getElementById('courses');
+        <script>
+            function createProject(event) {
+                event.preventDefault(); // Prevent form submission
 
-// Function to load courses from local storage and display them
-function loadCourses() {
-  // Load existing courses from local storage
-  const savedCourses = JSON.parse(localStorage.getItem('courses')) || [];
+                const form = event.target; // Get the form element
+                const projectTitle = form.querySelector('#project-title').value;
+                const projectDescription = form.querySelector('#project-description').value;
+                const imageInput = form.querySelector('#project-cover');
+                const file = imageInput.files[0];
+                const content = form.querySelector('#project-content').value;
+                const skillLevel = document.getElementById('skill-type').value.trim();
 
-  // Clear the posts container
-  postsContainer.innerHTML = '';
+                if (projectTitle && projectDescription && file) {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
 
-  // Loop through the saved courses and create course elements
-  for (const course of savedCourses) {
-    const courseElement = document.createElement('div');
-    courseElement.classList.add('post');
-    const author = localStorage.getItem('signup-name');
-    courseElement.innerHTML = `
-      <h2>${course.title}</h2>
-      <p>${course.description}</p>
-      <h5><span id="author">Instructed by: ${author}</span></h5>
-      <h4>${course.type}</h4>
-    `;
-    postsContainer.appendChild(courseElement);
-  }
-}
+                    reader.onload = function (event) {
+                        const imageDataUrl = event.target.result;
 
-// Add event listener to the form submit button
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+                        localStorage.setItem('savedImage', imageDataUrl);
+                        localStorage.setItem('projectTitle', projectTitle);
+                        localStorage.setItem('projectDescription', projectDescription);
+                        localStorage.setItem('projectContent', content);
+                        localStorage.setItem('skillLevel', skillLevel);
 
-  // Get the input values
-  const title = document.getElementById('course-title').value.trim();
-  const description = document.getElementById('course-description').value.trim();
-  const type = document.getElementById('course-type').value;
-  const skillLevel = document.getElementById('course-skill-level').value.trim();
-  const courseContent = document.getElementById('lecture-content').value;
+                        // You can choose to redirect to another page or perform other actions here
+                        console.log('Project created successfully!');
+                        form.reset();
+                        window.location.href = 'http://127.0.0.1:5500/src/projects/createdProjectsHomePage/allProjects.html';
+                    };
+                } else {
+                    alert('Please fill in all the required fields.');
+                    console.error('Please fill in all the required fields.');
+                }
+            }
+        </script>
+    </div>
 
-  // Create a new course object with title, description, type, and skillLevel properties
-  const course = {
-    title,
-    description,
-    type,
-    skillLevel,
-    courseContent,
-    coursePublishDate: Date.now()
-  };
-
-  // Load existing courses from local storage
-  const savedCourses = JSON.parse(localStorage.getItem('courses')) || [];
-
-  // Add the new course to the beginning of the savedCourses array
-  savedCourses.unshift(course);
-
-  // Save the updated savedCourses array to local storage
-  localStorage.setItem('courses', JSON.stringify(savedCourses));
-
-  // Reset the form
-  form.reset();
-  loadCourses();
-});
-
-// Load courses when the page is first loaded
-loadCourses();
-
-</script>
-
+    <script src="script.js"></script>
+    <script src="/components/FontFlex/FontFlexComponents/scripts/createFormatting.js"></script> 
+    <script src="/src/projects/create/adaptSizeOfTextarea.js"></script>
+    <script src="/components/FontFlex/FontFlexComponents/scripts/createFormatting.js"></script>
 </body>
 </html>
