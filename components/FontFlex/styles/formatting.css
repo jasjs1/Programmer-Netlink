@@ -1,0 +1,32 @@
+/* ! DO NOT REMOVE ANYTHING BELOW THIS LINE */
+.custom-text {
+  font-size: 20px;
+  color: #3662e3;
+}
+
+.bigger-text {
+  font-size: 24px; /* Adjust the size as needed */
+  color: #3662e3;
+}
+/* Hide the span element while keeping its contents visible */
+#frmt-h1,
+#frmt-h2,
+#frmt-h3 {
+  display: none;
+}
+
+/* YOU MAY DELETE OR MODIFY ANYTHING AFTER THIS POINT */
+textarea {
+  width: 800px;
+  /* This is just for the purpose of fitting everything on one line. You may remove this styling. */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+#FontFlex-formatting-button {
+  background-color: #3662e3;
+  color: white;
+  padding: 9px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}

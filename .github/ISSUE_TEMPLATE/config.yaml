@@ -1,9 +1,0 @@
-
-blank_issues_enabled: true
-contact_links:
-  - name: Bug Report
-    url: https://github.com/jasjs1/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/bug.md
-    about: Create a bug report
-  - name: Feature Request
-    url: https://github.com/jasjs1/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/fq.md
-    about: Create a feature that you would like to see in Programmer Netlink
