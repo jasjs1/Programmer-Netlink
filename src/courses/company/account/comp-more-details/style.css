@@ -1,0 +1,35 @@
+body {
+    background: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .head {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    padding: 15px 15px 15px 15px;
+    border-radius: 5px;
+    color: white;
+  }
+
+  #submit-button {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    color: white;
+  }

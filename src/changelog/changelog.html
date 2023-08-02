@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Releases · Programmer Netlink</title>
+  <style>
+body {
+  background: #1c1f23;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 144px;
+  margin-right: 144px;
+}
+
+    .release {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #6466E9;
+      border-radius: 15px;
+      padding-bottom: 45px;
+    }
+
+    .release h1 {
+      font-size: 18px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .release .release-type {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .release .latest {
+      color: green;
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 13px;
+      border-radius: 400px;
+      border: 3px solid green;
+      background-color: transparent;
+      margin-left: 10px;
+    }
+
+    .release .pre-release {
+      color: orange;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 400px;
+      border: 3px solid orange;
+      background-color: transparent;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+
+    a {
+      color: #2954d7;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #releases {
+      display: flex;
+      flex-direction: column-reverse; /* Display releases in reverse order */
+    }
+
+    .release-button {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Programmer Netlink Releases</h1>
+  <h3>The relam of relases from the world's best programmer.</h3>
+  <div id="releases"></div>
+  <script>
+    // GitHub organization and repository information
+    const org = 'jasjs1';
+    const repo = 'Programmer-Netlink';
+
+    // Fetch releases from GitHub REST API
+    fetch(`https://api.github.com/repos/${org}/${repo}/releases`)
+      .then(response => response.json())
+      .then(releases => {
+        const releasesContainer = document.getElementById('releases');
+        releases.reverse();
+
+        // Iterate over each release and generate HTML
+        let releasesHTML = '';
+        releases.forEach((release, index) => {
+          releasesHTML += `
+            <div class="release">
+              <h1 style="font-size: 1.25rem; font-weight: 700;">${release.name} <span class="${index === 0 ? 'latest' : 'pre-release'}">${index === 0 ? 'Latest Release' : 'Pre-release'}</span></h1>
+              <div class="release-button">
+                <button onclick="window.open('${release.html_url}', '_blank')">Go to Release</button>
+              </div>
+              <div>${release.body}</div>
+            </div>
+          `;
+        });
+
+        // Set the generated HTML inside the releases container
+        releasesContainer.innerHTML = releasesHTML;
+      })
+      .catch(error => {
+        console.log('Error fetching releases:', error);
+      });
+  </script>
+</body>
+</html>

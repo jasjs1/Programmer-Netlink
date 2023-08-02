@@ -1,0 +1,111 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    margin-left: 120px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#head1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6466E9;
+  }
+
+  #head2 {
+    margin-bottom: 15px;
+    color: #6466E9;
+    text-decoration: underline;
+    margin-bottom: 35px;
+  }
+
+  .red-asterisk {
+    color: red;
+  }
+
+  input[type="text"] {
+    background-color: inherit;
+    color: #c2c9d6;
+    border: 2px solid #4D5562;
+    border-radius: 5px;
+    height: 65px;
+    font-size: 35px;
+    width: 810px;
+    min-width: 300px;
+    max-width: 1250px;
+  }
+
+  #event-date {
+    position: absolute;
+    float: left;
+    top: 250px;
+  }
+
+  #event-time {
+    position: absolute;
+    float: left;
+    top: 250px;
+    left: 250px;
+  }
+
+input[type="date"] {
+    background-color: inherit;
+    color: white;
+    font-family: inherit;
+    width: 30%;
+    margin-bottom: 15px;
+    border: 0px;
+}
+
+
+input[type="time"] {
+    background-color: inherit;
+    color: white;
+    font-family: inherit;
+    width: -30%;
+    margin-bottom: 15px;
+    border: 0px;
+}
+
+#event-location {
+    margin-top: 35px;
+    margin-bottom: -15px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust the gap as per your preference */
+}
+
+
+textarea {
+  background-color: #1c1f23;
+  color: white;
+  border: 2px solid #4D5562;
+  border-radius: 5px;
+  height: 65px;
+  font-size: 16px;
+  width: 810px;
+  min-width: 300px;
+  font-family: inherit;
+  max-width: 1250px;
+}
+
+input[type="submit"] {
+   padding: 13px;
+   background-color: inherit;
+   color: inherit;
+   border: 1.2px solid #4D5562;
+   border-radius: 10px;
+   margin-top: 15px;
+}
+
+select {
+  padding: 15px;
+  background-color: inherit;
+  color: inherit;
+  border: 2px solid #4D5562;
+  border-radius: 10px;
+  width: 810px;
+}

@@ -1,0 +1,226 @@
+body {
+  background-color: #1c1f23;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.topnav {
+  background-color: #1c1f23;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav a:hover {
+  background-color: #6466E9;
+  color: black;
+  font-weight: 900;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav a.active {
+  font-weight: bolder;
+  /* background-color: #6466E9; */
+  color: white;
+  text-align: center;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav :active {
+  background-color: #6466E9;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.acccount-details-header {
+  /* color: #6466E9; */
+  margin-top: 50px;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.security-header {
+  padding-top: 20px;
+}
+
+.two-factor-create {
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/* input[name="two-factor-code"]  {
+  background-color: #1c1f238b;
+  border-color: #42464a8b;
+  border: 2px;
+} */
+
+input[type="text"] {
+  padding: 12.12px 12.12px 12.12px 12.12px;
+  border-radius: 8px;
+  background-color: #1c1f23;
+  color: white;
+  border-color: #6466E9;
+}
+
+input[type="email"] {
+  padding: 12.12px 12.12px 12.12px 12.12px;
+  border-radius: 8px;
+  background-color: #1c1f23;
+  color: white;
+  border-color: #6466E9;
+}
+
+input[type="password"] {
+  padding: 12.12px 12.12px 12.12px 12.12px;
+  border-radius: 8px;
+  background-color: #1c1f23;
+  color: white;
+  border-color: #6466E9;
+}
+
+.save {
+  background-color: #6466E9;
+  color: white;
+  padding: 15px 13.25px 13.25px 13.25px;
+  border-radius: 10px;
+}
+
+.submit {
+  background-color: #6466E9;
+  color: white;
+  border-radius: 10px;
+}
+
+.contact-container {
+  margin-bottom: 50px;
+}
+
+.profile-settings-renav {
+  margin-top: 50px;
+  text-align: center;
+  padding: 15px;
+  background-color: #6466E9;
+  border-radius: 8px;
+  width: 100%;
+}
+
+select {
+  background-color: #1c1f23;
+  border: 1px solid;
+  border-color: #6466E9;
+  color: white;
+}
+
+
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+overflow: hidden;
+/* border: 2px solid #6466E9; */
+border-radius: 10px;
+color: white;
+background-color: #1c1f23;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+color: white;
+font-size: 21px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+background-color: #1c1f23;
+color: #6466E9;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+color: #6466E9;
+font-weight: 200;
+text-decoration: underline;
+}
+
+/* Style the tab content */
+.tabcontent {
+display: none;
+padding: 6px 12px;
+border-top: none;
+color: white;
+}
+
+
+a {
+color: #6466E9;
+font-weight: bold;
+}
+
+.lnk {
+margin-top: 25px;
+margin-bottom: 25px;
+}
+
+#created-courses {
+  text-align: left;
+  border: 2px solid #6466E9;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+select {
+padding: 13px 13px 13px 13px;
+border: 1px solid #6466E9;
+border-radius: 10px;
+margin-bottom: 14px;
+}
+
+
+#courses-container {
+  min-width: 60px;
+  min-height: 60px;
+  padding: 10px;
+}
+
+#no-courses {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #1c1f23;
+  border: 2px solid #6466E9;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 15px 15px 15px;
+}
+
+.course-header {
+  text-align: left;
+  align-items: left;
+}

@@ -1,0 +1,290 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin-left: 144px;
+    margin-right: 44px;
+  }
+
+  .topnav {
+  background-color: #1c1f23;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav a:hover {
+  background-color: #6466E9;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  align-items: center;
+}
+
+.topnav a.active {
+  font-weight: bolder;
+  /* background-color: #6466E9; */
+  color: white;
+  text-align: center;
+  text-align: center;
+  align-items: center;
+}
+
+
+  .link {
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bolder;
+  }
+
+  a {
+    color: #6466E9;
+    font-weight: bold;
+  }
+  
+  a :hover {
+    color: #5d5fce98;
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+
+  .header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  /* .create-article {
+    border: 1px solid #19376D;
+    border-radius: 5px;
+  } */
+
+  .post-list-header {
+  color: #6466E9;
+  text-align: left;
+  margin-left: 110px;
+  }
+
+  .post-list {
+  margin-top: 20px;
+  padding: 13px;
+  /* color: #6466E9; */
+  border-radius: 10px;
+  margin-left: 110px;
+  margin-right: 110px;
+  inline-size: auto;
+  overflow-wrap: break-word;
+  text-align: left;
+  align-items: left;
+  cursor: pointer;
+  font-weight: lighter;
+  font-size: 14px;
+  width: 100%; /* Replace with a valid width value */
+  word-wrap: break-word;
+  /* Remove or adjust the negative margin values if they are not necessary for your layout */
+  margin-top: 0;
+  margin-bottom: 0; 
+  }
+
+
+  input[type="submit"] {
+    background-color: #1c1f23;
+    font-weight: bolder;
+    font-size: 17px;
+    color: white;
+    padding: 17px;
+    border: 2px solid #6466E9;
+    border-radius: 5px;
+    margin-bottom: 24.5px;
+  }
+
+
+  #credits {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1c1f23;
+    border-radius: 5px;
+    color: white;
+    width: 76%;
+    height: 40px;
+    background-color: #1c1f23;
+    border-color: #6466E9;
+    display: none;
+  }
+
+  .credits {
+    font-size: 19px;
+    text-align: center;
+  }
+
+  input::placeholder {
+    color: #6466E9;
+}
+
+#article-body::placeholder {
+  color: #6466E9;
+}
+
+
+  #show-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    background-color: #6466E9;
+    color: whitesmoke;
+  
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #6466E9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .container {
+    display: none;
+  }
+
+
+  ::selection {
+  color: white;
+  background: #4c4eb5fd;
+  }
+
+  input[type="checkmark"] {
+    background-color: #6466E9;
+  }
+
+
+  .toggler :hover {
+    font-weight: bolder;
+    color: #6466E9;
+    box-shadow: 5px 5px 5px 5px solid gray;
+  }
+
+  .addons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+
+  .finished {
+    text-align: center;
+    margin-top: 20px;
+  
+  }
+  
+  .finished img {
+    height: 110px;
+    width: auto;
+    margin-top: 20px;
+  }
+
+  .assign-tag {
+    display: none;
+}
+
+select {
+  background-color: #1c1f23;
+  border: 1px solid #6466E9;
+  border-radius: 5%;
+  padding: 13px 13px 13px 13px;
+  color: white;
+}
+
+
+h4 {
+  color: #6466E9;
+  font-weight: bold;
+}
+
+.article-body {
+  cursor: pointer;
+    font-weight: lighter;
+    font-size: 14px;
+    width: 100%; /* Replace with a valid width value */
+    word-wrap: break-word;
+    /* Remove or adjust the negative margin values if they are not necessary for your layout */
+    margin-top: 0;
+    margin-bottom: 0;  
+}
+
+h3 {
+  font-size: inherit; /* Ensure initial font size is applied */
+  transition: font-size 0.3s ease; /* Optional: Add a smooth transition effect */
+}
+
+#details {
+  margin-top: 20x;
+  color: #6466E9;
+  text-decoration: none;
+}
+
+#article-head {
+  text-align: left;
+  align-items: left;
+  margin-left: 124px;
+  margin-bottom: 15px;
+}
+
+
+#article-title {
+  font-size: 24px;
+  color: #6466E9;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+#article-body {
+  margin-bottom: 35px;
+  word-wrap: break-word;
+  margin-right: 2%;
+}
+
+
+#author-name {
+  color: #6466E9;
+  font-weight: lighter;
+}
+
+#article-tag {
+  color: #6466E9;
+  font-weight: lighter;
+}
+
+#text {
+  display: inline-block;
+}
+
+#author-text {
+  padding-right: 10px;
+}
+
+#tag-text {
+  padding-left: 85px;
+}
+
+#article-tags {
+  padding-left: 33px;
+}
+
