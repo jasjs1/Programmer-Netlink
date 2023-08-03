@@ -119,6 +119,15 @@ a {
   background-color: #1c1f23;
 }
 
+#goToReleaseOnGitHub {
+  padding: 13px;
+  margin-top: 15px;
+  background-color: #6466E9;
+  border-radius: 30px;
+  color: white;
+  border: 0;
+}
+
   </style>
 </head>
 <body>
@@ -155,10 +164,10 @@ a {
           releasesHTML += `
             <div class="release">
               <h1 style="font-size: 1.25rem; font-weight: 700;">${release.name} <span class="${index === 0 ? 'latest' : 'pre-release'}">${index === 0 ? 'Latest Release' : 'Pre-release'}</span></h1>
-              <div class="release-button">
-                <button onclick="window.open('${release.html_url}', '_blank')">Go to Release</button>
-              </div>
               <div>${release.body}</div>
+              <div class="release-button">
+                <button id="goToReleaseOnGitHub" onclick="window.open('${release.html_url}', '_blank')">Go to Release</button>
+              </div>
             </div>
           `;
         });
