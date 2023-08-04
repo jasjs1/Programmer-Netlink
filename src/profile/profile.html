@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+	<link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Programer Netlink - Profile</title>
+</head>
+<body>
+
+	<script>
+		function uploadImage(isCoverImage) {
+		  const fileInput = document.getElementById('image-upload');
+		  fileInput.accept = 'image/jpeg, image/png, image/svg+xml';
+	  
+		  fileInput.addEventListener('change', (event) => {
+			const file = event.target.files[0];
+			const reader = new FileReader();
+	  
+			reader.onload = (e) => {
+			  const uploadedImage = isCoverImage ? document.getElementById('uploaded-cover-image') : document.getElementById('uploaded-image');
+			  uploadedImage.style.backgroundImage = `url(${e.target.result})`; // Set the uploaded image as background
+			  uploadedImage.style.display = 'block';
+	  
+			  // Save image data to localStorage
+			  const key = isCoverImage ? 'profileCoverImage' : 'profileImage';
+			  localStorage.setItem(key, e.target.result);
+	  
+			  // Reload the page
+			  location.reload();
+			}
+	  
+			reader.readAsDataURL(file);
+		  });
+	  
+		  fileInput.click();
+		}
+	  
+		window.addEventListener('load', () => {
+		  const uploadedImage = document.getElementById('uploaded-image');
+		  const uploadedCoverImage = document.getElementById('uploaded-cover-image');
+		  const defaultProfileImage = '/profile/img/default-user-profile.svg';
+		  const defaultCoverImage = '/profile/img/default-cover-image.svg';
+	  
+		  uploadedImage.style.backgroundImage = `url(${localStorage.getItem('profileImage') || defaultProfileImage})`;
+		  uploadedImage.style.display = 'block';
+	  
+		  uploadedCoverImage.style.backgroundImage = `url(${localStorage.getItem('profileCoverImage') || defaultCoverImage})`;
+		  uploadedCoverImage.style.display = 'block';
+		});
+	  </script>
+	  
+	  <div class="main-content">
+		<div class="profile-icon-selector-button">
+		  <input type="file" id="image-upload" accept="image/jpeg, image/png, image/heic, image/svg+xml" style="display:none;">
+		  <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
+		  <img id="uploaded-cover-image" src="#"  style="display:none;">
+		</div>
+	  </div>
+	  
+	  <!-- HTML for settings gear -->
+	  <div class="settings" onclick="toggleSettingsContainer('settings-modal')">
+		<img src="/assets/svg/profile-edit.svg" alt="Settings Gear Image" width="auto" height="32" class="person-edit-img-button" style="color: #6466E9;">
+	  </div>
+	  
+	  
+	  
+	  <!-- HTML for settings container -->
+	  <div id="settings-modal" class="modal-overlay" style="display: none;">
+		<div class="modal-container">
+			<h2 id="x" onclick="closeSettingsModal()">
+				X
+				<script>
+					function closeSettingsModal() {
+						location.reload();
+					}
+				</script>
+			</h2>
+			<div class="settings-head">
+				<h2>Profile Quick Settings</h2>
+			</div>
+
+			<button class="selector-button" onclick="uploadImage()">Update Profile Image</button>
+			<button class="selector-button" onclick="uploadCoverImage()">Upload Cover Image</button>
+
+			<div class="container">
+				<h3>Add a Skill:</h3>
+				<form id="skills-form">
+		
+			  <label for="new-skill">Skill Name:</label>
+			  <input type="text" id="new-skill" name="new-skill" placeholder="name of the skill" minlength="2" max="20">
+		
+			  <label for="skill-type">Skill Type:</label>
+			  <input type="text" id="skill-type" name="new-skill" placeholder="type of the skill that you have" minlength="2" max="15">
+		
+			  <label for="skill-description">Skill Description:</label>
+			  <input type="text" id="skill-description" name="skill-description" placeholder="short breif description" minlength="5" maxlength="25">
+		
+			  <button type="submit">Add Skill</button>
+				</form>
+			</div>
+
+			<div class="redirector">
+				<a href="http://127.0.0.1:5500/profile/settings/profile-settings.html" target="_blank">Account Settings</a>
+			</div>
+	
+		</div>
+	  </div>
+	  
+	  <script>
+		function toggleSettingsContainer(modalId) {
+		  var container = document.getElementById(modalId);
+		  if (container.style.display === "none") {
+			container.style.display = "block";
+		  } else {
+			container.style.display = "none";
+		  }
+		}
+	  </script>
+	  
+  
+  
+
+  <div class="info">
+	<h2 style="color: #6466E9; font-size: 24px; font-weight: bolder;"><span id="signup-name"></span></h2 style>
+	<div class="username-container">
+	  <h1><span id="user-username"></span></h1>
+	  <h2><span id="tag">· </span></h2>
+	</div>
+	<h3 id="description-text"></h3>
+  </div>
+  
+				
+				<script>
+				  // Load user name and tag from local storage
+				  const savedName = localStorage.getItem('signup-name') || '';
+				  const savedUserName = localStorage.getItem('username') || '';
+				  const savedTag = localStorage.getItem('tag') || '';
+			  
+				  // Update the user name and tag elements with the saved values
+				  const nameElement = document.getElementById('signup-name');
+				  nameElement.textContent = savedName;
+			  
+				  const userNameElement = document.getElementById('user-username');
+				  userNameElement.textContent = `@${savedUserName}.${savedTag}.pr  · `; // username formatting
+			  
+				  const tagElement = document.getElementById('tag');
+				  tagElement.textContent = ` #${savedTag}`;
+
+				  if (storedUsername) {
+					usernameElem.textContent = `@${storedUsername} `;
+				  } else {
+					// usernameElem.textContent = 'No username found in local storage';
+				  }
+				</script>
+			  </div>
+	
+
+	  </div>
+
+  <!-- <div class="user-post-header">
+    <h2>snpits <span id="user-name"></span></h2>
+    <p>Snippits are like 'posts'.</p>
+  </div> -->
+
+
+<div id="buttons-1">
+	<button id="create-description-btn">Edit Profile</button>
+	<button id="visit-gig-profile-btn" onclick="goToGigProfile()">Gig Profile</button>
+	<script>
+		function goToGigProfile() {
+  location.href = "http://127.0.0.1:5500/gigs/profile/gig-profile.html";
+}
+	</script>
+  </div>
+  
+  <div id="description-modal" style="display: none">
+	<label for="new-description">Updated Bio:</label>
+	<input type="text" id="new-description">
+	<button id="save-description-btn">Update Bio</button>
+	<button id="cancel-description-btn">Close</button>
+  </div>
+  
+  <script>
+const descriptionText = document.getElementById("	");
+const createDescriptionBtn = document.getElementById("create-description-btn");
+const descriptionModal = document.getElementById("description-modal");
+const saveDescriptionBtn = document.getElementById("save-description-btn");
+const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
+const maxChars = 150;
+
+// Load description from local storage
+const description = localStorage.getItem("description");
+if (description) {
+descriptionText.textContent = description;
+}
+
+// Open description modal
+createDescriptionBtn.addEventListener("click", () => {
+descriptionModal.style.display = "block";
+document.getElementById("new-description").value = description || "";
+});
+
+// Save description
+saveDescriptionBtn.addEventListener("click", () => {
+const newDescription = document.getElementById("new-description").value;
+const charCount = newDescription.length;
+
+if (charCount > 150) {
+alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
+} else {
+localStorage.setItem("description", newDescription);
+descriptionText.textContent = newDescription;
+descriptionModal.style.display = "none";
+}
+});
+
+// Cancel editing description
+cancelDescriptionBtn.addEventListener("click", () => {
+descriptionModal.style.display = "none";
+});
+
+// Edit description
+descriptionText.addEventListener("click", () => {
+descriptionModal.style.display = "block";
+document.getElementById("new-description").value = descriptionText.textContent || "";
+});
+
+// Add new line when Enter key is pressed
+descriptionText.addEventListener("keydown", (event) => {
+if (event.key === "Enter") {
+event.preventDefault();
+let currentText = descriptionText.value;
+const cursorPosition = descriptionText.selectionStart;
+currentText = currentText.substring(0, cursorPosition) + "\n" + currentText.substring(cursorPosition);
+descriptionText.value = currentText;
+}
+});
+
+
+  </script>
+</div>
+
+
+
+<div class="tab">
+	<button class="tablinks" onclick="openCity(event, 'Experience')">Experience</button>
+	<button class="tablinks" onclick="openCity(event, 'Snippets')">Snippets</button>
+  </div>
+
+  <div id="Snippets" class="tabcontent">
+	<script>
+		snippetsHash()
+	</script>
+	<form></form>
+	<div id="user-created-snippets" class="user-created-snippets"></div>
+  
+	<script>
+	  const form = document.querySelector('form');
+	  const postsContainer = document.getElementById('user-created-snippets');
+  
+	  // Check if name exists in local storage
+	  let name = localStorage.getItem('name');
+	  if (!name) {
+		// If not, prompt the user for their name and store it in local storage
+		name = prompt('Please enter your name:');
+		localStorage.setItem('name', name);
+	  }
+  
+	  // Update the page title to include the user's name
+	  document.title = `${savedName}'s Profile - Programmer Netlink`;
+  
+	  // Load existing posts from local storage
+	  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+  
+	  // Render existing posts
+	  if (savedPosts.length) {
+		for (let i = savedPosts.length - 1; i >= 0; i--) {
+		  const post = savedPosts[i];
+  
+		  // Create a new post element
+		  const postElement = document.createElement('div');
+		  postElement.classList.add('post');
+		  const author = localStorage.getItem('signup-name');
+		  postElement.innerHTML = `
+		  <h2 style="font-weight: 600; color: white;">${post.title}</h2>
+			<h4 style="color: #6466E9;">${post.tags}</h4>
+			<div class="interact">
+			  <button id="bookmark-button" class="bookmark-button" type="button">Bookmark</button>
+			</div>
+		  `;
+  
+		  // Add the new post to the top of the list
+		  postsContainer.prepend(postElement);
+  
+		  // Attach click event listener to bookmark button
+		  const bookmarkButton = postElement.querySelector('.bookmark-button');
+		  bookmarkButton.addEventListener('click', function() {
+			// Retrieve existing bookmarks from localStorage or initialize an empty array
+			const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+  
+			// Check if the post is already bookmarked
+			const bookmarkIndex = bookmarks.findIndex(bookmark => bookmark.title === post.title);
+			if (bookmarkIndex !== -1) {
+			  // Post is already bookmarked, so remove it
+			  bookmarks.splice(bookmarkIndex, 1);
+			  console.log('Removed ' + post.title + ' from post bookmarks.');
+			} else {
+			  // Post is not bookmarked, so add it
+			  bookmarks.push(post);
+			  console.log('Added ' + post.title + ' to post bookmarks.');
+			}
+  
+			// Save the updated bookmarks array to localStorage
+			localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+		  });
+		}
+	  }
+
+const noPostsMessage = document.getElementById('no-posts-message');
+
+
+// Render existing posts
+let numPostsShown = 0;
+const maxPostsToShow = 5;
+
+function renderPosts() {
+  const endIndex = Math.min(numPostsShown + maxPostsToShow, savedPosts.length);
+
+  if (endIndex === 0) {
+	var text = 'There are no posts created by ' + savedName;
+
+	element.innerHTML = text
+    noPostsMessage.style.display = 'block';
+  } else {
+    // Hide the no posts message
+    noPostsMessage.style.display = 'none';
+
+    for (let i = numPostsShown; i < endIndex; i++) {
+      const post = savedPosts[i];
+
+      // Create a new post element
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+      // Render the content of the post element
+      // ...
+
+      // Add the new post to the container
+      postsContainer.appendChild(postElement);
+
+      numPostsShown++;
+    }
+  }
+
+  // Hide the "Load More" button if all posts have been shown
+  if (numPostsShown >= savedPosts.length) {
+    loadMoreButton.style.display = 'none';
+  }
+}
+
+
+renderPosts();
+
+	</script>
+
+<div id="end-message">
+	<script>
+      // JavaScript code to display savedName at the end
+      document.addEventListener("DOMContentLoaded", function() {
+
+        var endMessage = document.getElementById("end-message");
+        endMessage.innerHTML +=
+          "<h3>You have reached the end of the Snippets created by " +
+          savedName + '.'
+          "</h3>";
+      });
+	</script>
+</div>
+
+</div>
+  </div>
+
+
+  <div id="Experience" class="tabcontent" onclick="experienceHash()"></div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+	var experienceDiv = document.getElementById('Experience');
+	experienceDiv.addEventListener('click', experienceHash);
+  
+	function experienceHash() {
+	  console.log('experience hash function called');
+  
+	  var articlesHashContainer = document.getElementById('articlesHashContainer');
+	  if (articlesHashContainer) {
+		articlesHashContainer.style.display = 'block';
+	  }
+  
+	  var savedName = 'example'; // Replace with the actual value of savedName variable
+  
+	  if (savedName) {
+		window.location.hash = savedName + '/experience';
+	  } else {
+		console.error('savedName is undefined or empty.');
+	  }
+	}
+  });
+  </script>
+  
+
+	  <!-- <div id="user-experiences" class="user-experiences"></div> -->
+
+	  <button id="show-container">+ ADD SKILL</button>
+
+
+	  <div id="container" class="container" style="display: none;">
+		<h3 class="skill-header">Add a Skill:</h3>
+	  
+		<form id="skills-form">
+			<label for="new-skill">Skill Name:</label>
+			<input type="text" id="new-skill" name="new-skill" placeholder="name of the skill" minlength="2" max="20">
+	  
+			<label for="skill-type">Skill Type:</label>
+			<input type="text" id="skill-type" name="skill-type" placeholder="type of the skill that you have" minlength="2" max="15">
+	  
+			<label for="skill-description">Skill Description:</label>
+			<input type="text" id="skill-description" name="skill-description" placeholder="short brief description" minlength="5" maxlength="25">
+	  
+			<button type="submit">Add Skill to Profile</button>
+		</form>
+	</div>
+	
+	<script>
+		// Show container when user clicks on it
+		document.getElementById("container").addEventListener("click", function() {
+			document.getElementById("container").style.display = "flex";
+		});
+	
+		// Hide container when user presses "Escape" key
+		document.addEventListener("keydown", function(event) {
+			if (event.key === "Escape") {
+				document.getElementById("container").style.display = "none";
+			}
+		});
+	</script>
+	
+	<div class="skills-header">
+		<h2>Skills:</h2>
+	
+		<ul id="skills-list"></ul>
+	</div>
+	
+	<script>
+		const skillsForm = document.querySelector('#skills-form');
+		const skillsList = document.querySelector('#skills-list');
+		let skillsArray = JSON.parse(localStorage.getItem('skills')) || [];
+	
+		// Function to render skills 
+		function renderSkills() {
+			skillsList.innerHTML = '';
+			for (let i = 0; i < skillsArray.length; i++) {
+				const skillItem = document.createElement('li');
+				const skillName = document.createElement('span');
+				skillName.textContent = skillsArray[i].name;
+				const skillType = document.createElement('span');
+				skillType.textContent = skillsArray[i].type;
+				const skillDescription = document.createElement('span');
+				skillDescription.textContent = skillsArray[i].description;
+	
+				// add comma and space between spans
+				const comma = document.createTextNode(', ');
+				skillItem.appendChild(skillName);
+				skillItem.appendChild(comma);
+				skillItem.appendChild(skillType);
+				skillItem.appendChild(comma.cloneNode());
+				skillItem.appendChild(skillDescription);
+	
+				skillsList.appendChild(skillItem);
+			}
+		}
+	
+	
+		// Function to handle form submission
+		function handleFormSubmit(event) {
+			event.preventDefault();
+			const skillInput = document.querySelector('#new-skill');
+			const skillValue = skillInput.value.trim();
+			const skillTypeInput = document.querySelector('#skill-type');
+			const skillTypeValue = skillTypeInput.value.trim();
+			const skillDescriptionInput = document.querySelector('#skill-description');
+			const skillDescriptionValue = skillDescriptionInput.value.trim();
+			if (skillValue && skillTypeValue && skillDescriptionValue) {
+				const skillObj = { name: skillValue, type: skillTypeValue, description: skillDescriptionValue };
+				skillsArray.push(skillObj);
+				localStorage.setItem('skills', JSON.stringify(skillsArray));
+				skillInput.value = '';
+				skillTypeInput.value = '';
+				skillDescriptionInput.value = '';
+				renderSkills();
+			}
+		}
+	
+		// Attach event listener
+		skillsForm.addEventListener('submit', handleFormSubmit);
+	
+		// Render initial skills
+		renderSkills();
+	</script>
+	
+
+	<button id="show-add-past-job" onclick="showModalOverlay()">+ ADD PAST JOB</button>
+
+	<style>
+	  /* Style for modal overlay */
+	  .modal-overlay {
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(10px);
+		display: none; /* Hidden by default */
+		justify-content: center;
+		align-items: center;
+	  }
+	  
+	  .modal-container {
+		position: relative;
+		background-color: #1c1f23;
+		
+		color: white;
+		padding: 60px;
+		border-radius: 10px; 
+		max-width: 500px;
+	  }
+	  
+	  .modal-container input,
+	  .modal-container textarea {
+		width: 100%;
+		box-sizing: border-box;
+		/* add any other styling here or just delete it all */
+	  }
+	</style>
+	
+	<!-- HTML for modal container -->
+	<div class="modal-overlay" id="modalOverlay">
+	  <div class="modal-container">
+		<div class="add-job-container">
+
+
+			<h1 id="x" onclick="closeSettingsModal()">X</h1>
+
+			<h1 style="font-weight: lighter; color: #6466E9; font-size: 1.5rem;">Add a job</h1>
+
+
+			<h3 style="font-size: 0.875rem; font-weight: lighter;">Add a job that you are currently working at or have worked at, so other developers can see your showcase of experience.</h3>
+
+
+			<form>
+
+				<label for="company-name">Company Name</label>
+				<input type="text" id="company-name" placeholder="What was the companies name?" required>
+
+
+
+				<label for="employment-type">Employment Type</label>
+				<select id="employment-type" required>
+					<option value="Full-time" selected>Full-time</option>
+					<option value="Part-time">Part-time</option>
+					<option value="Internship">Internship</option>
+					<option value="Self-employed">Self-employed</option>
+					<option value="Freelance">Freelance</option>
+					<option vlaue="Seasonal">Seasonal</option>
+				</select>
+				
+				<label for="role">Role</label>
+				<input type="text" id="role" placeholder="What was the role?" required>
+
+				<label for="start-date">Start Date</label>
+				<input type="date" id="start-date" required min="1955" max="2077">
+
+				<label for="end-date">End Date</label>
+				<input type="date" id="end-date">
+				<label for="currently-working-here">Still working here?</label>
+				<input type="checkbox" id="currently-working-here">
+
+				<label for="location">Location</label>
+				<p style="font-weight: 200;">This is where your office location was/is located.</p>
+				<select id="location" name="location" class="form-control" required>
+					<option value="" style="color: gray" disabled>Select the country that your office was located in.</option>
+					<option value="Afghanistan">Afghanistan</option>
+					<option value="Åland Islands">Åland Islands</option>
+					<option value="Albania">Albania</option>
+					<option value="Algeria">Algeria</option>
+					<option value="American Samoa">American Samoa</option>
+					<option value="Andorra">Andorra</option>
+					<option value="Angola">Angola</option>
+					<option value="Anguilla">Anguilla</option>
+					<option value="Antarctica">Antarctica</option>
+					<option value="Antigua and Barbuda">Antigua and Barbuda</option>
+					<option value="Argentina">Argentina</option>
+					<option value="Armenia">Armenia</option>
+					<option value="Aruba">Aruba</option>
+					<option value="Australia">Australia</option>
+					<option value="Austria">Austria</option>
+					<option value="Azerbaijan">Azerbaijan</option>
+					<option value="Bahamas">Bahamas</option>
+					<option value="Bahrain">Bahrain</option>
+					<option value="Bangladesh">Bangladesh</option>
+					<option value="Barbados">Barbados</option>
+					<option value="Belarus">Belarus</option>
+					<option value="Belgium">Belgium</option>
+					<option value="Belize">Belize</option>	
+					<option value="Benin">Benin</option>
+					<option value="Bermuda">Bermuda</option>
+					<option value="Bhutan">Bhutan</option>
+					<option value="Bolivia">Bolivia</option>
+					<option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+					<option value="Botswana">Botswana</option>
+					<option value="Bouvet Island">Bouvet Island</option>
+					<option value="Brazil">Brazil</option>
+					<option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+					<option value="Brunei Darussalam">Brunei Darussalam</option>
+					<option value="Bulgaria">Bulgaria</option>
+					<option value="Burkina Faso">Burkina Faso</option>
+					<option value="Burundi">Burundi</option>
+					<option value="Cambodia">Cambodia</option>
+					<option value="Cameroon">Cameroon</option>
+					<option value="Canada">Canada</option>
+					<option value="Cape Verde">Cape Verde</option>
+					<option value="Cayman Islands">Cayman Islands</option>
+					<option value="Central African Republic">Central African Republic</option>
+					<option value="Chad">Chad</option>
+					<option value="Chile">Chile</option>
+					<option value="China">China</option>
+					<option value="Christmas Island">Christmas Island</option>
+					<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+					<option value="Colombia">Colombia</option>
+					<option value="Comoros">Comoros</option>
+					<option value="Congo">Congo</option>
+					<option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
+					<option value="Cook Islands">Cook Islands</option>
+					<option value="Costa Rica">Costa Rica</option>
+					<option value="Cote D'ivoire">Cote D'ivoire</option>
+					<option value="Croatia">Croatia</option>
+					<option value="Cuba">Cuba</option>
+					<option value="Cyprus">Cyprus</option>
+					<option value="Czech Republic">Czech Republic</option>
+					<option value="Denmark">Denmark</option>
+					<option value="Djibouti">Djibouti</option>
+					<option value="Dominica">Dominica</option>
+					<option value="Dominican Republic">Dominican Republic</option>
+					<option value="Ecuador">Ecuador</option>
+					<option value="Egypt">Egypt</option>
+					<option value="El Salvador">El Salvador</option>
+					<option value="Equatorial Guinea">Equatorial Guinea</option>
+					<option value="Eritrea">Eritrea</option>
+					<option value="Estonia">Estonia</option>
+					<option value="Ethiopia">Ethiopia</option>
+					<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+					<option value="Faroe Islands">Faroe Islands</option>
+					<option value="Fiji">Fiji</option>
+					<option value="Finland">Finland</option>
+					<option value="France">France</option>
+					<option value="French Guiana">French Guiana</option>
+					<option value="French Polynesia">French Polynesia</option>
+					<option value="French Southern Territories">French Southern Territories</option>
+					<option value="Gabon">Gabon</option>
+					<option value="Gambia">Gambia</option>
+					<option value="Georgia">Georgia</option>
+					<option value="Germany">Germany</option>
+					<option value="Ghana">Ghana</option>
+					<option value="Gibraltar">Gibraltar</option>
+					<option value="Greece">Greece</option>
+					<option value="Greenland">Greenland</option>
+					<option value="Grenada">Grenada</option>
+					<option value="Guadeloupe">Guadeloupe</option>
+					<option value="Guam">Guam</option>
+					<option value="Guatemala">Guatemala</option>
+					<option value="Guernsey">Guernsey</option>
+					<option value="Guinea">Guinea</option>
+					<option value="Guinea-bissau">Guinea-bissau</option>
+					<option value="Guyana">Guyana</option>
+					<option value="Haiti">Haiti</option>
+					<option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
+					<option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+					<option value="Honduras">Honduras</option>
+					<option value="Hong Kong">Hong Kong</option>
+					<option value="Hungary">Hungary</option>
+					<option value="Iceland">Iceland</option>
+					<option value="India">India</option>
+					<option value="Indonesia">Indonesia</option>
+					<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+					<option value="Iraq">Iraq</option>
+					<option value="Ireland">Ireland</option>
+					<option value="Isle of Man">Isle of Man</option>
+					<option value="Israel">Israel</option>
+					<option value="Italy">Italy</option>
+					<option value="Jamaica">Jamaica</option>
+					<option value="Japan">Japan</option>
+					<option value="Jersey">Jersey</option>
+					<option value="Jordan">Jordan</option>
+					<option value="Kazakhstan">Kazakhstan</option>
+					<option value="Kenya">Kenya</option>
+					<option value="Kiribati">Kiribati</option>
+					<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+					<option value="Korea, Republic of">Korea, Republic of</option>
+					<option value="Kuwait">Kuwait</option>
+					<option value="Kyrgyzstan">Kyrgyzstan</option>
+					<option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+					<option value="Latvia">Latvia</option>
+					<option value="Lebanon">Lebanon</option>
+					<option value="Lesotho">Lesotho</option>
+					<option value="Liberia">Liberia</option>
+					<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+					<option value="Liechtenstein">Liechtenstein</option>
+					<option value="Lithuania">Lithuania</option>
+					<option value="Luxembourg">Luxembourg</option>
+					<option value="Macao">Macao</option>
+					<option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+					<option value="Madagascar">Madagascar</option>
+					<option value="Malawi">Malawi</option>
+					<option value="Malaysia">Malaysia</option>
+					<option value="Maldives">Maldives</option>
+					<option value="Mali">Mali</option>
+					<option value="Malta">Malta</option>
+					<option value="Marshall Islands">Marshall Islands</option>
+					<option value="Martinique">Martinique</option>
+					<option value="Mauritania">Mauritania</option>
+					<option value="Mauritius">Mauritius</option>
+					<option value="Mayotte">Mayotte</option>
+					<option value="Mexico">Mexico</option>
+					<option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+					<option value="Moldova, Republic of">Moldova, Republic of</option>
+					<option value="Monaco">Monaco</option>
+					<option value="Mongolia">Mongolia</option>
+					<option value="Montenegro">Montenegro</option>
+					<option value="Montserrat">Montserrat</option>
+					<option value="Morocco">Morocco</option>
+					<option value="Mozambique">Mozambique</option>
+					<option value="Myanmar">Myanmar</option>
+					<option value="Namibia">Namibia</option>
+					<option value="Nauru">Nauru</option>
+					<option value="Nepal">Nepal</option>
+					<option value="Netherlands">Netherlands</option>
+					<option value="Netherlands Antilles">Netherlands Antilles</option>
+					<option value="New Caledonia">New Caledonia</option>
+					<option value="New Zealand">New Zealand</option>
+					<option value="Nicaragua">Nicaragua</option>
+					<option value="Niger">Niger</option>
+					<option value="Nigeria">Nigeria</option>
+					<option value="Niue">Niue</option>
+					<option value="Norfolk Island">Norfolk Island</option>
+					<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+					<option value="Norway">Norway</option>
+					<option value="Oman">Oman</option>
+					<option value="Pakistan">Pakistan</option>
+					<option value="Palau">Palau</option>
+					<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+					<option value="Panama">Panama</option>
+					<option value="Papua New Guinea">Papua New Guinea</option>
+					<option value="Paraguay">Paraguay</option>
+					<option value="Peru">Peru</option>
+					<option value="Philippines">Philippines</option>
+					<option value="Pitcairn">Pitcairn</option>
+					<option value="Poland">Poland</option>
+					<option value="Portugal">Portugal</option>
+					<option value="Puerto Rico">Puerto Rico</option>
+					<option value="Qatar">Qatar</option>
+					<option value="Reunion">Reunion</option>
+					<option value="Romania">Romania</option>
+					<option value="Russian Federation">Russian Federation</option>
+					<option value="Rwanda">Rwanda</option>
+					<option value="Saint Helena">Saint Helena</option>
+					<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+					<option value="Saint Lucia">Saint Lucia</option>
+					<option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+					<option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
+					<option value="Samoa">Samoa</option>
+					<option value="San Marino">San Marino</option>
+					<option value="Sao Tome and Principe">Sao Tome and Principe</option>
+					<option value="Saudi Arabia">Saudi Arabia</option>
+					<option value="Senegal">Senegal</option>
+					<option value="Serbia">Serbia</option>
+					<option value="Seychelles">Seychelles</option>
+					<option value="Sierra Leone">Sierra Leone</option>
+					<option value="Singapore">Singapore</option>
+					<option value="Slovakia">Slovakia</option>
+					<option value="Slovenia">Slovenia</option>
+					<option value="Solomon Islands">Solomon Islands</option>
+					<option value="Somalia">Somalia</option>
+					<option value="South Africa">South Africa</option>
+					<option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+					<option value="Spain">Spain</option>
+					<option value="Sri Lanka">Sri Lanka</option>
+					<option value="Sudan">Sudan</option>
+					<option value="Suriname">Suriname</option>
+					<option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+					<option value="Swaziland">Swaziland</option>
+					<option value="Sweden">Sweden</option>
+					<option value="Switzerland">Switzerland</option>
+					<option value="Syrian Arab Republic">Syrian Arab Republic</option>
+					<option value="Taiwan">Taiwan</option>
+					<option value="Tajikistan">Tajikistan</option>
+					<option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+					<option value="Thailand">Thailand</option>
+					<option value="Timor-leste">Timor-leste</option>
+					<option value="Togo">Togo</option>
+					<option value="Tokelau">Tokelau</option>
+					<option value="Tonga">Tonga</option>
+					<option value="Trinidad and Tobago">Trinidad and Tobago</option>
+					<option value="Tunisia">Tunisia</option>
+					<option value="Turkey">Turkey</option>
+					<option value="Turkmenistan">Turkmenistan</option>
+					<option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+					<option value="Tuvalu">Tuvalu</option>
+					<option value="Uganda">Uganda</option>
+					<option value="Ukraine">Ukraine</option>
+					<option value="United Arab Emirates">United Arab Emirates</option>
+					<option value="United Kingdom">United Kingdom</option>
+					<option value="United States">United States</option>
+					<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+					<option value="Uruguay">Uruguay</option>
+					<option value="Uzbekistan">Uzbekistan</option>
+					<option value="Vanuatu">Vanuatu</option>
+					<option value="Venezuela">Venezuela</option>
+					<option value="Viet Nam">Viet Nam</option>
+					<option value="Virgin Islands, British">Virgin Islands, British</option>
+					<option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+					<option value="Wallis and Futuna">Wallis and Futuna</option>
+					<option value="Western Sahara">Western Sahara</option>
+					<option value="Yemen">Yemen</option>
+					<option value="Zambia">Zambia</option>
+					<option value="Zimbabwe">Zimbabwe</option>
+				</select>
+
+				<label for="more-info">More Info</label>
+				<textarea id="more-info" placeholder="Tell people what you did there, how you liked it, the work enviroment, etc" minlength="20" maxlength="425"></textarea>
+
+				<button id="submit" type="submit" id="submit" onclick="submitPastJob()">SHARE</button>
+			</form>
+		</div>
+		</div>
+	  </div>
+
+
+	  <h2 id="repo-header" style="font-size: 20px; font-weight: lighter; color: #6466E9">Jobs:</h3>
+
+		<p id="no-jobs-id">
+<script>
+	var paragraph = document.getElementById("no-jobs-id");
+
+	// paragraph.innerHTML = "This user has not created any jobs, yet.";
+</script>
+		</p>
+	  
+	  <script>
+		// Check if "yourJobs" data exists in localStorage
+	const hasYourJobsData = JSON.parse(localStorage.getItem('yourJobs')) || [];
+	
+	// Show or hide the "no-jobs" div based on data presence
+	const noJobsDiv = document.getElementById('no-jobs');
+	noJobsDiv.style.display = hasYourJobsData.length === 0 ? 'block' : 'none';
+	
+	
+
+
+	</script>
+	
+	  <div id="jobs" class="jobs"></div>
+
+	  <script>
+		// Function to display job data in the jobs container
+		function displayJobs() {
+		  // Select the jobs container element
+		  const jobsContainer = document.getElementById('jobs');
+	  
+		  // Clear the existing content of the jobs container
+		  jobsContainer.innerHTML = '';
+	  
+		  // Retrieve job data from localStorage
+		  const jobsData = JSON.parse(localStorage.getItem('yourJobs')) || [];
+	  
+		  // Generate HTML markup for each job and append it to the jobs container
+		  jobsData.forEach(job => {
+			const jobElement = document.createElement('div');
+			jobElement.classList.add('job');
+			jobElement.innerHTML = `
+			<div class="main-informaiton">
+				<h3 style="color: #6466E9; font-size: 1.5rem">${job.companyName}</h3>
+				<p style="font-size: 1rem">${job.role} · ${job.employmentType} · ${job.location}</p>
+			</div>
+
+			<div class="more-information">
+				<p style="font-size: 1rem">${job.startDate} -  ${job.endDate}</p>
+			</div>
+
+			<div class="extra-information">
+			<p style="font-size: 1rem" margin-bottom="10rem">${job.moreInfo}</p>
+			</div>
+			  
+			`;
+			jobsContainer.appendChild(jobElement);
+		  }); 
+		}
+	  
+		// Call displayJobs() initially to load the existing job data from localStorage
+		displayJobs();
+	  
+		function submitPastJob() {
+		  // Get the input values
+		  const companyName = document.getElementById('company-name').value.trim();
+		  const employmentType = document.getElementById('employment-type').value.trim();
+		  const role = document.getElementById('role').value.trim();
+		  const startDate = document.getElementById('start-date').value;
+		  const endDate = document.getElementById('end-date').value;
+		  const location = document.getElementById('location').value;
+		  const moreInfo = document.getElementById('more-info').value;
+	  
+		  // Create a new job object with the input values
+		  const jobData = {
+			companyName,
+			employmentType,
+			role,
+			startDate,
+			endDate,
+			location,
+			moreInfo,
+		  };
+	  
+		  // Retrieve existing data from localStorage
+		  let existingData = JSON.parse(localStorage.getItem('yourJobs')) || [];
+	  
+		  // Add new job data to the existing data
+		  existingData.unshift(jobData);
+	  
+		  // Save the updated data in localStorage
+		  localStorage.setItem('yourJobs', JSON.stringify(existingData));
+	  
+		  // Clear the input values
+		  document.getElementById('company-name').value = '';
+		  document.getElementById('employment-type').value = '';
+		  document.getElementById('role').value = '';
+		  document.getElementById('start-date').value = '';
+		  document.getElementById('end-date').value = '';
+		  document.getElementById('location').value = '';
+		  document.getElementById('more-info').value = '';
+	  
+		  // Display the job data in the jobs container
+		  displayJobs();
+		}
+
+		function formatDate(dateString) {
+  const date = new Date(dateString);
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${month}/${day}/${year}`;
+}
+	  </script>
+	  
+
+	
+	<script>
+	  function showModalOverlay() {
+		const modalOverlay = document.getElementById("modalOverlay");
+		modalOverlay.style.display = "flex";
+	  }
+
+
+	  function showRepositoryOverlay() {
+		const modalOverlay = document.getElementById("add-repo");
+		modalOverlay.style.display = "flex";
+	  }
+	</script>
+
+<button id="show-add-repo" onclick="showRepositoryOverlay()">+ ADD REPOSITORY</button>
+
+<h2 id="repo-header" style="font-size: 20px; font-weight: lighter; color: #6466E9">Repositories:</h3>
+
+	<div id="add-repo" style="display: none;">
+		<h3 class="text-xl">Repository Name:</h3>
+		<input type="text" id="repo-name" name="repo-name" required>
+		
+		<p>Repository Link</p>
+		<input type="url" id="repo-link" required>
+	
+		<p>Project Type</p>
+		<select id="project-type">
+			<option>Select</option>
+			<option value="Website">Website</option>
+			<option value="Backend">Backend</option>
+			<option value="Side Project">Side Project</option>
+			<option value="Mobile Application">Mobile Application</option>
+			<option value="Desktop Application">Desktop Application</option>
+			<option value="Framework">Framework</option>
+			<option value="Product + Software">Product + Software</option>
+			<option value="SASS">SASS</option>
+			<option value="Payment Software">Payment Software</option>
+		</select>
+		
+		<p>Description</p>
+		<input type="text" id="repo-description" minlength="3" maxlength="100" required>
+	
+		<input type="submit" value="Share Repository" onclick="saveRepository()">
+	</div>
+	
+	<div id="repos" class="repos"></div>
+	
+	<script>
+	function saveRepository() {
+		var repository = {
+			name: document.getElementById('repo-name').value,
+			link: document.getElementById('repo-link').value,
+			type: document.getElementById('project-type').value,
+			description: document.getElementById('repo-description').value
+		};
+	
+		// Get existing repositories from local storage or initialize an empty array
+		var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
+	
+		// Add the new repository to the array
+		repositories.push(repository);
+	
+		// Store the updated repositories array in local storage
+		localStorage.setItem('repositories', JSON.stringify(repositories));
+	
+		console.log('Repository saved successfully!');
+	
+		var form = document.getElementById('add-repo');
+		form.reset();
+	
+		location.reload();
+	}
+	
+	// Function to display repositories in the 'repos' div
+	function displayRepositories() {
+		var repositories = JSON.parse(localStorage.getItem('repositories')) || [];
+	
+		var reposDiv = document.getElementById('repos');
+		reposDiv.innerHTML = ''; // Clear existing content
+	
+		// Loop through each repository and create a corresponding HTML element
+		for (var i = 0; i < repositories.length; i++) {
+			var repository = repositories[i];
+	
+			var repoElement = document.createElement('div');
+			repoElement.className = 'article';
+	
+			repoElement.innerHTML = `
+				<div id="repo-layout" style="margin-top: 10px;">
+					<h2 style="color: #6466E9; font-size: 1.5rem">${repository.name}</h2>
+					<h3>${repository.description}</h3>
+					<h3 style="color: #6466E9;">${repository.type}</h3>
+					<a id="repo-link">${repository.link ? `<a href="${repository.link}">${repository.link}</a>` : ''}</a>
+				</div>
+			`;
+	
+			reposDiv.appendChild(repoElement);
+		}
+	}
+	
+	// Call the displayRepositories function to initially populate the div
+	displayRepositories();
+	
+	// Function to show/hide the repository form
+	function showRepositoryOverlay() {
+		var addRepoDiv = document.getElementById('add-repo');
+	
+		if (addRepoDiv.style.display === 'none') {
+			addRepoDiv.style.display = 'block';
+		} else {
+			addRepoDiv.style.display = 'none';
+		}
+	}
+	</script>
+
+
+<h2 id="repo-header" style="font-size: 20px; font-weight: lighter; color: #6466E9">Projects:</h2>
+	
+
+
+</body>
+<script src="script.js"></script>
+<script src="tabs.js"></script>
+<scirpt src="displayContent.js"></scirpt>
+<script src="hash.js"></script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programmer Netlink - User Articles</title>
+</head>
+<body>
+
+
+    <div class="header">
+        <h1>Programer Netlink</h1>
+        <h3>Articles</h3>
+        <a href="http://127.0.0.1:5500/articles/article.html">Create an Article</a>
+    </div>
+
+    
+    <div id="search-container" class="search">
+        <input type="text" id="search-input" placeholder="Search your Articles">
+      </div>
+
+      <div class="alert">
+        <p><strong>These are articles that were created by</strong></p>
+        <script>
+          // Get the name from localStorage
+          const name = localStorage.getItem("signup-name");
+
+          // Check if the name exists
+          if (name) {
+            // Create a new alert element
+            const alertEl = document.createElement("div");
+            alertEl.classList.add("alert");
+
+            // Create a new heading element and set its text
+            const headingEl = document.createElement("h3");
+            headingEl.textContent = "These are articles that were created by " + name;
+
+            // Append the heading element to the alert element
+            alertEl.appendChild(headingEl);
+
+            // Append the alert element to the page
+            document.body.appendChild(alertEl);
+          }
+
+        </script>
+      </div>
+
+      <div id="posts-container">
+        <!-- Existing posts will be appended here -->
+      </div>
+      <p id="no-posts-message"></p>
+    
+
+      <script>
+  const postsContainer = document.getElementById('posts-container');
+  const noPostsMessage = document.getElementById('no-posts-message');
+  const searchInput = document.getElementById('search-input');
+
+  // Load existing articles from local storage
+  const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+  // Render existing articles
+  if (savedArticles.length > 0) {
+    renderArticles(savedArticles);
+  } else {
+  const noPostsMessage = document.getElementById('no-posts-message');
+  const h2 = document.createElement('h3');
+  h2.textContent = 'You have not created any articles, yet.';
+  noPostsMessage.appendChild(h2);
+
+  const link = document.createElement('a');
+  link.textContent = 'End this by creating an article!';
+  link.href = 'http://127.0.0.1:5500/articles/article.html';
+  noPostsMessage.appendChild(link);
+}
+
+
+  // Search through articles
+  if (searchInput) {
+    searchInput.addEventListener('input', (event) => {
+      const searchTerm = event.target.value.toLowerCase();
+      const filteredArticles = savedArticles.filter(article => {
+        const title = article.title.toLowerCase();
+        const body = article.body.toLowerCase();
+        return title.includes(searchTerm) || body.includes(searchTerm);
+      });
+      renderArticles(filteredArticles);
+    });
+  }
+
+  function createArticleElement(title, body) {
+    const articleElement = document.createElement('div');
+    articleElement.classList.add('article');
+    articleElement.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
+    return articleElement;
+  }
+
+  function renderArticles(articles) {
+    postsContainer.innerHTML = '';
+    if (articles.length > 0) {
+      articles.forEach(article => {
+        const articleElement = createArticleElement(article.title, article.body);
+        postsContainer.appendChild(articleElement);
+      });
+    } else {
+    noPostsMessage.textContent = 'No results found.';
+    const noPostsPhrases = [
+  "Our dino is wandering lost finding this query., sorry!",
+  "Looks like our dino needs a map.",
+  "Dino is kicking bones, he cant find the query.",
+  "Is it just me or I cant find this :(",
+  "Our dino is searching high and low.",
+  "The meteorite just hit the query, oof.",
+  "The dinos are extinct, just like this search query."
+  
+];
+
+noPostsMessage.textContent = noPostsPhrases[Math.floor(Math.random() * noPostsPhrases.length)];
+
+  }
+}
+
+      </script>
+    
+</body>
+<scirpt src="script.js"></scirpt>
+</html>
