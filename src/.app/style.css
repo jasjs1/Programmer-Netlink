@@ -112,19 +112,18 @@ input[type="image"] {
 }
 
 
-input[type="submit"] {
+input[type="image"] {
   position: absolute;
-  top: 455px;
+  top: 442px;
   float: right;
-  right: 345px;
+  right: 385px;
   z-index: 9999;
   background-color: inherit;
   color: white;
   border: 2px solid #6466E9;
-  width: 100px;
-  height: 40px;
+  width: 50px;
+  height: 60px;
   font-size: 20px;
-  border-radius: 10px;
 }
 
 #post-title {
@@ -134,8 +133,7 @@ input[type="submit"] {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   background-color: #1c1f23;
-  border-radius: 5px;
-  border: 0.6px solid #6466E9;
+  border: 1px solid #6466E9;
   color: white;
   font-size: 14.5px;
   height: auto;
