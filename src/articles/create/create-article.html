@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,59 +8,96 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
     <link rel="stylesheet" href="style.css">
-    <title>Courses Home - Programmer Netlink</title>
+    <title>Create Article · Programmer Netlink</title>
 </head>
-<body>
+<body> 
+  <h2 id="head1">Create an Article to Programmer Netlink</h2>
+  <a style="margin-bottom: 15px;" id="head2" href="http://127.0.0.1:5500/src/articles/article.html">View all created Articles</a>
+
+  <div class="container">
+    <form id="article-form">
+      <p>Title<span class="red-asterisk">*</span></p>
+      <br>
+      <input type="text" id="course-title" name="course-title" placeholder="What is the title of the Article" required minlength="3" maxlength="80">
+      <br>
+
+      <p>Description<span class="red-asterisk">*</span></p>
+      <br>
+      <textarea type="text" id="course-description" name="course-description" required minlength="3" maxlength="550" placeholder="What is this Article about?"></textarea>
+      <br>
 
 
-<div id="course-head">
-   <h2>Courses</h2>
-  <a href="http://127.0.0.1:5500/courses/create/create-course.html">Create a Course</a>
-</div>
+     <p>Article Content<span class="red-asterisk">*</span></p>
+     <br>
+     <textarea type="text" id="article-content" name="article-content" required minlength="35" maxlength="9999" placeholder="Write something magical..."></textarea>
 
-  <nav role="navigation" style="display: none;">
-    <div id="menuToggle">
-
-      <input type="checkbox" />
-      
-      <span></span>
-      <span></span>
-      <span></span>
-      
-      <ul id="menu">
-        <h4>Programmer Netlink | Navigation Menu</h4>
-        <li><a class="active" href="http://127.0.0.1:5500/.app/app.html"><u>Snippets (App)</u></a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/articles/article.html">Articles</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/profile/profile.html">Profile</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/podcasts/podcasts.html">Podcasts</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/servers/server-page/server-page.html">Servers</a></li>
-        <li><a class="active" href="http://127.0.0.1:5500/productivity/app/app-selector/selector.html">Productivity Suite</a></li>
-
-        <div class="quick-options">
-          <img src="/.app/img/quick-options/gear.png" onclick="redirectToSettings()" width="35px" height="35px" alt="profile settings">
-          <img src="/.app/img/quick-options/logout.png" onclick="logout()" width="35px" height="35px">
-        </div>
-
-      </ul>
+      <div class="center-container">
+        <input onclick="savedArticle()" type="submit" class="share-snippets" value="SHARE COURSE">
       </div>
-      </nav>
-    
-        <div class="course-list">
-    
-          <div id="courses">
-            
-          </div>
-    
-        </div>
-    
-        <div class="finished">
-          <img src="/assets/svg/checkerdflag.svg" alt="finished img">
-          <h3>Finished! You have finished the courses made by Programmer Netlink</h3>
-    
-        </div>
-      </div>
-      
-    
+
+    </form>
+  </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('article-form');
+    const postsContainer = document.getElementById('container');
+
+    // Function to load articles from local storage and display them
+    function loadArticles() {
+      // Load existing articles from local storage
+      const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+      // Clear the posts container
+      postsContainer.innerHTML = '';
+
+      // Loop through the saved articles and create article elements
+      for (const article of savedArticles) {
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('post');
+        articleElement.innerHTML = `
+          <h2>${article.title}</h2>
+          <p>${article.description}</p>
+          <p>${article.courseContent}</p>
+        `;
+        postsContainer.appendChild(articleElement);
+      }
+    }
+
+    // Add event listener to the form submit button
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Get the input values
+      const title = document.getElementById('course-title').value.trim();
+      const description = document.getElementById('course-description').value.trim();
+      const courseContent = document.getElementById('article-content').value;
+
+      // Create a new article object with title, description, and courseContent properties
+      const article = {
+        title,
+        description,
+        courseContent,
+        articlePublishDate: Date.now()
+      };
+
+      // Load existing articles from local storage
+      const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+      // Add the new article to the beginning of the savedArticles array
+      savedArticles.unshift(article);
+
+      // Save the updated savedArticles array to local storage
+      localStorage.setItem('articles', JSON.stringify(savedArticles));
+
+      // Reset the form
+      form.reset();
+      loadArticles();
+    });
+
+    // Load articles when the page is first loaded
+    loadArticles();
+  </script>
 </body>
-<script src="script.js"></script>
 </html>
