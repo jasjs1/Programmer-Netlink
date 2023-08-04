@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Landing - Programmer Netlink</title>
+</head>
+<body>
+
+  
+
+      <div class="hi">
+        <h1>Welcome to a Programmer's Dream -- A Social Media for Programmers</h1>
+        <p id="why">Share your magic craft, learn with Courses, or just make some Snippets, or even write some Articles.</p>
+      </div>
+
+      <div class="expose">
+        <form>
+          <!-- <img src="/account/signup-or-login/login/moreDetails/img/dev.svg"> -->
+
+          <a href="#signup" ><h2>Signup  </h2></a>
+
+          <!-- <p> OR </p> -->
+    
+          <a href="#login"><h2> Login</h2></a>
+        </form>
+      </div>
+  
+      
+      <div class="myDiv" id="signup" style="display:none">
+        <form>
+
+          <h3>Welcome! Glad your here!</h3>
+
+          <!-- <p>Name</p>
+          <input type="text" name="signup-name" placeholder="your name" required> -->
+                 
+            <h3>Email:</h3>
+            <input type="email" name="signup-email" placeholder="your email" required>
+  
+              
+          <h3>Password:</h3>
+          <input type="password" name="signup-password" placeholder="your password" min="8" max="80" required>
+    
+          <!-- <p>Tag</p>
+          <p>What's your primary programming language?</p>
+          <select id="tag" required>
+            <option> </option>
+            <option>ada</option>
+            <option>assembly</option>
+            <option>awk</option>
+            <option>bash</option>
+            <option>c</option>
+            <option>c#</option>
+            <option>c++</option>
+            <option>clojure</option>
+            <option>cobol</option>
+            <option>coffeescript</option>
+            <option>commonlisp</option>
+            <option>crystal</option>
+            <option>css</option>
+            <option>dart</option>
+            <option>elixir</option>
+            <option>elm</option>
+            <option>erlang</option>
+            <option>f#</option>
+            <option>fortran</option>
+            <option>go</option>
+            <option>groovy</option>
+            <option>haskell</option>
+            <option>html</option>
+            <option>java</option>
+            <option>javascript</option>
+            <option>julia</option>
+            <option>kotlin</option>
+            <option>lua</option>
+            <option>matlab</option>
+            <option>objectivec</option>
+            <option>ocaml</option>
+            <option>pascal</option>
+            <option>perl</option>
+            <option>php</option>
+            <option>python</option>
+            <option>r</option>
+            <option>react</option>
+            <option>reactnative</option>
+            <option>ruby</option>
+            <option>rust</option>
+            <option>scala</option>
+            <option>scheme</option>
+            <option>sql</option>
+            <option>swift</option>
+            <option>typescript</option>
+    
+    
+          </select> -->
+        
+          <input type="submit" onclick="saveEmailAddress()" value="Create Account"/>
+          <script>
+        function saveEmailAddress() {
+            var email = document.querySelector('#signup input[name="signup-email"]').value;
+            localStorage.setItem('email', email);
+            console.log('Saving email address...');
+            console.log('Saved email address');
+            location.href = 'http://127.0.0.1:5500/account/login/moreDetails/more-details.html';
+        }
+          </script>
+      </div>
+      
+      <div class="myDiv" id="login" style="display:none">
+        <form>
+
+          <h3>Welcome! Glad your back!</h3>
+
+          <h3>Email:</h3>
+          <input type="email" name="signup-email" placeholder="email" required>
+        
+          <h3>Password</h3>
+          <input type="password" name="signup-password" placeholder="password" min="8" max="80" required>
+        
+    
+          <button id="save" onclick='http://127.0.0.1:5500/.app/app.html'>Login</button>
+  
+        </form>
+      </div>
+  
+        
+
+      <div class="why-programmer-netlink-header">
+        <h2>Why Programmer Netlink?</h2>
+      </div>
+
+      <div class="reason1">
+        <div class="vertical-box">
+            <h3>Supporting Indie Development</h3>
+            <img src="/hook-page/img/undraw_coding_re_iv62.svg" alt="svg" width="200" height="200">
+            <p>This entire website is made entirely by one person. And of course tons of StackOverflow, GitHub, and ChatGPT solutions to help debug this. Seriously, don't believe me check the contributors on this project. Oh yeah, did I mention that this entire project is open-source on GitHub?</p>
+            <!-- <div class="redirect-signup-link">
+              <a href="http://127.0.0.1:5500/account/signup-or-login/signup/signup.html">Sign Up</a>
+            </div> -->
+          </div>
+
+          <div class="vertical-box">
+            <h3>100% Open-Source</h3>
+            <img src="/hook-page/img/undraw_source_code_re_wd9m.svg" alt="Placeholder Image" width="200" height="200">
+            <p>This whole project is open source on GitHub search Programmer Netlink  and make sure its from jSagvold28. This is to ensure that your privacy is secured and you can learn from this project, like I am! Hope you learn a thing or two there! Or maybe you could give it a star!</p>
+            <!-- <div class="redirect-signup-link">
+              <a href="http://127.0.0.1:5500/account/signup-or-login/signup/signup.html">Sign Up</a>
+            </div> -->
+          </div>
+
+          <div class="vertical-box">
+            <h3>Privacy Orentated</h3>
+            <img src="/hook-page/img/undraw_open_source_-1-qxw.svg" alt="Placeholder Image" width="200" height="200">
+            <p>Programmer Netlink respects your privacy. So we believe that your privacy should be valued, because I want mine to be. Therefore, Programmer Netlink does not sell any of your data. All of the data is saved locally on your device, not on servers. We store data in Local Storage which is a storage method in JavaScript.</p>
+            <!-- <div class="redirect-signup-link">
+              <a href="http://127.0.0.1:5500/account/signup-or-login/signup/signup.html">Sign Up</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <img src="/hook-page/img/secondary/undraw_programmer_re_owql.svg" alt="your-image" class="image">
+          <div class="text">
+            <h2>Programmer Exclusive</h2>
+            <p>Programmer Netlink is a programmer social media app. None of those TikTok dancers here, nor fake conspiracy theories. Just your fellow programmers talking about code, bugs, or anything coding related.</p>
+          </div>
+        </div>
+        
+        <div class="container">
+          <img src="/hook-page/img/secondary/undraw_creativity_re_8grt.svg" alt="your-image" class="image">
+          <div class="text">
+            <h2>Unleash Programmer Creativity</h2>
+            <p>Unleash your full potential on Programmer Netlink. Let your friends, or the world about something. Express through Snippets. Snippets are like posts, but with a fun programming-related term.</p>
+          </div>
+        </div>
+
+        <div class="container">
+          <img src="https://cdn-icons-png.flaticon.com/512/9269/9269012.png" alt="your-image" class="image">
+          <div class="text">
+            <h2>Haters NOT Allowed</h2>
+            <p>Programmer Netlink does not tolerate any hate speech, threatening, sexist, racist slurs, racism, or homophobia. Treat everyone how YOU WANT to be treated. Make everyone feel like this place can be their favorite social networking platform. If you are caught making any kind of hate above you will be banned from the platform.</p>
+          </div>
+        </div>
+
+
+        <div class="link-header">
+          <h2>Hope to see you on Programmer Netlink!</h2>
+          <p>Hope to see you on Programmer Netlink </p>
+          <p>Use the links below to create an account, or login.</p>
+        </div>
+
+        <div class="account-links">
+          <a href="http://127.0.0.1:5500/account/signup-or-login/signup/signup.html">Signup</a>
+          <a href="http://127.0.0.1:5500/account/signup-or-login/login/login.html">Login</a>
+        </div>
+
+    
+</body>
+<script src="script.js"></script>
+</html>
