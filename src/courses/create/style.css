@@ -15,7 +15,7 @@ body {
 #course-title {
     background-color: #1c1f23;
     color: #c2c9d6;
-    border: 2px solid #4D5562;
+    border: 2px solid #6466E9;
     border-radius: 5px;
     height: 65px;
     font-size: 35px;
@@ -28,7 +28,7 @@ body {
 #course-description {
     background-color: #1c1f23;
     color: white;
-    border: 2px solid #4D5562;
+    border: 2px solid #6466E9;
     border-radius: 5px;
     height: 65px;
     font-size: 16px;
@@ -40,7 +40,7 @@ body {
 #course-link {
 background-color: #1c1f23;
 color: #c2c9d6;
-border: 2px solid #4D5562;
+border: 2px solid #6466E9;
     border-radius: 5px;
     height: 65px;
     font-size: 35px;
@@ -53,7 +53,7 @@ border: 2px solid #4D5562;
     #course-type {
         background-color: #1c1f23;
         color: white;
-        border: 2px solid #4D5562;
+        border: 2px solid #6466E9;
         border-radius: 5px;
         height: 65px;
         font-size: 16px;
@@ -65,7 +65,7 @@ border: 2px solid #4D5562;
     #article-title {
         background-color: #1c1f23;
         color: #c2c9d6;
-        border: 2px solid #4D5562;
+        border: 2px solid #6466E9;
         border-radius: 5px;
         height: 65px;
         font-size: 35px;
@@ -78,7 +78,7 @@ border: 2px solid #4D5562;
         #course-skill-level {
             background-color: #1c1f23;
             color: white;
-            border: 2px solid #4D5562;
+            border: 2px solid #6466E9;
             border-radius: 5px;
             height: 65px;
             font-size: 16px;
@@ -91,7 +91,7 @@ border: 2px solid #4D5562;
             background-color: inherit;
             color: white;
             padding: 15px;
-            border: 2px solid #4D5562;
+            border: 2px solid #6466E9;
             border-radius: 10px;
             margin-top: 15px;
         }
@@ -112,7 +112,7 @@ border: 2px solid #4D5562;
 
         button {
             background-color: inherit;
-            border: 1px solid #4D5562;
+            border: 1px solid #6466E9;
             border-radius: 10px;
             color: white;
             padding: 15px;
@@ -128,13 +128,14 @@ border: 2px solid #4D5562;
         input[type="url"] {
             background-color: #1c1f23;
             color: #c2c9d6;
-            border: 2px solid #4D5562;
-            border-radius: 5px;
+            border: 2px solid #6466E9;
+            border-radius: 10px;
             height: 35px;
             font-size: 15px;
             width: 810px;
             min-width: 300px;
             max-width: 1250px;
+            height: 65px;
         }
 
         
