@@ -10,8 +10,21 @@
   <link rel="stylesheet" href="style.css">
   <link href="/dist/output.css" rel="stylesheet">
   <title>Programmer Netlink</title> 
+  <style>
+    .quick-options {
+      display: flex; /* Use flexbox to place the images in a row */
+      align-items: center; /* Center the images vertically */
+    }
+
+    .quick-options img {
+      margin-right: 10px; /* Add some spacing between the images */
+    }
+  </style>
 </head>
+
 <body>
+
+  
 
   <!-- <div id="logo">
     <img src="/assets/text-logo.jpg">
@@ -20,6 +33,53 @@
     <!-- Button to show the modal -->
     <button onclick="showModal()" id="showModalBtn">
       <img src="/assets/svg/+.svg">
+      <script>
+// JavaScript
+// JavaScript
+function uploadImage() {
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/*'; // Only allow image files
+
+  fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imageDataUrl = e.target.result;
+        const textarea = document.getElementById('post-title');
+
+        const imageBlob = dataURItoBlob(imageDataUrl);
+        const blobURL = URL.createObjectURL(imageBlob);
+
+        // Add blob URL to the textarea
+        textarea.value = blobURL;
+
+        // Save the blob URL to local storage
+        localStorage.setItem('imageBlobURL', blobURL);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Trigger the file input dialog when the image is clicked
+  fileInput.click();
+}
+
+function dataURItoBlob(dataURI) {
+  const byteString = atob(dataURI.split(',')[1]);
+  const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+  const ab = new ArrayBuffer(byteString.length);
+  const ia = new Uint8Array(ab);
+  for (let i = 0; i < byteString.length; i++) {
+    ia[i] = byteString.charCodeAt(i);
+  }
+  return new Blob([ab], { type: mimeString });
+}
+
+
+      </script>
     </button>
     
 
@@ -28,7 +88,10 @@
 <!-- Modal container -->
 <div class="modal-container" id="modalContainer">
   <div class="container">
-    <form onsubmit="return checkBannedWordsBeforeSubmit()">
+
+    <!-- <h2 id="draftSnippetText">Draft a Snippet</h2> -->
+
+    <form onsubmit="checkBannedWordsBeforeSubmit()">
 
       <textarea id="post-title" name="post-title" placeholder="Write about something..." minlength="10" maxlength="520" required></textarea>
       <br>
@@ -36,8 +99,12 @@
       <textarea onkeyup="checkBanWords()" id="post-body" name="post-body" placeholder="Write about something..." rows="4" minlength="10" maxlength="74"></textarea>
       <br>
       <div class="add-tags" style="display: none;">
-        <!-- Rest of your form content... -->
       </div>
+      <div class="quick-options">
+    <img src="/assets/svg/image.svg" onclick="redirectToSettings()" width="35px" height="35px" alt="profile settings">
+    <img src="/assets/svg/tag.svg" onclick="logout()" width="35px" height="35px">
+    <img src="/assets/svg/link.svg" onclick="createLink()" width="35px" height="35px">
+  </div>
 
       <input type="image" src="/assets/svg/sendPostArrow.svg" alt="Image Description">
     </form>
@@ -195,8 +262,19 @@ function displayMediaMaker() {
         <li><a class="active" href="http://127.0.0.1:5500/productivity/app/app-selector/selector.html">Productivity Suite</a></li>
 
         <div class="quick-options">
-          <img src="/assets/svg/gear.svg" onclick="redirectToSettings()" width="35px" height="35px" alt="profile settings">
-          <img src="/assets/svg/logout.svg" onclick="logout()" width="35px" height="35px">
+          <img src="/assets/svg/gear.svg" onclick="redirectToSettings()" width="35px" height="35px" alt="profile settings"> <img src="/assets/svg/logout.svg" onclick="logout()" width="35px" height="35px">
+
+          <style>
+            .quick-options {
+  display: flex; /* Use flexbox to place the images in a row */
+  align-items: center; /* Center the images vertically */
+}
+
+.quick-options img {
+  margin-right: 10px; /* Add some spacing between the images */
+}
+
+          </style>
         </div>
 
       </ul>
@@ -255,7 +333,6 @@ function displayMediaMaker() {
     <div class="post-list">
 
       <div id="posts">
-        
       </div>
 
     </div>
@@ -323,9 +400,59 @@ function displayMediaMaker() {
     }
 </script>
 
+<script>
+  // Function to show the modal
+  function showModal() {
+    var modal = document.getElementById("modalContainer");
+    modal.style.display = "flex";
+  }
+
+  // Function to hide the modal
+  function hideModal() {
+    var modal = document.getElementById("modalContainer");
+    modal.style.display = "none";
+  }
+
+  // Function to convert dataURI to blob
+  function dataURItoBlob(dataURI) {
+    // ... Your dataURItoBlob function ...
+  }
+
+  // Function to upload image and display it
+  function uploadImage() {
+    // ... Your previous uploadImage function ...
+
+    // Display the image below the textarea
+    const imageElement = document.createElement('img');
+    imageElement.src = blobURL;
+    imageElement.style.maxWidth = '100%';
+    imageElement.style.maxHeight = '300px';
+
+    const imageContainer = document.getElementById('imageContainer');
+    imageContainer.innerHTML = ''; // Clear previous image (if any)
+    imageContainer.appendChild(imageElement);
+  }
+
+  // Event listener for file input change
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedBlobURL = localStorage.getItem('imageBlobURL');
+    if (savedBlobURL) {
+      const imageElement = document.createElement('img');
+      imageElement.src = savedBlobURL;
+      imageElement.style.maxWidth = '100%';
+      imageElement.style.maxHeight = '300px';
+
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.innerHTML = '';
+      imageContainer.appendChild(imageElement);
+    }
+  });
+</script>
+
 
 
 </body>
 <script src="script.js"></script>
 <script src="addTagAdder.js"></script>
+<script src="loadBlobImages.js"></script>
 </html>
