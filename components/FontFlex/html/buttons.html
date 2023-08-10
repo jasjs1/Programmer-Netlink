@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/svg/FontFlexFavicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/svg/FontFlexFavicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/svg/FontFlexFavicon.png" />
+    <link rel="stylesheet" href="/html/styles/markdownStyling.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>FontFlex Markdown Editor</title>
+  </head>
+  <body>
+    
+    <img src="/assets/svg/buttonAssets/bold.svg" onclick="addBold()" width="25px" height="25px">
+    <img src="/assets/svg/buttonAssets/h1.svg" onclick="addH1()" width="28px" height="28px">
+  <img src="/assets/svg/buttonAssets/h2.svg" onclick="addH2()" width="28px" height="28px">
+  <img src="/assets/svg/buttonAssets/h3.svg" onclick="addH3()" width="28px" height="28px">
+
+  <br>
+  
+  <div class="container">
+    <textarea id="markdown-editor" placeholder="Add or paste your Markdown code here."></textarea>
+
+    <button id="showPreviewButton" onclick="showMarkdownChangesInPreview()">Show Markdown Preview</button>
+
+    <div id="preview"></div>
+  </div>
+  
+  </body>
+  <script src="/scripts/createMarkdownFormatting.js"></script>
+  <script src="/scripts/addMarkdownFormattingWithButtons.js"></script>
+  <script src="/scripts/script.js"></script>
