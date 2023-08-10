@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>placeholder title</title>
+  </head>
+  <body>
+
+  <div class="settings" onclick="toggleSettingsContainer()">
+    <img src="/profile/img/gear.png" alt="settings gear image" width="auto" height="32">
+  </div>
+
+  <!-- HTML for settings container -->
+  <div class="settings-container" id="settings-container" style="display: none;">
+    <div class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+
+        <div class="close">
+          <h3>X</h3>
+        </div>
+
+        <div class="settings-head">
+          <h2>Company Profile Quick Settings</h2>
+        </div>
+
+        <form>
+          <label for="hiring">Hiring?</label>
+<select id="hiring" required>
+    <option> </option>
+    <option>Yes</option>
+    <option>No</option>
+</select>
+
+<button type="submit">Submit</button>
+        </form>
+
+
+        <div class="redirector">
+        </div>
+    
+      </div>
+    
+    </div>
+    </div>
+  </div>
+  
+
+    <div class="info">
+        <div id="logo"></div>
+        <h1><span id="comp-name"></span></h1>
+    </div>
+
+    <div>
+        <p id="description-text"></p>
+        <button id="create-description-btn">Update Bio</button>
+      </div>
+      
+      <div id="description-modal" style="display: none">
+        <label for="new-description">Updated Bio:</label>
+        <input type="text" id="new-description">
+        <button id="save-description-btn">Update Bio</button>
+        <button id="cancel-description-btn">Cancel</button>
+      </div>
+      
+      <script>
+      const descriptionText = document.getElementById("description-text");
+      const createDescriptionBtn = document.getElementById("create-description-btn");
+      const descriptionModal = document.getElementById("description-modal");
+      const saveDescriptionBtn = document.getElementById("save-description-btn");
+      const cancelDescriptionBtn = document.getElementById("cancel-description-btn");
+      const maxChars = 150;
+      
+      // Load description from local storage
+      const description = localStorage.getItem("comp-description");
+      if (description) {
+        descriptionText.textContent = description;
+      }
+      
+      // Open description modal
+      createDescriptionBtn.addEventListener("click", () => {
+        descriptionModal.style.display = "block";
+        document.getElementById("new-description").value = description || "";
+      });
+      
+      // Save description
+      saveDescriptionBtn.addEventListener("click", () => {
+        const newDescription = document.getElementById("new-description").value;
+        const charCount = newDescription.length;
+      
+        if (charCount > 150) {
+          alert(`Description exceeds maximum length by ${charCount - 150} characters. The description character length needs to be 150 characters`);
+        } else {
+          localStorage.setItem("comp-description", newDescription);
+          descriptionText.textContent = newDescription;
+          descriptionModal.style.display = "none";
+        }
+
+      });
+      
+      // Cancel editing description
+      cancelDescriptionBtn.addEventListener("click", () => {
+        descriptionModal.style.display = "none";
+      });
+      
+      // Edit description
+      descriptionText.addEventListener("click", () => {
+        descriptionModal.style.display = "block";
+        document.getElementById("new-description").value = descriptionText.textContent || "";
+      });
+      
+      // Add new line when Enter key is pressed
+      descriptionText.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          let currentText = descriptionText.value;
+          const cursorPosition = descriptionText.selectionStart;
+          currentText = currentText.substring(0, cursorPosition) + "\n" + currentText.substring(cursorPosition);
+          descriptionText.value = currentText;
+        }
+      });
+      </script>
+      
+
+      <div class="container">
+        <div class="large-info">
+          <div class="company-details">
+            <h2>Company Details</h2>
+            <h3><span id="comp-username"></span></h3>
+            <h4><span id="comp-email"></span></h4>
+            <h4><span id="comp-phone"></span></h4>
+          </div>
+          <div class="hiring-status">
+            <h2>Hiring Status:</h2>
+            <div class="open-jobs">
+              <div id="jobs-home">
+                  <h2><strong>Open Jobs:</strong></h2>
+                  <div id="is-hiring-value"></div>
+                  <a href="http://127.0.0.1:5500/company/hiring/open-jobs/open-jobs.html" target="_blank">View Open Positions</a>
+              </div>
+          </div>  
+          </div>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="snippets-media">
+          <div id="posts">
+            <a href="http://127.0.0.1:5500/company/.app/company-app.html">View Company Posts</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="events">
+        <div class="link-red">
+          <a href="http://127.0.0.1:5500/company/profile/event-creator/comp-event-creator.html">Create an Event</a>
+        </div>
+        </div>
+      </div>
+
+      <div id="created-events"></div>
+    
+    
+</body>
+<script src="scirpt.js"></script>
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Create Article · Programmer Netlink</title>
+</head>
+<body> 
+  <h2 id="head1">Create an Article to Programmer Netlink</h2>
+  <a style="margin-bottom: 15px;" id="head2" href="http://127.0.0.1:5500/src/articles/article.html">View all created Articles</a>
+
+  <div class="container">
+    <form id="article-form">
+      <p>Title<span class="red-asterisk">*</span></p>
+      <br>
+      <input type="text" id="course-title" name="course-title" placeholder="What is the title of the Article" required minlength="3" maxlength="80">
+      <br>
+
+      <p>Description<span class="red-asterisk">*</span></p>
+      <br>
+      <textarea type="text" id="course-description" name="course-description" required minlength="3" maxlength="550" placeholder="What is this Article about?"></textarea>
+      <br>
+
+        <p>Tag <span class="red-asterisk">*</span></p>
+        <select id="tag" required>
+          <option>Main Topic of This Article</option>
+          <option>ada</option>
+          <option>assembly</option>
+          <option>awk</option>
+          <option>bash</option>
+          <option>c</option>
+          <option>c#</option>
+          <option>c++</option>
+          <option>clojure</option>
+          <option>cobol</option>
+          <option>coffeescript</option>
+          <option>commonlisp</option>
+          <option>crystal</option>
+          <option>css</option>
+          <option>dart</option>
+          <option>elixir</option>
+          <option>elm</option>
+          <option>erlang</option>
+          <option>f#</option>
+          <option>fortran</option>
+          <option>go</option>
+          <option>groovy</option>
+          <option>haskell</option>
+          <option>html</option>
+          <option>java</option>
+          <option>javascript</option>
+          <option>julia</option>
+          <option>kotlin</option>
+          <option>lua</option>
+          <option>matlab</option>
+          <option>objectivec</option>
+          <option>ocaml</option>
+          <option>pascal</option>
+          <option>perl</option>
+          <option>php</option>
+          <option>python</option>
+          <option>r</option>
+          <option>react</option>
+          <option>reactnative</option>
+          <option>ruby</option>
+          <option>rust</option>
+          <option>scala</option>
+          <option>scheme</option>
+          <option>sql</option>
+          <option>swift</option>
+          <option>typescript</option>
+  
+  
+        </select>
+
+        <br>
+
+
+     <p>Article Content<span class="red-asterisk">*</span></p>
+     <br>
+     <textarea type="text" id="article-content" name="article-content" required minlength="35" maxlength="9999" placeholder="Write something magical..."></textarea>
+
+      <div class="center-container">
+        <input onclick="savedArticle()" type="submit" class="share-snippets" value="SHARE COURSE">
+      </div>
+
+    </form>
+  </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('article-form');
+    const postsContainer = document.getElementById('container');
+
+    // Function to load articles from local storage and display them
+    function loadArticles() {
+      // Load existing articles from local storage
+      const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+      // Clear the posts container
+      postsContainer.innerHTML = '';
+
+      // Loop through the saved articles and create article elements
+      for (const article of savedArticles) {
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('post');
+        articleElement.innerHTML = `
+          <h2>${article.title}</h2>
+          <p>${article.description}</p>
+          <p>${article.courseContent}</p>
+        `;
+        postsContainer.appendChild(articleElement);
+      }
+    }
+
+    // Add event listener to the form submit button
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Get the input values
+      const title = document.getElementById('course-title').value.trim();
+      const description = document.getElementById('course-description').value.trim();
+      const courseContent = document.getElementById('article-content').value;
+
+      // Create a new article object with title, description, and courseContent properties
+      const article = {
+        title,
+        description,
+        courseContent,
+        articlePublishDate: Date.now()
+      };
+
+      // Load existing articles from local storage
+      const savedArticles = JSON.parse(localStorage.getItem('articles')) || [];
+
+      // Add the new article to the beginning of the savedArticles array
+      savedArticles.unshift(article);
+
+      // Save the updated savedArticles array to local storage
+      localStorage.setItem('articles', JSON.stringify(savedArticles));
+
+      // Reset the form
+      form.reset();
+      loadArticles();
+    });
+
+    // Load articles when the page is first loaded
+    loadArticles();
+  </script>
+</body>
+</html>

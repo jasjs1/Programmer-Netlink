@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Company More Details - Programmer Netlink Company Signup Phase 2/2</title>
+</head>
+<body>
+
+    <div class="head">
+        <img src="/company/account/comp-more-details/img/more-details.png" alt="image" width="75px" height="75px">
+        <h3>Just a few more things you input then you will be on Programmer Netlink, I'm exited to have you on this platform!</h3>
+        <h4>Input some stuff down below:</h4>
+    </div>
+
+    <div class="container">
+        <form>
+
+            <label for="comp-username">Company Username</label>
+            <input type="text" name="comp-username" id="comp-username" required>
+
+            <label for="comp-tech-stack">Tech Stack</label>
+            <input type="text" name="comp-tech-stack" id="comp-tech-stack" required>
+
+            <label for="comp-url">Company Website URL</label>
+            <input type="url" name="comp-url" id="comp-url" required>
+
+
+            <label for="hiring">Hiring?</label>
+            <select id="hiring" required>
+                <option> </option>
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+
+            <button type="submit" id="submit-button" onclick="redirectToPhase3()">Continue to phase 3</button>
+
+        </form>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>

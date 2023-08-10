@@ -1,0 +1,31 @@
+body {
+    background: #1c1f23;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  input[type="email"] {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    padding: 13px 13px 13px 13px;
+    color: white;
+    border-radius: 5%;
+  }
+
+  input[type="password"] {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    padding: 13px 13px 13px 13px;
+    color: white;
+    border-radius: 5%;
+  }
+
+  button {
+    background-color: #1c1f23;
+    border: 1px solid #6466E9;
+    padding: 15px 15px 15px 15px;
+    color: white;
+    border-radius: 6%;
+  }
