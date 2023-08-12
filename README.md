@@ -1,4 +1,4 @@
-# Programmer-Netlink
+# Programmer Netlink
 Programmer Netlink is a social media platform, orentated towards programmers. This is a place that we talk about coding, and anything tech related! Unlease your inner nerd out, by signing up today!
 
 ### Site status:
