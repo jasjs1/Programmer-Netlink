@@ -1,21 +1,22 @@
-const bannedWords = [
+
+[
     "abbo",
     "abo",
     "abortion",
     "abuse",
     "addict",
     "addicts",
-    "adult",
+    "africa",
     "african",
     "alla",
     "allah",
     "alligatorbait",
+    "amateur",
     "american",
     "anal",
     "analannie",
     "analsex",
     "angie",
-    "angry",
     "anus",
     "arab",
     "arabs",
@@ -569,7 +570,6 @@ const bannedWords = [
     "headlights",
     "hebe",
     "heeb",
-    "hell",
     "henhouse",
     "heroin",
     "herpes",
@@ -605,7 +605,6 @@ const bannedWords = [
     "hooters",
     "hore",
     "hork",
-    "horn",
     "horney",
     "horniest",
     "horny",
@@ -617,7 +616,6 @@ const bannedWords = [
     "hotpussy",
     "hottotrot",
     "hummer",
-    "husky",
     "hussy",
     "hustler",
     "hymen",
@@ -625,7 +623,6 @@ const bannedWords = [
     "iblowu",
     "idiot",
     "ikey",
-    "illegal",
     "incest",
     "insest",
     "intercourse",
@@ -645,10 +642,7 @@ const bannedWords = [
     "japanese",
     "japcrap",
     "jebus",
-    "jeez",
     "jerkoff",
-    "jesus",
-    "jesuschrist",
     "jew",
     "jewish",
     "jiga",
@@ -678,7 +672,6 @@ const bannedWords = [
     "kaffre",
     "kafir",
     "kanake",
-    "kid",
     "kigger",
     "kike",
     "kill",
@@ -1365,23 +1358,3 @@ const bannedWords = [
     "zigabo",
     "zipperhead"
 ]
-
-const inputElement = document.getElementById('post-title');
-const checkButton = document.getElementById('shareSnippet');
-
-checkButton.addEventListener('click', () => {
-    const inputValue = inputElement.value;
-    checkForBannedWords(inputValue);
-});
-
-function checkForBannedWords(input) {
-    const wordsInInput = input.split(/\s+/);
-    
-    for (const word of wordsInInput) {
-        if (bannedWords.includes(word.toLowerCase())) {
-            alert(`Profanity dectected. Please remove the following words: ${word}`);
-            console.log('USER HAS ENTERD PROFANITY INTO THE INPUT. DETECETED PROFANITY WORDS: ', {word})
-            break;
-        }
-    }
-}
