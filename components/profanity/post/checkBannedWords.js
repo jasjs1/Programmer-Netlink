@@ -1,22 +1,27 @@
+// Reason for banned words:
+// 1. Violation of TOS
+// 2. Innapropreate
+// 3. Insiting Violence (Hate crimes, discriminiation towards a minority group)
 
-[
+
+const bannedWords = [
     "abbo",
     "abo",
     "abortion",
     "abuse",
     "addict",
     "addicts",
-    "africa",
+    "adult",
     "african",
     "alla",
     "allah",
     "alligatorbait",
-    "amateur",
     "american",
     "anal",
     "analannie",
     "analsex",
     "angie",
+    "angry",
     "anus",
     "arab",
     "arabs",
@@ -359,7 +364,6 @@
     "drug",
     "drunk",
     "drunken",
-    "dumb",
     "dumbass",
     "dumbbitch",
     "dumbfuck",
@@ -570,6 +574,7 @@
     "headlights",
     "hebe",
     "heeb",
+    "hell",
     "henhouse",
     "heroin",
     "herpes",
@@ -605,6 +610,7 @@
     "hooters",
     "hore",
     "hork",
+    "horn",
     "horney",
     "horniest",
     "horny",
@@ -616,6 +622,7 @@
     "hotpussy",
     "hottotrot",
     "hummer",
+    "husky",
     "hussy",
     "hustler",
     "hymen",
@@ -623,6 +630,7 @@
     "iblowu",
     "idiot",
     "ikey",
+    "illegal",
     "incest",
     "insest",
     "intercourse",
@@ -642,7 +650,10 @@
     "japanese",
     "japcrap",
     "jebus",
+    "jeez",
     "jerkoff",
+    "jesus",
+    "jesuschrist",
     "jew",
     "jewish",
     "jiga",
@@ -672,6 +683,7 @@
     "kaffre",
     "kafir",
     "kanake",
+    "kid",
     "kigger",
     "kike",
     "kill",
@@ -967,6 +979,7 @@
     "pornflick",
     "pornking",
     "porno",
+    "pornstar",
     "pornography",
     "pornprincess",
     "pot",
@@ -1211,7 +1224,6 @@
     "stripclub",
     "stroke",
     "stroking",
-    "stupid",
     "stupidfuck",
     "stupidfucker",
     "suck",
@@ -1356,5 +1368,26 @@
     "yankee",
     "yellowman",
     "zigabo",
-    "zipperhead"
+    "zipperhead",
 ]
+
+const inputElement = document.getElementById('post-title');
+const checkButton = document.getElementById('shareSnippet');
+
+checkButton.addEventListener('click', () => {
+    const inputValue = inputElement.value;
+    checkForBannedWords(inputValue);
+});
+
+function checkForBannedWords(input) {
+    const wordsInInput = input.split(/\s+/);
+    
+    for (const word of wordsInInput) {
+        if (bannedWords.includes(word.toLowerCase())) {
+            title: 'Profanity Alert',
+            alert(`This post would violate Programmer Netlink's Terms of Service (TOS). The reason that this post is flagged is: the post contains profanity. The word(s) that words that you have enterd is: ${word}`);
+            console.log('USER HAS ENTERD PROFANITY INTO THE INPUT. DETECETED PROFANITY WORDS: ', {word})
+            break;
+        }
+    }
+}
