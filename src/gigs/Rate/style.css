@@ -1,0 +1,119 @@
+body {
+    background-color: #1c1f23;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 144px;
+    margin-right: 144px;
+}
+
+#article-head {
+    text-align: left;
+    align-items: left;
+    margin-bottom: 15px;
+    color: #6466E9;
+}
+
+
+
+  .red-asterisk {
+    color: #f25244;
+    margin-left: 1.5px;
+}
+
+/* Star rating styles */
+
+.right {
+    float: right;
+  }
+  
+  .left {
+    float: left;
+  }
+  
+  .rating .stars {
+    margin-right: 15px;
+  }
+  
+  .rating .stars .star {
+    float: left;
+    padding: 5px 2px;
+    cursor: pointer;
+  }
+  
+  .rating .stars .star:before {
+    font-family: 'FontAwesome';
+    content: '\f005';
+    color: #d0e8f0;
+    font-size: 3em;
+  }
+  
+  .rating .stars .star:hover:before,
+  .rating .stars .star.to_rate:before,
+  .rating .stars .star.rated:before {
+    color: #6466E9;
+  }
+  
+  .rating .stars .star.no_to_rate:before {
+    color: #5b5ca5;
+  }
+
+  #details {
+    background-color: #1c1f23;
+    color: white;
+    border: 2px solid #4D5562;
+    border-radius: 5px;
+    height: 65px;
+    font-size: 16px;
+    width: 810px;
+    float: left;
+    position: absolute;
+    top: 375px;
+    left: 130px;
+    min-width: 300px;
+    max-width: 1250px; 
+    height: 250px;
+  }
+
+  #disclamer {
+    color: #6466E9;
+    margin-top: 10px;
+    font-weight: lighter;
+    position: absolute;
+    top: 730px;
+    left: 130px;
+    float: left;
+
+    background-color: #1c1f23;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    border: 1.5px solid #4D5562;
+    border-radius: 10px;
+  }
+
+
+  input[type="submit"] {
+    position: absolute;
+    top: 650px;
+    left: 130px;
+    float: left;
+
+    background-color: #1c1f23;
+    color: white;
+    border: 1.5px solid #4D5562;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+
+  select {
+    background-color: #1c1f23;
+    color: white;
+    padding: 15px;
+    border: 2px solid #4D5562;
+    border-radius: 10px;
+  }
+
+  /* input[type="]
+
+  input[type="] */

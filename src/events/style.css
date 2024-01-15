@@ -1,0 +1,131 @@
+body {
+  background-color: #1c1f23;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+
+#event-head {
+  position: absolute;
+  float: left;
+  top: -5px;
+  left: 0px;
+  color: #6466E9;
+}
+
+.fields {
+  padding: auto;
+  padding-bottom: 12.2px;
+}
+
+.event-container-header {
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+#event-container {
+  text-align: left;
+  margin-top: 150px;
+  margin-left: 5px;
+}
+
+.container {
+  display: none;
+}
+
+
+#show-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 14px;
+  margin-bottom: 14px;
+  background-color: #6466E9;
+  color: whitesmoke;
+  border-color: #6466E9;
+  border-radius: 10%;
+}
+
+/* Input stylings */
+
+input[type="text"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="time"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="date"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-weight: bolder;
+}
+
+#description {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button[type="submit"] {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+}
+
+.close-btn {
+  background-color: #1c1f23;
+  border-color: #6466E9;
+  color: white;
+  font-size: medium;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+
+#event-head {
+  text-align: left;
+  align-items: left;
+  position: absolute;
+  float: left;
+  top: 5px;
+  left: 140px;
+}
+
+.red-asterisk {
+  color: red;
+}
+
+a {
+  color: #6466E9;
+  font-weight: bold;
+}
+
+#event-title {
+  text-transform: capitalize;
+}
+
+#details {
+  margin-top: 25px;
+}
+
+.close-btn {
+  padding: 10px;
+  border: 1.25px solid #6466E9;
+  border-radius: 10px;
+  margin-top: -5px;
+  margin-bottom: 29px;
+}
