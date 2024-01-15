@@ -5,5 +5,5 @@ contact_links:
     url: https://github.com/jasjs1/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/bug.md
     about: Create a bug report
   - name: Feature Request
-    url: https://github.com/jasjs1/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/fq.md
+    url: https://github.com/jasjs1/Programmer-Netlink/blob/main/.github/ISSUE_TEMPLATE/FeatureRequest.md
     about: Create a feature that you would like to see in Programmer Netlink
